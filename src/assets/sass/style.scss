@@ -1,0 +1,46 @@
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// ----- Header section ----- //
+
+$myNavFont : 15px;
+$myNavFont-family : Outfit,
+sans-serif;
+$myColor : #000;
+
+
+nav {
+    .heading {
+        a {
+            font-size: $myNavFont;
+            color: #fff;
+        }
+    }
+
+    .dropdown {
+        display: none;
+        .dropdown-content {
+            span {
+                font-size: $myNavFont;
+            }
+
+            a {
+                font-size: 13px;
+                font-family: $myNavFont-family;
+                color: $myColor;
+            }
+
+            a:hover {
+                border-bottom: 1px solid;
+            }
+        }
+    }
+
+}
+
+
