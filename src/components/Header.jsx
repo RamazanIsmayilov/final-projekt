@@ -1,96 +1,48 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header className='bg-dark'>
-      <div className='container'>
-        <div className="row">
-          <div className='col-12 col-sm-3 col-md-4'>
-            <nav className='d-flex'>
-              <ul>
-                <li className='heading d-flex align-items-center gap-2'>
-                  <a href="/" className='fw-medium'><span>Gaming Accessories</span></a>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="chevron_arrow" />
-                </li>
-                <div className="row dropdown bg-light">
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content d-flex flex-column gap-2'>
-                    <span className='fw-medium mb-2'>Pro Gaming</span>
-                    <span><a href="/" className='fw-medium'>Game Console</a></span>
-                    <span><a href="/" className='fw-medium'>Game Remote</a></span>
-                    <span><a href="/" className='fw-medium'>Gaming Cards</a></span>
-                    <span><a href="/" className='fw-medium'>Gaming Chairs</a></span>
-                    <span><a href="/" className='fw-medium'>Gaming Moniter</a></span>
-                    <span><a href="/" className='fw-medium'>Gaming PCs</a></span>
-                  </li>
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content d-flex flex-column gap-2'>
-                    <span className='fw-medium mb-2'>New Accessories</span>
-                    <span><a href="/" className='fw-medium'>Alien ware Monitor</a></span>
-                    <span><a href="/" className='fw-medium'>G-Series Curved VA Monitor</a></span>
-                    <span><a href="/" className='fw-medium'>Cloud Alpha Gaming Headset</a></span>
-                    <span><a href="/" className='fw-medium'>DualSense Wireless Controllers</a></span>
-                    <span><a href="/" className='fw-medium'>Raptor Gameing Z95</a></span>
-                    <span><a href="/" className='fw-medium'>KD DMTR Gaming Desktop PC</a></span>
-                  </li>
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content d-flex flex-column gap-2'>
-                    <span className='fw-medium mb-2'>Master Game</span>
-                    <span><a href="/" className='fw-medium'>Gaming Office Chair</a></span>
-                    <span><a href="/" className='fw-medium'>Gaming Chair for Gamers with Lumbar</a></span>
-                    <span><a href="/" className='fw-medium'>HTC Vive Tracker (3.0) - PC</a></span>
-                    <span><a href="/" className='fw-medium'>VR Headset with Headphones</a></span>
-                    <span><a href="/" className='fw-medium'>RX 590 GTS Graphics Card</a></span>
-                    <span><a href="/" className='fw-medium'>RX 680 GTS Graphics Card</a></span>
-                  </li>
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content'>
-                    <a href="/">
-                      <img width={270} height={143} src="https://gaming-workdo.myshopify.com/cdn/shop/files/navbar.png?v=1672026462" alt="nav_image" />
-                    </a>
-                  </li>
-                </div>
-              </ul>
-              <ul>
-                <li className='heading d-flex align-items-center gap-2'>
-                  <a href="/" className='fw-medium'><span>Pages</span></a>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="chevron_arrow" />
-                </li>
-                <div className="row dropdown bg-light">
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content d-flex flex-column gap-2'>
-                    <span><a href="/" className='fw-medium'>About Us</a></span>
-                    <span><a href="/" className='fw-medium'>Contact with us</a></span>
-                    <span><a href="/" className='fw-medium'>FAQ's</a></span>
-                    <span><a href="/" className='fw-medium'>Privacy Policy</a></span>
-                    <span><a href="/" className='fw-medium'>Shipping & Delivery</a></span>
-                    <span><a href="/" className='fw-medium'>Terms & Conditions</a></span>
-                  </li>
-                </div>
-              </ul>
-              <ul>
-                <li className='heading d-flex align-items-center gap-2'>
-                  <a href="/" className='fw-medium'><span>Blog</span></a>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="chevron_arrow" />
-                </li>
-                <div className="row dropdown bg-light">
-                  <li className='col-12 col-sm-12 col-md-3 dropdown-content d-flex flex-column gap-2'>
-                    <span><a href="/" className='fw-medium'>Blog Page</a></span>
-                    <span><a href="/" className='fw-medium'>Article Page</a></span>
-                  </li>
-                </div>
-              </ul>
-            </nav>
-          </div>
-
-          <div className='col-12 col-sm-3 col-md-4'>
-            <div className="logo mx-5">
-              <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/logo_aceeaa59-f6d4-423f-86f0-8c025cf33812.png?v=1671601485" alt="logo" />
-            </div>
-          </div>
-
-          <div className='col-12 col-sm-3 col-md-4'>
-            <div className="action">
-              <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/logo_aceeaa59-f6d4-423f-86f0-8c025cf33812.png?v=1671601485" alt="logo" />
-            </div>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/logo_aceeaa59-f6d4-423f-86f0-8c025cf33812.png?v=1671601485" alt="" />
+          </a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto gap-3 mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link text-light fw-medium" to="/">Home</NavLink>
+              </li>
+              <li className="nav-item dropdown">
+                <NavLink className="nav-link text-light fw-medium dropdown-toggle" href="/" data-bs-toggle="dropdown">Pages</NavLink>
+                <ul className="dropdown-menu border-0">
+                  <li><a className="dropdown-item" href="/">About Us</a></li>
+                  <li><a className="dropdown-item" href="/">Contact with us</a></li>
+                  <li><a className="dropdown-item" href="/">FAQ's</a></li>
+                  <li><a className="dropdown-item" href="/">Privacy Policy</a></li>
+                  <li><a className="dropdown-item" href="/">Shipping & Delivery</a></li>
+                  <li><a className="dropdown-item" href="/">Terms & Conditions</a></li>
+                </ul>
+              </li>
+              <li className="nav-item dropdown">
+                <NavLink className="nav-link text-light dropdown-toggle" href="/" data-bs-toggle="dropdown">Blog</NavLink>
+                <ul className="dropdown-menu border-0">
+                  <li><a className="dropdown-item" href="/">Blog Page</a></li>
+                  <li><a className="dropdown-item" href="/">Article Page</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   )
 }

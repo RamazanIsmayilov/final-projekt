@@ -1,0 +1,23 @@
+// ----- Header section ----- //
+
+
+header {
+    background: rgb(22, 20, 80);
+    background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+.nav-item .nav-link {
+    font-size: 15px;
+    color: #3e4073;
+}
+// ----- Header section ----- //
+
+// ----- Footer section ----- //
+
+.footer{
+    background-color: #000;
+}
