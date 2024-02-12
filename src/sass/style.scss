@@ -14,10 +14,89 @@ header {
     font-size: 15px;
     color: #3e4073;
 }
+
 // ----- Header section ----- //
 
 // ----- Footer section ----- //
+$myFontSize: 14px;
+$myFontFamily: 'Outfit', sans-serif;
+$myFirstColor: #fff;
+$mySecondColor: #000;
 
-.footer{
-    background-color: #000;
+.footer {
+    background-color: $mySecondColor;
+}
+
+footer {
+    .left {
+        color: $myFirstColor;
+        font-family: $myFontFamily;
+
+        h3 {
+            font-size: 26px;
+        }
+
+        h3 b {
+            background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+            background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            font-size: $myFontSize;
+            letter-spacing: .3px;
+        }
+    }
+
+    .center * {
+        color: $myFirstColor;
+        font-family: $myFontFamily;
+        font-size: $myFontSize;
+
+        h4 {
+            letter-spacing: 1px;
+        }
+
+        a {
+            color: $myFirstColor !important;
+            font-size: $myFontSize !important;
+            transition: .4s;
+
+            &:hover {
+                opacity: .3;
+            }
+        }
+    }
+
+    .right {
+        color: $myFirstColor;
+        font-family: $myFontFamily;
+
+        h4 {
+            font-size: $myFontSize;
+            letter-spacing: 1px;
+        }
+
+        a {
+            background-color: $myFirstColor;
+
+            &:hover {
+                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+            }
+        }
+
+        i {
+            color: $mySecondColor;
+        }
+    }
+}
+
+.footer-bottom {
+    background-color: $mySecondColor;
+
+    p {
+        color: $myFirstColor;
+        font-size: $myFontSize;
+        font-family: $myFontFamily;
+    }
 }
