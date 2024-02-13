@@ -1,25 +1,217 @@
+body {
+    background-color: gray;
+    font-family: Outfit, sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 // ----- Header section ----- //
-
-
 header {
     background: rgb(22, 20, 80);
     background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
 
-    .dropdown:hover .dropdown-menu {
-        display: block;
+    .dropdown {
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .navbar-left {
+        position: relative;
+
+        .title {
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .dropdown {
+            background-color: #fff;
+            padding: 20px;
+            position: absolute;
+            visibility: hidden;
+            transition: .2s;
+
+            a {
+                color: #000;
+                font-size: 14px;
+
+                &:hover {
+                    border-bottom: 1px solid #000;
+                }
+            }
+        }
+
+        .one {
+            left: 30px;
+        }
+
+        .two {
+            left: 200px;
+            width: 200px;
+        }
+
+        .three {
+            right: -75px;
+        }
+
+        li:hover .dropdown {
+            visibility: visible;
+
+        }
+    }
+
+    .navbar-right * {
+        color: #fff;
+    }
+
+    .navbar-right {
+        position: relative;
+
+        .cart {
+            font-size: 13px;
+        }
+
+        .dropdown {
+            visibility: hidden;
+            transition: .2s;
+
+            a {
+                color: #000;
+                font-size: 14px;
+
+                &:hover {
+                    border-bottom: 1px solid #000;
+                }
+            }
+        }
+
+        .one {
+            position: absolute;
+            left: -90px;
+        }
+
+        .two {
+            position: absolute;
+            left: -10px;
+        }
+
+        li:hover .dropdown {
+            visibility: visible;
+        }
     }
 }
 
-.nav-item .nav-link {
-    font-size: 15px;
-    color: #3e4073;
+@media(max-width:992px) {
+    header nav .navbar-left {
+        display: none !important;
+    }
+
+    header nav .navbar-right {
+        margin-right: 20px;
+    }
+
+    header .menu .open-btn {
+        display: block !important;
+    }
 }
+
+@media(max-width:576px) {
+    header nav .navbar-right {
+        display: none !important;
+    }
+}
+
+
+header .menu {
+    position: absolute;
+    right: 0;
+}
+
+header .menu .open-btn {
+    display: none;
+    color: #fff;
+}
+
+header .menu .offcanvas-menu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    transform: translate(100%);
+    transition: .5s;
+}
+
+header .menu .offcanvas-menu.open {
+    transform: translateX(0);
+}
+
+header .menu .offcanvas-menu .heading {
+    background-color: #0098ff;
+}
+
+header .menu .offcanvas-menu .heading .close-btn {
+    color: #fff;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .accordion-body {
+    transform: translate(-30px);
+}
+
+header .menu .offcanvas-menu .body .accordion-item .accordion-body a {
+    color: #000;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .accordion-body a:hover {
+    border-bottom: 1px solid #000;
+}
+
+header .menu .offcanvas-menu .body .action {
+    background-color: #fff;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action svg path {
+    fill: #000;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action .dropdown {
+    background-color: #fff;
+    box-shadow: -1px -1px 18px -12px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    display: none;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action .dropdown a {
+    color: #000;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action .dropdown a:hover {
+    border-bottom: 1px solid #000;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action li:hover .dropdown {
+    display: block;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action .one {
+    position: absolute;
+}
+
+header .menu .offcanvas-menu .body .accordion-item .action .two {
+    position: absolute;
+}
+
 
 // ----- Header section ----- //
 
 // ----- Footer section ----- //
 $myFontSize: 14px;
-$myFontFamily: 'Outfit', sans-serif;
 $myFirstColor: #fff;
 $mySecondColor: #000;
 
@@ -30,7 +222,6 @@ $mySecondColor: #000;
 footer {
     .left {
         color: $myFirstColor;
-        font-family: $myFontFamily;
 
         h3 {
             font-size: 26px;
@@ -50,7 +241,6 @@ footer {
 
     .center * {
         color: $myFirstColor;
-        font-family: $myFontFamily;
         font-size: $myFontSize;
 
         h4 {
@@ -70,7 +260,6 @@ footer {
 
     .right {
         color: $myFirstColor;
-        font-family: $myFontFamily;
 
         h4 {
             font-size: $myFontSize;
@@ -97,6 +286,5 @@ footer {
     p {
         color: $myFirstColor;
         font-size: $myFontSize;
-        font-family: $myFontFamily;
     }
 }
