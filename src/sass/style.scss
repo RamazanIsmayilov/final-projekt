@@ -11,52 +11,55 @@ a {
     text-decoration: none;
 }
 
+
+$firstColor: #fff;
+$secondColor: #000;
+$firstFontSize: 14px;
+
+
+
 // ----- Header section ----- //
 header {
     background: rgb(22, 20, 80);
     background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
 
-    .dropdown {
-        background-color: #fff;
-        padding: 20px;
-    }
-
     .navbar-left {
         position: relative;
 
         .title {
-            color: #fff;
+            color: $firstColor;
             font-size: 15px;
         }
 
         .dropdown {
-            background-color: #fff;
+            background-color: $firstColor;
             padding: 20px;
             position: absolute;
             visibility: hidden;
             transition: .2s;
 
             a {
-                color: #000;
+                color: $secondColor;
                 font-size: 14px;
 
                 &:hover {
-                    border-bottom: 1px solid #000;
+                    border-bottom: 1px solid $secondColor;
                 }
             }
         }
 
-        .one {
-            left: 30px;
-        }
+        // .one {
+        //     left: 30px;
+        // }
 
         .two {
-            left: 200px;
+            // left: 150px;
             width: 200px;
         }
 
         .three {
-            right: -75px;
+            // right: -75px;
+            width: 140px;
         }
 
         li:hover .dropdown {
@@ -66,14 +69,14 @@ header {
     }
 
     .navbar-right * {
-        color: #fff;
+        color: $firstColor;
     }
 
     .navbar-right {
         position: relative;
 
         .cart {
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .dropdown {
@@ -81,11 +84,11 @@ header {
             transition: .2s;
 
             a {
-                color: #000;
+                color: $secondColor;
                 font-size: 14px;
 
                 &:hover {
-                    border-bottom: 1px solid #000;
+                    border-bottom: 1px solid $secondColor;
                 }
             }
         }
@@ -130,98 +133,90 @@ header {
 header .menu {
     position: absolute;
     right: 0;
+
+    .open-btn {
+        display: none;
+        color: $firstColor;
+    }
+
+    .offcanvas-menu {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh !important;
+        transform: translate(100%);
+        transition: .5s;
+
+        .open {
+            transform: translateX(0);
+        }
+
+        .heading {
+            background: rgb(22, 20, 80);
+            background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
+
+            .close-btn {
+                color: $firstColor;
+            }
+        }
+
+        .body {
+            .accordion-item .accordion-body {
+                transform: translate(-30px);
+
+                a {
+                    color: $secondColor;
+                    font-size: 15px;
+
+                    &:hover {
+                        border-bottom: 1px solid $secondColor;
+                    }
+                }
+            }
+
+            .action {
+                background-color: $firstColor;
+
+                svg path {
+                    fill: $secondColor;
+                }
+
+                .dropdown {
+                    background-color: $firstColor;
+                    padding: 20px;
+                    position: absolute;
+                    visibility: hidden;
+                    transition: .2s;
+
+                    a {
+                        color: $secondColor;
+                        font-size: 14px;
+
+                        &:hover {
+                            border-bottom: 1px solid $secondColor;
+                        }
+                    }
+                }
+
+                li:hover .dropdown {
+                    visibility: visible;
+                }
+            }
+        }
+    }
 }
-
-header .menu .open-btn {
-    display: none;
-    color: #fff;
-}
-
-header .menu .offcanvas-menu {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: auto;
-    transform: translate(100%);
-    transition: .5s;
-}
-
-header .menu .offcanvas-menu.open {
-    transform: translateX(0);
-}
-
-header .menu .offcanvas-menu .heading {
-    background-color: #0098ff;
-}
-
-header .menu .offcanvas-menu .heading .close-btn {
-    color: #fff;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .accordion-body {
-    transform: translate(-30px);
-}
-
-header .menu .offcanvas-menu .body .accordion-item .accordion-body a {
-    color: #000;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .accordion-body a:hover {
-    border-bottom: 1px solid #000;
-}
-
-header .menu .offcanvas-menu .body .action {
-    background-color: #fff;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action svg path {
-    fill: #000;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action .dropdown {
-    background-color: #fff;
-    box-shadow: -1px -1px 18px -12px rgba(0, 0, 0, 0.75);
-    padding: 20px;
-    display: none;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action .dropdown a {
-    color: #000;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action .dropdown a:hover {
-    border-bottom: 1px solid #000;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action li:hover .dropdown {
-    display: block;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action .one {
-    position: absolute;
-}
-
-header .menu .offcanvas-menu .body .accordion-item .action .two {
-    position: absolute;
-}
-
-
 // ----- Header section ----- //
 
 // ----- Footer section ----- //
-$myFontSize: 14px;
-$myFirstColor: #fff;
-$mySecondColor: #000;
-
 .footer {
-    background-color: $mySecondColor;
+    background-color: $secondColor;
 }
 
 footer {
     .left {
-        color: $myFirstColor;
+        color: $firstColor;
 
         h3 {
             font-size: 26px;
@@ -234,22 +229,22 @@ footer {
         }
 
         p {
-            font-size: $myFontSize;
+            font-size: $firstFontSize;
             letter-spacing: .3px;
         }
     }
 
     .center * {
-        color: $myFirstColor;
-        font-size: $myFontSize;
+        color: $firstColor;
+        font-size: $firstFontSize;
 
         h4 {
             letter-spacing: 1px;
         }
 
         a {
-            color: $myFirstColor !important;
-            font-size: $myFontSize !important;
+            color: $firstColor !important;
+            font-size: $firstFontSize !important;
             transition: .4s;
 
             &:hover {
@@ -259,15 +254,15 @@ footer {
     }
 
     .right {
-        color: $myFirstColor;
+        color: $firstColor;
 
         h4 {
-            font-size: $myFontSize;
+            font-size: $firstFontSize;
             letter-spacing: 1px;
         }
 
         a {
-            background-color: $myFirstColor;
+            background-color: $firstColor;
 
             &:hover {
                 background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
@@ -275,16 +270,16 @@ footer {
         }
 
         i {
-            color: $mySecondColor;
+            color: $secondColor;
         }
     }
 }
 
 .footer-bottom {
-    background-color: $mySecondColor;
+    background-color: $secondColor;
 
     p {
-        color: $myFirstColor;
-        font-size: $myFontSize;
+        color: $firstColor;
+        font-size: $firstFontSize;
     }
 }
