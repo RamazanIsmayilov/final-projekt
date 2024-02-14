@@ -188,6 +188,31 @@ const Header = () => {
           </nav>
         </div>
       </header>
+
+      <div className="header-bottom p-3">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="left mt-2">
+                <a href="/"><b>New Accessories -30 % Off.</b><span>More</span></a>
+              </div>
+            </div>
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="search">
+                <div className="input-group flex-nowrap">
+                  <span className="input-group-text background-none"><i className="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="text" className='py-2' placeholder="Search Product..." />
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="right mt-2">
+                <a className='d-flex align-items-center justify-content-end text-decoration-underline' href="/">New Collections</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
 
   )
