@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 const Home = () => {
   return (
     <>
@@ -63,8 +64,77 @@ const Home = () => {
               </svg>
             </a>
           </div>
+          <div className="carousel text-light mt-5">
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={5}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div classname="card">
+                  <img src="..." classname="card-img-top" alt="..." />
+                  <div classname="card-body">
+                    <h5 classname="card-title">Card title</h5>
+                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }
