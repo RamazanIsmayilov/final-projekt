@@ -1,0 +1,195 @@
+@import url('./_variables.scss');
+
+$firstColor: #fff;
+$secondColor: #000;
+$firstFontSize: 14px;
+$fontFamily: 'Outfit', sans-serif;
+
+// ----- Hero section ----- //
+.hero {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: $secondColor;
+
+    .left {
+        img {
+            transform: translate(-70px, 200px);
+            position: absolute;
+        }
+
+        .heading {
+            width: 65%;
+            background-color: #12103e;
+            color: $firstColor;
+            font-size: $firstFontSize;
+
+            span:nth-child(1) {
+                background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
+            }
+
+            span:nth-child(2) {
+                font-size: $firstFontSize - 1px;
+                letter-spacing: .8px;
+            }
+        }
+
+        h2 {
+            font-size: 60px;
+            color: $firstColor;
+
+            b {
+                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        p {
+            font-size: $firstFontSize - 1px;
+            color: #838383;
+            letter-spacing: .5px;
+        }
+
+        .buttons {
+            a {
+                border: 1px solid #838383;
+                border-radius: 0 20px 0 20px;
+                padding: 12px 40px;
+                font-size: 14px;
+            }
+
+            .one {
+                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                color: $firstColor;
+
+                &:hover {
+                    background: none;
+                }
+            }
+
+            .two {
+                color: #838383;
+
+                &:hover {
+                    background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                    color: $firstColor;
+                }
+            }
+        }
+    }
+
+    .right {
+
+        img:nth-child(1) {
+            position: absolute;
+            right: 40%;
+            top: 37%;
+            animation: shape-two 4s infinite linear;
+        }
+
+        @keyframes shape-two {
+            0% {
+                transform: translateX(-30px);
+            }
+
+            50% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateX(-30px);
+            }
+        }
+
+
+        img:nth-child(2) {
+            position: absolute;
+            z-index: 1;
+            right: 35%;
+            bottom: 30%;
+            animation: shape-three 2s ease-in-out 0s infinite alternate;
+            animation-duration: 3s;
+        }
+
+        @keyframes shape-three {
+            0% {
+                transform: rotateX(0deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotateX(0deg) translateY(-20px);
+            }
+
+            100% {
+                transform: rotateX(0deg) translateY(0px);
+            }
+        }
+
+        img:nth-child(3) {
+            position: absolute;
+            right: 20%;
+            top: 40%;
+            animation: shape-one 10s infinite linear;
+        }
+
+        @keyframes shape-one {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .hero img {
+        display: none;
+    }
+
+    .hero .left .heading {
+        width: 100%;
+    }
+
+
+}
+
+@media only screen and (max-width: 992px) {
+    .hero .left .heading {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .hero .left h2 {
+        font-size: 30px;
+    }
+}
+
+
+.slider {
+    width: 100%;
+    height: auto;
+    background-color: $secondColor;
+
+    .heading {
+        h2{
+            color: $firstColor;
+            font-size: 41px;
+        }
+
+        a {
+            color: #838383;
+            border: 1px solid #838383;
+            border-radius: 0 20px 0 20px;
+            padding: 12px 40px;
+            font-size: 14px;
+
+            &:hover {
+                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                color: $firstColor;
+            }
+        }
+    }
+}
