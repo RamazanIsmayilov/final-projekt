@@ -151,8 +151,6 @@ $fontFamily: 'Outfit', sans-serif;
     .hero .left .heading {
         width: 100%;
     }
-
-
 }
 
 @media only screen and (max-width: 992px) {
@@ -174,7 +172,7 @@ $fontFamily: 'Outfit', sans-serif;
     background-color: $secondColor;
 
     .heading {
-        h2{
+        h2 {
             color: $firstColor;
             font-size: 41px;
         }
@@ -191,5 +189,134 @@ $fontFamily: 'Outfit', sans-serif;
                 color: $firstColor;
             }
         }
+    }
+
+    .carousel {
+
+        .carousel-card {
+            height: 400px;
+            background: linear-gradient(148deg, #0198ff2e, #0000);
+            border: 2px solid rgb(22, 20, 80);
+            border-radius: 0 20px 0 20px;
+
+            .title {
+                a {
+                    color: $firstColor;
+                    font-size: 22px;
+                }
+
+                span {
+                    color: #838383;
+                    font-size: $firstFontSize - 1px;
+                }
+            }
+
+            .new {
+                color: $firstColor;
+                position: absolute;
+                top: 20%;
+                background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
+                font-size: $firstFontSize - 1px;
+            }
+
+            .footer {
+                .price {
+                    .newprice {
+                        font-size: 25px;
+                        color: $firstColor;
+
+                        sup {
+                            font-size: 13px;
+                        }
+                    }
+
+                    .oldprice {
+                        font-size: 15px;
+                        color: $firstColor;
+
+                        sup {
+                            font-size: 9px;
+                        }
+                    }
+                }
+
+                a {
+                    color: $firstColor;
+                    border-radius: 0 15px 0 15px;
+                    padding: 7px 30px;
+                    font-size: 13px;
+                    background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+
+                    &:hover {
+                        background: transparent;
+                        border: 1px solid #838383;
+                        color: $firstColor;
+                    }
+                }
+            }
+
+            .action {
+                position: absolute;
+                top: 42%;
+                left: 32%;
+                color: $firstColor;
+                border-radius: 0 15px 0 15px;
+                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                opacity: 0;
+                transition: .6s;
+
+                a {
+                    color: $firstColor;
+                }
+            }
+
+            &:hover .action {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.subscribe {
+    span {
+        font-size: $firstFontSize;
+        background: linear-gradient(90deg, #0098ff 0%, #7b35c8 100%);
+        color: $firstColor;
+        opacity: 62%;
+    }
+
+    h2 {
+        font-size: 41px;
+
+        b {
+            background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+            background-clip: text;
+            color: transparent;
+        }
+    }
+
+    p{
+        color: #838383;
+        font-size: $firstFontSize;
+    }
+    
+    input{
+        // width: 100%;
+        color: #838383;
+        border: 1px solid #000;
+        border-radius: 0 15px;
+        // width: 360px;
+        outline: none;
+
+        &::placeholder{
+            font-size: $firstFontSize - 1px;
+        }
+    }
+    
+    button{
+        background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+        font-size: $firstFontSize;
+        color: $firstColor;
+        border-radius: 0 15px;
     }
 }

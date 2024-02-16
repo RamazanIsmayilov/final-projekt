@@ -1,5 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Product from '../data/product.json'
 import 'swiper/css';
 const Home = () => {
   return (
@@ -64,77 +65,65 @@ const Home = () => {
               </svg>
             </a>
           </div>
-          <div className="carousel text-light mt-5">
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={5}
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
+        </div>
+        <div className="carousel mt-5">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={5}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {Product.slice(3, 10).map(item => (
+              <SwiperSlide key={item.id}>
+                <div className="carousel-card px-2 py-3 d-flex flex-column gap-3">
+                  <div className="title d-flex flex-column">
+                    <a className='fw-bold' href="/">{item.title.slice(0, 19)}...</a>
+                    <span>TYPE: {item.type}</span>
+                  </div>
+                  <span className='new px-1'>{item.new}</span>
+                  <a href="/"><img className='mx-3' src={item.image} alt="image" /></a>
+                  <div className="footer d-flex align-items-center justify-content-between">
+                    <div className="price fw-bold">
+                      <div className="newprice">{item.price}<sup className='fw-medium'>USD</sup></div>
+                      <div className="oldprice text-decoration-line-through opacity-50">{item.oldprice}<sup>USD</sup></div>
+                    </div>
+                    <a href="/">Add to Cart</a>
+                  </div>
+                  <div className="action px-3 py-1 d-flex align-items-center gap-2">
+                    <a href="/"><i className="fa-regular fa-heart"></i></a>
+                    <span> | </span>
+                    <a href="/"><i className="fa-regular fa-eye"></i></a>
+                    <span> | </span>
+                    <a href="/"><i className="fa-solid fa-code-compare"></i></a>
                   </div>
                 </div>
+
               </SwiperSlide>
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div classname="card">
-                  <img src="..." classname="card-img-top" alt="..." />
-                  <div classname="card-body">
-                    <h5 classname="card-title">Card title</h5>
-                    <p classname="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" classname="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      <div className="subscribe py-5">
+        <div className="container">
+          <div className="row d-flex">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
+              <span className='rounded px-1 py-1'>Subscribe Us</span>
+              <h2 className='mt-3'>Subscribe newsletter <br /> and <b>get -20% off</b></h2>
+              <p>Almost three-quarters of dedicated PC gamers say their main motivation to <br />
+                upgrade is improving gaming experiences.</p>
+              <div className="input-group w-100">
+                <input type="text" className='px-3 py-2 form-control' placeholder="Enter email address..." />
+                <button className="btn btn-outline-secondary px-4" type="button">Subscribe</button>
+              </div>
+
+            </div>
+            <div className="col-12 col-sm-12 col-md-6 col-lg-6">
+              <img style={{ width: "100%" }} src="https://gaming-workdo.myshopify.com/cdn/shop/files/subscribe-img.png?v=1670903810" alt="" />
+            </div>
           </div>
         </div>
-      </div >
+      </div>
     </>
   )
 }
