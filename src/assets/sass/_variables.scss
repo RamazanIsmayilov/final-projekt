@@ -1,17 +1,8 @@
-body {
-    font-family: Outfit, sans-serif;
-}
-
-li {
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-$firstColor: #fff;
-$secondColor: #000;
+$lightColor: #fff;
+$darkColor: #000;
+$grayColor: #838383;
+$linearColor: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+$backgroundColor: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
 $firstFontSize: 14px;
 $fontFamily: 'Outfit', sans-serif;
 

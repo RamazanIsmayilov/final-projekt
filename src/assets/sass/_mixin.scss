@@ -1,0 +1,22 @@
+@mixin button {
+    border: 1px solid $grayColor;
+    border-radius: 0 15px;
+    padding: 12px 40px;
+    font-size: $firstFontSize;
+    color: $lightColor;
+
+    &:hover {
+        background: transparent;
+    }
+}
+
+@mixin heading {
+    font-size: 41px;
+    color: $lightColor;
+
+    b {
+        background: $linearColor;
+        background-clip: text;
+        color: transparent;
+    }
+}

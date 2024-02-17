@@ -1,16 +1,12 @@
-@import url('./_variables.scss');
-
-$firstColor: #fff;
-$secondColor: #000;
-$firstFontSize: 14px;
-$fontFamily: 'Outfit', sans-serif;
+@import './_variables';
+@import './mixin';
 
 // ----- Hero section ----- //
 .hero {
     width: 100%;
     height: auto;
     padding: 20px;
-    background-color: $secondColor;
+    background-color: $darkColor;
 
     .left {
         img {
@@ -21,7 +17,7 @@ $fontFamily: 'Outfit', sans-serif;
         .heading {
             width: 65%;
             background-color: #12103e;
-            color: $firstColor;
+            color: $lightColor;
             font-size: $firstFontSize;
 
             span:nth-child(1) {
@@ -35,45 +31,34 @@ $fontFamily: 'Outfit', sans-serif;
         }
 
         h2 {
-            font-size: 60px;
-            color: $firstColor;
-
-            b {
-                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-                background-clip: text;
-                color: transparent;
-            }
+            @include heading;
         }
 
         p {
             font-size: $firstFontSize - 1px;
-            color: #838383;
+            color: $grayColor;
             letter-spacing: .5px;
         }
 
         .buttons {
             a {
-                border: 1px solid #838383;
-                border-radius: 0 20px 0 20px;
-                padding: 12px 40px;
-                font-size: 14px;
+                @include button;
             }
 
             .one {
-                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-                color: $firstColor;
+                background: $linearColor;
 
                 &:hover {
-                    background: none;
+                    background: transparent;
                 }
             }
 
             .two {
-                color: #838383;
+                color: $grayColor;
 
                 &:hover {
-                    background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-                    color: $firstColor;
+                    background: $linearColor;
+                    color: $lightColor;
                 }
             }
         }
@@ -164,55 +149,53 @@ $fontFamily: 'Outfit', sans-serif;
         font-size: 30px;
     }
 }
+// ----- Hero section ----- //
 
-
+// ----- Slider section ----- //
 .slider {
     width: 100%;
     height: auto;
-    background-color: $secondColor;
+    background-color: $darkColor;
 
     .heading {
         h2 {
-            color: $firstColor;
+            color: $lightColor;
             font-size: 41px;
         }
 
         a {
-            color: #838383;
-            border: 1px solid #838383;
-            border-radius: 0 20px 0 20px;
-            padding: 12px 40px;
-            font-size: 14px;
+            @include button;
+            color: $grayColor;
 
             &:hover {
-                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-                color: $firstColor;
+                background: $linearColor;
+                color: $lightColor;
             }
         }
     }
 
     .carousel {
-
         .carousel-card {
-            height: 400px;
+            height: 450px;
+            width: 290px;
             background: linear-gradient(148deg, #0198ff2e, #0000);
-            border: 2px solid rgb(22, 20, 80);
+            border: 2px solid rgb(67, 67, 165);
             border-radius: 0 20px 0 20px;
 
             .title {
                 a {
-                    color: $firstColor;
+                    color: $lightColor;
                     font-size: 22px;
                 }
 
                 span {
-                    color: #838383;
+                    color: $grayColor;
                     font-size: $firstFontSize - 1px;
                 }
             }
 
             .new {
-                color: $firstColor;
+                color: $lightColor;
                 position: absolute;
                 top: 20%;
                 background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
@@ -223,7 +206,7 @@ $fontFamily: 'Outfit', sans-serif;
                 .price {
                     .newprice {
                         font-size: 25px;
-                        color: $firstColor;
+                        color: $lightColor;
 
                         sup {
                             font-size: 13px;
@@ -231,26 +214,18 @@ $fontFamily: 'Outfit', sans-serif;
                     }
 
                     .oldprice {
-                        font-size: 15px;
-                        color: $firstColor;
-
-                        sup {
-                            font-size: 9px;
-                        }
+                        font-size: $firstFontSize;
+                        color: $lightColor;
                     }
                 }
 
                 a {
-                    color: $firstColor;
-                    border-radius: 0 15px 0 15px;
-                    padding: 7px 30px;
-                    font-size: 13px;
-                    background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                    padding: 7px 30px !important;
+                    @include button;
+                    background: $linearColor;
 
                     &:hover {
                         background: transparent;
-                        border: 1px solid #838383;
-                        color: $firstColor;
                     }
                 }
             }
@@ -259,14 +234,14 @@ $fontFamily: 'Outfit', sans-serif;
                 position: absolute;
                 top: 42%;
                 left: 32%;
-                color: $firstColor;
+                color: $lightColor;
                 border-radius: 0 15px 0 15px;
-                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                background: $linearColor;
                 opacity: 0;
                 transition: .6s;
 
                 a {
-                    color: $firstColor;
+                    color: $lightColor;
                 }
             }
 
@@ -276,47 +251,56 @@ $fontFamily: 'Outfit', sans-serif;
         }
     }
 }
+// ----- Slider section ----- //
 
+// ----- Categories section ----- //
+.categories{
+    background-color: $darkColor;
+
+    .heading{
+        h2{
+            @include heading;
+        }
+    }
+}
+// ----- Categories section ----- //
+
+// ----- Subscribe section ----- //
 .subscribe {
     span {
         font-size: $firstFontSize;
-        background: linear-gradient(90deg, #0098ff 0%, #7b35c8 100%);
-        color: $firstColor;
+        background: $linearColor;
+        color: $lightColor;
         opacity: 62%;
     }
 
     h2 {
-        font-size: 41px;
-
-        b {
-            background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-            background-clip: text;
-            color: transparent;
-        }
+        @include heading;
+        color: $darkColor;
     }
 
-    p{
-        color: #838383;
+    p {
+        color: $grayColor;
         font-size: $firstFontSize;
     }
-    
-    input{
-        // width: 100%;
-        color: #838383;
-        border: 1px solid #000;
+
+    input {
+        color: $grayColor;
+        border: 1px solid $darkColor;
         border-radius: 0 15px;
-        // width: 360px;
         outline: none;
 
-        &::placeholder{
+        &::placeholder {
             font-size: $firstFontSize - 1px;
         }
     }
-    
-    button{
-        background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-        font-size: $firstFontSize;
-        color: $firstColor;
+
+    button {
+        background: $linearColor;
+        font-size: $firstFontSize - 1px;
+        color: $lightColor;
         border-radius: 0 15px;
     }
 }
+// ----- Subscribe section ----- //
+

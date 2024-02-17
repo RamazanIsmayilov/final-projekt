@@ -1,37 +1,32 @@
-@import url('./_variables.scss');
-
-$firstColor: #fff;
-$secondColor: #000;
-$firstFontSize: 14px;
-$fontFamily: 'Outfit', sans-serif;
+@import './_variables';
+@import './mixin';
 
 // ----- Header section ----- //
 header {
-    background: rgb(22, 20, 80);
-    background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
-    border-bottom: 1px solid #838383;
+    background: $backgroundColor;
+    border-bottom: 1px solid $grayColor;
 
     .navbar-left {
         position: relative;
 
         .title {
-            color: $firstColor;
+            color: $lightColor;
             font-size: 15px;
         }
 
         .dropdown {
-            background-color: $firstColor;
+            background-color: $lightColor;
             padding: 20px;
             position: absolute;
             visibility: hidden;
             transition: .2s;
 
             a {
-                color: $secondColor;
+                color: $darkColor;
                 font-size: 14px;
 
                 &:hover {
-                    border-bottom: 1px solid $secondColor;
+                    border-bottom: 1px solid $darkColor;
                 }
             }
         }
@@ -51,7 +46,7 @@ header {
     }
 
     .navbar-right * {
-        color: $firstColor;
+        color: $lightColor;
     }
 
     .navbar-right {
@@ -62,17 +57,17 @@ header {
         }
 
         .dropdown {
-            background-color: $firstColor;
+            background-color: $lightColor;
             padding: 20px;
             visibility: hidden;
             transition: .2s;
 
             a {
-                color: $secondColor;
+                color: $darkColor;
                 font-size: 14px;
 
                 &:hover {
-                    border-bottom: 1px solid $secondColor;
+                    border-bottom: 1px solid $darkColor;
                 }
             }
         }
@@ -98,7 +93,7 @@ header {
 
         .open-btn {
             display: none;
-            color: $firstColor;
+            color: $lightColor;
         }
 
         .offcanvas-menu {
@@ -116,11 +111,10 @@ header {
             }
 
             .heading {
-                background: rgb(22, 20, 80);
-                background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
+                background: $backgroundColor;
 
                 .close-btn {
-                    color: $firstColor;
+                    color: $lightColor;
                 }
             }
 
@@ -129,36 +123,36 @@ header {
                     transform: translate(-30px);
 
                     a {
-                        color: $secondColor;
+                        color: $darkColor;
                         font-size: 15px;
 
                         &:hover {
-                            border-bottom: 1px solid $secondColor;
+                            border-bottom: 1px solid $darkColor;
                         }
                     }
                 }
 
                 .action {
-                    background-color: $firstColor;
+                    background-color: $lightColor;
                     flex-wrap: wrap;
 
                     svg path {
-                        fill: $secondColor;
+                        fill: $darkColor;
                     }
 
                     .dropdown {
-                        background-color: $firstColor;
+                        background-color: $lightColor;
                         padding: 20px;
                         position: absolute;
                         visibility: hidden;
                         transition: .2s;
 
                         a {
-                            color: $secondColor;
+                            color: $darkColor;
                             font-size: 14px;
 
                             &:hover {
-                                border-bottom: 1px solid $secondColor;
+                                border-bottom: 1px solid $darkColor;
                             }
                         }
                     }
@@ -172,15 +166,13 @@ header {
     }
 }
 
-
 .header-bottom {
-    background: rgb(22, 20, 80);
-    background: radial-gradient(circle, rgba(22, 20, 80, 1) 18%, rgba(0, 0, 0, 1) 69%);
-    border-bottom: 1px solid #838383;
+    background: $backgroundColor;
+    border-bottom: 1px solid $grayColor;
 
     .left {
         a {
-            color: $firstColor;
+            color: $lightColor;
             font-size: 14px;
             letter-spacing: 1px;
 
@@ -195,8 +187,8 @@ header {
             input {
                 width: 350px;
                 outline: none;
-                border: 1px solid #838383;
-                color: #838383;
+                border: 1px solid $grayColor;
+                color: $grayColor;
                 border-radius: 0 20px 0 20px;
                 background: none;
                 border-left: none;
@@ -209,11 +201,11 @@ header {
             span {
                 border-radius: 0 20px 0 20px;
                 background: none;
-                border: 1px solid #838383;
+                border: 1px solid $grayColor;
                 border-right: none;
 
                 i {
-                    color: #838383;
+                    color: $grayColor;
                 }
             }
 
@@ -222,12 +214,11 @@ header {
 
     .right {
         a {
-            color: $firstColor;
+            color: $lightColor;
             font-size: $firstFontSize;
         }
     }
 }
-
 
 @media(max-width:992px) {
     header nav .navbar-left {
@@ -262,28 +253,20 @@ header {
         display: none;
     }
 }
-
-
-
 // ----- Header section ----- //
 
 // ----- Footer section ----- //
 .footer {
-    background-color: $secondColor;
+    background-color: $darkColor;
 }
 
 footer {
     .left {
-        color: $firstColor;
+        color: $lightColor;
 
         h3 {
+            @include heading;
             font-size: 26px;
-        }
-
-        h3 b {
-            background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
-            background-clip: text;
-            color: transparent;
         }
 
         p {
@@ -293,7 +276,7 @@ footer {
     }
 
     .center * {
-        color: $firstColor;
+        color: $lightColor;
         font-size: $firstFontSize;
 
         h4 {
@@ -301,7 +284,7 @@ footer {
         }
 
         a {
-            color: $firstColor !important;
+            color: $lightColor !important;
             font-size: $firstFontSize !important;
             transition: .4s;
 
@@ -312,7 +295,7 @@ footer {
     }
 
     .right {
-        color: $firstColor;
+        color: $lightColor;
 
         h4 {
             font-size: $firstFontSize;
@@ -320,24 +303,25 @@ footer {
         }
 
         a {
-            background-color: $firstColor;
+            background-color: $lightColor;
 
             &:hover {
-                background: linear-gradient(75deg, #0098ff 0%, #7b35c8 100%);
+                background: $linearColor;
             }
         }
 
         i {
-            color: $secondColor;
+            color: $darkColor;
         }
     }
 }
 
 .footer-bottom {
-    background-color: $secondColor;
+    background-color: $darkColor;
 
     p {
-        color: $firstColor;
+        color: $lightColor;
         font-size: $firstFontSize;
     }
 }
+// ----- Footer section ----- //
