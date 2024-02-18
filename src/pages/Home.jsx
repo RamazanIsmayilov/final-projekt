@@ -1,9 +1,54 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 import Product from '../data/product.json'
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/grid';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Home = () => {
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 8000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
+
+
   return (
     <>
       <div className="hero">
@@ -146,65 +191,65 @@ const Home = () => {
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-7 col-lg-8">
-            <div className="carousel">
-          <Swiper
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 6
-              },
-              576: {
-                slidesPerView: 2,
-                spaceBetween: 6
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 6
-              },
-              992: {
-                slidesPerView: 4,
-                spaceBetween: 6
-              },
-              1200: {
-                slidesPerView: 4,
-                spaceBetween: 6
-              }
-            }}
-          >
-            {Product.map(item => (
-              <SwiperSlide key={item.id}>
-                <div className="carousel-card px-2 py-3 d-flex flex-column gap-5">
-                  <div className="title d-flex flex-column">
-                    <a className='fw-bold' href="/">{item.title.slice(0, 15)}...</a>
-                    <span>TYPE: {item.type}</span>
-                  </div>
-                  <span className='new px-1'>{item.new}</span>
-                  <a href="/"><img className='mx-3' src={item.image} alt="image" /></a>
-                  <div className="footer d-flex align-items-center justify-content-between">
-                    <div className="price fw-bold">
-                      <div className="newprice">{item.price}<sup className='fw-medium'>USD</sup></div>
-                      <div className="oldprice text-decoration-line-through opacity-50">{item.oldprice}<sup>USD</sup></div>
-                    </div>
-                    <a href="/">Add to Cart</a>
-                  </div>
-                  <div className="action px-3 py-1 d-flex align-items-center gap-2">
-                    <a href="/"><i className="fa-regular fa-heart"></i></a>
-                    <span> | </span>
-                    <a href="/"><i className="fa-regular fa-eye"></i></a>
-                    <span> | </span>
-                    <a href="/"><i className="fa-solid fa-code-compare"></i></a>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              <div className="carousel">
+                <Swiper
+                  breakpoints={{
+                    0: {
+                      slidesPerView: 1,
+                      spaceBetween: 6
+                    },
+                    576: {
+                      slidesPerView: 2,
+                      spaceBetween: 6
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 6
+                    },
+                    992: {
+                      slidesPerView: 4,
+                      spaceBetween: 6
+                    },
+                    1200: {
+                      slidesPerView: 4,
+                      spaceBetween: 6
+                    }
+                  }}
+                >
+                  {Product.map(item => (
+                    <SwiperSlide key={item.id}>
+                      <div className="carousel-card px-2 py-3 d-flex flex-column gap-5">
+                        <div className="title d-flex flex-column">
+                          <a className='fw-bold' href="/">{item.title.slice(0, 15)}...</a>
+                          <span>TYPE: {item.type}</span>
+                        </div>
+                        <span className='new px-1'>{item.new}</span>
+                        <a href="/"><img className='mx-3' src={item.image} alt="image" /></a>
+                        <div className="footer d-flex align-items-center justify-content-between">
+                          <div className="price fw-bold">
+                            <div className="newprice">{item.price}<sup className='fw-medium'>USD</sup></div>
+                            <div className="oldprice text-decoration-line-through opacity-50">{item.oldprice}<sup>USD</sup></div>
+                          </div>
+                          <a href="/">Add to Cart</a>
+                        </div>
+                        <div className="action px-3 py-1 d-flex align-items-center gap-2">
+                          <a href="/"><i className="fa-regular fa-heart"></i></a>
+                          <span> | </span>
+                          <a href="/"><i className="fa-regular fa-eye"></i></a>
+                          <span> | </span>
+                          <a href="/"><i className="fa-solid fa-code-compare"></i></a>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="subscribe">
+      <div className="subscribe py-3">
         <div className="container">
           <div className="row d-flex">
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
@@ -221,6 +266,122 @@ const Home = () => {
             <div className="col-12 col-sm-12 col-md-6 col-lg-6">
               <img style={{ width: "100%" }} src="https://gaming-workdo.myshopify.com/cdn/shop/files/subscribe-img.png?v=1670903810" alt="" />
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="about-shop mt-5 ">
+        <div className="container">
+          <div className="heading">
+            <h2 className='fw-bold'>About our shop</h2>
+            <p>Gaming can help to improve cognitive skills such as problem-solving, memory, and attention.</p>
+          </div>
+          <div className="cards">
+            <div className="row g-2">
+              <div className="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div className="borders p-3">
+                  <h2 className='fw-bold'>01</h2>
+                  <h4 className='fw-bold'>Gift boxes</h4>
+                  <span>Finished products products <br /> and gift wrapping</span>
+                </div>
+              </div>
+              <div className="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div className="borders p-3">
+                  <h2 className='fw-bold'>02</h2>
+                  <h4 className='fw-bold'>Promotions</h4>
+                  <span>Large promotions with <br /> numerous discounts</span>
+                </div>
+              </div>
+              <div className="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div className="borders p-3">
+                  <h2 className='fw-bold'>03</h2>
+                  <h4 className='fw-bold'>Shipping</h4>
+                  <span>Free shipping on any order <br /> from $ 150</span>
+                </div>
+              </div>
+              <div className="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div className="borders p-3">
+                  <h2 className='fw-bold'>04</h2>
+                  <h4 className='fw-bold'>Quality</h4>
+                  <span>All products are made by <br /> engineers from India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="testimonials mt-5 py-5">
+        <div className="container">
+          <div className="heading">
+            <h2 className='fw-bold'>Testimonials</h2>
+          </div>
+          <div className="slider-container">
+            <Slider {...settings}>
+              <div className='cards d-flex align-items-center py-2'>
+                <div className="img">
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" />
+                </div>
+                <div className="content">
+                  <h3 className='fw-bold'>Escaping Reality!</h3>
+                  <p>"I've been gaming for as long as I can remember, and I've <br />
+                    always loved the sense of escape and adventure that it <br /> provides.</p>
+                  <div className="content-bottom d-flex align-items-center justify-content-between">
+                    <div className="info d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <h6 className='mt-2'><b className='fw-bold'>Sarah Johnson,</b> <br /> Client</h6>
+                    </div>
+                    <div className="star d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <span><b>4.5 </b>/ 5.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='cards d-flex align-items-center py-2'>
+                <div className="img">
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" />
+                </div>
+                <div className="content">
+                  <h3 className='fw-bold'>One Level Time!</h3>
+                  <p>I also love the challenge of trying to beat a difficult game or <br /> master a new skill.
+                    Gaming has taught me a lot about  perseverance <br /> and determination, and it's helped me to
+                    develop.</p>
+                  <div className="content-bottom d-flex align-items-center justify-content-between">
+                    <div className="info d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <h6 className='mt-2'><b className='fw-bold'>Alex Thompson,</b> <br /> Client</h6>
+                    </div>
+                    <div className="star d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <span><b>4.5 </b>/ 5.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='cards d-flex align-items-center py-2'>
+                <div className="img">
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" />
+                </div>
+                <div className="content">
+                  <h3 className='fw-bold'>Gamer's Journey!</h3>
+                  <p>Gaming has had a positive impact on my life in so many ways, <br />
+                  and  I'm so glad that I'm able to share my love of gaming with <br /> others.</p>
+                  <div className="content-bottom d-flex align-items-center justify-content-between">
+                    <div className="info d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <h6 className='mt-2'><b className='fw-bold'>David Rodriguez,</b> <br /> Client</h6>
+                    </div>
+                    <div className="star d-flex align-items-center gap-2">
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <span><b>4.5 </b>/ 5.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Slider>
           </div>
         </div>
       </div>

@@ -219,17 +219,18 @@
             background: linear-gradient(148deg, #0198ff2e, #0000);
             width: 280px;
 
-            .footer{
+            .footer {
                 .price {
                     .newprice {
                         color: $darkColor;
                     }
-    
+
                     .oldprice {
                         color: $darkColor;
                     }
                 }
-                a:hover{
+
+                a:hover {
                     background: $darkColor;
                 }
             }
@@ -280,3 +281,90 @@
 }
 
 // ----- Subscribe section ----- //
+
+// ----- About-shop section ----- //
+.about-shop {
+    .heading {
+        h2 {
+            font-size: 35px;
+        }
+
+        p {
+            font-size: $firstFontSize;
+            color: $grayColor;
+        }
+    }
+
+    .cards {
+        .borders {
+            border: 1px solid #7b35c8;
+            border-radius: 0 17px;
+            background: linear-gradient(148deg, #0198ff2e, #0000);
+
+            h2 {
+                @include textLinear;
+                font-size: 41px;
+            }
+
+            h4 {
+                font-size: 26px;
+            }
+
+            span {
+                font-size: $firstFontSize;
+                color: $grayColor;
+            }
+        }
+    }
+}
+
+// ----- About-shop section ----- //
+
+// ----- Testimonials section ----- //
+.testimonials {
+    .heading {
+        h2 {
+            font-size: 41px;
+        }
+    }
+
+    .slider-container {
+        .cards {
+            border: 1px solid #7b35c8;
+            border-radius: 0 15px;
+            background: linear-gradient(148deg, #0198ff2e, #0000);
+
+            h3 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: $firstFontSize;
+            }
+
+            .content-bottom {
+                .info {
+                    h6 {
+                        font-size: $firstFontSize;
+                    }
+                }
+
+                .star {
+                    span {
+                        font-size: 13px;
+
+                        b {
+                            color: #0098ff;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// ----- Testimonials section ----- //

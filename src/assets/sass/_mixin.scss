@@ -99,3 +99,9 @@
         }
     }
 }
+
+@mixin textLinear{
+    background: -webkit-linear-gradient(93.25deg,#0098ff 4.45%,#7b35c8 93.88%);
+    background-clip: text;
+    color: transparent;
+}
