@@ -20,3 +20,82 @@
         color: transparent;
     }
 }
+
+
+@mixin carousel {
+    .carousel-card {
+        height: 450px;
+        width: 290px;
+        border: 2px solid rgb(67, 67, 165);
+        border-radius: 0 20px 0 20px;
+
+        .title {
+            a {
+                color: $lightColor;
+                font-size: 22px;
+            }
+
+            span {
+                color: $grayColor;
+                font-size: $firstFontSize - 1px;
+            }
+        }
+
+        .new {
+            color: $lightColor;
+            position: absolute;
+            top: 20%;
+            background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
+            font-size: $firstFontSize - 1px;
+        }
+
+        .footer {
+            background: transparent;
+            .price {
+                color: transparent;
+                .newprice {
+                    font-size: 25px;
+                    color: $lightColor;
+
+                    sup {
+                        font-size: 13px;
+                    }
+                }
+
+                .oldprice {
+                    font-size: $firstFontSize;
+                    color: $lightColor;
+                }
+            }
+
+            a {
+                padding: 7px 30px !important;
+                @include button;
+                background: $linearColor;
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+
+        .action {
+            position: absolute;
+            top: 42%;
+            left: 32%;
+            color: $lightColor;
+            border-radius: 0 15px 0 15px;
+            background: $linearColor;
+            opacity: 0;
+            transition: .6s;
+
+            a {
+                color: $lightColor;
+            }
+        }
+
+        &:hover .action {
+            opacity: 1;
+        }
+    }
+}

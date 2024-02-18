@@ -1,5 +1,8 @@
 body {
     font-family: Outfit, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 li {
@@ -8,4 +11,9 @@ li {
 
 a {
     text-decoration: none;
+}
+
+
+button{
+    border: none;
 }

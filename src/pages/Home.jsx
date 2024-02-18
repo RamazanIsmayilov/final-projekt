@@ -1,5 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 import Product from '../data/product.json'
 import 'swiper/css';
 const Home = () => {
@@ -124,17 +125,86 @@ const Home = () => {
       <div className="categories py-5">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-sm-12 col-md-5 col-lg-5">
+            <div className="col-12 col-sm-12 col-md-5 col-lg-4">
               <div className="heading">
                 <h2 className='fw-bold'>Best <b>Pro <br /> Gaming</b><br /> Categories</h2>
+                <div className="buttons mt-5 d-flex flex-column gap-3">
+                  <button className='d-flex align-items-center gap-2' href="/">
+                    <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/1_4e117171-0b63-4d80-b3fa-1ebc70c0f76e_18x17.png?v=1671615056" />
+                    Gaming peripherals
+                  </button>
+                  <button className='d-flex align-items-center gap-2' href="/">
+                    <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/2_226ba59a-8c4d-48fd-9928-e32ed3555f5b_18x17.png?v=1671615074" />
+                    Speakers & Headphones
+                  </button>
+                  <button className='d-flex align-items-center gap-2' href="/">
+                    <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/3_ae3d1802-51fa-4ec7-9b73-1279de22395f_18x17.png?v=1671615083" />
+                    Power Supplies
+                  </button>
+                  <a href="/" className='text-center text-decoration-underline'>Show More Categories</a>
+                </div>
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-7 col-lg-7"></div>
+            <div className="col-12 col-sm-12 col-md-7 col-lg-8">
+            <div className="carousel">
+          <Swiper
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 6
+              },
+              576: {
+                slidesPerView: 2,
+                spaceBetween: 6
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 6
+              },
+              992: {
+                slidesPerView: 4,
+                spaceBetween: 6
+              },
+              1200: {
+                slidesPerView: 4,
+                spaceBetween: 6
+              }
+            }}
+          >
+            {Product.map(item => (
+              <SwiperSlide key={item.id}>
+                <div className="carousel-card px-2 py-3 d-flex flex-column gap-5">
+                  <div className="title d-flex flex-column">
+                    <a className='fw-bold' href="/">{item.title.slice(0, 15)}...</a>
+                    <span>TYPE: {item.type}</span>
+                  </div>
+                  <span className='new px-1'>{item.new}</span>
+                  <a href="/"><img className='mx-3' src={item.image} alt="image" /></a>
+                  <div className="footer d-flex align-items-center justify-content-between">
+                    <div className="price fw-bold">
+                      <div className="newprice">{item.price}<sup className='fw-medium'>USD</sup></div>
+                      <div className="oldprice text-decoration-line-through opacity-50">{item.oldprice}<sup>USD</sup></div>
+                    </div>
+                    <a href="/">Add to Cart</a>
+                  </div>
+                  <div className="action px-3 py-1 d-flex align-items-center gap-2">
+                    <a href="/"><i className="fa-regular fa-heart"></i></a>
+                    <span> | </span>
+                    <a href="/"><i className="fa-regular fa-eye"></i></a>
+                    <span> | </span>
+                    <a href="/"><i className="fa-solid fa-code-compare"></i></a>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="subscribe py-5">
+      <div className="subscribe">
         <div className="container">
           <div className="row d-flex">
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
@@ -153,7 +223,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </>
   )
 }
