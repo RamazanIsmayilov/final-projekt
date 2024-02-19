@@ -24,9 +24,7 @@
 
 @mixin carousel {
     .carousel-card {
-        height: 450px;
-        width: 290px;
-        border: 2px solid rgb(67, 67, 165);
+        border: 1px solid rgb(67, 67, 165);
         border-radius: 0 20px 0 20px;
 
         .title {
@@ -51,8 +49,10 @@
 
         .footer {
             background: transparent;
+
             .price {
                 color: transparent;
+
                 .newprice {
                     font-size: 25px;
                     color: $lightColor;
@@ -72,8 +72,10 @@
                 padding: 7px 30px !important;
                 @include button;
                 background: $linearColor;
+                border: none;
 
                 &:hover {
+                    border: 1px solid $grayColor;
                     background: transparent;
                 }
             }
@@ -100,8 +102,8 @@
     }
 }
 
-@mixin textLinear{
-    background: -webkit-linear-gradient(93.25deg,#0098ff 4.45%,#7b35c8 93.88%);
+@mixin textLinear {
+    background: -webkit-linear-gradient(93.25deg, #0098ff 4.45%, #7b35c8 93.88%);
     background-clip: text;
     color: transparent;
 }
