@@ -21,84 +21,80 @@
     }
 }
 
-
 @mixin carousel {
-    .carousel-card {
-        border: 1px solid rgb(67, 67, 165);
-        border-radius: 0 20px 0 20px;
+    width: 95%;
+    position: relative;
+    border: 1px solid #0098ff;
+    border-radius: 0 20px;
+    background: linear-gradient(148deg, #0198ff2e, #0000);
 
-        .title {
-            a {
-                color: $lightColor;
+    .title {
+        a {
+            color: $darkColor;
+            font-size: 20px;
+        }
+
+        span {
+            color: $grayColor;
+            font-size: $secondFontSize;
+        }
+    }
+
+    .new {
+        position: absolute;
+        top: 90px;
+        font-size: $secondFontSize;
+        color: $lightColor;
+        background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
+    }
+
+    .footer {
+        .price {
+            .newprice {
                 font-size: 22px;
+
+                sup {
+                    font-size: 12px;
+                }
             }
 
-            span {
+            .oldprice {
+                font-size: $secondFontSize;
                 color: $grayColor;
-                font-size: $firstFontSize - 1px;
             }
         }
 
-        .new {
-            color: $lightColor;
-            position: absolute;
-            top: 20%;
-            background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
-            font-size: $firstFontSize - 1px;
-        }
-
-        .footer {
-            background: transparent;
-
-            .price {
-                color: transparent;
-
-                .newprice {
-                    font-size: 25px;
-                    color: $lightColor;
-
-                    sup {
-                        font-size: 13px;
-                    }
-                }
-
-                .oldprice {
-                    font-size: $firstFontSize;
-                    color: $lightColor;
-                }
-            }
-
-            a {
-                padding: 7px 30px !important;
-                @include button;
-                background: $linearColor;
-                border: none;
-
-                &:hover {
-                    border: 1px solid $grayColor;
-                    background: transparent;
-                }
-            }
-        }
-
-        .action {
-            position: absolute;
-            top: 42%;
-            left: 32%;
-            color: $lightColor;
-            border-radius: 0 15px 0 15px;
+        a {
+            @include button;
             background: $linearColor;
-            opacity: 0;
-            transition: .6s;
+            padding: 7px 30px;
+            border: none;
+            font-size: $secondFontSize;
 
-            a {
-                color: $lightColor;
+            &:hover {
+                border: 1px solid $grayColor;
+                color: $grayColor;
             }
         }
+    }
 
-        &:hover .action {
-            opacity: 1;
+    .action {
+        position: absolute;
+        top: 50%;
+        right: 31%;
+        border-radius: 0 12px;
+        color: $lightColor;
+        background: $linearColor;
+        opacity: 0;
+        transition: .6s;
+
+        a {
+            color: $lightColor;
         }
+    }
+
+    &:hover .action {
+        opacity: 1;
     }
 }
 

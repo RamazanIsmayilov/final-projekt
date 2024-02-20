@@ -151,14 +151,12 @@
 
 // ----- Slider section ----- //
 .slider {
-    width: 100%;
-    height: auto;
     background-color: $darkColor;
 
     .heading {
         h2 {
             color: $lightColor;
-            font-size: 41px;
+            font-size: 35px;
         }
 
         a {
@@ -175,8 +173,14 @@
     .carousel {
         @include carousel;
 
-        .carousel-card {
-            background: linear-gradient(148deg, #0198ff2e, #0000);
+        .title {
+            a {
+                color: $lightColor;
+            }
+        }
+
+        .newprice {
+            color: $lightColor;
         }
     }
 }
@@ -185,54 +189,52 @@
 
 // ----- Categories section ----- //
 .categories {
-    background-color: $darkColor;
-    position: relative;
-
     .heading {
+        @include heading;
 
         h2 {
-            @include heading;
+            color: $darkColor;
+            font-size: 35px;
+            width: 50%;
         }
+    }
 
-        .buttons {
-            position: absolute;
+    .buttons {
+        a {
+            width: 57%;
+            @include button;
+            color: $grayColor;
+            padding: 10px 33px;
+            font-size: 12px;
 
-            button {
-                padding: 10px 33px !important;
-                // background:  transparent !important;
-                @include button;
-            }
-
-            a {
-                opacity: 70%;
-                // color: $lightColor;
+            img {
+                filter: invert(.5);
             }
         }
     }
 
     .carousel {
         @include carousel;
-        position: absolute;
-        width: 100%;
+    }
+}
 
-        .carousel-card {
-            background: linear-gradient(148deg, #0198ff2e, #0000);
-            width: 280px;
+@media only screen and (max-width: 768px) {
 
-            .footer {
-                .price {
-                    .newprice {
-                        color: $darkColor;
-                    }
+    .categories {
+        .heading {
+            h2 {
+                width: 100%;
+            }
+        }
+    }
+}
 
-                    .oldprice {
-                        color: $darkColor;
-                    }
-                }
+@media only screen and (max-width: 576px) {
 
-                a:hover {
-                    background: $darkColor;
-                }
+    .categories {
+        .buttons {
+            a {
+                width: 100%;
             }
         }
     }
@@ -261,6 +263,7 @@
 
     .input-group {
         width: 75%;
+
         input {
             color: $grayColor;
             border: 1px solid $darkColor;
@@ -361,49 +364,15 @@
         }
     }
 
-    // .carousel {
-    //     @include carousel;
-
-    //     .carousel-card {
-    //         background: linear-gradient(148deg, #0198ff2e, #0000);
-    //         width: 290px;
-
-    //         .title {
-    //             a {
-    //                 color: $darkColor;
-    //             }
-    //         }
-
-    //         .footer {
-    //             .price {
-    //                 color: transparent;
-
-    //                 .newprice {
-    //                     font-size: 25px;
-    //                     color: $darkColor;
-    //                 }
-
-    //                 .oldprice {
-    //                     font-size: $firstFontSize;
-    //                     color: $darkColor;
-    //                 }
-    //             }
-
-    //             a {
-
-    //                 &:hover {
-    //                     color: $grayColor;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+    .carousel {
+        @include carousel;
+    }
 }
 
 @media only screen and (max-width: 992px) {
-    .products{
-        .heading{
-            p{
+    .products {
+        .heading {
+            p {
                 display: none;
             }
         }
