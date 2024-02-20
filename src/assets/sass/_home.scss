@@ -242,8 +242,6 @@
 
 // ----- Subscribe section ----- //
 .subscribe {
-    margin-top: 350px;
-
     span {
         font-size: $firstFontSize;
         background: $linearColor;
@@ -261,22 +259,37 @@
         font-size: $firstFontSize;
     }
 
-    input {
-        color: $grayColor;
-        border: 1px solid $darkColor;
-        border-radius: 0 15px;
-        outline: none;
+    .input-group {
+        width: 75%;
+        input {
+            color: $grayColor;
+            border: 1px solid $darkColor;
+            border-radius: 0 15px;
+            outline: none;
 
-        &::placeholder {
-            font-size: $firstFontSize - 1px;
+            &::placeholder {
+                font-size: $secondFontSize;
+            }
         }
     }
 
     button {
         background: $linearColor;
-        font-size: $firstFontSize - 1px;
+        font-size: $secondFontSize;
         color: $lightColor;
         border-radius: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .subscribe {
+        h2 {
+            font-size: 30px;
+        }
+
+        .input-group {
+            width: 100%;
+        }
     }
 }
 
@@ -320,7 +333,7 @@
 
 // ----- About-shop section ----- //
 
-// ----- About-shop section ----- //
+// ----- Products section ----- //
 .products {
     .heading {
         h2 {
@@ -348,48 +361,62 @@
         }
     }
 
-    .carousel {
-        @include carousel;
+    // .carousel {
+    //     @include carousel;
 
-        .carousel-card {
-            background: linear-gradient(148deg, #0198ff2e, #0000);
+    //     .carousel-card {
+    //         background: linear-gradient(148deg, #0198ff2e, #0000);
+    //         width: 290px;
 
-            .title {
-                a {
-                    color: $darkColor;
-                }
-            }
+    //         .title {
+    //             a {
+    //                 color: $darkColor;
+    //             }
+    //         }
 
-            .footer {
-                .price {
-                    color: transparent;
+    //         .footer {
+    //             .price {
+    //                 color: transparent;
 
-                    .newprice {
-                        font-size: 25px;
-                        color: $darkColor;
-                    }
+    //                 .newprice {
+    //                     font-size: 25px;
+    //                     color: $darkColor;
+    //                 }
 
-                    .oldprice {
-                        font-size: $firstFontSize;
-                        color: $darkColor;
-                    }
-                }
+    //                 .oldprice {
+    //                     font-size: $firstFontSize;
+    //                     color: $darkColor;
+    //                 }
+    //             }
+
+    //             a {
+
+    //                 &:hover {
+    //                     color: $grayColor;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+@media only screen and (max-width: 992px) {
+    .products{
+        .heading{
+            p{
+                display: none;
             }
         }
     }
 }
 
-
-
-
-// ----- About-shop section ----- //
-
+// ----- Products section ----- //
 
 // ----- Testimonials section ----- //
 .testimonials {
     .heading {
         h2 {
-            font-size: 41px;
+            font-size: 35px;
         }
     }
 
@@ -400,23 +427,23 @@
             background: linear-gradient(148deg, #0198ff2e, #0000);
 
             h3 {
-                font-size: 26px;
+                font-size: 24px;
             }
 
             p {
-                font-size: $firstFontSize;
+                font-size: $secondFontSize;
             }
 
             .content-bottom {
                 .info {
                     h6 {
-                        font-size: $firstFontSize;
+                        font-size: $secondFontSize;
                     }
                 }
 
                 .star {
                     span {
-                        font-size: 13px;
+                        font-size: $secondFontSize;
 
                         b {
                             color: #0098ff;
