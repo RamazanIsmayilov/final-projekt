@@ -1,7 +1,7 @@
 
 // ----- Header section ----- //
 header {
-    background: $backgroundColor;
+    background: $darkColor;
     border-bottom: 1px solid $grayColor;
 
     .navbar-left {
@@ -165,7 +165,7 @@ header {
 }
 
 .header-bottom {
-    background: $backgroundColor;
+    background: $darkColor;
     border-bottom: 1px solid $grayColor;
 
     .left {

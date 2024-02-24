@@ -1,0 +1,17 @@
+.productpage{
+    .heading{
+        background-color: $darkColor;
+        .icon{
+            color: $lightColor;
+        }
+        span{
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            color: $lightColor;
+        }
+
+        p{
+            color: #0098ff;
+        }
+    }
+}

@@ -1,13 +1,15 @@
 import React from 'react'
 import SingleCard from '../components/SingleCard';
-import Product from '../data/product.json'
 import Slider from "react-slick";
 import { NavLink } from 'react-router-dom';
 import '../assets/css/slick.css';
 import '../assets/css/slick-theme.css';
+import { ProductContext } from '../context/ProductContext';
+import { useContext } from 'react'
 
 
 const Home = () => {
+  const [productdata] = useContext(ProductContext);
 
   const centerMode = {
     dots: true,
@@ -68,7 +70,7 @@ const Home = () => {
   const unevenSetsInfinite = {
     dots: true,
     infinite: true,
-    slidesToShow: 3, 
+    slidesToShow: 3,
     speed: 500,
     responsive: [
       {
@@ -183,11 +185,11 @@ const Home = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     speed: 5000,
     autoplaySpeed: 3000,
     cssEase: "linear",
-    spaceBetween: 50,
+    spaceBetween: 0,
     responsive: [
       {
         breakpoint: 1024,
@@ -305,7 +307,7 @@ const Home = () => {
         </div>
         <div className="slider-container mx-2">
           <Slider {...centerMode}>
-            {Product.slice(1, 8).map(item => (
+            {productdata.slice(1, 8).map(item => (
               <SingleCard
                 id={item.id}
                 title={item.title}
@@ -345,7 +347,7 @@ const Home = () => {
             <div className="col-12 col-sm-12 col-md-7 col-lg-8">
               <div className="slider-container">
                 <Slider {...unevenSetsInfinite}>
-                  {Product.map(item => (
+                  {productdata.map(item => (
                     <SingleCard
                       id={item.id}
                       title={item.title}
@@ -442,7 +444,7 @@ const Home = () => {
           </div>
           <div className="slider-container">
             <Slider {...multipleitems}>
-              {Product.slice(8, 16).map(item => (
+              {productdata.slice(8, 16).map(item => (
                 <SingleCard
                   id={item.id}
                   title={item.title}
