@@ -1,17 +1,30 @@
-.productpage{
-    .heading{
+.productpage {
+    .heading {
         background-color: $darkColor;
-        .icon{
+
+        .icon {
             color: $lightColor;
         }
-        span{
+
+        span {
             font-size: $firstFontSize;
             letter-spacing: .6px;
             color: $lightColor;
         }
 
-        p{
+        p {
             color: #0098ff;
         }
     }
+
+    .products {
+        .filter {
+            font-size: $firstFontSize;
+
+            a {
+                @include link;
+            }
+        }
+    }
+
 }

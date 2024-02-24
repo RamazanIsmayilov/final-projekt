@@ -5,12 +5,15 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import './assets/sass/style.scss'
 import App from './App';
 import { ProductProvider } from './context/ProductContext';
+import { CartProvider } from 'react-use-cart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProductProvider>
-      <App />
-    </ProductProvider>
+    <CartProvider>
+      <ProductProvider>
+        <App />
+      </ProductProvider>
+    </CartProvider>
   </React.StrictMode>
 );
