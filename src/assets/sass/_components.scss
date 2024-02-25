@@ -1,4 +1,3 @@
-
 // ----- Header section ----- //
 header {
     background: $darkColor;
@@ -50,8 +49,58 @@ header {
     .navbar-right {
         position: relative;
 
+        .search {
+            button {
+                background-color: $darkColor;
+                font-size: 20px;
+            }
+
+            .modal-content {
+                .modal-title {
+                    color: $darkColor;
+                    font-size: 24px;
+                }
+
+                .btn-close {
+                    background-color: $lightColor;
+                }
+
+                .list-group{
+                    height: 66vh;
+                    overflow: auto;
+                }
+
+                .list-group-item {
+                    .content {
+                        h5 {
+                            color: $grayColor;
+                        }
+
+                        .description {
+                            color: $grayColor;
+                            font-size: 11px;
+                        }
+
+                        .type i {
+                            color: $grayColor;
+                            font-size: 11px;
+                        }
+
+                        .price {
+                            color: $grayColor;
+
+                            sup {
+                                color: $grayColor;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         .cart {
-            font-size: 14px;
+            font-size: $firstFontSize;
         }
 
         .dropdown {
@@ -62,7 +111,7 @@ header {
 
             a {
                 color: $darkColor;
-                font-size: 14px;
+                font-size: $firstFontSize;
 
                 &:hover {
                     border-bottom: 1px solid $darkColor;
@@ -72,7 +121,7 @@ header {
 
         .one {
             position: absolute;
-            left: -90px;
+            left: -30px;
         }
 
         .two {
@@ -164,59 +213,6 @@ header {
     }
 }
 
-.header-bottom {
-    background: $darkColor;
-    border-bottom: 1px solid $grayColor;
-
-    .left {
-        a {
-            color: $lightColor;
-            font-size: 14px;
-            letter-spacing: 1px;
-
-            span {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    .search {
-        .input-group {
-            input {
-                width: 350px;
-                outline: none;
-                border: 1px solid $grayColor;
-                color: $grayColor;
-                border-radius: 0 20px 0 20px;
-                background: none;
-                border-left: none;
-
-                &::placeholder {
-                    font-size: 13px;
-                }
-            }
-
-            span {
-                border-radius: 0 20px 0 20px;
-                background: none;
-                border: 1px solid $grayColor;
-                border-right: none;
-
-                i {
-                    color: $grayColor;
-                }
-            }
-
-        }
-    }
-
-    .right {
-        a {
-            color: $lightColor;
-            font-size: $firstFontSize;
-        }
-    }
-}
 
 @media(max-width:992px) {
     header nav .navbar-left {
@@ -236,21 +232,14 @@ header {
     header nav .navbar-right {
         display: none !important;
     }
-
-    .header-bottom {
-        visibility: hidden !important;
-    }
 }
 
 @media(max-width:768px) {
     header nav .navbar-right .cart {
         display: none !important;
     }
-
-    .header-bottom {
-        display: none;
-    }
 }
+
 // ----- Header section ----- //
 
 // ----- Footer section ----- //
@@ -322,4 +311,5 @@ footer {
         font-size: $firstFontSize;
     }
 }
+
 // ----- Footer section ----- //

@@ -1,17 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { IoArrowBackCircleOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
-import { ProductContext } from '../context/ProductContext';
 
 
 const Cart = () => {
-  const [productdata] = useContext(ProductContext);
-
 
   const {
     isEmpty,
-    emptyCart,
     items,
     updateItemQuantity,
     removeItem,

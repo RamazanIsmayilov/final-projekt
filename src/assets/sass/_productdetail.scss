@@ -1,42 +1,28 @@
-.productdetail {
-    .img-fluid {
-        border: 2px solid;
-        border-image: linear-gradient(to left, #0098ff 50%, #7b35c8) 1;
-        padding: 20px;
-    }
+.productdetails {
+    background: $darkColor;
 
-    h1 {
-        font-size: 40px;
-    }
+    .heading {
+        border-bottom: 1px solid $grayColor;
+        background-color: $darkColor;
 
-    .description {
-        font-size: $firstFontSize;
-        color: $grayColor;
-    }
-
-    .price {
-        .newprice {
-            font-size: 25px;
+        .icon {
+            color: $lightColor;
         }
 
-        .oldprice {
-            color: $grayColor;
-            text-decoration: line-through;
+        span {
+            font-size: $secondFontSize;
+            letter-spacing: .6px;
+            color: $lightColor;
         }
+
     }
 
-    .backbtn {
-        @include button;
-        color: $grayColor;
-    }
-
-    .cartbtn {
-        @include button;
-        color: $lightColor;
-        background: $linearColor;
-
-        &:hover {
-            background: $linearColor;
+    .details {
+        .image {
+            img {
+                border: 1px solid;
+                border-image: linear-gradient(to left, #0098ff 50%, #7b35c8) 1;
+            }
         }
     }
 }

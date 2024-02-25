@@ -15,7 +15,7 @@ const Product = () => {
         <div className="heading p-5">
           <div className="container d-flex flex-column gap-4">
             <Link to="/" className='d-flex align-items-center gap-3'>
-              <IoArrowBackCircleOutline className='icon fs-1' />
+              <IoArrowBackCircleOutline className='icon fs-3' />
               <span>Back to home</span>
             </Link>
             <p className='fs-1 fw-bold'>Products</p>
