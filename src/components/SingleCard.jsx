@@ -1,9 +1,26 @@
 import React from 'react'
 import { useCart } from 'react-use-cart';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import '../assets/css/ReactToastify.css';
+import { Link } from 'react-router-dom';
+import slugify from 'react-slugify';
 
 const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
+
+
+    const notify = () => toast.success('Item added to your cart', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
 
     return (
         <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -21,7 +38,12 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
                         <div className="newprice">{price}<sup>USD</sup></div>
                         <div className="oldprice text-decoration-line-through ">{oldprice}<sup>USD</sup></div>
                     </div>
-                    <button onClick={() => addItem(alldata)} >Add to Cart</button>
+                    <Link className='detailbtn' to={`/products/${slugify(title)}`}>View Details</Link>
+                    <button onClick={() => {
+                        addItem(alldata)
+                        notify()
+                    }} >Add to Cart</button>
+                    <ToastContainer />
                 </div>
                 <div className="action px-3 py-1 d-flex gap-2">
                     <a href="/"><i className="fa-regular fa-heart"></i></a>

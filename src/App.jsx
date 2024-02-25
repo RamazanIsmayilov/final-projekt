@@ -7,6 +7,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
+import ProductDetails from './pages/ProductDetails'  
 import Blog from './pages/Blog'
 import ArticleBlog from './pages/ArticleBlog'
 import Login from './pages/Login'
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/products' element={<Product />}></Route>
+        <Route path='/products/:slug' element={<ProductDetails />}></Route>
         <Route path='/blog' element={<Blog />}></Route>
         <Route path='/articleblog' element={<ArticleBlog />}></Route>
         <Route path='/login' element={<Login />}></Route>

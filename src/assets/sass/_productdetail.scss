@@ -1,0 +1,42 @@
+.productdetail {
+    .img-fluid {
+        border: 2px solid;
+        border-image: linear-gradient(to left, #0098ff 50%, #7b35c8) 1;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .description {
+        font-size: $firstFontSize;
+        color: $grayColor;
+    }
+
+    .price {
+        .newprice {
+            font-size: 25px;
+        }
+
+        .oldprice {
+            color: $grayColor;
+            text-decoration: line-through;
+        }
+    }
+
+    .backbtn {
+        @include button;
+        color: $grayColor;
+    }
+
+    .cartbtn {
+        @include button;
+        color: $lightColor;
+        background: $linearColor;
+
+        &:hover {
+            background: $linearColor;
+        }
+    }
+}

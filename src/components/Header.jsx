@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCart } from 'react-use-cart';
 
 const Header = () => {
+
+  const { totalItems } = useCart();
+
 
   return (
 
@@ -76,7 +80,7 @@ const Header = () => {
               </div>
               <Link to='/cart' className="btn position-relative">
                 <i className="fa-solid fa-cart-shopping" />
-                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-primary">0</span>
+                <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-primary">{ totalItems }</span>
               </Link>
             </div>
           <div className="menu">

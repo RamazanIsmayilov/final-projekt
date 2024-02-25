@@ -11,4 +11,81 @@
             color: $darkColor;
         }
     }
+
+    table {
+
+        thead tr {
+            th {
+                font-size: $firstFontSize;
+                color: $grayColor;
+            }
+
+        }
+
+        tbody tr {
+            td {
+                font-size: $firstFontSize;
+                color: $grayColor;
+            }
+
+            .quantity {
+                border: 1px solid rgb(76 62 62 / 15%);
+                max-width: 100px;
+                height: 30px;
+
+                button {
+                    background: transparent;
+
+                    svg path {
+                        fill: $grayColor;
+                    }
+                }
+            }
+
+            .total {
+                button {
+                    background: transparent;
+
+                    svg path {
+                        fill: red;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .border {
+        border-radius: 0 20px;
+        padding: 30px 15px;
+
+        h3 {
+            font-size: 26px;
+            color: $grayColor;
+        }
+
+        span {
+            font-size: 20px;
+            @include textLinear;
+        }
+
+        p {
+            font-size: $firstFontSize;
+            width: 95%;
+            color: $grayColor;
+        }
+
+        a {
+            @include button;
+            background: $linearColor;
+            border: none;
+            padding: 10px 40px;
+            transition: .6s;
+
+            &:hover {
+                color: $grayColor;
+                border: 1px solid $grayColor;
+            }
+        }
+    }
 }

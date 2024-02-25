@@ -64,12 +64,28 @@
             }
         }
 
-        a {
+        .detailbtn{
+            border: 1px solid $grayColor;
+            border-radius: 0 15px;
+            padding: 7px 10px;
+            color: $grayColor;
+            font-size: 11px;
+
+
+            &:hover{
+                background: $linearColor;
+                color: $lightColor;
+                border: none;
+            }
+
+        }
+
+        button {
             @include button;
             background: $linearColor;
-            padding: 7px 30px;
+            padding: 7px 20px;
             border: none;
-            font-size: $secondFontSize;
+            font-size: 11px;
 
             &:hover {
                 border: 1px solid $grayColor;
