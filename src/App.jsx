@@ -15,6 +15,7 @@ import CreateAccount from './pages/CreateAccount'
 import Wishlist from './pages/Wishlist'
 import Compare from './pages/Compare'
 import Cart from './pages/Cart'
+import ForgotPassword from './pages/ForgotPassword'
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/articleblog' element={<ArticleBlog />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/createaccount' element={<CreateAccount />}></Route>
+        <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
         <Route path='/wishlist' element={<Wishlist />}></Route>
         <Route path='/compare' element={<Compare />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
