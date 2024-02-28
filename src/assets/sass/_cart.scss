@@ -75,7 +75,7 @@
             color: $grayColor;
         }
 
-        a {
+        button {
             @include button;
             background: $linearColor;
             border: none;

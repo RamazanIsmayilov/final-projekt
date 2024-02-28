@@ -65,7 +65,7 @@ header {
                     background-color: $lightColor;
                 }
 
-                .list-group{
+                .list-group {
                     height: 66vh;
                     overflow: auto;
                 }
@@ -121,12 +121,12 @@ header {
 
         .one {
             position: absolute;
-            left: -30px;
+            left: -50px;
         }
 
         .two {
             position: absolute;
-            left: -10px;
+            left: -100px;
         }
 
         li:hover .dropdown {
@@ -212,7 +212,6 @@ header {
         }
     }
 }
-
 
 @media(max-width:992px) {
     header nav .navbar-left {

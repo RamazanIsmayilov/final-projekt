@@ -1,26 +1,13 @@
 import React from 'react'
 import { useCart } from 'react-use-cart';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
-import '../assets/css/ReactToastify.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
+// import '../assets/css/ReactToastify.css'
 
 const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
-
-
-    const notify = () => toast.success('Item added to your cart', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-    });
+    const navigate = useNavigate()
 
     return (
         <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -31,7 +18,7 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
                 </div>
                 <span className='new mx-3 px-2 rounded'>{neew}</span>
                 <a href="/" className='d-flex align-items-center justify-content-center'>
-                    <img src={image} alt="image" />
+                    <img src={image} alt="" />
                 </a>
                 <div className="footer d-flex align-items-center justify-content-between mx-3">
                     <div className="price fw-bold">
@@ -39,11 +26,8 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
                         <div className="oldprice text-decoration-line-through ">{oldprice}<sup>USD</sup></div>
                     </div>
                     <Link className='detailbtn' to={`/products/${slugify(title)}`}>View Details</Link>
-                    <button onClick={() => {
-                        addItem(alldata)
-                        notify()
-                    }} >Add to Cart</button>
-                    <ToastContainer />
+                    <button onClick={() => 
+                        { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login")}} >Add to Cart</button>
                 </div>
                 <div className="action px-3 py-1 d-flex gap-2">
                     <a href="/"><i className="fa-regular fa-heart"></i></a>

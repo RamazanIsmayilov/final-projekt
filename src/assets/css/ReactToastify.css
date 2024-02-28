@@ -270,6 +270,7 @@
   }
   
   .Toastify__close-button {
+    background-color: red !important;
     color: #000 !important;
     background: transparent !important;
     outline: none;
