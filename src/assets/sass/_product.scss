@@ -2,14 +2,24 @@
     .heading {
         background-color: $darkColor;
 
-        .icon {
-            color: $lightColor;
-        }
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
 
-        span {
-            font-size: $secondFontSize;
-            letter-spacing: .6px;
-            color: $lightColor;
+                svg path{
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
         }
 
         p {

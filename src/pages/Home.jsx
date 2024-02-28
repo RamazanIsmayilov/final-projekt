@@ -1,5 +1,5 @@
 import React from 'react'
-import SingleCard from '../components/SingleCard';
+import SliderCard from '../components/SliderCart';
 import Slider from "react-slick";
 import { NavLink } from 'react-router-dom';
 import '../assets/css/slick.css';
@@ -306,9 +306,10 @@ const Home = () => {
           </div>
         </div>
         <div className="slider-container mx-2">
+          <div className="row">
           <Slider {...centerMode}>
             {productdata.slice(1, 8).map(item => (
-              <SingleCard
+              <SliderCard
                 id={item.id}
                 title={item.title}
                 type={item.type}
@@ -319,6 +320,7 @@ const Home = () => {
               />
             ))}
           </Slider>
+          </div>
         </div>
       </div>
 
@@ -331,15 +333,15 @@ const Home = () => {
               </div>
               <div className="buttons d-flex flex-column gap-3 mt-5">
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/1_4e117171-0b63-4d80-b3fa-1ebc70c0f76e_18x17.png?v=1671615056" />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/1_4e117171-0b63-4d80-b3fa-1ebc70c0f76e_18x17.png?v=1671615056" alt='' />
                   <span className='fw-bold'>Gaming peripherals</span>
                 </NavLink>
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/2_226ba59a-8c4d-48fd-9928-e32ed3555f5b_18x17.png?v=1671615074" />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/2_226ba59a-8c4d-48fd-9928-e32ed3555f5b_18x17.png?v=1671615074" alt='' />
                   <span className='fw-bold'>Speakers & Headphones</span>
                 </NavLink>
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/3_ae3d1802-51fa-4ec7-9b73-1279de22395f_18x17.png?v=1671615083" />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/3_ae3d1802-51fa-4ec7-9b73-1279de22395f_18x17.png?v=1671615083" alt='' />
                   <span className='fw-bold'>Power Supplies</span>
                 </NavLink>
               </div>
@@ -348,7 +350,7 @@ const Home = () => {
               <div className="slider-container">
                 <Slider {...unevenSetsInfinite}>
                   {productdata.map(item => (
-                    <SingleCard
+                    <SliderCard
                       id={item.id}
                       title={item.title}
                       type={item.type}
@@ -445,7 +447,7 @@ const Home = () => {
           <div className="slider-container">
             <Slider {...multipleitems}>
               {productdata.slice(8, 16).map(item => (
-                <SingleCard
+                <SliderCard
                   id={item.id}
                   title={item.title}
                   type={item.type}
@@ -469,7 +471,7 @@ const Home = () => {
             <Slider {...autoplay}>
               <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791" />
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>Escaping Reality!</h3>
@@ -477,11 +479,11 @@ const Home = () => {
                     always loved the sense of escape and adventure sd that it <br /> provides.</p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />
                       <h6 className='mt-2'><b className='fw-bold'>Sarah Johnson,</b> <br /> Client</h6>
                     </div>
                     <div className="star d-flex align-items-center gap-2 flex-wrap">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" alt='' />
                       <span><b>4.5 </b>/ 5.0</span>
                     </div>
                   </div>
@@ -489,7 +491,7 @@ const Home = () => {
               </div>
               <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" />
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>One Level Time!</h3>
@@ -498,11 +500,11 @@ const Home = () => {
                     develop.</p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />
                       <h6 className='mt-2'><b className='fw-bold'>Alex Thompson,</b> <br /> Client</h6>
                     </div>
                     <div className="star d-flex align-items-center gap-2 flex-wrap">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" alt='' />
                       <span><b>4.5 </b>/ 5.0</span>
                     </div>
                   </div>
@@ -510,7 +512,7 @@ const Home = () => {
               </div>
               <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" />
+                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>Gamer's Journey!</h3>
@@ -518,11 +520,11 @@ const Home = () => {
                     and  I'm so glad that I'm able to share my love of gaming with <br /> others.</p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />
                       <h6 className='mt-2'><b className='fw-bold'>David Rodriguez,</b> <br /> Client</h6>
                     </div>
                     <div className="star d-flex align-items-center gap-2 flex-wrap">
-                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" />
+                      <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/star.png?v=1670905123" alt='' />
                       <span><b>4.5 </b>/ 5.0</span>
                     </div>
                   </div>

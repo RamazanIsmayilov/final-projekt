@@ -1,14 +1,24 @@
 .cartpage {
     .heading {
 
-        .icon {
-            color: $darkColor;
-        }
+        a {
+            .svg-ic {
+                color: $darkColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
 
-        span {
-            font-size: $firstFontSize;
-            letter-spacing: .6px;
-            color: $darkColor;
+                svg path{
+                    fill: $darkColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                color: $darkColor;
+            }
         }
     }
 

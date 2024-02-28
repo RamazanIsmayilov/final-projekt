@@ -2,27 +2,131 @@
     background: $darkColor;
 
     .heading {
-        border-bottom: 1px solid $grayColor;
         background-color: $darkColor;
 
-        .icon {
+        a {
+            .svg-ic {
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+    }
+
+    .head {
+        .brand {
+            background: $linearColor;
             color: $lightColor;
+            font-size: $firstFontSize;
+            padding: 3px 10px;
         }
 
-        span {
-            font-size: $secondFontSize;
-            letter-spacing: .6px;
+        .wishlist {
+            .icon {
+                font-size: 30px;
+                color: $lightColor;
+            }
+
+            span {
+                color: $grayColor;
+                font-size: $firstFontSize;
+            }
+        }
+    }
+
+    .stars {
+        i {
             color: $lightColor;
         }
+    }
 
+    .title {
+        color: $lightColor;
+        font-size: 41px;
+    }
+
+    .type {
+        color: $grayColor;
+        font-size: $firstFontSize;
+    }
+
+    .description {
+        color: $grayColor;
+        font-size: $firstFontSize;
+        width: 70%;
+    }
+
+    .content {
+        color: $grayColor;
+
+        .price {
+            color: $lightColor;
+
+            h3 {
+                font-size: 30px;
+            }
+
+            sup {
+                font-size: 19px;
+            }
+        }
+
+        .quantity {
+            p {
+                font-size: $firstFontSize;
+                letter-spacing: .9px;
+            }
+
+            .buttons {
+                border: 1px solid;
+                border-radius: 0 10px;
+
+                button {
+                    background: transparent;
+
+                    svg path {
+                        fill: $grayColor;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .bottom {
+        button {
+            @include button;
+            background: $linearColor;
+            padding: 7px 30px;
+            border: 0;
+
+            &:hover {
+                background: transparent;
+                border: 1px solid;
+            }
+        }
     }
 
     .details {
         .image {
             img {
+                padding: 50px;
                 border: 1px solid;
                 border-image: linear-gradient(to left, #0098ff 50%, #7b35c8) 1;
             }
         }
+    }
+}
+
+@media(max-width: 992px) {
+    .productdetails .description {
+        width: 100%;
     }
 }

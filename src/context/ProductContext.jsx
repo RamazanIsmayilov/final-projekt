@@ -7,7 +7,7 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
     const [productdata, setProductdata] = useState([]);
     useEffect(() => {
-        axios.get("https://mocki.io/v1/8d522d31-27ea-4fa9-9d4f-e41f8308ccff")
+        axios.get("https://mocki.io/v1/c059f46c-450f-4cd3-a1f1-985aa8aac9e6")
             .then(res => setProductdata(res.data));
     }, [])
 
