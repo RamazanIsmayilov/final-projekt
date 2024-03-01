@@ -31,9 +31,6 @@ const Login = () => {
     }
   }
 
-
-
-
   return (
     <div className="login d-flex align-items-center justify-content-center mb-5">
       <div className="container">

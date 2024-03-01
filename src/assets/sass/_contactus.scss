@@ -1,0 +1,112 @@
+.contactus {
+    .heading {
+        background-color: $darkColor;
+
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+
+        h5 {
+            color: #0098ff;
+        }
+
+        p {
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            line-height: 23px;
+            color: $lightColor;
+            width: 40%;
+        }
+    }
+
+    .contact {
+        .content {
+            h4 {
+                color: $grayColor;
+                font-size: 16px;
+            }
+
+            span {
+                color: $grayColor;
+                font-size: 15px;
+            }
+
+            a {
+                color: $grayColor;
+            }
+        }
+
+        .contact-form {
+            top: 200px;
+
+            .title {
+                color: #0098ff;
+                font-size: 41px;
+            }
+
+            form {
+                box-shadow: 0px 0px 71px 4px rgba(204, 204, 204, 0.71);
+                border: 2px solid #0098ff;
+
+                label {
+                    color: $grayColor;
+                    font-size: $firstFontSize;
+                }
+
+                input,
+                textarea {
+                    color: $grayColor;
+                    border: 1px solid #cccccc;
+                    border-radius: 0 20px;
+                    padding: 12px 20px;
+                    outline: none;
+
+                    &::placeholder {
+                        font-size: $firstFontSize;
+                    }
+                }
+
+                button {
+                    @include button;
+                    background: $linearColor;
+                    border: none;
+
+                    &:hover {
+                        background: $linearColor;
+                    }
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .contactus {
+        .heading {
+            p {
+                width: 100%;
+            }
+        }
+    }
+}
