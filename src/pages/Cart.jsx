@@ -14,7 +14,7 @@ const Cart = () => {
   } = useCart();
 
   return (
-    <div className='cartpage'>
+    <div className='cartpage mb-5'>
       <div className="container">
         <div className="heading py-5">
           <Link to="/products" className='d-flex align-items-center gap-3'>

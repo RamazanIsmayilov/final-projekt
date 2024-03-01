@@ -12,13 +12,13 @@ const ProductDetails = ({ alldata }) => {
     const productDetails = product.filter(p => slugify(p.title) === slug);
     const { addItem } = useCart();
     const navigate = useNavigate();
-    const {
-        isEmpty,
-        items,
-        updateItemQuantity,
-        removeItem,
-        cartTotal,
-    } = useCart();
+    // const {
+    //     isEmpty,
+    //     items,
+    //     updateItemQuantity,
+    //     removeItem,
+    //     cartTotal,
+    // } = useCart();
 
     return (
         <div className='productdetails py-5'>

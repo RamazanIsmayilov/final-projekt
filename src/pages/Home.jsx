@@ -462,7 +462,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="testimonials mt-5">
+      <div className="testimonials my-5">
         <div className="container">
           <div className="heading">
             <h2 className='fw-bold'>Testimonials</h2>

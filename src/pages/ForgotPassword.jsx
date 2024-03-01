@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ForgotPassword = () => {
   return (
-    <div className="login d-flex align-items-center justify-content-center">
+    <div className="login d-flex align-items-center justify-content-center my-5">
       <div className="container">
         <div className="heading d-flex align-items-center justify-content-center mt-5">
           <h2 className='fw-bold'>Reset your password</h2>

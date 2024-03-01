@@ -35,7 +35,7 @@ const Login = () => {
 
 
   return (
-    <div className="login d-flex align-items-center justify-content-center">
+    <div className="login d-flex align-items-center justify-content-center mb-5">
       <div className="container">
         <div className="heading d-flex align-items-center justify-content-center mt-5">
           <h2 className='fw-bold'>Log In</h2>

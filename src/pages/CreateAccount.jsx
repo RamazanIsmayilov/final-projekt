@@ -39,7 +39,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="createaccount d-flex align-items-center justify-content-center">
+    <div className="createaccount d-flex align-items-center justify-content-center mb-5">
       <div className="container">
         <div className="heading d-flex align-items-center justify-content-center mt-5">
           <h2 className='fw-bold'>Register</h2>

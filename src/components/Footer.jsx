@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <div className="footers">
         <div className="container">
-          <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5 g-4">
+          <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 g-4">
             <div className="left col-12 col-sm-6 col-md-6 col-lg-5">
               <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
                 <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/logo.png?v=1670901413" alt="logo" />
