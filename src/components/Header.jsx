@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext, useRef, useState } from 'react'
+import { Form, Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { FaSearch } from "react-icons/fa";
 import { ProductContext } from '../context/ProductContext';
 import slugify from 'react-slugify';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { InputGroup, ListGroup } from 'react-bootstrap';
 
 const Header = () => {
 
@@ -13,6 +16,19 @@ const Header = () => {
   const [query, setQuery] = useState(null);
   const navigate = useNavigate();
 
+  const menu = useRef();
+  const openMenu = () => {
+    menu.current.classList.add('open');
+  }
+
+  const closeMenu = () => {
+    menu.current.classList.remove('open');
+  }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
@@ -20,9 +36,10 @@ const Header = () => {
         <div className="container">
           <nav className="navbar">
             <ul className="navbar-left d-flex gap-4 mt-3">
-              <li><Link className="title fw-medium" to="/">Gaming Accessories</Link>
-                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" />
-                <ul className="dropdown one d-flex flex-column gap-2 mt-4">
+              <li>
+                <Link className="title fw-bold d-flex align-items-center gap-2" to="/">Gaming Accessories
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
+                <ul className="dropdown one d-flex flex-column gap-2">
                   <li><Link to="/">Game Console</Link></li>
                   <li><Link to="/">Game Remote</Link></li>
                   <li><Link to="/">Gaming Cards</Link></li>
@@ -31,9 +48,9 @@ const Header = () => {
                   <li><Link to="/">Gaming PCs</Link></li>
                 </ul>
               </li>
-              <li><a className="title fw-medium" href="/">Pages</a>
-                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" />
-                <ul className="dropdown two d-flex flex-column gap-2 mt-4">
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/">Pages
+                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
+                <ul className="dropdown two d-flex flex-column gap-2">
                   <li><Link to="/about">About Us</Link></li>
                   <li><Link to="contact">Contact with us</Link></li>
                   <li><Link to="/products">Products</Link></li>
@@ -41,9 +58,9 @@ const Header = () => {
                   <li><Link to="/compare">Compare</Link></li>
                 </ul>
               </li>
-              <li><a className="title fw-medium" href="/blog">Blog Page</a>
-                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" />
-                <ul className="dropdown three d-flex flex-column gap-2 mt-4">
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/">Blog
+                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
+                <ul className="dropdown three d-flex flex-column gap-2">
                   <li><Link to="/blog">Blog Page</Link></li>
                   <li><Link to="/articleblog">Article Page</Link></li>
                 </ul>
@@ -56,7 +73,36 @@ const Header = () => {
             </div>
             <div className="navbar-right d-flex align-items-center">
               <div className="search">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <Button variant="border-dark" onClick={handleShow}><FaSearch /></Button>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Search Area</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <InputGroup className="mb-3">
+                      <input onChange={e => setQuery(e.target.value)} className='form-control' placeholder="Search products" />
+                      <Button variant="outline-secondary" id="button-addon2">Search</Button>
+                    </InputGroup>
+                    <ListGroup>
+                      {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
+                        <Link to={`/products/${slugify(item.title)}`}>
+                          <li className="list-group-item d-flex align-items-center gap-2" onClick={() => { setShow(false) }}>
+                            <div className="image">
+                              <img width={100} src={item.image} alt='' />
+                            </div>
+                            <div className="content">
+                              <h5>{item.title.slice(0, 19)}...</h5>
+                              <span className='description'>{item.description.slice(0, 100)}...</span>
+                              <p className='type'><i>{item.brand}</i></p>
+                              <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
+                            </div>
+                          </li>
+                        </Link>
+                      ))}
+                    </ListGroup>
+                  </Modal.Body>
+                </Modal>
+                {/* <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <FaSearch />
                 </button>
                 <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -73,7 +119,6 @@ const Header = () => {
                           <button className="btn" type="button" id="button-addon2">Search</button>
                         </div>
                         <ul className="list-group">
-                          {/* query.length === 0 ? "" : */}
                           {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
                             <Link to={`/products/${slugify(item.title)}`}>
                               <li className="list-group-item d-flex align-items-center gap-2">
@@ -86,7 +131,6 @@ const Header = () => {
                                   <p className='type'><i>{item.type}</i></p>
                                   <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
                                 </div>
-
                               </li>
                             </Link>
                           ))}
@@ -94,13 +138,13 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
-              <ul className="mt-3 d-flex align-items-center  gap-3">
+              <ul className="d-flex align-items-center gap-3 m-3 p-0">
                 <div className="admin d-flex align-items-center">
                   {localStorage.getItem('login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
                     <p className='my-1'>👋 Hello, {localStorage.getItem("firstName")}</p>
-                    <button style={{ height: "35px" }} className='btn btn-danger mx-2 d-flex align-items-center' onClick={() => {
+                    <button style={{ height: "35px" }} className='logoutbtn d-flex align-items-center justify-content-center ms-2' onClick={() => {
                       localStorage.setItem("login", 'false');
                       window.location.assign('/login');
                     }}>Log out</button>
@@ -110,7 +154,7 @@ const Header = () => {
                       <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
                     </svg>
                   </a>
-                    <ul className="dropdown one mt-4">
+                    <ul className="dropdown one">
                       <li><Link to="/login">Log in</Link></li>
                       <li><Link to="/createaccount">Create Account</Link></li>
                     </ul>
@@ -124,14 +168,14 @@ const Header = () => {
                       <path fillRule="evenodd" clipRule="evenodd" d="M10.062 5.95768C10.077 5.80693 10.0846 5.65404 10.0846 5.49935C10.0846 5.34466 10.077 5.19176 10.062 5.04102H0.940599C0.925632 5.19176 0.917969 5.34466 0.917969 5.49935C0.917969 5.65404 0.925632 5.80693 0.940599 5.95768H10.062Z" fill="white" />
                     </svg>
                   </a>
-                    <ul className="dropdown two mt-4">
+                    <ul className="dropdown two">
                       <li><a href="/">Azerbaijan</a></li>
                       <li><a href="/">English</a></li>
                     </ul>
                   </li>
                 </div>
               </ul>
-              <div className="cart d-flex flex-column fw-bold ms-3">
+              <div className="cart d-flex flex-column fw-bold">
                 <span>MyCart</span>
                 <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
               </div>
@@ -147,12 +191,12 @@ const Header = () => {
               </button>
             </div>
             <div className="menu">
-              <a className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></a>
-              <div className="offcanvas-menu">
+              <button onClick={openMenu} className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></button>
+              <div ref={menu} className="offcanvas-menu">
                 <div className="heading p-1">
-                  <a className="close-btn fs-3 mx-3" href="/">
+                  <button onClick={closeMenu} className="close-btn fs-3 mx-3" href="/">
                     <i className="fa-solid fa-xmark" />
-                  </a>
+                  </button>
                 </div>
                 <div className="body">
                   <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -187,6 +231,8 @@ const Header = () => {
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="contact">Contact with us</Link></li>
                             <li><Link to="/products">Products</Link></li>
+                            <li><Link to="/wishlist">Wishlist</Link></li>
+                            <li><Link to="/compare">Compare</Link></li>
                           </ul>
                         </div>
                       </div>
@@ -208,19 +254,25 @@ const Header = () => {
                     </div>
                     <div className="accordion-item">
                       <div className="action d-flex align-items-center gap-4">
-                        <ul className="mt-3 d-flex gap-4">
-                          <li><a className="title fw-medium" href="/">
-                            <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
-                              <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
-                            </svg>
-                          </a>
-                            <ul className="dropdown one mt-3">
-                              <li><Link to="/login">Log in</Link></li>
-                              <li><Link to="/createaccount">Create Account</Link></li>
-                              <li><Link to="/wishlist">Wishlist (0)</Link></li>
-                              <li><Link to="/compare">Compare (0)</Link></li>
-                            </ul>
+                        <ul className="mt-3 d-flex align-items-center flex-wrap gap-2 p-0 mx-2">
+                          <li className="admin d-flex align-items-center">
+                            {localStorage.getItem('login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
+                              <p className='my-1 p-0'>👋 Hello, {localStorage.getItem("firstName")}</p>
+                              <button style={{ height: "35px" }} className='logoutbtn d-flex align-items-center justify-content-center ms-2' onClick={() => {
+                                localStorage.setItem("login", 'false');
+                                window.location.assign('/login');
+                              }}>Log out</button>
+                            </div> : <li><a className="title fw-medium" href="/">
+                              <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
+                                <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
+                              </svg>
+                            </a>
+                              <ul className="dropdown one mt-4">
+                                <li><Link to="/login">Log in</Link></li>
+                                <li><Link to="/createaccount">Create Account</Link></li>
+                              </ul>
+                            </li>}
                           </li>
                           <li><a className="title fw-medium" href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 11 11" fill="none">
@@ -234,15 +286,23 @@ const Header = () => {
                               <li><a href="/">English</a></li>
                             </ul>
                           </li>
+                          <li className="cart d-flex flex-column fw-bold">
+                            <span>MyCart</span>
+                            <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
+                          </li>
+                          <li>
+                            <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative">
+                              <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="white"></path>
+                                <path fillRule="evenodd" clipRule="evenodd" d="M15.8346 15.834C15.8346 17.1457 14.7713 18.209 13.4596 18.209C12.148 18.209 11.0846 17.1457 11.0846 15.834C11.0846 14.5223 12.148 13.459 13.4596 13.459C14.7713 13.459 15.8346 14.5223 15.8346 15.834ZM14.2513 15.834C14.2513 16.2712 13.8969 16.6257 13.4596 16.6257C13.0224 16.6257 12.668 16.2712 12.668 15.834C12.668 15.3968 13.0224 15.0423 13.4596 15.0423C13.8969 15.0423 14.2513 15.3968 14.2513 15.834Z" fill="white"></path>
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.66578 2.01983C1.86132 1.62876 2.33685 1.47025 2.72792 1.66578L3.52236 2.06301C4.25803 2.43084 4.75101 3.15312 4.82547 3.97225L4.86335 4.38888C4.88188 4.59276 5.05283 4.74887 5.25756 4.74887H15.702C17.0838 4.74887 18.0403 6.12909 17.5551 7.42297L16.1671 11.1245C15.8195 12.0514 14.9333 12.6655 13.9433 12.6655H6.19479C4.96644 12.6655 3.94076 11.7289 3.82955 10.5056L3.24864 4.1156C3.22382 3.84255 3.05949 3.60179 2.81427 3.47918L2.01983 3.08196C1.62876 2.88643 1.47025 2.41089 1.66578 2.01983ZM5.47346 6.3322C5.2407 6.3322 5.05818 6.53207 5.07926 6.76388L5.40638 10.3622C5.44345 10.77 5.78534 11.0822 6.19479 11.0822H13.9433C14.2733 11.0822 14.5687 10.8775 14.6845 10.5685L16.0726 6.86702C16.1696 6.60825 15.9783 6.3322 15.702 6.3322H5.47346Z" fill="white"></path>
+                              </svg>
+                              <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-primary">
+                                {localStorage.getItem("login") === 'true' ? totalItems : "0"}
+                              </span>
+                            </button>
+                          </li>
                         </ul>
-                        <div className="cart d-flex flex-column fw-bold">
-                          <span>MyCart</span>
-                          <span>0.00USD</span>
-                        </div>
-                        <button type="button" className="btn position-relative">
-                          <i className="fa-solid fa-cart-shopping" />
-                          <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-primary">0</span>
-                        </button>
                       </div>
                     </div>
                   </div>

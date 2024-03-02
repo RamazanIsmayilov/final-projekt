@@ -64,7 +64,7 @@
             }
         }
 
-        .detailbtn{
+        .detailbtn {
             border: 1px solid $grayColor;
             border-radius: 0 15px;
             padding: 7px 10px;
@@ -72,7 +72,7 @@
             font-size: 11px;
 
 
-            &:hover{
+            &:hover {
                 background: $linearColor;
                 color: $lightColor;
                 border: none;
@@ -125,5 +125,23 @@
 
     &:hover {
         text-decoration: underline;
+    }
+}
+
+@mixin dropdown {
+    background-color: $lightColor;
+    padding: 20px ;
+    position: absolute;
+    visibility: hidden;
+    transition: .2s;
+    margin-top: 27px;
+
+    a {
+        color: $darkColor;
+        font-size: 14px;
+
+        &:hover {
+            border-bottom: 1px solid $darkColor;
+        }
     }
 }

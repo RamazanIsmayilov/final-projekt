@@ -307,19 +307,20 @@ const Home = () => {
         </div>
         <div className="slider-container mx-2">
           <div className="row">
-          <Slider {...centerMode}>
-            {productdata.slice(1, 8).map(item => (
-              <SliderCard
-                id={item.id}
-                title={item.title}
-                type={item.type}
-                neew={item.neew}
-                image={item.image}
-                price={item.price}
-                oldprice={item.oldprice}
-              />
-            ))}
-          </Slider>
+            <Slider {...centerMode}>
+              {productdata.slice(1, 8).map(item => (
+                <SliderCard key={item.id}
+                  
+                  id={item.id}
+                  title={item.title}
+                  type={item.type}
+                  neew={item.neew}
+                  image={item.image}
+                  price={item.price}
+                  oldprice={item.oldprice}
+                />
+              ))}
+            </Slider>
           </div>
         </div>
       </div>

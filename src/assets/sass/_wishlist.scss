@@ -1,0 +1,52 @@
+.wishlistpage{
+    .heading {
+        background-color: $darkColor;
+
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+
+        h5 {
+            color: #0098ff;
+        }
+
+        p {
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            line-height: 23px;
+            color: $lightColor;
+            width: 50%;
+        }
+    }
+
+    .wishlist{
+        .title h2{
+            font-size: 41px;
+        }
+
+        
+            table{
+                thead th{
+                    background-color: #cccccc;
+                    color: $grayColor;
+                }
+            }
+    }
+}
