@@ -4,16 +4,20 @@
         "title": "Alien ware Monitor T 46",
         "type": "Monitors",
         "brand": "Samsung",
+        "category": "Monitors & Cards",
         "neew": "New",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_4661881d-c8c7-4d3b-962e-038344e4ac81_306x203.png?v=1671451100",
         "description": "Exceptional Full HD IPS 21.5 Inch Ultra Thin Display : Enjoy immaculate image quality with 1920x1080 resolution and 178 degree wide viewing angles I Zero Frame Design.Connectivity Ports includes 1 x VGA Port, 1 x HDMI, 1 Audio-In Port, with Inbox HDMI and VGA Cable abc",
-        "price": 850.00
+        "price": 850.00,
+        "oldprice": 900.00
+
     },
     {
         "id": 2,
         "title": "Alienware Gameing Monitor T 45",
         "type": "Monitors",
         "brand": "Acer",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_1b6b9b1a-54f6-4df3-99ee-8d9362e873ba_306x203.png?v=1671450610",
         "description": "Exceptional Full HD IPS 21.5 Inch Ultra Thin Display : Enjoy immaculate image quality with 1920x1080 resolution and 178 degree wide viewing angles I Zero Frame Design.Connectivity Ports includes 1 x VGA Port, 1 x HDMI, 1 Audio-In Port, with Inbox HDMI and VGA Cable",
         "price": 560.00,
@@ -24,6 +28,7 @@
         "title": "Alienware Monitor D 152",
         "type": "Monitors",
         "brand": "LG",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/dfgg_306x203.png?v=1671450816",
         "description": "Exceptional Full HD IPS 21.5 Inch Ultra Thin Display : Enjoy immaculate image quality with 1920x1080 resolution and 178 degree wide viewing angles I Zero Frame Design.Connectivity Ports includes 1 x VGA Port, 1 x HDMI, 1 Audio-In Port, with Inbox HDMI and VGA Cable",
         "price": 752.00,
@@ -45,6 +50,7 @@
         "title": "Colossus Ergonomic Gaming Office Chair",
         "type": "Chair",
         "brand": "Kepler Brooks",
+        "category": "Gaming chairs",
         "neew": "New",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_50862e3f-4e56-4d7c-9220-04cde28aca6d_306x203.png?v=1671448019",
         "description": "ERGONOMICALLY DESIGNED FOR HARDCORE GAMING : From its unique contours and angled seat edges, to its fully adjustable recline, tilt, and height, the Dr Luxur Colossus supports a healthy sitting posture so you can game for hours in comfort",
@@ -70,13 +76,15 @@
         "category": "Power Supplies",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/gx6-back-1000-removebg-preview_306x203.png?v=1671451565",
         "description": "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",
-        "price": 468.00
+        "price": 468.00,
+        "oldprice": 520.00
     },
     {
         "id": 8,
         "title": "G-Series Curved VA Monitor",
         "type": "Monitors",
         "brand": "Lenova",
+        "category": "Monitors & Cards",
         "neew": "New",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_59d858e2-42a5-4b1e-8290-814441526d5d_306x203.png?v=1671450961",
         "description": "Lenovo Smart Artery Software: Self-learning software auto-adjusts display | Crosshair feature for FPS games | View Frame Rate and Timer | Create customized gaming modes.Eyesafe Certified Display | TUV Low Blue Light (Hardware solution) | TUV Rheinland Eye Comfort",
@@ -88,6 +96,7 @@
         "title": "Gaming Chair for Gamers with Lumbar",
         "type": "Chair",
         "brand": "Kepler Brooks",
+        "category": "Gaming chairs",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_9b8ef664-ed2d-4dce-bcb1-02b1a4dc555b_306x203.png?v=1671448341",
         "description": "Have back issues or don’t want to develop them? This adjustable office chair includes Cushion Foam Padded support and a recline feature that allows you to tilt the backrest back or sit straight. Now you can quickly find a position that makes your back feel the most comfortable!",
         "price": 560.00,
@@ -113,7 +122,8 @@
         "category": "Speakers & Headphones",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/hyperx_chargeplay_duo_xbox_2_angled_controller_900x-removebg-preview_306x203.png?v=1671445499",
         "description": "Bring gaming worlds to life Feel your in-game actions and environment simulated through haptic feedback Experience varying force and tension at your fingertips with adaptive triggers2. Chat online through the built-in microphone3, connect a headset directly via the 3.5mm jack, Switch voice capture on and off using the dedicated mute button, record broadcast.",
-        "price": 630.00
+        "price": 630.00,
+        "oldprice": 799.00
     },
     {
         "id": 12,
@@ -123,25 +133,30 @@
         "category": "Power Supplies",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/eco20-angle-glass-1000-removebg-preview_306x203.png?v=1671451684",
         "description": "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",
-        "price": 865.00
+        "price": 865.00,
+        "oldprice": 999.00
     },
     {
         "id": 13,
         "title": "Kepler Brooks Gaming Chair",
         "type": "Chair",
         "brand": "Kepler Brooks",
+        "category": "Gaming chairs",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_56c58a53-f8f7-4fc0-9b92-574e8696ff4d_306x203.png?v=1671447862",
         "description": "Premium Material: PU Leather Upholstery made with High density foam and added seat cushion, more comfort and long-time use; High Tensile steel frame, more sturdy and stable; lumbar & headrest pillows offer added support and comfort. Heavy-duty base and nylon smooth-rolling casters for super stability and mobility.",
-        "price": 800.00
+        "price": 800.00,
+        "oldprice": 910.00
     },
     {
         "id": 14,
         "title": "Multi-Functional Ergonomic Gaming Chair",
         "type": "Chairs",
         "brand": "Kepler Brooks",
+        "category": "Gaming chairs",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_0122603b-f3a8-4182-b26c-08ab01e5c511_306x203.png?v=1671448117",
         "description": "ERGONOMIC DESIGN: Feel less fatigued over long periods with the lumbar curve that gently supports your lower back and encourages sitting in a neutral position. 110-degree shoulder arches and wide 54-cm seat base ensure optimal weight distribution for long-lasting comfort during gaming marathons.",
-        "price": 560.00
+        "price": 560.00,
+        "oldprice": 780.00
     },
     {
         "id": 15,
@@ -159,6 +174,7 @@
         "title": "Radeon RX 120 GTS Graphics Card",
         "type": "Cards",
         "brand": "XFX",
+        "category": "Monitors & Cards",
         "neew": "New",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_306x203.png?v=1671446949",
         "description": "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
@@ -170,6 +186,7 @@
         "title": "Radeon RX 590 GTS Graphics Card",
         "type": "Cards",
         "brand": "XFX",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_dfcbc21e-9bcd-460a-8c3a-22376c9f3724_306x203.png?v=1671447171",
         "description": "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
         "price": 890.00,
@@ -180,6 +197,7 @@
         "title": "Radeon RX 680 GTS Graphics Card",
         "type": "Cards",
         "brand": "XFX",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_fe314deb-fa4a-4f07-b719-449b7f19c108_306x203.png?v=1671447393",
         "description": "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
         "price": 356.00,
@@ -190,15 +208,18 @@
         "title": "Radeon™ RX 750 XT SPEEDSTER MERC",
         "type": "Cards",
         "brand": "XFX",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_a4d5097a-c593-4035-a1d9-b3016461a034_306x203.png?v=1671447295",
         "description": "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
-        "price": 560.00
+        "price": 560.00,
+        "oldprice": 710.00
     },
     {
         "id": 20,
         "title": "Radeon™ RX 750 XT SPEEDSTER MERC",
         "type": "Cards",
         "brand": "XFX",
+        "category": "Monitors & Cards",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_e7f873f1-570f-4ece-a935-3ae2f1632bf5_306x203.png?v=1671447347",
         "description": "Microsoft Windows 10 and Microsoft DirectX 12 supported Video Memory: 8GB DDR5. The XFX Radeon RX 580 Series graphics card coupled with AMD LiquidVR technology delivers a virtually stutter-free, low latency experience, essential for remarkable virtual reality environments.",
         "price": 940.00,
@@ -213,7 +234,8 @@
         "category": "Power Supplies",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/nx2-backside-handleup-1000-removebg-preview_306x203.png?v=1671452014",
         "description": "Multiple connectivity options including HDMI, USB ports & RGB fans let you connect a variety of peripherals easily. Wi-Fi Ready – Connect to the internet wirelessly with ease. Preloaded with Windows 10 64-bit OS for enhanced productivity and multitasking.",
-        "price": 896.00
+        "price": 896.00,
+        "oldprice": 999.00
     },
     {
         "id": 22,
@@ -223,7 +245,8 @@
         "category": "Gaming peripherals",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791",
         "description": "Compatibility; Glass Screen Protector Compatible with Nintendo Switch. 9H Hardness; Tempered glass durability rated at 9H hardness to protect from everyday scratches. Case friendly; Made case compatible with Spigen case",
-        "price": 430.00
+        "price": 430.00,
+        "oldprice": 560.00
     },
     {
         "id": 23,
@@ -233,7 +256,8 @@
         "category": "Speakers & Headphones",
         "image": "https://gaming-workdo.myshopify.com/cdn/shop/products/hyperx_pudding_keycaps_pbt_black_us_1_angled_renamed_3_1600x-removebg-preview_306x203.png?v=1671445666",
         "description": "Our Rubber Keycaps are designed to fit any gaming keyboard with any Cherry MX Switches or any new switches that have a + under your keycaps. Installing our Keycaps on your Mechanical keyboard couldn't be easier! Just pull out the old keycaps with our included Key puller and pop in ours! The durability of rubber materials is influenced by several environmental factors, it depends on how and in what way users rub the keycaps.",
-        "price": 580.00
+        "price": 580.00,
+        "oldprice": 738.00
     },
     {
         "id": 24,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SliderCard from '../components/SliderCart';
 import Slider from "react-slick";
 import { NavLink } from 'react-router-dom';
@@ -185,7 +185,7 @@ const Home = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     speed: 5000,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -240,6 +240,13 @@ const Home = () => {
       }
     ]
   };
+
+  const [categoryProduct, setCategoryProduct] = useState([]);
+
+  const filterCategory = (category) => {
+    const categoryData = productdata.filter(p => p.category === category);
+    setCategoryProduct(categoryData);
+  }
 
 
   return (
@@ -309,11 +316,12 @@ const Home = () => {
           <div className="row">
             <Slider {...centerMode}>
               {productdata.slice(1, 8).map(item => (
-                <SliderCard key={item.id}
-                  
+                <SliderCard
+                  key={item}
                   id={item.id}
                   title={item.title}
                   type={item.type}
+                  brand={item.brand}
                   neew={item.neew}
                   image={item.image}
                   price={item.price}
@@ -332,29 +340,51 @@ const Home = () => {
               <div className="heading">
                 <h2 className='fw-bold'>Best <b>Pro Gaming</b> Categories</h2>
               </div>
-              <div className="buttons d-flex flex-column gap-3 mt-5">
+              <div className="buttons d-flex flex-column gap-3 mt-3">
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
                   <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/1_4e117171-0b63-4d80-b3fa-1ebc70c0f76e_18x17.png?v=1671615056" alt='' />
-                  <span className='fw-bold'>Gaming peripherals</span>
+                  <button onClick={() => { filterCategory("Gaming peripherals") }} className='fw-bold'>Gaming peripherals</button>
                 </NavLink>
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
                   <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/2_226ba59a-8c4d-48fd-9928-e32ed3555f5b_18x17.png?v=1671615074" alt='' />
-                  <span className='fw-bold'>Speakers & Headphones</span>
+                  <button onClick={() => { filterCategory("Speakers & Headphones") }} className='fw-bold'>Speakers & Headphones</button>
                 </NavLink>
                 <NavLink className='d-flex align-items-center justify-content-center gap-2'>
                   <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/3_ae3d1802-51fa-4ec7-9b73-1279de22395f_18x17.png?v=1671615083" alt='' />
-                  <span className='fw-bold'>Power Supplies</span>
+                  <button onClick={() => { filterCategory("Power Supplies") }} className='fw-bold'>Power Supplies</button>
+                </NavLink>
+                <NavLink className='d-flex align-items-center justify-content-center gap-2'>
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/2_226ba59a-8c4d-48fd-9928-e32ed3555f5b_18x17.png?v=1671615074" alt='' />
+                  <button onClick={() => { filterCategory("Gaming chairs") }} className='fw-bold'>Gaming chairs</button>
+                </NavLink>
+                <NavLink className='d-flex align-items-center justify-content-center gap-2'>
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/1_4e117171-0b63-4d80-b3fa-1ebc70c0f76e_18x17.png?v=1671615056" alt='' />
+                  <button onClick={() => { filterCategory("Monitors & Cards") }} className='fw-bold'>Monitors & Cards</button>
                 </NavLink>
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-7 col-lg-8">
               <div className="slider-container">
                 <Slider {...unevenSetsInfinite}>
-                  {productdata.map(item => (
+                  {categoryProduct.length === 0 ? productdata.map(item => (
                     <SliderCard
+                      key={item}
                       id={item.id}
                       title={item.title}
                       type={item.type}
+                      brand={item.brand}
+                      neew={item.neew}
+                      image={item.image}
+                      price={item.price}
+                      oldprice={item.oldprice}
+                    />
+                  )) : categoryProduct.map(item => (
+                    <SliderCard
+                      key={item}
+                      id={item.id}
+                      title={item.title}
+                      type={item.type}
+                      brand={item.brand}
                       neew={item.neew}
                       image={item.image}
                       price={item.price}

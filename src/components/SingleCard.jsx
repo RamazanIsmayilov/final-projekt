@@ -2,7 +2,6 @@ import React from 'react'
 import { useCart } from 'react-use-cart';
 import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
-// import '../assets/css/ReactToastify.css'
 
 const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata }) => {
 
@@ -23,8 +22,8 @@ const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata 
                 </Link>
                 <div className="footer d-flex align-items-center justify-content-between mx-3">
                     <div className="price fw-bold">
-                        <div className="newprice">{price}<sup>USD</sup></div>
-                        <div className="oldprice text-decoration-line-through ">{oldprice}<sup>USD</sup></div>
+                        <div className="newprice">{price}.00<sup>USD</sup></div>
+                        <div className="oldprice text-decoration-line-through ">{oldprice}.00<sup>USD</sup></div>
                     </div>
                     <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
                 </div>

@@ -2,16 +2,40 @@ import React, { useContext, useState } from 'react'
 import SingleCard from '../components/SingleCard'
 import { ProductContext } from '../context/ProductContext';
 import { Link } from 'react-router-dom';
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 const Product = () => {
-
   const [productdata] = useContext(ProductContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 8;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = productdata.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(productdata.length / recordsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
+    function prePage() {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  function changePage(id) {
+    setCurrentPage(id)
+  }
+
+  function nextPage() {
+    if (currentPage !== npage) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
   const [typeProduct, setTypeProduct] = useState([]);
   const [brandProduct, setBrandProduct] = useState([]);
   const [priceProduct, setPriceProduct] = useState([]);
   const [inputValue, setInputValue] = useState([]);
-
-
 
   const filterType = (type) => {
     const typeData = productdata.filter(p => p.type === type);
@@ -52,7 +76,7 @@ const Product = () => {
               <div className="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div className="filter">
                   <h4 className='fw-bold'>Filters</h4>
-                  {/* <div className="availability mt-5">
+                  <div className="availability mt-5">
                     <h6 className='fw-bold'>AVAILABILITY</h6>
                     <div className="caption d-flex align-items-center justify-content-between">
                       <span>0 selected</span>
@@ -72,7 +96,7 @@ const Product = () => {
                       </div>
                       <span className='number'>(7)</span>
                     </div>
-                  </div> */}
+                  </div>
                   <div className="price mt-5">
                     <h6 className='fw-bold'>PRICE</h6>
                     <div className="caption d-flex align-items-center justify-content-between">
@@ -244,12 +268,13 @@ const Product = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-9 col-lg-9">
                 <div className="row">
-                  {productdata.map(item => (
+                  {records.map(item => (
                     <SingleCard
                       key={item}
                       id={item.id}
                       title={item.title}
                       type={item.type}
+                      brand={item.brand}
                       neew={item.neew}
                       image={item.image}
                       price={item.price}
@@ -258,6 +283,23 @@ const Product = () => {
                     />
                   ))}
                 </div>
+                <nav className='d-flex align-items-center justify-content-center mt-5'>
+                  <ul className='pagination d-flex gap-1'>
+                    <li className='page-item'>
+                      <a onClick={prePage} href="#" className='page-link'><FaChevronLeft /></a>
+                    </li>
+                    {
+                      numbers.map((n, i) => (
+                        <li className={`page-item ${currentPage === n ? `active` : ''}`} key={i}>
+                          <a onClick={(e) => changePage(n)} href="#" className='page-link'>{n}</a>
+                        </li>
+                      ))
+                    }
+                    <li className='page-item'>
+                      <a onClick={nextPage} href="#" className='page-link'><FaChevronRight /></a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>

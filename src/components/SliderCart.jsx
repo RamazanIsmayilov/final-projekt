@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
 // import '../assets/css/ReactToastify.css'
 
-const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
+const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
     const navigate = useNavigate()
@@ -13,7 +13,8 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
         <div className="carousel mt-4 py-3 d-flex flex-column gap-4">
             <div className="title d-flex flex-column ms-3">
                 <a className='fw-bold' href="/">{title.slice(0, 19)}...</a>
-                <span>TYPE: {type}</span>
+                <span>Type: {type}</span>
+                <span>Brand: {brand}</span>
             </div>
             <span className='new mx-3 px-2 rounded'>{neew}</span>
             <Link to={`/products/${slugify(title)}`} className='d-flex align-items-center justify-content-center'>

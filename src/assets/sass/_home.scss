@@ -207,8 +207,17 @@
             padding: 10px 33px;
             font-size: 12px;
 
+            button {
+                background: transparent;
+                color: $grayColor;
+            }
+
             img {
                 filter: invert(.5);
+            }
+
+            &:active {
+                background: $linearColor;
             }
         }
     }
