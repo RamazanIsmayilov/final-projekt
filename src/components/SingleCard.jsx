@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
 // import '../assets/css/ReactToastify.css'
 
-const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
+const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
     const navigate = useNavigate()
@@ -15,6 +15,7 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
                 <div className="title d-flex flex-column ms-3">
                     <a className='fw-bold' href="/">{title.slice(0, 19)}...</a>
                     <span>Type: {type}</span>
+                    <span>Brand: {brand}</span>
                 </div>
                 <span className='new mx-3 px-2 rounded'>{neew}</span>
                 <Link to={`/products/${slugify(title)}`} className='d-flex align-items-center justify-content-center'>
@@ -28,11 +29,11 @@ const SingleCard = ({ title, type, neew, image, price, oldprice, alldata }) => {
                     <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
                 </div>
                 <div className="action px-3 py-1 d-flex gap-2">
-                    <a href="/"><i className="fa-regular fa-heart"></i></a>
+                    <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} ><i className="fa-regular fa-heart"></i></button>
                     <span> | </span>
-                    <a href="/"><i className="fa-regular fa-eye"></i></a>
+                    <button><i className="fa-regular fa-eye"></i></button>
                     <span> | </span>
-                    <a href="/"><i className="fa-solid fa-code-compare"></i></a>
+                    <button><i className="fa-solid fa-code-compare"></i></button>
                 </div>
             </div>
         </div>

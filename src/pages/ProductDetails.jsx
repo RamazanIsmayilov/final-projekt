@@ -12,13 +12,6 @@ const ProductDetails = ({ alldata }) => {
     const productDetails = product.filter(p => slugify(p.title) === slug);
     const { addItem } = useCart();
     const navigate = useNavigate();
-    // const {
-    //     isEmpty,
-    //     items,
-    //     updateItemQuantity,
-    //     removeItem,
-    //     cartTotal,
-    // } = useCart();
 
     return (
         <div className='productdetails py-5'>
@@ -83,7 +76,7 @@ const ProductDetails = ({ alldata }) => {
                                     </div>
                                 </div >
                                 <div div className="bottom mt-3" >
-                                    <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }}>Add to Cart</button>
+                                    <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(productDetails[0]) : navigate("/login") }}>Add to Cart</button>
                                 </div>
                             </div>
                         </div>

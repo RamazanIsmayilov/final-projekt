@@ -97,14 +97,15 @@
     .action {
         position: absolute;
         top: 50%;
-        right: 31%;
+        right: 21%;
         border-radius: 0 12px;
         color: $lightColor;
         background: $linearColor;
         opacity: 0;
         transition: .6s;
 
-        a {
+        button {
+            background: transparent;
             color: $lightColor;
         }
     }

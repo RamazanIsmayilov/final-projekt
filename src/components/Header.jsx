@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react'
-import { Form, Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { FaSearch } from "react-icons/fa";
 import { ProductContext } from '../context/ProductContext';

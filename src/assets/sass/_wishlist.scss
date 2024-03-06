@@ -47,6 +47,28 @@
                     background-color: #cccccc;
                     color: $grayColor;
                 }
+
+                tbody tr{
+                    .brand, .title, .price{
+                        color: $grayColor;
+                    }
+
+                    .addbtn{
+                        @include button;
+                        background: $linearColor;
+                        border: none;
+
+                        &:hover{
+                            background: $linearColor;
+                        }
+                    }
+
+                    .removebtn{
+                        background: transparent;
+                        color: red;
+                    }
+
+                }
             }
     }
 }
