@@ -16,17 +16,17 @@ const Product = () => {
   const npage = Math.ceil(productdata.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
-    function prePage() {
+  const prePage = () => {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1)
     }
   }
 
-  function changePage(id) {
+  const changePage = (id) => {
     setCurrentPage(id)
   }
 
-  function nextPage() {
+  const nextPage = () => {
     if (currentPage !== npage) {
       setCurrentPage(currentPage + 1)
     }
@@ -35,7 +35,7 @@ const Product = () => {
   const [typeProduct, setTypeProduct] = useState([]);
   const [brandProduct, setBrandProduct] = useState([]);
   const [priceProduct, setPriceProduct] = useState([]);
-  const [inputValue, setInputValue] = useState([]);
+  const [inputValue, setInputValue] = useState(375.00);
 
   const filterType = (type) => {
     const typeData = productdata.filter(p => p.type === type);
@@ -107,7 +107,7 @@ const Product = () => {
                       <input onChange={(e) => {
                         setInputValue(e.target.value)
                         filterPrice();
-                      }} className="range" min={0} max={940.00} defaultValue={940.00} type="range" />
+                      }} className="range" min={375.00} max={940.00} defaultValue={375.00} type="range" />
                     </div>
                   </div>
                   <div className="producttype mt-5">
@@ -268,7 +268,20 @@ const Product = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-9 col-lg-9">
                 <div className="row">
-                  {records.map(item => (
+                  {inputValue === 375 ? records.map(item => (
+                    <SingleCard
+                      key={item}
+                      id={item.id}
+                      title={item.title}
+                      type={item.type}
+                      brand={item.brand}
+                      neew={item.neew}
+                      image={item.image}
+                      price={item.price}
+                      oldprice={item.oldprice}
+                      alldata={item}
+                    />
+                  )) : priceProduct.map(item => (
                     <SingleCard
                       key={item}
                       id={item.id}
