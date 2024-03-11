@@ -3,7 +3,11 @@
     width: 100%;
     height: auto;
     padding: 20px;
-    background-color: $darkColor;
+    // background-color: $darkColor;
+    background: $backgroundColor;
+    border-bottom: 1px solid $grayColor;
+
+
 
     .left {
         img {
@@ -151,7 +155,9 @@
 
 // ----- Slider section ----- //
 .slider {
-    background-color: $darkColor;
+    // background-color: $darkColor;
+    background: $backgroundColor;
+
 
     .heading {
         h2 {
