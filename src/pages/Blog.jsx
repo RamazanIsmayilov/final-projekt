@@ -11,10 +11,11 @@ const Blog = () => {
       <div className="row">
         {blogdata.map(item => (
           <BlogCard
+            key={item.id}
+            id={item.id}
             photo={item.img}
             title={item.title}
             desc={item.desc}
-            key={item.id}
           />
         ))}
       </div>

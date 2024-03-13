@@ -15,7 +15,7 @@ const blogStore = store();
 
 // blogStore.subscribe(() => {
 //   console.log(blogStore.getState());
-// })
+// }) 
 
 blogStore.dispatch(addBlog({
   cTitle: "The Dev Diary Season Points Boomstick Gaming",

@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound'
 import Product from './pages/Product'
 import ProductDetails from './pages/ProductDetails'  
 import Blog from './pages/Blog'
+import Dashboard from './pages/admin/Dashboard'
 import ArticleBlog from './pages/ArticleBlog'
 import Login from './pages/Login'
 import CreateAccount from './pages/CreateAccount'
@@ -16,6 +17,8 @@ import Wishlist from './pages/Wishlist'
 import Compare from './pages/Compare'
 import Cart from './pages/Cart'
 import ForgotPassword from './pages/ForgotPassword'
+import AddBlog from './pages/admin/AddBlog'
+import BlogDetails from './pages/BlogDetails'
 
 
 const App = () => {
@@ -29,6 +32,9 @@ const App = () => {
         <Route path='/products' element={<Product />}></Route>
         <Route path='/products/:slug' element={<ProductDetails />}></Route>
         <Route path='/blog' element={<Blog />}></Route>
+        <Route path='/blog:item' element={<BlogDetails />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/add' element={<AddBlog />}></Route>
         <Route path='/articleblog' element={<ArticleBlog />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/createaccount' element={<CreateAccount />}></Route>
