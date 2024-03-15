@@ -8,7 +8,7 @@ const Blog = () => {
   console.log(blogdata);
   return (
     <div className="container">
-      <div className="row">
+      <div className="row my-5">
         {blogdata.map(item => (
           <BlogCard
             key={item.id}

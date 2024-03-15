@@ -73,7 +73,7 @@ const Header = () => {
             </div>
             <div className="navbar-right d-flex align-items-center">
               <div className="search">
-                <Button variant="border-dark" onClick={handleShow}><FaSearch /></Button>
+                <Button variant="border-dark" onClick={handleShow} style={{background: 'transparent'}}><FaSearch /></Button>
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
                     <Modal.Title>Search Area</Modal.Title>
