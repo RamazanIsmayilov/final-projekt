@@ -146,3 +146,11 @@
         }
     }
 }
+
+@mixin blog{
+    .blog-card{
+        img{
+            border-radius: 0, 15px;
+        }
+    }
+}

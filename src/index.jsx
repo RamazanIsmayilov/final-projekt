@@ -13,33 +13,29 @@ import { Provider } from 'react-redux';
 
 const blogStore = store();
 
-// blogStore.subscribe(() => {
-//   console.log(blogStore.getState());
-// }) 
-
 blogStore.dispatch(addBlog({
-  cTitle: "The Dev Diary Season Points Boomstick Gaming",
+  cTitle: "The Dev Diary...",
   cImg: "https://gaming-workdo.myshopify.com/cdn/shop/articles/10.png?v=1670910756",
-  cDesc: "Gambling has been a main recreational activity in Great Britain for centuriesand from social reformers"
+  cDesc: "Gambling has been a main recreational activity in Great Britain for centuries. Queen Elizabeth I chartered a lottery..."
 }))
 
 
 blogStore.dispatch(addBlog({
-  cTitle: "Game Play Segment Video Game Blogger",
+  cTitle: "Game Play Segment...",
   cImg: "https://gaming-workdo.myshopify.com/cdn/shop/articles/9.png?v=1670910755",
-  cDesc: "Many jurisdictions, local as well as national, either ban gambling or heavily control it by licensing the vendors"
+  cDesc: "Many jurisdictions, local as well as national, either ban gambling or heavily control it by licensing the vendors...."
 }))
 
 blogStore.dispatch(addBlog({
-  cTitle: "My Game Review Yourpick Entertainment",
+  cTitle: "My Game Review...",
   cImg: "https://gaming-workdo.myshopify.com/cdn/shop/articles/8.png?v=1670910752",
-  cDesc: "Gambling has been a main recreational activity in Great Britain for centuries.Queen Elizabeth I chartered a lottery that"
+  cDesc: "Gambling has been a main recreational activity in Great Britain for centuries. Queen Elizabeth I chartered a lottery..."
 }))
 
 blogStore.dispatch(addBlog({
-  cTitle: "The Loud Review Geek & girlty",
+  cTitle: "The Loud Review...",
   cImg: "https://gaming-workdo.myshopify.com/cdn/shop/articles/7.png?v=1670910750",
-  cDesc: "There is a consensus among the ‘Ulema’ that gambling is haraam. In assertions made during its prohibition.Muslim jurists describe gambling as being,"
+  cDesc: "There is a consensus among the ‘Ulema’ that gambling is haraam. In assertions made during its prohibition, Muslim..."
 }))
 
 

@@ -1,0 +1,65 @@
+.blogpage{
+    .heading {
+        background-color: $darkColor;
+
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+
+        h5 {
+            color: #0098ff;
+        }
+
+        span {
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            line-height: 23px;
+            color: $lightColor;
+            width: 50%;
+        }
+    }
+
+    .blog{
+        .head{
+            span{
+                font-size: $firstFontSize;
+            }
+
+            h2{
+                color: #0098ff;
+                font-size: 41px;
+            }
+        }
+
+        .blog-data{
+            @include blog;
+        }
+    }
+}
+
+@media(max-width:992px) {
+    .blogpage {
+        .heading {
+            span {
+                width: 100%;
+            }
+        }
+    }
+}
