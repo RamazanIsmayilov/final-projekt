@@ -1,0 +1,83 @@
+.dashboardpage {
+    .heading {
+        background: $backgroundColor;
+
+
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+
+        h5 {
+            color: #0098ff;
+        }
+
+        span {
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            line-height: 23px;
+            color: $lightColor;
+            width: 50%;
+        }
+    }
+
+    .dashboard {
+        box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.2);
+        width: 90%;
+
+        .title {
+            color: #424b5a;
+        }
+
+        .head {
+            span {
+                color: #424b5a;
+            }
+
+            .addbtn {
+                background-color: #424b5a;
+                color: #e2e8fa;
+                font-size: $firstFontSize;
+                padding: 8px 12px;
+            }
+        }
+
+        table {
+            tr {
+                th {
+                    color: #424b5a;
+                }
+            }
+
+            .editbtn {
+                background-color: transparent;
+                color: #424b5a;
+                font-size: $firstFontSize;
+                padding: 8px 2px;
+            }
+
+            .deletebtn {
+                background-color: transparent;
+                color: #b91c1c;
+                font-size: $firstFontSize;
+                padding: 8px 2px;
+            }
+        }
+    }
+}

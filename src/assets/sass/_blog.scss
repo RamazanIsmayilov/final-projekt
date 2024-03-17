@@ -51,6 +51,21 @@
         .blog-data{
             @include blog;
         }
+
+        .pagination {
+            .page-item {
+                a {
+                    background-color: transparent;
+                    color: $darkColor;
+                    border: none;
+                }
+
+                .pg-active{
+                    border: 1px solid;
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 }
 

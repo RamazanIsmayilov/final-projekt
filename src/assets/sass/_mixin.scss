@@ -148,9 +148,30 @@
 }
 
 @mixin blog{
-    .blog-card{
+    .blogcard{
         img{
-            border-radius: 0, 15px;
+            border-radius: 0 17px;
+            border: 2px solid #0098ff;
+        }
+
+        .card-title{
+            font-size: 22px;
+        }
+
+        .card-text{
+            color: $grayColor;
+            font-size: $firstFontSize;
+        }
+
+        .btn{
+            @include button;
+            background: $linearColor;
+            border: none;
+
+            &:hover{
+                color: $grayColor;
+                border: 1px solid $grayColor;
+            }
         }
     }
 }

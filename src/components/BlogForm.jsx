@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 const BlogForm = ({ formToProp, editblog }) => {
@@ -21,26 +22,32 @@ const BlogForm = ({ formToProp, editblog }) => {
     }
 
     return (
-        <div className='container'>
-            <div className="d-flex align-items-center justify-content-center">
-                <div className="col-6">
-                    <form onSubmit={formSubmit} className='mb-5'>
-                        <div className="mb-3">
-                            <label className="form-label">Photo</label>
-                            <input value={img} onChange={(e) => setImg(e.target.value)} type="text" className="form-control" />
+        <div className="blogform">
+            <form onSubmit={formSubmit} className="form-container m-auto pb-5">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-sm-12 col-md-6 col-lg-12">
+                                <div className="form-group d-flex flex-column gap-2 p-2">
+                                    <label className='fw-bold'>Image<sup className='text-danger'>*</sup>:</label>
+                                    <input value={img} onChange={(e) => setImg(e.target.value)} type="text" placeholder="Image" />
+                                </div>
+                            </div>
+                            <div className="col-12 col-sm-12 col-md-6 col-lg-12">
+                                <div className="form-group d-flex flex-column gap-2 p-2">
+                                    <label className='fw-bold'>Title<sup className='text-danger'>*</sup>:</label>
+                                    <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Title" />
+                                </div>
+                            </div>
+                            <div className="col-12 col-sm-12 col-md-6 col-lg-12">
+                                <div className="form-group d-flex flex-column gap-2 p-2">
+                                    <label className='fw-bold'>Description<sup className='text-danger'>*</sup>:</label>
+                                    <input value={desc} onChange={(e) => setDesc(e.target.value)} type="text" placeholder="Description" />
+                                </div>
+                            </div>
                         </div>
-                        <div className="mb-3">
-                            <label className="form-label">Title</label>
-                            <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" />
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Description</label>
-                            <input value={desc} onChange={(e) => setDesc(e.target.value)} type="text" className="form-control" />
-                        </div>
-                        <button type="submit" className="btn btn-primary">{editblog ? "Edit" : "Add"}</button>
-                    </form>
-                </div>
-            </div>
+                        <button className='fw-bold'>{editblog ? "Edit" : "Add"}</button>
+                    </div>
+            </form>
         </div>
     )
 }

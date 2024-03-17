@@ -1,0 +1,56 @@
+.blogdetails{
+    .heading {
+        background-image: url("https://gaming-workdo.myshopify.com/cdn/shop/files/blog-banner.jpg?v=1671617381");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        a {
+            .svg-ic {
+                color: $lightColor;
+                border: 1px solid;
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+
+            span {
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+                color: $lightColor;
+            }
+        }
+
+        .title {
+            p{
+                color: $lightColor;
+                font-size: $secondFontSize;
+                letter-spacing: .6px;
+
+                &:nth-child(1){
+                    background-color: #7b35c8;
+                    padding: 10px 20px;
+                }
+            }
+        }
+
+        .sec-title{
+            font-size: 41px;
+            width: 50%;
+            @include textLinear;
+        }
+
+        .desc{
+            color: $lightColor;
+            font-size: $firstFontSize;
+            letter-spacing: .6px;
+            line-height: 25px;
+            width: 45%;
+        }
+
+    }
+}

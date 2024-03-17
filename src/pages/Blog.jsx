@@ -1,12 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BlogCard from '../components/BlogCard'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 const Blog = () => {
 
   const blogdata = useSelector(p => p);
-  console.log(blogdata);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 4;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = blogdata.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(blogdata.length / recordsPerPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1);
+
+  const prePage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const changePage = (id) => {
+    setCurrentPage(id)
+  }
+
+  const nextPage = () => {
+    if (currentPage !== npage) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
   return (
     <div className="blogpage">
       <div className="heading py-5">
@@ -19,13 +44,14 @@ const Blog = () => {
             </span>
             <span className='fw-bold'>Back to home</span>
           </Link>
-          <h5 className='fs-1 fw-bold'>News</h5>
+          <h5 className='fs-1 fw-bold'>Blog</h5>
           <span>The process of selecting only the best of the best gaming blogs was challenging.
             These days, anyone can consider themselves a gaming blogger and expert, so it took some time
             to separate the wheat from the chaff.
           </span>
         </div>
       </div>
+      
       <div className="blog my-5">
         <div className="container">
           <div className="head">
@@ -33,10 +59,10 @@ const Blog = () => {
             <h2 className='fw-bold mt-3'>GAME</h2>
           </div>
           <div className="blog-data">
-            <div className="row my-4">
-              {blogdata.map(item => (
+            <div className="row my-1 g-4">
+              {records.map(item => (
                 <BlogCard
-                  key={item.id}
+                  key={item}
                   id={item.id}
                   photo={item.img}
                   title={item.title}
@@ -45,6 +71,23 @@ const Blog = () => {
               ))}
             </div>
           </div>
+          <nav className='d-flex align-items-center justify-content-center mt-5'>
+            <ul className='pagination d-flex gap-1'>
+              <li className='page-item'>
+                <a onClick={prePage} href="#" className='page-link'><FaChevronLeft /></a>
+              </li>
+              {
+                numbers.map((n, i) => (
+                  <li className={`page-item ${currentPage === n ? `active` : ''}`} key={i}>
+                    <a onClick={(e) => changePage(n)} href="#" className='page-link'>{n}</a>
+                  </li>
+                ))
+              }
+              <li className='page-item'>
+                <a onClick={nextPage} href="#" className='page-link'><FaChevronRight /></a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
