@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { addBlog } from '../tools/action/blogAction';
 
 
-const BlogForm = () => {
+const BlogForm = ({ formToProp, editblog }) => {
 
-    const [img, setImg] = useState();
-    const [title, setTitle] = useState();
-    const [desc, setDesc] = useState();
-    const dispatch = useDispatch();
+    const [img, setImg] = useState(editblog ? editblog.img : "");
+    const [title, setTitle] = useState(editblog ? editblog.title : "");
+    const [desc, setDesc] = useState(editblog ? editblog.desc : "");
     const formSubmit = (e) => {
         e.preventDefault();
-        dispatch(addBlog({cTitle: title, cDesc: desc, cImg: img}))
+
+        if (!img || !title || !desc) {
+            alert('Please, fill input');
+        } else {
+            formToProp({
+                img: img,
+                title: title,
+                desc: desc
+            })
+        }
     }
 
     return (
@@ -21,17 +27,17 @@ const BlogForm = () => {
                     <form onSubmit={formSubmit} className='mb-5'>
                         <div className="mb-3">
                             <label className="form-label">Photo</label>
-                            <input onChange={(e) => setImg(e.target.value)} type="text" className="form-control" />
+                            <input value={img} onChange={(e) => setImg(e.target.value)} type="text" className="form-control" />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Title</label>
-                            <input onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" />
+                            <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Description</label>
-                            <input onChange={(e) => setDesc(e.target.value)} type="text" className="form-control" />
+                            <input value={desc} onChange={(e) => setDesc(e.target.value)} type="text" className="form-control" />
                         </div>
-                        <button type="submit" className="btn btn-primary">Add</button>
+                        <button type="submit" className="btn btn-primary">{editblog ? "Edit" : "Add"}</button>
                     </form>
                 </div>
             </div>

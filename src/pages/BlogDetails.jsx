@@ -5,9 +5,9 @@ import slugify from 'react-slugify';
 
 const BlogDetails = () => {
 
-    const { item } = useParams();
+    const { det } = useParams();
     const blogData = useSelector(p => p);
-    const blogDetails = blogData.filter(p => slugify(p.title) === item);
+    const blogDetails = blogData.filter(p => slugify(p.title) === det);
     console.log(blogDetails);
 
     return (

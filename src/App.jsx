@@ -8,17 +8,18 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
 import ProductDetails from './pages/ProductDetails'  
-import Blog from './pages/Blog'
-import Dashboard from './pages/admin/Dashboard'
 import ArticleBlog from './pages/ArticleBlog'
 import Login from './pages/Login'
 import CreateAccount from './pages/CreateAccount'
+import ForgotPassword from './pages/ForgotPassword'
 import Wishlist from './pages/Wishlist'
 import Compare from './pages/Compare'
 import Cart from './pages/Cart'
-import ForgotPassword from './pages/ForgotPassword'
-import AddBlog from './pages/admin/AddBlog'
+import Blog from './pages/Blog'
+import AddBlog from './pages/admin/update/AddBlog'
+import EditBlog from './pages/admin/update/EditBlog'
 import BlogDetails from './pages/BlogDetails'
+import Dashboard from './pages/admin/Dashboard'
 
 
 const App = () => {
@@ -32,9 +33,10 @@ const App = () => {
         <Route path='/products' element={<Product />}></Route>
         <Route path='/products/:slug' element={<ProductDetails />}></Route>
         <Route path='/blog' element={<Blog />}></Route>
-        <Route path='/blog/:item' element={<BlogDetails />}></Route>
+        <Route path='/blog/:det' element={<BlogDetails />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
-        <Route path='/add' element={<AddBlog />}></Route>
+        <Route path='/dashboard/add' element={<AddBlog />}></Route>
+        <Route path='/dashboard/edit/:edit' element={<EditBlog />}></Route>
         <Route path='/articleblog' element={<ArticleBlog />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/createaccount' element={<CreateAccount />}></Route>
