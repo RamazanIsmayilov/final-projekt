@@ -1,4 +1,4 @@
-.blogdetails{
+.blogdetails {
     .heading {
         background-image: url("https://gaming-workdo.myshopify.com/cdn/shop/files/blog-banner.jpg?v=1671617381");
         background-position: center;
@@ -26,25 +26,25 @@
         }
 
         .title {
-            p{
+            p {
                 color: $lightColor;
                 font-size: $secondFontSize;
                 letter-spacing: .6px;
 
-                &:nth-child(1){
+                &:nth-child(1) {
                     background-color: #7b35c8;
                     padding: 10px 20px;
                 }
             }
         }
 
-        .sec-title{
+        .sec-title {
             font-size: 41px;
             width: 50%;
             @include textLinear;
         }
 
-        .desc{
+        .desc {
             color: $lightColor;
             font-size: $firstFontSize;
             letter-spacing: .6px;
@@ -52,5 +52,110 @@
             width: 45%;
         }
 
+    }
+
+    .blog {
+        .header {
+            h6 {
+                font-size: $firstFontSize;
+                color: $grayColor;
+            }
+
+            .sec-title {
+                font-size: 41px;
+                width: 60%;
+            }
+        }
+
+        .about-user {
+
+            .desc {
+                p {
+                    font-size: $firstFontSize;
+                    color: $grayColor;
+                }
+
+                h5 {
+                    font-size: 18px;
+                    color: $grayColor;
+                    line-height: 28px;
+                }
+            }
+
+            .quote-box {
+                svg path {
+                    fill: #7b35c8;
+                }
+
+                b {
+                    font-size: 18px;
+                    color: $grayColor;
+                }
+            }
+
+            .tags {
+                color: $grayColor;
+            }
+
+            .socials {
+                span {
+                    font-size: 18px;
+                    color: $grayColor;
+                }
+
+                a {
+                    background-color: #7b35c8;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .rightbar {
+            .sec-title {
+                font-size: 26px;
+            }
+
+            .blog-item-card {
+                @include blog;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .blogdetails {
+        .heading {
+            .title {
+                p {
+                    font-size: 10px;
+                }
+            }
+
+            .sec-title {
+                width: 100%;
+                font-size: 32px;
+            }
+
+            .desc {
+                width: 100%;
+            }
+        }
+
+        .blog {
+            .header {
+                .sec-title {
+                    font-size: 32px;
+                    width: 100%;
+                }
+            }
+
+            .about-user {
+                .socials {
+                    span {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
     }
 }
