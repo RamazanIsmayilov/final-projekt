@@ -72,37 +72,6 @@ const Header = () => {
               </Link>
             </div>
             <div className="navbar-right d-flex align-items-center">
-              <div className="search">
-                <Button variant="border-dark" onClick={handleShow} style={{ background: 'transparent' }}><FaSearch /></Button>
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Search Area</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <InputGroup className="mb-3">
-                      <input onChange={e => setQuery(e.target.value)} className='form-control' placeholder="Search products" />
-                      <Button variant="outline-secondary" id="button-addon2">Search</Button>
-                    </InputGroup>
-                    <ListGroup>
-                      {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
-                        <Link to={`/products/${slugify(item.title)}`}>
-                          <li className="list-group-item d-flex align-items-center gap-2" onClick={() => { setShow(false) }}>
-                            <div className="image">
-                              <img width={100} src={item.image} alt='' />
-                            </div>
-                            <div className="content">
-                              <h5>{item.title.slice(0, 19)}...</h5>
-                              <span className='description'>{item.description.slice(0, 100)}...</span>
-                              <p className='type'><i>{item.brand}</i></p>
-                              <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
-                            </div>
-                          </li>
-                        </Link>
-                      ))}
-                    </ListGroup>
-                  </Modal.Body>
-                </Modal>
-              </div>
               <ul className="d-flex align-items-center gap-3 m-3 p-0">
                 <div className="admin d-flex align-items-center">
                   {localStorage.getItem('login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
@@ -276,7 +245,7 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div className="left">
+              <div className="left mt-2">
                 <span className='fw-bold'>New Accessories -30 % Off. <Link to="/products">More</Link></span>
               </div>
             </div>
@@ -284,12 +253,27 @@ const Header = () => {
               <div className="search">
                 <div className="input-group d-flex align-items-center justify-content-center">
                   <span className="input-group-text" id="basic-addon1"><i className="fa-solid fa-magnifying-glass"></i></span>
-                  <input type="text" placeholder="Search Product..."  />
+                  <input onChange={e => setQuery(e.target.value)} type="text" placeholder="Search Product..." />
                 </div>
+                {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
+                  <Link to={`/products/${slugify(item.title)}`}>
+                    <li className="list-group-item d-flex align-items-center gap-2 mt-3 p-3" onClick={() => { setShow(false) }}>
+                      <div className="image">
+                        <img width={100} src={item.image} alt='' />
+                      </div>
+                      <div className="content">
+                        <h5>{item.title.slice(0, 19)}...</h5>
+                        <span className='description'>{item.description.slice(0, 100)}...</span>
+                        <p className='type'><i>{item.brand}</i></p>
+                        <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
+                      </div>
+                    </li>
+                  </Link>
+                ))}
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div className="right d-flex align-items-center justify-content-end">
+              <div className="right d-flex align-items-center justify-content-end mt-2">
                 <Link to="/products">New Collections</Link>
               </div>
             </div>

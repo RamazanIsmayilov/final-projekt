@@ -3,20 +3,14 @@
     width: 100%;
     height: auto;
     padding: 20px;
-    // background-color: $darkColor;
     background: $backgroundColor;
     border-bottom: 1px solid $grayColor;
-
-
+    text-align: center;
 
     .left {
-        img {
-            transform: translate(-70px, 200px);
-            position: absolute;
-        }
 
         .heading {
-            width: 65%;
+            margin: auto;
             background-color: #12103e;
             color: $lightColor;
             font-size: $firstFontSize;
@@ -33,6 +27,7 @@
 
         h2 {
             @include heading;
+            font-size: 60px;
         }
 
         p {
@@ -42,15 +37,19 @@
         }
 
         .buttons {
+            margin: auto;
+
             a {
                 @include button;
             }
 
             .one {
                 background: $linearColor;
+                border: none;
 
                 &:hover {
                     background: transparent;
+                    border:1px solid $grayColor;
                 }
             }
 
@@ -60,72 +59,11 @@
                 &:hover {
                     background: $linearColor;
                     color: $lightColor;
+                    border: none;
                 }
             }
         }
     }
-
-    .right {
-
-        img:nth-child(1) {
-            position: absolute;
-            right: 40%;
-            top: 37%;
-            animation: shape-two 4s infinite linear;
-        }
-
-        @keyframes shape-two {
-            0% {
-                transform: translateX(-30px);
-            }
-
-            50% {
-                transform: translateX(-10px);
-            }
-
-            100% {
-                transform: translateX(-30px);
-            }
-        }
-
-
-        img:nth-child(2) {
-            position: absolute;
-            z-index: 1;
-            right: 35%;
-            bottom: 30%;
-            animation: shape-three 2s ease-in-out 0s infinite alternate;
-            animation-duration: 3s;
-        }
-
-        @keyframes shape-three {
-            0% {
-                transform: rotateX(0deg) translateY(0px);
-            }
-
-            50% {
-                transform: rotateX(0deg) translateY(-20px);
-            }
-
-            100% {
-                transform: rotateX(0deg) translateY(0px);
-            }
-        }
-
-        img:nth-child(3) {
-            position: absolute;
-            right: 20%;
-            top: 40%;
-            animation: shape-one 10s infinite linear;
-        }
-
-        @keyframes shape-one {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    }
-
 }
 
 @media only screen and (max-width: 768px) {

@@ -1,8 +1,7 @@
 // ----- Header section ----- //
 header {
-    // background: $darkColor;
+    background: $darkColor;
     background: $backgroundColor;
-
     border-bottom: 1px solid $grayColor;
 
     .navbar-left {
@@ -39,70 +38,14 @@ header {
 
         position: relative;
 
-        .search {
-            button {
-                background-color: $darkColor;
-                font-size: 20px;
-            }
-
-            .modal-content {
-                // .modal-title {
-                //     color: $darkColor;
-                //     font-size: 24px;
-                // }
-
-                // .btn-close {
-                //     background-color: $lightColor;
-                // }
-
-                .list-group {
-                    height: 66vh;
-                    overflow: auto;
-                    background-color: red;
-                }
-
-                .list-group-item {
-                    .content {
-                        h5 {
-                            color: $grayColor;
-                        }
-
-                        .description {
-                            color: $grayColor;
-                            font-size: 11px;
-                        }
-
-                        .type i {
-                            color: $grayColor;
-                            font-size: 11px;
-                        }
-
-                        .price {
-                            color: $grayColor;
-
-                            sup {
-                                color: $grayColor;
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         .logoutbtn {
             @include button;
             background: transparent;
             padding: 0 20px;
         }
 
-        .cart {
-            font-size: $firstFontSize;
-        }
-
         .dropdown {
             @include dropdown;
-
         }
 
         .one {
@@ -204,6 +147,7 @@ header {
 }
 
 .bottom-header {
+    background: $darkColor;
     background: $backgroundColor;
     border-bottom: 1px solid $grayColor;
 
@@ -220,13 +164,13 @@ header {
         }
     }
 
-
     .search {
         .input-group {
             span {
+                border-color: #cccccc;
                 background: transparent;
                 border-radius: 0 20px;
-                padding: 13px 15px 13px;
+                padding: 13px 15px;
                 border-right: none;
 
                 i {
@@ -235,18 +179,50 @@ header {
             }
 
             input {
+                border: 0.5px solid #cccccc;
+                color: #cccccc;
+                width: 70%;
                 background: transparent;
                 border-radius: 0 20px;
+                border-left: none;
                 padding: 9px 15px;
                 outline: none;
 
                 &::placeholder {
-                    font-size: $firstFontSize;
+                    color: $grayColor;
+                    font-size: 13px;
                     letter-spacing: .6px;
                 }
+            }
+        }
 
-                &::target-text{
-                    color: red;
+        .list-group-item {
+            // position: absolute;
+            // z-index: 100;
+            background-color: #cccccc;
+
+            .content {
+                h5 {
+                    color: $grayColor;
+                }
+
+                .description {
+                    color: $grayColor;
+                    font-size: 11px;
+                }
+
+                .type i {
+                    color: $grayColor;
+                    font-size: 11px;
+                }
+
+                .price {
+                    color: $grayColor;
+
+                    sup {
+                        color: $grayColor;
+
+                    }
                 }
             }
         }
@@ -269,6 +245,22 @@ header {
 
     header nav .navbar-right {
         margin-right: 30px;
+    }
+
+    .bottom-header {
+
+        .left,
+        .right {
+            display: none !important;
+        }
+
+        .search {
+            input {
+                width: 80% !important;
+            }
+        }
+
+
     }
 }
 
