@@ -6,7 +6,8 @@ import '../node_modules/react-bootstrap/dist/react-bootstrap'
 import './assets/sass/style.scss'
 import App from './App';
 import { ProductProvider } from './context/ProductContext';
-import { CartProvider } from 'react-use-cart';
+import { CartProvider } from 'react-use-cart'
+import { WishlistProvider } from "react-use-wishlist"
 import store from './tools/store/configureStore';
 import { addBlog } from './tools/action/blogAction';
 import { Provider } from 'react-redux';
@@ -80,11 +81,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CartProvider>
-      <ProductProvider>
-        <Provider store={blogStore}>
-          <App />
-        </Provider>
-      </ProductProvider>
+      <WishlistProvider>
+        <ProductProvider>
+          <Provider store={blogStore}>
+            <App />
+          </Provider>
+        </ProductProvider>
+      </WishlistProvider>
     </CartProvider>
   </React.StrictMode>
 );

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
+import { useWishlist } from "react-use-wishlist";
 
 const Wishlist = ({alldata}) => {
 
@@ -8,10 +9,12 @@ const Wishlist = ({alldata}) => {
   const { addItem } = useCart();
 
   const {
-    isEmpty,
+    isWishlistEmpty,
+    totalWishlistItems,
     items,
-    removeItem
-  } = useCart();
+    removeWishlistItem,
+  } = useWishlist();
+
 
   return (
     <div className="wishlistpage">
@@ -33,9 +36,9 @@ const Wishlist = ({alldata}) => {
       <div className="wishlist">
         <div className="container">
           <div className="title">
-            <h2 className='d-flex align-items-center justify-content-center pt-5 pb-3 fw-bold'>Wishlist</h2>
+            <h2 className='d-flex align-items-center justify-content-center pt-5 pb-3 fw-bold'>Wishlist({totalWishlistItems})</h2>
           </div>
-          {isEmpty ? <div className='text-center'><img width={300} src="https://i.pinimg.com/originals/b0/cb/c8/b0cbc88e808b2e5502a7282f644ae734.gif" alt="" /></div> :
+          {isWishlistEmpty ? <div className='text-center'><img width={300} src="https://i.pinimg.com/originals/b0/cb/c8/b0cbc88e808b2e5502a7282f644ae734.gif" alt="" /></div> :
             <table className="table">
               <thead>
                 <tr>
@@ -58,7 +61,7 @@ const Wishlist = ({alldata}) => {
                       <button className='addbtn mt-5' onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
                     </td>
                     <td className='text-center'>
-                      <button className='ms-1 removebtn mt-5' onClick={() => removeItem(item.id)}>
+                      <button className='ms-1 removebtn mt-5' onClick={() => removeWishlistItem(item.id)}>
                         <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="presentation" class="icon icon-remove">
                           <path d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5a.5.5 0 00.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z" fill="currentColor"></path>
                           <path d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z" fill="currentColor"></path>

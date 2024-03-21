@@ -2,11 +2,14 @@ import React from 'react'
 import { useCart } from 'react-use-cart';
 import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
+import { useWishlist } from 'react-use-wishlist';
 
 const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
+    const { addWishlistItem } = useWishlist();
     const navigate = useNavigate()
+
 
     return (
         <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -28,7 +31,7 @@ const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata 
                     <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
                 </div>
                 <div className="action px-3 py-1 d-flex gap-2">
-                    <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} ><i className="fa-regular fa-heart"></i></button>
+                    <button onClick={() => { localStorage.getItem("login") === "true" ? addWishlistItem(alldata) : navigate("/login") }} ><i className="fa-regular fa-heart"></i></button>
                     <span> | </span>
                     <button><i className="fa-regular fa-eye"></i></button>
                     <span> | </span>

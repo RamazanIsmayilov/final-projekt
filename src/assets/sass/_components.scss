@@ -2,7 +2,7 @@
 header {
     // background: $darkColor;
     background: $backgroundColor;
-    
+
     border-bottom: 1px solid $grayColor;
 
     .navbar-left {
@@ -176,8 +176,8 @@ header {
                     background-color: $lightColor;
                     flex-wrap: wrap;
 
-                    .admin{
-                        button{
+                    .admin {
+                        button {
                             @include button;
                             background: transparent;
                             color: #838383;
@@ -203,6 +203,65 @@ header {
     }
 }
 
+.bottom-header {
+    background: $backgroundColor;
+    border-bottom: 1px solid $grayColor;
+
+    .left {
+        span {
+            color: $lightColor;
+            font-size: $firstFontSize;
+            letter-spacing: .8px;
+
+            a {
+                color: $lightColor;
+                text-decoration: underline;
+            }
+        }
+    }
+
+
+    .search {
+        .input-group {
+            span {
+                background: transparent;
+                border-radius: 0 20px;
+                padding: 13px 15px 13px;
+                border-right: none;
+
+                i {
+                    color: #cccccc;
+                }
+            }
+
+            input {
+                background: transparent;
+                border-radius: 0 20px;
+                padding: 9px 15px;
+                outline: none;
+
+                &::placeholder {
+                    font-size: $firstFontSize;
+                    letter-spacing: .6px;
+                }
+
+                &::target-text{
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .right {
+        a {
+            color: $lightColor;
+            font-size: $firstFontSize;
+            letter-spacing: .8px;
+            text-decoration: underline;
+        }
+    }
+}
+
 @media(max-width:992px) {
     header nav .navbar-left {
         display: none !important;
@@ -214,6 +273,7 @@ header {
 }
 
 @media(max-width:768px) {
+
     header nav .navbar-right .cart,
     header nav .navbar-right {
         display: none !important;
@@ -223,6 +283,7 @@ header {
         display: block !important;
     }
 }
+
 // ----- Header section ----- //
 
 // ----- Footer section ----- //

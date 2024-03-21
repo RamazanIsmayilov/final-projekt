@@ -73,7 +73,7 @@ const Header = () => {
             </div>
             <div className="navbar-right d-flex align-items-center">
               <div className="search">
-                <Button variant="border-dark" onClick={handleShow} style={{background: 'transparent'}}><FaSearch /></Button>
+                <Button variant="border-dark" onClick={handleShow} style={{ background: 'transparent' }}><FaSearch /></Button>
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
                     <Modal.Title>Search Area</Modal.Title>
@@ -102,43 +102,6 @@ const Header = () => {
                     </ListGroup>
                   </Modal.Body>
                 </Modal>
-                {/* <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <FaSearch />
-                </button>
-                <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div className="modal-dialog bg-dark">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h1 className="modal-title">Search Area</h1>
-                        <button type="button" className="btn-close " data-bs-dismiss="modal" />
-                      </div>
-                      <div className="modal-body">
-                        <div className="input-group mb-3">
-                          <input onChange={e => setQuery(e.target.value)}
-                            type="text" className="form-control" placeholder="Enter product" />
-                          <button className="btn" type="button" id="button-addon2">Search</button>
-                        </div>
-                        <ul className="list-group">
-                          {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
-                            <Link to={`/products/${slugify(item.title)}`}>
-                              <li className="list-group-item d-flex align-items-center gap-2">
-                                <div className="image">
-                                  <img width={100} src={item.image} alt='' />
-                                </div>
-                                <div className="content">
-                                  <h5>{item.title.slice(0, 19)}...</h5>
-                                  <span className='description'>{item.description.slice(0, 100)}...</span>
-                                  <p className='type'><i>{item.type}</i></p>
-                                  <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
-                                </div>
-                              </li>
-                            </Link>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
               <ul className="d-flex align-items-center gap-3 m-3 p-0">
                 <div className="admin d-flex align-items-center">
@@ -175,10 +138,6 @@ const Header = () => {
                   </li>
                 </div>
               </ul>
-              <div className="cart d-flex flex-column fw-bold">
-                <span>MyCart</span>
-                <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
-              </div>
               <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative">
                 <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="white"></path>
@@ -312,6 +271,31 @@ const Header = () => {
           </nav>
         </div>
       </header>
+
+      <div className="bottom-header py-3">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="left">
+                <span className='fw-bold'>New Accessories -30 % Off. <Link to="/products">More</Link></span>
+              </div>
+            </div>
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="search">
+                <div className="input-group d-flex align-items-center justify-content-center">
+                  <span className="input-group-text" id="basic-addon1"><i className="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="text" placeholder="Search Product..."  />
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div className="right d-flex align-items-center justify-content-end">
+                <Link to="/products">New Collections</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
