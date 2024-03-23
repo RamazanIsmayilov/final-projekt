@@ -2,7 +2,7 @@
     width: 100%;
     height: auto;
     padding: 20px;
-    background: $backgroundColor;
+    background: $darkColor;
     border-bottom: 1px solid $grayColor;
 
     .left {
@@ -87,8 +87,7 @@
 
 
 .slider {
-    // background-color: $darkColor;
-    background: $backgroundColor;
+    background: $darkColor;
 
 
     .heading {

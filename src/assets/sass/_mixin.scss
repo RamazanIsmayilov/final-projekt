@@ -64,22 +64,6 @@
             }
         }
 
-        .detailbtn {
-            border: 1px solid $grayColor;
-            border-radius: 0 15px;
-            padding: 7px 10px;
-            color: $grayColor;
-            font-size: 11px;
-
-
-            &:hover {
-                background: $linearColor;
-                color: $lightColor;
-                border: none;
-            }
-
-        }
-
         button {
             @include button;
             background: $linearColor;

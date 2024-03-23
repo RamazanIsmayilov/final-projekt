@@ -1,52 +1,134 @@
-.productpage {
-    .heading {
-        background-color: $darkColor;
-
-        a {
-            .svg-ic {
-                color: $lightColor;
-                border: 1px solid;
-                border-radius: 50%;
-                width: 34px;
-                height: 34px;
-
-                svg path {
-                    fill: $lightColor;
-                }
-            }
-
-            span {
-                font-size: $secondFontSize;
-                letter-spacing: .6px;
-                color: $lightColor;
-            }
-        }
-
-        p {
-            color: #0098ff;
-        }
-    }
-
-    .products {
-        .filter {
-            font-size: $firstFontSize;
+.light {
+    .productpage {
+        .heading {
+            background-color: $darkColor;
 
             a {
-                @include link;
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            p {
+                color: #0098ff;
             }
         }
 
-        .pagination {
-            .page-item {
-                a {
-                    background-color: transparent;
-                    color: $darkColor;
-                    border: none;
-                }
+        .products {
+            .filter {
+                font-size: $firstFontSize;
 
-                .pg-active{
+                a {
+                    @include link;
+                }
+            }
+
+            .pagination {
+                .page-item {
+                    a {
+                        background-color: transparent;
+                        color: $darkColor;
+                        border: 1px solid $darkColor;
+                        border-radius: 50%;
+                    }
+
+                    .pg-active {
+                        border: 1px solid;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .productpage {
+        .heading {
+            background-color: $darkColor;
+            border-bottom: 1px solid $grayColor;
+
+            a {
+                .svg-ic {
+                    color: $lightColor;
                     border: 1px solid;
                     border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            p {
+                color: #0098ff;
+            }
+        }
+
+        .products {
+            background-color: $darkColor;
+
+            .filter {
+                font-size: $firstFontSize;
+                color: $lightColor;
+
+                input {
+                    background-color: $darkColor;
+                }
+
+                a {
+                    @include link;
+                    color: $lightColor;
+                }
+            }
+
+            .product {
+                @include carousel;
+
+                .title a {
+                    color: $lightColor;
+                }
+
+                .footer .price .newprice {
+                    color: $lightColor;
+                }
+            }
+
+            .pagination {
+                .page-item {
+                    a {
+                        background-color: transparent;
+                        color: $lightColor;
+                        border: 1px solid $lightColor;
+                        border-radius: 50%;
+                    }
+
+                    .pg-active {
+                        border: 1px solid;
+                        border-radius: 50%;
+                    }
                 }
             }
         }

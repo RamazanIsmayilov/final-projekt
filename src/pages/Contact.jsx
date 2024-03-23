@@ -8,7 +8,7 @@ const Contact = () => {
 
 
   return (
-    <div className={mode ? "dark" : "light"}>
+    <div className={mode ? "light" : "dark"}>
       <div className="contactus">
         <div className="heading py-5">
           <div className="container d-flex flex-column gap-4">

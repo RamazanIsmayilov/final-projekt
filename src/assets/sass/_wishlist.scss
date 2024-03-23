@@ -1,74 +1,174 @@
-.wishlistpage{
-    .heading {
-        background-color: $darkColor;
+.light {
+    .wishlistpage {
+        .heading {
+            background-color: $darkColor;
 
-        a {
-            .svg-ic {
-                color: $lightColor;
-                border: 1px solid;
-                border-radius: 50%;
-                width: 34px;
-                height: 34px;
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
 
-                svg path {
-                    fill: $lightColor;
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
                 }
             }
 
-            span {
-                font-size: $secondFontSize;
+            h5 {
+                color: #0098ff;
+            }
+
+            p {
+                font-size: $firstFontSize;
                 letter-spacing: .6px;
-                letter-spacing: .6px;
-                color: $lightColor;
+                line-height: 23px;
+                color: $grayColor;
+                width: 50%;
             }
         }
 
-        h5 {
-            color: #0098ff;
-        }
+        .wishlist {
+            .title h2 {
+                font-size: 41px;
+            }
 
-        p {
-            font-size: $firstFontSize;
-            letter-spacing: .6px;
-            line-height: 23px;
-            color: $lightColor;
-            width: 50%;
-        }
-    }
 
-    .wishlist{
-        .title h2{
-            font-size: 41px;
-        }
+            table {
+                margin: auto;
+                width: 100%;
 
-        
-            table{
-                thead th{
+                thead th {
                     background-color: #cccccc;
                     color: $grayColor;
                 }
 
-                tbody tr{
-                    .brand, .title, .price{
+                tbody tr {
+
+                    .brand,
+                    .title,
+                    .price {
                         color: $grayColor;
                     }
 
-                    .addbtn{
+                    .addbtn {
                         @include button;
                         background: $linearColor;
                         border: none;
 
-                        &:hover{
+                        &:hover {
                             background: $linearColor;
                         }
                     }
 
-                    .removebtn{
+                    .removebtn {
                         background: transparent;
                         color: red;
                     }
 
                 }
             }
+        }
+    }
+}
+
+.dark {
+    .wishlistpage {
+        background-color: $darkColor;
+
+        .heading {
+            background-color: $darkColor;
+            border-bottom: 1px solid;
+
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            h5 {
+                color: #0098ff;
+            }
+
+            p {
+                font-size: $firstFontSize;
+                letter-spacing: .6px;
+                line-height: 23px;
+                color: $grayColor;
+                width: 50%;
+            }
+        }
+
+        .wishlist {
+            .title h2 {
+                font-size: 41px;
+                color: $lightColor;
+            }
+
+
+            table {
+                margin: auto;
+                width: 100%;
+
+                border: 1px solid #ccc;
+
+                thead th {
+                    border: 1px solid;
+                    background-color: $darkColor;
+                    color: $grayColor;
+                }
+
+                tbody tr {
+                    border: 1px solid;
+                    background-color: $darkColor;
+
+                    .brand,
+                    .title,
+                    .price {
+                        color: $grayColor;
+                    }
+
+                    .addbtn {
+                        @include button;
+                        background: $linearColor;
+                        border: none;
+
+                        &:hover {
+                            background: $linearColor;
+                        }
+                    }
+
+                    .removebtn {
+                        background: transparent;
+                        color: red;
+                    }
+
+                }
+            }
+        }
     }
 }

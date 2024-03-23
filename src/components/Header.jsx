@@ -107,7 +107,7 @@ const Header = () => {
                     </li>
                   </div>
                 </ul>
-                <button onClick={modeFunc} className='btn btn-primary'>{`${mode ? 'Light' : 'Dark'}`}</button>
+                <button onClick={modeFunc} className='btn btn-primary'>{`${mode ? 'Dark' : 'Light'}`}</button>
                 <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative">
                   <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="white"></path>
