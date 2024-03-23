@@ -4,15 +4,13 @@
     padding: 20px;
     background: $backgroundColor;
     border-bottom: 1px solid $grayColor;
-    text-align: center;
 
     .left {
-
         .heading {
-            margin: auto;
             background-color: #12103e;
             color: $lightColor;
             font-size: $firstFontSize;
+            width: 60%;
 
             span:nth-child(1) {
                 background: linear-gradient(90deg, #0098ff 0%, rgba(0, 152, 255, 0) 100%);
@@ -36,7 +34,6 @@
         }
 
         .buttons {
-            margin: auto;
 
             a {
                 @include button;
@@ -305,6 +302,22 @@
                 svg path {
                     fill: $lightColor;
                 }
+            }
+        }
+    }
+
+    .blog{
+        @include blog;
+        .blogcard{
+            .card-title{
+                color: $lightColor;
+            }
+            .author{
+                color: $grayColor;
+            }
+    
+            .card-text{
+                display: none
             }
         }
     }

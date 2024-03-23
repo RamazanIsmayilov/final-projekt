@@ -39,7 +39,7 @@ const Product = () => {
 
   const filterType = (type) => {
     const typeData = productdata.filter(p => p.type === type);
-    setTypeProduct(typeData);
+    setTypeProduct(typeData)
   }
 
   const filterBrand = (type) => {
@@ -51,6 +51,7 @@ const Product = () => {
     const priceData = productdata.filter(p => p.price <= inputValue)
     setPriceProduct(priceData);
   }
+
 
 
   return (
@@ -76,27 +77,6 @@ const Product = () => {
               <div className="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div className="filter">
                   <h4 className='fw-bold'>Filters</h4>
-                  <div className="availability mt-5">
-                    <h6 className='fw-bold'>AVAILABILITY</h6>
-                    <div className="caption d-flex align-items-center justify-content-between">
-                      <span>0 selected</span>
-                      <a href="/">Reset</a>
-                    </div>
-                    <div className="select d-flex align-items-center justify-content-between mt-4">
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">In stock</label>
-                      </div>
-                      <span className='number'>(19)</span>
-                    </div>
-                    <div className="select d-flex align-items-center justify-content-between">
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">Out of stock</label>
-                      </div>
-                      <span className='number'>(7)</span>
-                    </div>
-                  </div>
                   <div className="price mt-5">
                     <h6 className='fw-bold'>PRICE</h6>
                     <div className="caption d-flex align-items-center justify-content-between">
@@ -139,7 +119,7 @@ const Product = () => {
                     </div>
                     <div className="select d-flex align-items-center justify-content-between mt-1">
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
+                        <input onClick={() => { filterType("Console") }} className="form-check-input" type="checkbox" />
                         <label className="form-check-label">Console</label>
                       </div>
                       <span className='number'>(4)</span>
@@ -268,7 +248,7 @@ const Product = () => {
               </div>
               <div className="col-12 col-sm-12 col-md-9 col-lg-9">
                 <div className="row">
-                  {inputValue === 375 ? records.map(item => (
+                {inputValue === 375 ? records.map(item => (
                     <SingleCard
                       key={item}
                       id={item.id}

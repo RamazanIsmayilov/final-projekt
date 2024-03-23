@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ModeContext } from '../context/ModeContext'
 
 const Contact = () => {
+
+  const { mode } = useContext(ModeContext)
+
+
   return (
-    <div className="dark">
+    <div className={mode ? "dark" : "light"}>
       <div className="contactus">
         <div className="heading py-5">
           <div className="container d-flex flex-column gap-4">

@@ -4,10 +4,11 @@ import { ModeContext } from '../context/ModeContext'
 
 const About = () => {
 
-  const [modedata] = useContext(ModeContext)
+  const { mode } = useContext(ModeContext)
+
 
   return (
-    <div className={`${modedata ? 'light' : 'dark'}`}>
+    <div className={`${mode ? 'light' : 'dark'}`}>
       <div className="aboutus">
         <div className="heading py-5">
           <div className="container d-flex flex-column gap-4">

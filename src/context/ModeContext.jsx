@@ -4,17 +4,21 @@ export const ModeContext = createContext();
 
 
 export const ModeProvider = ({ children }) => {
-    const [mode, setMode] = useState(localStorage.getItem("mode") == null ? "light" : "dark");
+    const [mode, setMode] = useState(localStorage.getItem("myMode") === null ? "dark" : localStorage.getItem("myMode"));
 
     useEffect(() => {
-        if (localStorage.getItem("mode") === null) {
-            localStorage.setItem("mode", "light");
+        if (localStorage.getItem("myMode") == null) {
+            localStorage.setItem("myMode", "light")
         } else {
-            localStorage.setItem("mode", "dark");
+            localStorage.setItem("myMode", mode)
         }
-    }, [mode])
+    })
 
-    return <ModeContext.Provider value={[mode, setMode]}>
+    const modeFunc = () => {
+        setMode(!mode)
+    }
+
+    return <ModeContext.Provider value={{ mode, setMode, modeFunc }}>
         {children}
     </ModeContext.Provider>
 }
