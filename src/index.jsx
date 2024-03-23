@@ -11,6 +11,7 @@ import { WishlistProvider } from "react-use-wishlist"
 import store from './tools/store/configureStore';
 import { addBlog } from './tools/action/blogAction';
 import { Provider } from 'react-redux';
+import { ModeProvider } from './context/ModeContext';
 
 const blogStore = store();
 
@@ -83,9 +84,11 @@ root.render(
     <CartProvider>
       <WishlistProvider>
         <ProductProvider>
+        <ModeProvider>
           <Provider store={blogStore}>
             <App />
           </Provider>
+        </ModeProvider>
         </ProductProvider>
       </WishlistProvider>
     </CartProvider>

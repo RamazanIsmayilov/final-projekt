@@ -1,4 +1,3 @@
-// ----- Hero section ----- //
 .hero {
     width: 100%;
     height: auto;
@@ -49,7 +48,7 @@
 
                 &:hover {
                     background: transparent;
-                    border:1px solid $grayColor;
+                    border: 1px solid $grayColor;
                 }
             }
 
@@ -89,9 +88,7 @@
     }
 }
 
-// ----- Hero section ----- //
 
-// ----- Slider section ----- //
 .slider {
     // background-color: $darkColor;
     background: $backgroundColor;
@@ -129,9 +126,7 @@
     }
 }
 
-// ----- Slider section ----- //
 
-// ----- Categories section ----- //
 .categories {
     .heading {
         @include heading;
@@ -193,9 +188,7 @@
     }
 }
 
-// ----- Categories section ----- //
 
-// ----- Subscribe section ----- //
 .subscribe {
     span {
         font-size: $firstFontSize;
@@ -249,9 +242,7 @@
     }
 }
 
-// ----- Subscribe section ----- //
 
-// ----- About-shop section ----- //
 .about-shop {
     .heading {
         h2 {
@@ -287,9 +278,48 @@
     }
 }
 
-// ----- About-shop section ----- //
 
-// ----- Products section ----- //
+.blog-sec {
+    background-color: $darkColor;
+
+    .heading {
+        h2 {
+            font-size: 41px;
+            @include textLinear;
+        }
+
+        p {
+            color: $grayColor;
+            font-size: $firstFontSize;
+        }
+
+        a {
+            @include button;
+            color: $grayColor;
+
+            &:hover {
+                background: $linearColor;
+                color: $lightColor;
+                border: none;
+
+                svg path {
+                    fill: $lightColor;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .blog-sec {
+        .heading {
+            p {
+                display: none;
+            }
+        }
+    }
+}
+
 .products {
     .heading {
         h2 {
@@ -332,9 +362,7 @@
     }
 }
 
-// ----- Products section ----- //
 
-// ----- Testimonials section ----- //
 .testimonials {
     .heading {
         h2 {
@@ -377,5 +405,3 @@
         }
     }
 }
-
-// ----- Testimonials section ----- //

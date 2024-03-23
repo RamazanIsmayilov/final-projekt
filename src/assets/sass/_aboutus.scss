@@ -1,126 +1,274 @@
-.aboutus {
-    .heading {
-        background-color: $darkColor;
+.light {
+    .aboutus {
+        .heading {
+            background-color: $darkColor;
+            border-bottom: 1px solid #cccccc;
 
-        a {
-            .svg-ic {
-                color: $lightColor;
-                border: 1px solid;
-                border-radius: 50%;
-                width: 34px;
-                height: 34px;
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
 
-                svg path {
-                    fill: $lightColor;
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
                 }
             }
 
-            span {
-                font-size: $secondFontSize;
-                letter-spacing: .6px;
-                letter-spacing: .6px;
-                color: $lightColor;
-            }
-        }
-
-        h5 {
-            color: #0098ff;
-        }
-
-        p {
-            font-size: $firstFontSize;
-            letter-spacing: .6px;
-            line-height: 23px;
-            color: $lightColor;
-            width: 50%;
-        }
-    }
-
-    .section-one {
-        .title h2 {
-            font-size: 41px;
-        }
-
-        p {
-            color: $grayColor;
-            font-size: $firstFontSize;
-            line-height: 23px;
-        }
-    }
-
-    .section-two {
-        .title h2 {
-            font-size: 41px;
-        }
-
-        h3 {
-            font-size: 26px;
-        }
-
-        p {
-            color: $grayColor;
-            font-size: $firstFontSize;
-            line-height: 23px;
-        }
-
-        img {
-            width: 100%;
-        }
-    }
-
-    .services {
-        .title {
-            h2 {
-                font-size: 41px;
-            }
-
-            p {
-                font-size: 15px;
-                letter-spacing: .8px;
-                color: $grayColor;
-            }
-        }
-
-        .carts {
-            border: 1px solid #0098ff;
-
-            .carts-title {
-                h3 {
-                    font-size: 26px;
-                    color: $grayColor;
-                }
+            h5 {
+                color: #0098ff;
             }
 
             p {
                 font-size: $firstFontSize;
+                letter-spacing: .6px;
+                line-height: 23px;
                 color: $grayColor;
+                width: 50%;
+            }
+        }
+
+        .section-one {
+            .title h2 {
+                font-size: 41px;
+            }
+
+            p {
+                color: $grayColor;
+                font-size: $firstFontSize;
+                line-height: 23px;
+            }
+        }
+
+        .section-two {
+            .title h2 {
+                font-size: 41px;
+            }
+
+            h3 {
+                font-size: 26px;
+            }
+
+            p {
+                color: $grayColor;
+                font-size: $firstFontSize;
+                line-height: 23px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .services {
+            .title {
+                h2 {
+                    font-size: 41px;
+                }
+
+                p {
+                    font-size: 15px;
+                    letter-spacing: .8px;
+                    color: $grayColor;
+                }
+            }
+
+            .carts {
+                border: 1px solid #0098ff;
+
+                .carts-title {
+                    h3 {
+                        font-size: 26px;
+                        color: $grayColor;
+                    }
+                }
+
+                p {
+                    font-size: $firstFontSize;
+                    color: $grayColor;
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    background-color: $darkColor;
+
+    .aboutus {
+        .heading {
+            background-color: $darkColor;
+            border-bottom: 1px solid #cccccc;
+
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            h5 {
+                color: #0098ff;
+            }
+
+            p {
+                font-size: $firstFontSize;
+                letter-spacing: .6px;
+                line-height: 23px;
+                color: $grayColor;
+                width: 50%;
+            }
+        }
+
+        .section-one {
+            .title h2 {
+                font-size: 41px;
+                color: $lightColor;
+            }
+
+            p {
+                color: $grayColor;
+                font-size: $firstFontSize;
+                line-height: 23px;
+            }
+        }
+
+        .section-two {
+            .title h2 {
+                font-size: 41px;
+                color: $lightColor;
+            }
+
+            h3 {
+                font-size: 26px;
+                color: $lightColor;
+            }
+
+            p {
+                color: $grayColor;
+                font-size: $firstFontSize;
+                line-height: 23px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .services {
+            .title {
+                h2 {
+                    font-size: 41px;
+                    color: $lightColor;
+                }
+
+                p {
+                    font-size: 15px;
+                    letter-spacing: .8px;
+                    color: $grayColor;
+                }
+            }
+
+            .carts {
+                border: 1px solid #0098ff;
+
+                .carts-title {
+                    h3 {
+                        font-size: 26px;
+                        color: $lightColor;
+                    }
+                }
+
+                p {
+                    font-size: $firstFontSize;
+                    color: $grayColor;
+                }
             }
         }
     }
 }
 
 @media(max-width:992px) {
-    .aboutus {
-        .heading {
-            p {
-                width: 100%;
+    .light {
+        .aboutus {
+            .heading {
+                p {
+                    width: 100%;
+                }
             }
-        }
-        .section-one{
-            .title{
-                h2{
-                    font-size: 30px;
+
+            .section-one {
+                .title {
+                    h2 {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            .section-two {
+                .title {
+                    h2 {
+                        font-size: 30px;
+                    }
+                }
+
+                h3 {
+                    font-size: 20px;
                 }
             }
         }
-        .section-two{
-            .title{
-                h2{
-                    font-size: 30px;
+    }
+
+    .dark {
+        .aboutus {
+            .heading {
+                p {
+                    width: 100%;
                 }
             }
-            h3{
-                font-size: 20px;
+
+            .section-one {
+                .title {
+                    h2 {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            .section-two {
+                .title {
+                    h2 {
+                        font-size: 30px;
+                    }
+                }
+
+                h3 {
+                    font-size: 20px;
+                }
             }
         }
     }
