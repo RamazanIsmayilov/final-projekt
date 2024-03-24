@@ -1,68 +1,150 @@
-.blogpage{
-    .heading {
-        background-color: $darkColor;
+.light {
+    .blogpage {
+        .heading {
+            background-color: $darkColor;
 
-        a {
-            .svg-ic {
-                color: $lightColor;
-                border: 1px solid;
-                border-radius: 50%;
-                width: 34px;
-                height: 34px;
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
 
-                svg path {
-                    fill: $lightColor;
+                    svg path {
+                        fill: $lightColor;
+                    }
                 }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            h5 {
+                color: #0098ff;
             }
 
             span {
-                font-size: $secondFontSize;
-                letter-spacing: .6px;
-                letter-spacing: .6px;
-                color: $lightColor;
-            }
-        }
-
-        h5 {
-            color: #0098ff;
-        }
-
-        span {
-            font-size: $firstFontSize;
-            letter-spacing: .6px;
-            line-height: 23px;
-            color: $lightColor;
-            width: 50%;
-        }
-    }
-
-    .blog{
-        .head{
-            span{
                 font-size: $firstFontSize;
-            }
-
-            h2{
-                color: #0098ff;
-                font-size: 41px;
+                letter-spacing: .6px;
+                line-height: 23px;
+                color: $grayColor;
+                width: 50%;
             }
         }
 
-        .blog-data{
-            @include blog;
-        }
-
-        .pagination {
-            .page-item {
-                a {
-                    background-color: transparent;
-                    color: $darkColor;
-                    border: none;
+        .blog {
+            .head {
+                span {
+                    font-size: $firstFontSize;
                 }
 
-                .pg-active{
+                h2 {
+                    color: #0098ff;
+                    font-size: 41px;
+                }
+            }
+
+            .blog-data {
+                @include blog;
+            }
+
+            .pagination {
+                .page-item {
+                    a {
+                        background-color: transparent;
+                        color: $darkColor;
+                        border: 1px solid $darkColor;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .blogpage {
+        .heading {
+            background-color: $darkColor;
+            border-bottom: 1px solid;
+
+            a {
+                .svg-ic {
+                    color: $lightColor;
                     border: 1px solid;
                     border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+            }
+
+            h5 {
+                color: #0098ff;
+            }
+
+            span {
+                font-size: $firstFontSize;
+                letter-spacing: .6px;
+                line-height: 23px;
+                color: $grayColor;
+                width: 50%;
+            }
+        }
+
+        .blog {
+            background-color: $darkColor;
+
+            .head {
+                span {
+                    font-size: $firstFontSize;
+                    color: $lightColor;
+                }
+
+                h2 {
+                    color: #0098ff;
+                    font-size: 41px;
+                }
+            }
+
+            .blog-data {
+                @include blog;
+
+                .blogcard {
+
+                    .card-title {
+                        color: $lightColor;
+                    }
+
+                    .author {
+                        color: $lightColor;
+                    }
+                }
+            }
+
+            .pagination {
+                .page-item {
+                    a {
+                        background-color: transparent;
+                        color: $lightColor;
+                        border: 1px solid $lightColor;
+                        border-radius: 50%;
+                    }
                 }
             }
         }
@@ -70,10 +152,22 @@
 }
 
 @media(max-width:992px) {
-    .blogpage {
-        .heading {
-            span {
-                width: 100%;
+    .light {
+        .blogpage {
+            .heading {
+                span {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .dark {
+        .blogpage {
+            .heading {
+                span {
+                    width: 100%;
+                }
             }
         }
     }
