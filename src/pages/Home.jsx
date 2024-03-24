@@ -8,7 +8,6 @@ import { ProductContext } from '../context/ProductContext';
 import { useContext } from 'react'
 import { useSelector } from 'react-redux';
 import BlogCard from '../components/BlogCard';
-import earphone from '../assets/img/earphone.png'
 
 
 const Home = () => {
@@ -292,7 +291,7 @@ const Home = () => {
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-6 col-lg-5">
-              <img className='mt-5' height={400} src={earphone} alt="" />
+              <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/double-bluthoth.png?v=1671594490" alt="" />
             </div>
           </div>
         </div>

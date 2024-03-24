@@ -1,7 +1,10 @@
-.blogform {
-    form {
+.light {
+    .blogform {
+        form {
             width: 45%;
-            border-bottom: 1px solid #cccccc;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 5px;
 
             .form-group {
 
@@ -10,6 +13,10 @@
                     border-radius: 0 20px;
                     padding: 12px 20px;
                     outline: none;
+                }
+
+                label{
+                    color: $grayColor
                 }
             }
 
@@ -22,11 +29,60 @@
                     background: $linearColor;
                 }
             }
+        }
+    }
+}
+
+.dark {
+    h1{
+        color: $lightColor;
+    }
+    .blogform {
+        form {
+            width: 45%;
+            border: 1px solid $grayColor;
+            border-radius: 5px;
+            padding: 5px;
+
+            .form-group {
+
+                input {
+                    background-color: $darkColor;
+                    color: #cccccc;
+                    border: 1px solid $grayColor;
+                    border-radius: 0 20px;
+                    padding: 12px 20px;
+                    outline: none;
+                }
+
+                label{
+                    color: #cccccc
+                }
+            }
+
+            button {
+                @include button;
+                background: $linearColor;
+                border: none;
+
+                &:hover {
+                    background: $linearColor;
+                }
+            }
+        }
     }
 }
 
 @media(max-width: 992px) {
-    .blogform form {
-        width: 100%;
+    .light{
+        .blogform form {
+            width: 100%;
+        }
+    }
+
+    .dark{
+        .blogform form {
+            width: 100%;
+        }
     }
 }

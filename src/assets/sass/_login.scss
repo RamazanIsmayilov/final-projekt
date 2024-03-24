@@ -1,77 +1,168 @@
-.login {
-    color: $grayColor;
-    font-size: $firstFontSize;
-
-    .heading {
-        h2 {
-            color: $darkColor;
-            font-size: 41px;
+.light{
+    .login {
+        color: $grayColor;
+        font-size: $firstFontSize;
+    
+        .heading {
+            h2 {
+                color: $darkColor;
+                font-size: 41px;
+            }
+        }
+    
+        .login-form {
+            border: 1px solid #cccccc;
+            width: 50%;
+            margin: auto;
+    
+            .head {
+                border-bottom: 1px solid #cccccc;
+    
+                h4 {
+                    font-size: 18px;
+                }
+            }
+    
+            .form-container {
+                border-bottom: 1px solid #cccccc;
+    
+                .form-group {
+    
+                    input {
+                        border: 1px solid #cccccc;
+                        border-radius: 0 20px;
+                        padding: 12px 20px;
+                        outline: none;
+                    }
+                }
+            }
+    
+            .form-bottom {
+                border-bottom: 1px solid #cccccc;
+    
+                a {
+                    color: red;
+                    text-decoration: underline;
+                }
+    
+                button {
+                    @include button;
+                    background: $linearColor;
+                    border: none;
+    
+                    &:hover {
+                        background: $linearColor;
+                    }
+    
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+            }
+    
+            .form-footer {
+    
+                a {
+                    @include button;
+                    background: $linearColor;
+                    border: none;
+    
+                    &:hover {
+                        background: $linearColor;
+                    }
+    
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+            }
         }
     }
+}
 
-    .login-form {
-        border: 1px solid #cccccc;
-        width: 50%;
-        margin: auto;
-
-        .head {
-            border-bottom: 1px solid #cccccc;
-
-            h4 {
-                font-size: 18px;
+.dark{
+    .login {
+        color: $grayColor;
+        font-size: $firstFontSize;
+    
+        .heading {
+            h2 {
+                color: $lightColor;
+                font-size: 41px;
             }
         }
+    
+        .login-form {
+            border: 1px solid #cccccc;
+            width: 50%;
+            margin: auto;
+    
+            .head {
+                border-bottom: 1px solid #cccccc;
+    
+                h4 {
+                    color: #cccccc;
+                    font-size: 18px;
+                }   
+            }
+    
+            .form-container {
+                border-bottom: 1px solid #cccccc;
+    
+                .form-group {
+    
+                    input {
+                        background-color: $darkColor;
+                        color: #cccccc;
+                        border: 1px solid #cccccc;
+                        border-radius: 0 20px;
+                        padding: 12px 20px;
+                        outline: none;
+                    }
 
-        .form-container {
-            border-bottom: 1px solid #cccccc;
-
-            .form-group {
-
-                input {
-                    border: 1px solid #cccccc;
-                    border-radius: 0 20px;
-                    padding: 12px 20px;
-                    outline: none;
+                    label{
+                        color: $lightColor;
+                    }
                 }
             }
-        }
-
-        .form-bottom {
-            border-bottom: 1px solid #cccccc;
-
-            a {
-                color: red;
-                text-decoration: underline;
-            }
-
-            button {
-                @include button;
-                background: $linearColor;
-                border: none;
-
-                &:hover {
+    
+            .form-bottom {
+                border-bottom: 1px solid #cccccc;
+    
+                a {
+                    color: red;
+                    text-decoration: underline;
+                }
+    
+                button {
+                    @include button;
                     background: $linearColor;
-                }
-
-                svg path {
-                    fill: $lightColor;
+                    border: none;
+    
+                    &:hover {
+                        background: $linearColor;
+                    }
+    
+                    svg path {
+                        fill: $lightColor;
+                    }
                 }
             }
-        }
-
-        .form-footer {
-
-            a {
-                @include button;
-                background: $linearColor;
-                border: none;
-
-                &:hover {
+    
+            .form-footer {
+    
+                a {
+                    @include button;
                     background: $linearColor;
-                }
-
-                svg path {
-                    fill: $lightColor;
+                    border: none;
+    
+                    &:hover {
+                        background: $linearColor;
+                    }
+    
+                    svg path {
+                        fill: $lightColor;
+                    }
                 }
             }
         }
@@ -79,7 +170,15 @@
 }
 
 @media(max-width: 992px){
-    .login .login-form{
-        width: 100%;
+    .light{
+        .login .login-form{
+            width: 100%;
+        }
+    }
+
+    .dark{
+        .login .login-form{
+            width: 100%;
+        }
     }
 }

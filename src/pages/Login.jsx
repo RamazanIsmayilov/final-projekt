@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
-// import '../assets/css/ReactToastify.css'
+import { ModeContext } from '../context/ModeContext'
 
 
 const Login = () => {
@@ -31,12 +31,17 @@ const Login = () => {
     }
   }
 
+  const { mode } = useContext(ModeContext)
+
+
   return (
-    <div className="login d-flex align-items-center justify-content-center mb-5">
+    <div className={mode ? "light" : "dark"}>
+      <div className="login d-flex align-items-center justify-content-center pb-5">
       <div className="container">
         <div className="heading d-flex align-items-center justify-content-center mt-5">
           <h2 className='fw-bold'>Log In</h2>
         </div>
+        
         <div className="login-form mt-5 rounded">
           <div className="head mt-2 p-2">
             <div className="container">
@@ -94,6 +99,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

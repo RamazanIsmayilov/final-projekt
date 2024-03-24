@@ -1,99 +1,220 @@
-.cartpage {
-    .heading {
+.light {
+    .cartpage {
+        .heading {
 
-        a {
-            .svg-ic {
-                color: $darkColor;
-                border: 1px solid;
-                border-radius: 50%;
-                width: 34px;
-                height: 34px;
+            a {
+                .svg-ic {
+                    color: $darkColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
 
-                svg path{
-                    fill: $darkColor;
+                    svg path {
+                        fill: $darkColor;
+                    }
                 }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    color: $darkColor;
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+
+            thead tr {
+                background-color: #ccc;
+
+                th {
+                    font-size: $firstFontSize;
+                    border: 1px solid $grayColor;
+                    background-color: #cccccc;
+                    color: $grayColor;
+                }
+            }
+
+            tbody tr {
+                border: 1px solid $grayColor;
+
+                td {
+                    font-size: $firstFontSize;
+                    color: $grayColor;
+                }
+
+                .quantity {
+                    border: 1px solid rgb(76 62 62 / 15%);
+                    max-width: 100px;
+                    height: 30px;
+
+                    button {
+                        background: transparent;
+
+                        svg path {
+                            fill: $grayColor;
+                        }
+                    }
+                }
+
+                .total {
+                    button {
+                        background: transparent;
+
+                        svg path {
+                            fill: red;
+                        }
+                    }
+                }
+            }
+        }
+
+        .border {
+            border-radius: 0 20px;
+            padding: 30px 15px;
+
+            h3 {
+                font-size: 26px;
+                color: $grayColor;
             }
 
             span {
-                font-size: $secondFontSize;
-                letter-spacing: .6px;
-                color: $darkColor;
+                font-size: 20px;
+                @include textLinear;
             }
-        }
-    }
 
-    table {
-
-        thead tr {
-            th {
+            p {
                 font-size: $firstFontSize;
+                width: 95%;
                 color: $grayColor;
             }
 
-        }
+            button {
+                @include button;
+                background: $linearColor;
+                border: none;
+                padding: 10px 40px;
+                transition: .6s;
 
-        tbody tr {
-            td {
-                font-size: $firstFontSize;
-                color: $grayColor;
-            }
-
-            .quantity {
-                border: 1px solid rgb(76 62 62 / 15%);
-                max-width: 100px;
-                height: 30px;
-
-                button {
-                    background: transparent;
-
-                    svg path {
-                        fill: $grayColor;
-                    }
-                }
-            }
-
-            .total {
-                button {
-                    background: transparent;
-
-                    svg path {
-                        fill: red;
-                    }
+                &:hover {
+                    color: $grayColor;
+                    border: 1px solid $grayColor;
                 }
             }
         }
     }
+}
 
-    .border {
-        border-radius: 0 20px;
-        padding: 30px 15px;
+.dark {
+    .cartpage {
+        .heading {
 
-        h3 {
-            font-size: 26px;
-            color: $grayColor;
+            a {
+                .svg-ic {
+                    color: $lightColor;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 34px;
+                    height: 34px;
+
+                    svg path {
+                        fill: $lightColor;
+                    }
+                }
+
+                span {
+                    font-size: $secondFontSize;
+                    letter-spacing: .6px;
+                    color: $lightColor;
+                }
+
+            }
+
+            p {
+                color: $lightColor;
+            }
         }
 
-        span {
-            font-size: 20px;
-            @include textLinear;
+        table {
+            width: 100%;
+            border: 1px solid $grayColor;
+
+            thead tr {
+                th {
+                    font-size: $firstFontSize;
+                    color: $lightColor;
+                    border: 1px solid;
+                }
+
+            }
+
+            tbody tr {
+                border: 1px solid $lightColor;
+
+                td {
+                    font-size: $firstFontSize;
+                    color: $lightColor;
+                }
+
+                .quantity {
+                    border: 1px solid rgb(76 62 62 / 15%);
+                    max-width: 100px;
+                    height: 30px;
+
+                    button {
+                        background: transparent;
+
+                        svg path {
+                            fill: $lightColor;
+                        }
+                    }
+                }
+
+                .total {
+                    button {
+                        background: transparent;
+
+                        svg path {
+                            fill: red;
+                        }
+                    }
+                }
+            }
         }
 
-        p {
-            font-size: $firstFontSize;
-            width: 95%;
-            color: $grayColor;
-        }
+        .border {
+            border-radius: 0 20px;
+            padding: 30px 15px;
 
-        button {
-            @include button;
-            background: $linearColor;
-            border: none;
-            padding: 10px 40px;
-            transition: .6s;
+            h3 {
+                font-size: 26px;
+                color: $lightColor;
+            }
 
-            &:hover {
+            span {
+                font-size: 20px;
+                @include textLinear;
+            }
+
+            p {
+                font-size: $firstFontSize;
+                width: 95%;
                 color: $grayColor;
-                border: 1px solid $grayColor;
+            }
+
+            button {
+                @include button;
+                background: $linearColor;
+                border: none;
+                padding: 10px 40px;
+                transition: .6s;
+
+                &:hover {
+                    color: $grayColor;
+                    border: 1px solid $grayColor;
+                }
             }
         }
     }

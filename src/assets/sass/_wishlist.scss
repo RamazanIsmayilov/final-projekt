@@ -48,11 +48,13 @@
                 width: 100%;
 
                 thead th {
+                    border: 1px solid $grayColor;
                     background-color: #cccccc;
                     color: $grayColor;
                 }
 
                 tbody tr {
+                    border: 1px solid $grayColor;
 
                     .brand,
                     .title,
@@ -131,7 +133,6 @@
 
 
             table {
-                margin: auto;
                 width: 100%;
 
                 border: 1px solid #ccc;
@@ -143,7 +144,8 @@
                 }
 
                 tbody tr {
-                    border: 1px solid;
+                    border: 1px solid $grayColor;
+
                     background-color: $darkColor;
 
                     .brand,
