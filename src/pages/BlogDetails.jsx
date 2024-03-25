@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import slugify from 'react-slugify';
 import { ModeContext } from '../context/ModeContext';
+import { LangContext } from '../context/LangContext';
 
 const BlogDetails = () => {
 
@@ -11,7 +12,8 @@ const BlogDetails = () => {
     const blogDetails = blogData.filter(p => slugify(p.title) === det);
 
 
-  const { mode } = useContext(ModeContext)
+    const { mode } = useContext(ModeContext)
+    const { lang } = useContext(LangContext)
 
 
     return (
@@ -25,15 +27,16 @@ const BlogDetails = () => {
                                     <path fillRule="evenodd" clipRule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
                                 </svg>
                             </span>
-                            <span className='fw-bold'>Back to home</span>
+                            <span className='fw-bold'>{lang ? "Geriyə qayıt" : "Back to home"}</span>
                         </Link>
                         <div className="title d-flex align-items-center gap-3">
-                            <p className='fw-bold rounded-5'>Featured</p>
-                            <p className='fw-bold ms-2'>Category: news</p>
-                            <p className='fw-bold ms-2'>Date: December 13, 2022</p>
+                            <p className='fw-bold rounded-5'>{lang ? "Seçilmiş" : "Featured"}</p>
+                            <p className='fw-bold ms-2'>{lang ? "Kateqoriya: xəbərlər" : "Category: news"}</p>
+                            <p className='fw-bold ms-2'>{lang ? "Tarix: 13 dekabr 2022-ci il" : "Date: December 13, 2022"}</p>
                         </div>
                         <h2 className='sec-title fw-bold'>The Dev Diary Season Points Boomstick Gaming</h2>
-                        <p className='desc fw-bold'>Gambling has been a main recreational activity in Great Britain for centuries. Queen Elizabeth I chartered a lottery that was...</p>
+                        <p className='desc fw-bold'>{lang ? "Əsrlər boyu Böyük Britaniyada qumar əsas istirahət fəaliyyəti olmuşdur. Kraliça I Yelizaveta lotereya icarəyə götürdü."
+                            : "Gambling has been a main recreational activity in Great Britain for centuries. Queen Elizabeth I chartered a lottery that was..."}</p>
                     </div>
                 </div>
 
@@ -45,10 +48,10 @@ const BlogDetails = () => {
                                     <h6 className='fst-italic'><span className='fw-bold'>WorkDo,</span> company.com</h6>
                                 </div>
                                 <div className="col-12 col-md-2">
-                                    <h6><span className='fw-bold fst-italic'>Category:</span> news</h6>
+                                    <h6><span className='fw-bold fst-italic'>{lang ? "Kateqoriya" : "Category"}:</span> {lang ? "xəbərlər" : "news"}</h6>
                                 </div>
                                 <div className="col-12 col-md-2">
-                                    <h6><span className='fw-bold fst-italic'>Date:</span> December 13, 2022</h6>
+                                    <h6><span className='fw-bold fst-italic'>{lang ? "Tarix" : "Date"}:</span> {lang ? "13 dekabr 2022-ci il" : "December 13, 2022"}</h6>
                                 </div>
                             </div>
                             <h2 className='sec-title fw-bold mt-4'>{blogDetails[0].title}</h2>
@@ -61,13 +64,10 @@ const BlogDetails = () => {
                                     </div>
                                     <div className="desc mt-4">
                                         <p>{blogDetails[0].desc}</p>
-                                        <h5 className='mt-4'>Boomstick Gaming, a renowned game developer, has recently released a captivating Dev Diary video detailing an exciting new
-                                            feature called "Season Points" in their latest game. This innovative addition aims to enhance the gameplay experience and
-                                            provide players with even more incentives to dive into the virtual world they've meticulously crafted.</h5>
-                                        <p className='mt-4'>Season Points introduce a fresh layer of progression and rewards for players who engage with the game over an extended period.
-                                            It serves as a testament to Boomstick Gaming's commitment to keeping their community engaged and entertained. Let's delve deeper
-                                            into what Season Points entail and how they transform the gameplay dynamics. At its core, Season Points is a system that tracks a
-                                            player's progress throughout each season of the game.</p>
+                                        <h5 className='mt-4'>{lang ? "Tanınmış oyun tərtibatçısı Boomstick Gaming, bu yaxınlarda ən son oyununda Mövsüm xalları adlı maraqlı yeni funksiyadan bəhs edən cazibədar Dev Diary videosunu yayımladı. Bu yenilikçi əlavə oyun təcrübəsini artırmaq və oyunçulara ciddi şəkildə hazırladıqları virtual dünyaya dalmaq üçün daha çox stimul vermək məqsədi daşıyır."
+                                            : "Boomstick Gaming, a renowned game developer, has recently released a captivating Dev Diary video detailing an exciting new feature called Season Points in their latest game. This innovative addition aims to enhance the gameplay experience and provide players with even more incentives to dive into the virtual world they've meticulously crafted."}</h5>
+                                        <p className='mt-4'>{lang ? "Mövsüm xalları uzun müddət ərzində oyunla məşğul olan oyunçular üçün yeni bir inkişaf təbəqəsi və mükafatlar təqdim edir. Bu, Boomstick Gaming-in öz icmasını məşğul və əyləncəli saxlamaq öhdəliyinə bir sübut kimi xidmət edir. Gəlin Mövsüm Xallarının nələri ehtiva etdiyini və onların oyun dinamikasını necə dəyişdirdiyini daha dərindən araşdıraq. Özündə Mövsüm xalları oyunun hər mövsümü ərzində oyunçunun irəliləyişini izləyən sistemdir."
+                                            : "Season Points introduce a fresh layer of progression and rewards for players who engage with the game over an extended period. It serves as a testament to Boomstick Gaming's commitment to keeping their community engaged and entertained. Let's delve deeper into what Season Points entail and how they transform the gameplay dynamics. At its core, Season Points is a system that tracks a player's progress throughout each season of the game."}</p>
                                     </div>
                                     <div className="quote-box d-flex align-items-start gap-4 mt-5">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="180" viewBox="0 0 39 32" fill="none">
@@ -76,13 +76,12 @@ const BlogDetails = () => {
                                              27.5911 17.0493 23.1822ZM38.0982 23.1822C38.0982 19.4844 35.3959 16.0711 31.1293 15.36C31.8404 11.0933 35.6804 6.82666 38.0982 
                                              5.12L32.8359 0C26.7204 5.26222 21.8848 12.6578 21.8848 22.6133C21.8848 27.8756 25.5826 31.2889 30.2759 31.2889C34.6848 31.2889 
                                              38.0982 27.5911 38.0982 23.1822Z" fill="#183A40"></path> </svg>
-                                        <b >These seasons, typically lasting a predefined period, bring new challenges, content updates, and exciting events.
-                                            With Season Points, players earn rewards based on their in-game accomplishments, such as completing quests, defeating
-                                            formidable foes, or achieving milestones.</b>
+                                        <b >{lang ? "Adətən əvvəlcədən müəyyən edilmiş bir müddət davam edən bu mövsümlər yeni problemlər, məzmun yeniləmələri və maraqlı hadisələr gətirir. Mövsüm xalları ilə oyunçular tapşırıqları tamamlamaq, nəhəng düşmənləri məğlub etmək və ya mərhələlərə çatmaq kimi oyundaxili nailiyyətlərinə əsasən mükafatlar qazanırlar."
+                                            : "These seasons, typically lasting a predefined period, bring new challenges, content updates, and exciting events. With Season Points, players earn rewards based on their in-game accomplishments, such as completing quests, defeating formidable foes, or achieving milestones."}</b>
                                     </div>
-                                    <div className="tags mt-5"><b>Tags:</b> Game</div>
+                                    <div className="tags mt-5"><b>{lang ? "Teqlər:" : "Tags:"}</b> {lang ? "Oyun" : "Game"}</div>
                                     <div className="socials d-flex align-items-center gap-3 mt-5">
-                                        <span>Share this post:</span>
+                                        <span>{lang ? "Bu postu paylaşın:" : "Share this post:"}</span>
                                         <a target='blank' href="https://www.facebook.com/sharer.php?u=/blogs/news/best-gamers-desk-settings-for-amateurs-8">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="12" viewBox="0 0 11 11" fill="none">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.59131 2.23909C3.27183 2.11998 4.32047 2.00996 5.87035 2.00996C7.42023 2.00996 8.46887 2.11998 9.14939 2.23909C9.60942 2.3196 9.93616 2.77372 9.93616 3.42342V7.45757C9.93616 8.10727 9.60942 8.56138 9.14939 8.6419C8.46887 8.761 7.42023 8.87102 5.87035 8.87102C4.32047 8.87102 3.27183 8.761 2.59131 8.6419C2.13128 8.56138 1.80454 8.10727 1.80454 7.45757V3.42342C1.80454 2.77372 2.13128 2.3196 2.59131 2.23909ZM5.87035 0.866455C4.27902 0.866455 3.17701 0.979313 2.43505 1.10917C1.37337 1.29498 0.788086 2.34061 0.788086 3.42342V7.45757C0.788086 8.54038 1.37337 9.586 2.43505 9.77182C3.17701 9.90167 4.27902 10.0145 5.87035 10.0145C7.46168 10.0145 8.56369 9.90167 9.30564 9.77182C10.3673 9.586 10.9526 8.54038 10.9526 7.45757V3.42342C10.9526 2.34061 10.3673 1.29498 9.30564 1.10917C8.56369 0.979313 7.46168 0.866455 5.87035 0.866455ZM5.12231 3.79288C5.28757 3.69339 5.48808 3.70429 5.64404 3.82126L7.16872 4.96477C7.3101 5.07081 7.39503 5.24933 7.39503 5.44049C7.39503 5.63166 7.3101 5.81018 7.16872 5.91622L5.64404 7.05973C5.48808 7.1767 5.28757 7.1876 5.12231 7.0881C4.95706 6.98861 4.8539 6.79486 4.8539 6.584V4.29698C4.8539 4.08612 4.95706 3.89238 5.12231 3.79288Z" fill="white"></path>
@@ -108,7 +107,7 @@ const BlogDetails = () => {
                             </div>
                             <div className="col-12 col-sm-6 col-md-4 col-lg-4">
                                 <div className="rightbar mt-4">
-                                    <h3 className='sec-title'><b>Related articles</b></h3>
+                                    <h3 className='sec-title'><b>{lang ? "Əlaqədar məqalələr" : "Related articles"}</b></h3>
                                     <div className="blog-item-card d-flex flex-column gap-5">
                                         {blogData.slice(0, 2).map(item => (
                                             <div className="blogcard">

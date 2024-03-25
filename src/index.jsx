@@ -12,6 +12,7 @@ import store from './tools/store/configureStore';
 import { addBlog } from './tools/action/blogAction';
 import { Provider } from 'react-redux';
 import { ModeProvider } from './context/ModeContext';
+import { LangProvider } from './context/LangContext';
 
 const blogStore = store();
 
@@ -84,11 +85,13 @@ root.render(
     <CartProvider>
       <WishlistProvider>
         <ProductProvider>
-        <ModeProvider>
-          <Provider store={blogStore}>
-            <App />
-          </Provider>
-        </ModeProvider>
+          <ModeProvider>
+            <LangProvider>
+              <Provider store={blogStore}>
+                <App />
+              </Provider>
+            </LangProvider>
+          </ModeProvider>
         </ProductProvider>
       </WishlistProvider>
     </CartProvider>

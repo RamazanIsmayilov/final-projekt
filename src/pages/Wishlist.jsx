@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { useWishlist } from "react-use-wishlist";
 import { ModeContext } from '../context/ModeContext';
+import { LangContext } from '../context/LangContext';
 
 const Wishlist = ({ alldata }) => {
 
@@ -17,6 +18,7 @@ const Wishlist = ({ alldata }) => {
   } = useWishlist();
 
   const { mode } = useContext(ModeContext)
+  const { lang } = useContext(LangContext)
 
   return (
     <div className={mode ? "light" : "dark"}>
@@ -29,26 +31,26 @@ const Wishlist = ({ alldata }) => {
                   <path fillRule="evenodd" clipRule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
                 </svg>
               </span>
-              <span className='fw-bold'>Back to home</span>
+              <span className='fw-bold'>{lang ? "Geriyə qayıt" : "Back to home"}</span>
             </Link>
-            <h5 className='fs-1 fw-bold'>Wishlist</h5>
-            <p>Welcome to our Wishlist feature, where you can curate your personalized collection
-              of desired items and experiences.</p>
+            <h5 className='fs-1 fw-bold'>{lang ? "İstək siyahısı" : "Wishlist"}</h5>
+            <p>{lang ? "İstədiyiniz əşyalar və təcrübələr üçün fərdiləşdirilmiş kolleksiyanızı tərtib edə biləcəyiniz İstək Siyahısı xüsusiyyətimizə xoş gəlmisiniz." :
+              "Welcome to our Wishlist feature, where you can curate your personalized collection of desired items and experiences."}</p>
           </div>
         </div>
         <div className="wishlist pb-4">
           <div className="container">
             <div className="title">
-              <h2 className='d-flex align-items-center justify-content-center pt-5 pb-3 fw-bold'>Wishlist({totalWishlistItems})</h2>
+              <h2 className='d-flex align-items-center justify-content-center pt-5 pb-3 fw-bold'>{lang ? "İstək siyahısı" : "Wishlist"}({totalWishlistItems})</h2>
             </div>
             {isWishlistEmpty ? <div className='text-center'><img width={300} src="https://i.pinimg.com/originals/b0/cb/c8/b0cbc88e808b2e5502a7282f644ae734.gif" alt="" /></div> :
               <table>
                 <thead>
                   <tr>
-                    <th className='text-center py-2' scope="col">Product</th>
-                    <th className='text-center py-2' scope="col">Details</th>
-                    <th className='text-center py-2' scope="col">Cart Button</th>
-                    <th className='text-center py-2' scope="col">Delete</th>
+                    <th className='text-center py-2' scope="col">{lang ? "Məhsul" : "Product"}</th>
+                    <th className='text-center py-2' scope="col">{lang ? "Təfərrüatlar" : "Details"}</th>
+                    <th className='text-center py-2' scope="col">{lang ? "Səbət düyməsi" : "Cart Button"}</th>
+                    <th className='text-center py-2' scope="col">{lang ? "Sil" : "Delete"}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,7 +63,7 @@ const Wishlist = ({ alldata }) => {
                         <div className="price mt-4">{item.price}.00USD</div>
                       </td>
                       <td className='text-center'>
-                        <button className='addbtn mt-5' onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
+                        <button className='addbtn mt-5' onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
                       </td>
                       <td className='text-center'>
                         <button className='ms-1 removebtn mt-5' onClick={() => removeWishlistItem(item.id)}>
