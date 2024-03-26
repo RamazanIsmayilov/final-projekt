@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import slugify from 'react-slugify';
 import { deleteBlog } from '../../tools/action/blogAction';
 import { ModeContext } from '../../context/ModeContext';
+import { LangContext } from '../../context/LangContext';
 
 const Dashboard = () => {
 
@@ -12,6 +13,7 @@ const Dashboard = () => {
 
 
     const { mode } = useContext(ModeContext)
+    const { lang } = useContext(LangContext)
 
 
     return (
@@ -25,32 +27,33 @@ const Dashboard = () => {
                                     <path fillRule="evenodd" clipRule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
                                 </svg>
                             </span>
-                            <span className='fw-bold'>Back to home</span>
+                            <span className='fw-bold'>{lang ? "Geriyə qayıt" : "Back to home"}</span>
                         </Link>
-                        <h5 className='fs-1 fw-bold'>Dashboard</h5>
-                        <span>Products & Blogs</span>
+                        <h5 className='fs-1 fw-bold'>{lang ? "İdarə paneli" : "Dashboard"}</h5>
+                        <span>{lang ? "Məhsullar və Bloqlar" : "Products & Blogs"}</span>
                     </div>
                 </div>
 
                 <div className="dashboard py-3">
                     <div className='container'>
-                        <h1 className='title text-center my-5'>Products & Blogs table</h1>
+                        <h1 className='title text-center my-5'>{lang ? "Məhsullar və Bloqlar cədvəli" : "Products & Blogs table"}</h1>
                         <div className='head d-flex align-items-center justify-content-between'>
-                            <span>Blogs</span>
+                            <span>{lang ? "Bloqlar" : "Blogs"}</span>
                             <Link className='addbtn d-flex align-items-center justify-content-center gap-2 rounded' to="/dashboard/add">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pen-line" class="lucide lucide-pen-line mr-2 h-4 w-4 stroke-[1.3]"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
-                                Add New Blog</Link>
+                                {lang ? "Yeni Bloq əlavə edin" : "Add New Blog"}
+                            </Link>
                         </div>
                         <div className="d-flex-align-items-center justify-content-center">
                             <table className=" my-4">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Photo</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Edit</th>
-                                        <th scope="col">Delete</th>
+                                        <th scope="col">{lang ? "Şəkil" : "Photo"}</th>
+                                        <th scope="col">{lang ? "Başlıq" : "Title"}</th>
+                                        <th scope="col">{lang ? "Təsvir" : "Description"}</th>
+                                        <th scope="col">{lang ? "Redaktə et" : "Edit"}</th>
+                                        <th scope="col">{lang ? "Sil" : "Delete"}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

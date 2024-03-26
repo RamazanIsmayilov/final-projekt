@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import { ModeContext } from '../context/ModeContext'
+import { LangContext } from '../context/LangContext';
 
 
 const Cart = () => {
@@ -16,6 +17,7 @@ const Cart = () => {
 
 
   const { mode } = useContext(ModeContext)
+  const { lang } = useContext(LangContext)
 
 
   return (
@@ -29,21 +31,22 @@ const Cart = () => {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
                 </svg>
               </span>
-              <span className='fw-bold'>Continue Shopping</span>
+              <span className='fw-bold'>{lang ? "Alış-verişə davam edin" : "Continue Shopping"}</span>
             </Link>
-            <p className='fs-1 fw-bold mt-3'>Your cart</p>
+            <p className='fs-1 fw-bold mt-3'>{lang ? "Səbətiniz" : "Your cart"}</p>
           </div>
+
           <div className="row g-5">
             <div className="col-12 col-sm-12 col-md-8 col-lg-9">
               {isEmpty ? <div className='text-center'><img width={300} src="https://schoolville.com/assets/img/empty-cart-illustration.gif" alt='' /></div> :
                 <table>
                   <thead>
                     <tr>
-                      <th className='text-center' scope="col">IMAGE</th>
-                      <th className='text-center' scope="col">NAME</th>
-                      <th className='text-center' scope="col">PRICE</th>
-                      <th className='text-center' scope="col">QUANTITY</th>
-                      <th className='text-center' scope="col">TOTAL</th>
+                      <th className='text-center' scope="col">{lang ? "ŞƏKİL" : "IMAGE"}</th>
+                      <th className='text-center' scope="col">{lang ? "AD" : "NAME"}</th>
+                      <th className='text-center' scope="col">{lang ? "Səbətiniz" : "PRICE"}</th>
+                      <th className='text-center' scope="col">{lang ? "QİYMƏT" : "QUANTITY"}</th>
+                      <th className='text-center' scope="col">{lang ? "ÜMUMİ" : "TOTAL"}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -81,10 +84,10 @@ const Cart = () => {
 
             <div className="col-12 col-sm-12 col-md-4 col-lg-3">
               <div className="border d-flex flex-column align-items-center gap-1">
-                <h3 className='fw-bold'>Subtotal</h3>
+                <h3 className='fw-bold'>{lang ? "Cəmi" : "Subtotal"}</h3>
                 <span className='fw-bold'>{Math.round(cartTotal)}.00 USD</span>
-                <p className="text-center">Taxes and shipping calculated at checkout</p>
-                <button type='button'>Proceed to checkout</button>
+                <p className="text-center">{lang ? "Vergilər və çatdırılma ödəniş zamanı hesablanır" : "Taxes and shipping calculated at checkout"}</p>
+                <button type='button'>{lang ? "Yoxlamaya davam edin" : "Proceed to checkout"}</button>
               </div>
             </div>
           </div>

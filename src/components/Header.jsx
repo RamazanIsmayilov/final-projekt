@@ -1,10 +1,12 @@
-import React, { createContext, useContext, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { ProductContext } from '../context/ProductContext';
 import slugify from 'react-slugify';
 import { ModeContext } from '../context/ModeContext';
 import { LangContext } from '../context/LangContext';
+import { BsFillMoonFill } from "react-icons/bs";
+import { RiSunLine } from "react-icons/ri";
 
 const Header = () => {
 
@@ -37,50 +39,39 @@ const Header = () => {
         <div className="container">
           <nav className="navbar">
             <ul className="navbar-left d-flex gap-4 mt-3">
-              <li>
-                <Link className="title fw-bold d-flex align-items-center gap-2" to="/">Gaming Accessories
-                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
-                <ul className="dropdown one d-flex flex-column gap-2">
-                  <li><Link to="/">Game Console</Link></li>
-                  <li><Link to="/">Game Remote</Link></li>
-                  <li><Link to="/">Gaming Cards</Link></li>
-                  <li><Link to="/">Gaming Chairs</Link></li>
-                  <li><Link to="/">Gaming Moniter</Link></li>
-                  <li><Link to="/">Gaming PCs</Link></li>
-                </ul>
-              </li>
-              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/">Pages
-                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
-                <ul className="dropdown two d-flex flex-column gap-2">
-                  <li><Link to="/about">About Us</Link></li>
-                  <li><Link to="contact">Contact with us</Link></li>
-                  <li><Link to="/products">Products</Link></li>
-                  <li><Link to="/wishlist">Wishlist</Link></li>
-                  <li><Link to="/compare">Compare</Link></li>
-                </ul>
-              </li>
-              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/">Blog
-                <img src="https://gaming-workdo.myshopify.com/cdn/shop/t/3/assets/dropdown.png" alt="dropend" /></Link>
-                <ul className="dropdown three d-flex flex-column gap-2">
-                  <li><Link to="/blog">Blog Page</Link></li>
-                  <li><Link to="/articleblog">Article Page</Link></li>
-                </ul>
-              </li>
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/">Home</Link></li>
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/about">About</Link></li>
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/contact">Contact</Link></li>
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/products">Store</Link></li>
+              <li><Link className="title fw-bold d-flex align-items-center gap-2" to="/blog">Blog</Link></li>
             </ul>
             <div className="logo">
               <Link to="/">
                 <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/logo_aceeaa59-f6d4-423f-86f0-8c025cf33812.png?v=1671601485" alt="logo" />
               </Link>
             </div>
+
             <div className="navbar-right d-flex align-items-center">
               <ul className="d-flex align-items-center gap-3 m-3 p-0">
                 <div className="admin d-flex align-items-center">
                   {localStorage.getItem('login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
-                    <p className='my-1'>👋 Hello, {localStorage.getItem("firstName")}</p>
-                    <button style={{ height: "35px" }} className='logoutbtn d-flex align-items-center justify-content-center ms-2' onClick={() => {
-                      localStorage.setItem("login", 'false');
-                      window.location.assign('/login');
-                    }}>Log out</button>
+                    <li><a className="title fw-medium" href="/">
+                      <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
+                      </svg>
+                    </a>
+                      <ul className="dropdown one">
+                        <li style={{ fontSize: "13px" }} className='text-dark p-0'>👋 Hello, {localStorage.getItem("firstName")}</li>
+                        <li><button className='logoutbtn p-0' onClick={() => {
+                          localStorage.setItem("login", 'false');
+                          window.location.assign('/login');
+                        }}>Log out</button></li>
+                        <li><Link to="/login">Log in</Link></li>
+                        <li><Link to="/createaccount">Create Account</Link></li>
+                        <li><Link to="/wishlist">Wishlist</Link></li>
+                      </ul>
+                    </li>
                   </div> : <li><a className="title fw-medium" href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
                       <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
@@ -90,6 +81,7 @@ const Header = () => {
                     <ul className="dropdown one">
                       <li><Link to="/login">Log in</Link></li>
                       <li><Link to="/createaccount">Create Account</Link></li>
+                      <li><Link to="/wishlist">Wishlist</Link></li>
                     </ul>
                   </li>}
                 </div>
@@ -101,15 +93,18 @@ const Header = () => {
                       <path fillRule="evenodd" clipRule="evenodd" d="M10.062 5.95768C10.077 5.80693 10.0846 5.65404 10.0846 5.49935C10.0846 5.34466 10.077 5.19176 10.062 5.04102H0.940599C0.925632 5.19176 0.917969 5.34466 0.917969 5.49935C0.917969 5.65404 0.925632 5.80693 0.940599 5.95768H10.062Z" fill="white" />
                     </svg>
                   </a>
-                    <ul className="dropdown two">
-                      <li><a href="/">Azerbaijan</a></li>
-                      <li><a href="/">English</a></li>
+                    <ul className="dropdown two d-flex flex-column">
+                      <button onClick={langModeFunc}>{`${langMode ? 'Azerbaijan' : 'Azerbaijan'}`}</button>
+                      <button onClick={langModeFunc}>{`${langMode ? 'English' : 'English'}`}</button>
                     </ul>
                   </li>
                 </div>
               </ul>
-              <button onClick={modeFunc} className='btn btn-primary'>{`${mode ? 'Dark' : 'Light'}`}</button>
-              <button onClick={langModeFunc} className='btn btn-primary ms-2'>{`${langMode ? 'Az' : 'En'}`}</button>
+              <button onClick={modeFunc} className='btn'>{`${mode ? <BsFillMoonFill /> : <RiSunLine />}`}</button>
+              <li className="cart d-flex flex-column fw-bold">
+                <span>MyCart</span>
+                <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
+              </li>
               <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative">
                 <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="white"></path>

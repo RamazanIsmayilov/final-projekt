@@ -8,12 +8,10 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
 import ProductDetails from './pages/ProductDetails'  
-import ArticleBlog from './pages/ArticleBlog'
 import Login from './pages/Login'
 import CreateAccount from './pages/CreateAccount'
 import ForgotPassword from './pages/ForgotPassword'
 import Wishlist from './pages/Wishlist'
-import Compare from './pages/Compare'
 import Cart from './pages/Cart'
 import Blog from './pages/Blog'
 import AddBlog from './pages/admin/update/AddBlog'
@@ -37,12 +35,10 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/dashboard/add' element={<AddBlog />}></Route>
         <Route path='/dashboard/edit/:edit' element={<EditBlog />}></Route>
-        <Route path='/articleblog' element={<ArticleBlog />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/createaccount' element={<CreateAccount />}></Route>
         <Route path='/forgotpassword' element={<ForgotPassword />}></Route>
         <Route path='/wishlist' element={<Wishlist />}></Route>
-        <Route path='/compare' element={<Compare />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>

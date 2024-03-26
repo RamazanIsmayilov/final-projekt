@@ -38,9 +38,27 @@ header {
         position: relative;
 
         .logoutbtn {
-            @include button;
             background: transparent;
-            padding: 0 20px;
+            color: red;
+            font-size: $firstFontSize;
+        }
+
+        .language{
+            .dropdown{
+                button{
+                    background: transparent;
+                    color: $darkColor;
+                    font-size: $secondFontSize;
+
+                    &:hover{
+                        text-decoration: underline
+                    }
+                }
+            }
+        }
+
+        .cart{
+            font-size: $firstFontSize;
         }
 
         .dropdown {
