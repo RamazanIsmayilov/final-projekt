@@ -258,7 +258,7 @@ const Home = () => {
     <>
       <div className="hero">
         <div className="container">
-          <div className="row">
+          <div className="row d-flex align-items-center">
             <div className="col-12 col-sm-12 col-md-6 col-lg-7">
               <div className="left mt-5 d-flex flex-column gap-3">
                 <div className="heading py-2 px-3 rounded-5">
@@ -291,7 +291,7 @@ const Home = () => {
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-6 col-lg-5">
-              <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/double-bluthoth.png?v=1671594490" alt="" />
+              <img style={{width: "100%"}} src="https://gaming-workdo.myshopify.com/cdn/shop/files/double-bluthoth.png?v=1671594490" alt="" />
             </div>
           </div>
         </div>

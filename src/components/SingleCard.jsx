@@ -30,6 +30,7 @@ const SingleCard = ({ title, type, brand, neew, image, price, oldprice, alldata 
                     </div>
                     <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} >Add to Cart</button>
                 </div>
+                {console.log("All data", alldata)}
                 <div className="action px-3 py-1 d-flex gap-2">
                     <button onClick={() => { localStorage.getItem("login") === "true" ? addWishlistItem(alldata) : navigate("/login") }} ><i className="fa-regular fa-heart"></i></button>
                     <span> | </span>

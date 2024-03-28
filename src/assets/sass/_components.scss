@@ -1,79 +1,61 @@
 header {
-    background: $backgroundColor;
     background: $darkColor;
     border-bottom: 1px solid;
 
     .navbar-left {
-        position: relative;
-        padding: 0;
-
         .title {
             color: $lightColor;
             font-size: 15px;
         }
-
-        .dropdown {
-            @include dropdown;
-        }
-
-        .two {
-            width: 200px;
-        }
-
-        .three {
-            width: 140px;
-        }
-
-        li:hover .dropdown {
-            visibility: visible;
-
-        }
     }
 
     .navbar-right {
-        * {
-            color: $lightColor;
-        }
-
         position: relative;
 
-        .logoutbtn {
-            background: transparent;
-            color: red;
-            font-size: $firstFontSize;
+        .admin {
+            .dropdown {
+                @include dropdown;
+                position: absolute;
+                left: -110px;
+            }
+
+            .hello-user {
+                font-size: $firstFontSize;
+                color: rgb(17, 157, 162);
+                border: 1px solid;
+            }
+
+            .logoutbtn {
+                background: transparent;
+                color: red;
+                font-size: $firstFontSize;
+            }
         }
 
-        .language{
-            .dropdown{
-                button{
+        .language {
+            .dropdown {
+                @include dropdown;
+                position: absolute;
+                left: -45px;
+                padding: 15px;
+
+                button {
                     background: transparent;
                     color: $darkColor;
                     font-size: $secondFontSize;
 
-                    &:hover{
+                    &:hover {
                         text-decoration: underline
                     }
                 }
             }
         }
 
-        .cart{
+        .cart {
             font-size: $firstFontSize;
         }
 
-        .dropdown {
-            @include dropdown;
-        }
 
-        .one {
-            position: absolute;
-            left: -60px;
-        }
-
-        .two {
-            position: absolute;
-            left: -80px;
-        }
 
         li:hover .dropdown {
             visibility: visible;
@@ -84,6 +66,7 @@ header {
         position: absolute;
         right: 0;
 
+
         .open-btn {
             display: none;
             color: $lightColor;
@@ -91,7 +74,8 @@ header {
         }
 
         .offcanvas-menu {
-            z-index: 1;
+            overflow: scroll;
+            z-index: 100;
             position: fixed;
             top: 0;
             right: 0;
@@ -119,43 +103,39 @@ header {
             }
 
             .body {
-                .accordion-item .accordion-body {
-                    transform: translate(-30px);
+                background-color: $lightColor;
 
-                    a {
+                .nav-item{
+                    a{
                         color: $darkColor;
-                        font-size: 15px;
+                        transition: .4s;
 
-                        &:hover {
-                            border-bottom: 1px solid $darkColor;
+                        &:hover{
+                            color: #0098ff;
                         }
                     }
                 }
 
-                .action {
-                    background-color: $lightColor;
-                    flex-wrap: wrap;
-
-                    .admin {
-                        button {
-                            @include button;
-                            background: transparent;
-                            color: #838383;
-                            padding: 0 20px;
+                .accordion{
+                    .user{
+                        .hello-user {
+                            font-size: $firstFontSize;
+                            color: rgb(17, 157, 162);
+                            border: 1px solid;
                         }
-                    }
-
-                    svg path {
-                        fill: $darkColor;
-                    }
-
-                    .dropdown {
-                        @include dropdown;
-
-                    }
-
-                    li:hover .dropdown {
-                        visibility: visible;
+                        .logoutbtn {
+                            background: transparent;
+                            color: red;
+                            font-size: $firstFontSize;
+                        }
+                        a{
+                            color: $darkColor;
+                            transition: .4s;
+    
+                            &:hover{
+                                color: #0098ff;
+                            }
+                        }
                     }
                 }
             }
@@ -165,7 +145,6 @@ header {
 
 
 .bottom-header {
-    background: $backgroundColor;
     background: $darkColor;
     border-bottom: 1px solid;
 
@@ -215,8 +194,6 @@ header {
         }
 
         .list-group-item {
-            // position: absolute;
-            // z-index: 100;
             background-color: #cccccc;
 
             .content {
@@ -260,6 +237,10 @@ header {
     header nav .navbar-left {
         display: none !important;
     }
+
+    // header .menu .open-btn {
+    //     display: block !important;
+    // }
 
     header nav .navbar-right {
         margin-right: 30px;
