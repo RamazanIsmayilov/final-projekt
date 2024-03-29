@@ -190,22 +190,6 @@ header {
     header .menu .offcanvas-menu .accordion {
         display: none;
     }
-
-    .bottom-header {
-
-        .left,
-        .right {
-            display: none !important;
-        }
-
-        .search {
-            input {
-                width: 80% !important;
-            }
-        }
-
-
-    }
 }
 
 .bottom-header {
@@ -226,12 +210,12 @@ header {
     }
 
     .search {
+        width: 30%;
         position: absolute;
         z-index: 1;
         overflow: auto hidden;
-        height: 57vh !important;
-        width: 30%;
-        margin-top: -20px !important;
+        height: 58vh !important;
+        margin-top: -8px !important;
 
         .input-group {
             a {
@@ -247,9 +231,9 @@ header {
             }
 
             input {
+                width: 70%;
                 border: 0.5px solid #cccccc;
                 color: #cccccc;
-                width: 70%;
                 background: transparent;
                 border-radius: 0 20px;
                 border-left: none;
@@ -265,33 +249,21 @@ header {
         }
 
         .list-group-item {
-            margin: auto;
+            border: 7px solid blue;
             width: 80%;
+            margin: auto;
             background-color: #cccccc;
             border: 1px solid $grayColor;
 
             .content {
-                h5 {
-                    color: $grayColor;
-                }
+                color: $grayColor;
 
                 .description {
-                    color: $grayColor;
                     font-size: 11px;
                 }
 
                 .type i {
-                    color: $grayColor;
                     font-size: 11px;
-                }
-
-                .price {
-                    color: $grayColor;
-
-                    sup {
-                        color: $grayColor;
-
-                    }
                 }
             }
         }
@@ -316,8 +288,14 @@ header {
         }
 
         .search {
+            margin-top: -20px !important;
+            width: 60%;
             input {
                 width: 80% !important;
+            }
+
+            .list-group-item {
+                width: 100% !important;
             }
         }
 

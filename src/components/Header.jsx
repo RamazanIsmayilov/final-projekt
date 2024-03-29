@@ -25,11 +25,6 @@ const Header = () => {
     menu.current.classList.remove('open');
   }
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const { mode, modeFunc } = useContext(ModeContext)
   const { lang, langModeFunc, langMode } = useContext(LangContext)
 
@@ -224,7 +219,7 @@ const Header = () => {
 
       <div className="bottom-header py-4">
         <div className="container">
-          <div className="row d-flex align-items-center justify-content-center">
+          <div className="row">
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
               <div className="left">
                 <span className='fw-bold'>New Accessories -30 % Off. <Link to="/products">More</Link></span>
@@ -238,7 +233,7 @@ const Header = () => {
                 </div>
                 {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
                   <Link to={`/products/${slugify(item.title)}`}>
-                    <li className="list-group-item d-flex align-items-center gap-2 py-2" onClick={() => { setShow(false) }}>
+                    <li className="list-group-item d-flex align-items-center gap-2 py-2">
                       <div className="image">
                         <img width={100} src={item.image} alt='' />
                       </div>

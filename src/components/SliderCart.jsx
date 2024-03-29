@@ -18,7 +18,7 @@ const SliderCard = ({ title, type, brand, neew, image, price, oldprice, alldata 
                     <span>Type: {type}</span>
                     <span>Brand: {brand}</span>
                 </div>
-                <span className='new mx-3 px-2 rounded'>{neew}</span>
+                <span className='new mx-3 px-2 mt-2 rounded'>{neew}</span>
                 <Link to={`/products/${slugify(title)}`} className='d-flex align-items-center justify-content-center'>
                     <img src={image} alt="" />
                 </Link>
