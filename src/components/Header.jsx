@@ -118,7 +118,12 @@ const Header = () => {
               </div>
             </div>
             <div className="menu">
-              <button onClick={openMenu} className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></button>
+              <div className='d-flex align-items-center gap-3'>
+                <div className="mode">
+                  <button onClick={modeFunc} className='btn p-0 text-light'>{mode ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
+                </div>
+                <button onClick={openMenu} className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></button>
+              </div>
               <div ref={menu} className="offcanvas-menu">
                 <div className="heading p-1">
                   <button onClick={closeMenu} className="close-btn fs-3 mx-3" href="/">
@@ -132,8 +137,8 @@ const Header = () => {
                     <Link className="title" to="/contact">Contact</Link>
                     <Link className="title" to="/products">Store</Link>
                     <Link className="title" to="/blog">Blog</Link>
+                    <Link className="title" to="/wishlist">Wishlist</Link>
                   </div>
-
                   <div className="accordion accordion-flush" id="accordionFlushExample">
                     <div className="accordion-item">
                       <h2 className="accordion-header">
@@ -154,11 +159,9 @@ const Header = () => {
                             }}>Log out</button>
                             <Link to="/login">Log in</Link>
                             <Link to="/createaccount">Create Account</Link>
-                            <Link to="/wishlist">Wishlist</Link>
                           </div> : <div className="links d-flex flex-column gap-2">
                             <Link to="/login">Log in</Link>
                             <Link to="/createaccount">Create Account</Link>
-                            <Link to="/wishlist">Wishlist</Link>
                           </div>}
                         </div>
                       </div>
@@ -166,25 +169,52 @@ const Header = () => {
                     <div className="accordion-item">
                       <h2 className="accordion-header">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-controls="flush-collapseTwo">
-                          Accordion Item #2
+                          <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 11 11" fill="none">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M5.5013 9.16602C7.52635 9.16602 9.16797 7.52439 9.16797 5.49935C9.16797 3.4743 7.52635 1.83268 5.5013 1.83268C3.47626 1.83268 1.83464 3.4743 1.83464 5.49935C1.83464 7.52439 3.47626 9.16602 5.5013 9.16602ZM5.5013 10.0827C8.03261 10.0827 10.0846 8.03065 10.0846 5.49935C10.0846 2.96804 8.03261 0.916016 5.5013 0.916016C2.97 0.916016 0.917969 2.96804 0.917969 5.49935C0.917969 8.03065 2.97 10.0827 5.5013 10.0827Z" fill="black" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M6.29926 8.33031C6.63783 7.65316 6.8737 6.65355 6.8737 5.49935C6.8737 4.34515 6.63783 3.34553 6.29926 2.66839C5.93327 1.93641 5.59727 1.83268 5.4987 1.83268C5.40013 1.83268 5.06412 1.93641 4.69814 2.66839C4.35956 3.34553 4.1237 4.34515 4.1237 5.49935C4.1237 6.65355 4.35956 7.65316 4.69814 8.33031C5.06412 9.06228 5.40013 9.16602 5.4987 9.16602C5.59727 9.16602 5.93327 9.06228 6.29926 8.33031ZM5.4987 10.0827C6.76435 10.0827 7.79036 8.03065 7.79036 5.49935C7.79036 2.96804 6.76435 0.916016 5.4987 0.916016C4.23305 0.916016 3.20703 2.96804 3.20703 5.49935C3.20703 8.03065 4.23305 10.0827 5.4987 10.0827Z" fill="black" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M10.062 5.95768C10.077 5.80693 10.0846 5.65404 10.0846 5.49935C10.0846 5.34466 10.077 5.19176 10.062 5.04102H0.940599C0.925632 5.19176 0.917969 5.34466 0.917969 5.49935C0.917969 5.65404 0.925632 5.80693 0.940599 5.95768H10.062Z" fill="black" />
+                          </svg>
                         </button>
                       </h2>
                       <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                        <div className="language accordion-body d-flex flex-column gap-2">
+                          <button onClick={langModeFunc}>{`${langMode ? 'Azerbaijan' : 'Azerbaijan'}`}</button>
+                          <button onClick={langModeFunc}>{`${langMode ? 'English' : 'English'}`}</button>
+                        </div>
                       </div>
                     </div>
                     <div className="accordion-item">
                       <h2 className="accordion-header">
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          Accordion Item #3
+                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-controls="flush-collapseThree">
+                          <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="black"></path>
+                            <path fillRule="evenodd" clipRule="evenodd" d="M15.8346 15.834C15.8346 17.1457 14.7713 18.209 13.4596 18.209C12.148 18.209 11.0846 17.1457 11.0846 15.834C11.0846 14.5223 12.148 13.459 13.4596 13.459C14.7713 13.459 15.8346 14.5223 15.8346 15.834ZM14.2513 15.834C14.2513 16.2712 13.8969 16.6257 13.4596 16.6257C13.0224 16.6257 12.668 16.2712 12.668 15.834C12.668 15.3968 13.0224 15.0423 13.4596 15.0423C13.8969 15.0423 14.2513 15.3968 14.2513 15.834Z" fill="black"></path>
+                            <path fillRule="evenodd" clipRule="evenodd" d="M1.66578 2.01983C1.86132 1.62876 2.33685 1.47025 2.72792 1.66578L3.52236 2.06301C4.25803 2.43084 4.75101 3.15312 4.82547 3.97225L4.86335 4.38888C4.88188 4.59276 5.05283 4.74887 5.25756 4.74887H15.702C17.0838 4.74887 18.0403 6.12909 17.5551 7.42297L16.1671 11.1245C15.8195 12.0514 14.9333 12.6655 13.9433 12.6655H6.19479C4.96644 12.6655 3.94076 11.7289 3.82955 10.5056L3.24864 4.1156C3.22382 3.84255 3.05949 3.60179 2.81427 3.47918L2.01983 3.08196C1.62876 2.88643 1.47025 2.41089 1.66578 2.01983ZM5.47346 6.3322C5.2407 6.3322 5.05818 6.53207 5.07926 6.76388L5.40638 10.3622C5.44345 10.77 5.78534 11.0822 6.19479 11.0822H13.9433C14.2733 11.0822 14.5687 10.8775 14.6845 10.5685L16.0726 6.86702C16.1696 6.60825 15.9783 6.3322 15.702 6.3322H5.47346Z" fill="black"></path>
+                          </svg>
                         </button>
                       </h2>
                       <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        <div className="cart accordion-body">
+                          <div className="cart d-flex align-items-center gap-4">
+                            <div className='fw-bold d-flex flex-column'>
+                              <span>MyCart</span>
+                              <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
+                            </div>
+                            <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative p-0">
+                              <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="black"></path>
+                                <path fillRule="evenodd" clipRule="evenodd" d="M15.8346 15.834C15.8346 17.1457 14.7713 18.209 13.4596 18.209C12.148 18.209 11.0846 17.1457 11.0846 15.834C11.0846 14.5223 12.148 13.459 13.4596 13.459C14.7713 13.459 15.8346 14.5223 15.8346 15.834ZM14.2513 15.834C14.2513 16.2712 13.8969 16.6257 13.4596 16.6257C13.0224 16.6257 12.668 16.2712 12.668 15.834C12.668 15.3968 13.0224 15.0423 13.4596 15.0423C13.8969 15.0423 14.2513 15.3968 14.2513 15.834Z" fill="black"></path>
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.66578 2.01983C1.86132 1.62876 2.33685 1.47025 2.72792 1.66578L3.52236 2.06301C4.25803 2.43084 4.75101 3.15312 4.82547 3.97225L4.86335 4.38888C4.88188 4.59276 5.05283 4.74887 5.25756 4.74887H15.702C17.0838 4.74887 18.0403 6.12909 17.5551 7.42297L16.1671 11.1245C15.8195 12.0514 14.9333 12.6655 13.9433 12.6655H6.19479C4.96644 12.6655 3.94076 11.7289 3.82955 10.5056L3.24864 4.1156C3.22382 3.84255 3.05949 3.60179 2.81427 3.47918L2.01983 3.08196C1.62876 2.88643 1.47025 2.41089 1.66578 2.01983ZM5.47346 6.3322C5.2407 6.3322 5.05818 6.53207 5.07926 6.76388L5.40638 10.3622C5.44345 10.77 5.78534 11.0822 6.19479 11.0822H13.9433C14.2733 11.0822 14.5687 10.8775 14.6845 10.5685L16.0726 6.86702C16.1696 6.60825 15.9783 6.3322 15.702 6.3322H5.47346Z" fill="black"></path>
+                              </svg>
+                              <span className="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-primary">
+                                {localStorage.getItem("login") === 'true' ? totalItems : "0"}
+                              </span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -192,23 +222,23 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="bottom-header py-3">
+      <div className="bottom-header py-4">
         <div className="container">
-          <div className="row">
+          <div className="row d-flex align-items-center justify-content-center">
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div className="left mt-2">
+              <div className="left">
                 <span className='fw-bold'>New Accessories -30 % Off. <Link to="/products">More</Link></span>
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
               <div className="search">
-                <div className="input-group d-flex align-items-center justify-content-center">
-                  <span className="input-group-text" id="basic-addon1"><i className="fa-solid fa-magnifying-glass"></i></span>
+                <div className="input-group d-flex align-items-center justify-content-center mb-2">
+                  <Link to='products' className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i></Link>
                   <input onChange={e => setQuery(e.target.value)} type="text" placeholder="Search Product..." />
                 </div>
                 {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
                   <Link to={`/products/${slugify(item.title)}`}>
-                    <li className="list-group-item d-flex align-items-center gap-2 mt-3 p-3" onClick={() => { setShow(false) }}>
+                    <li className="list-group-item d-flex align-items-center gap-2 py-2" onClick={() => { setShow(false) }}>
                       <div className="image">
                         <img width={100} src={item.image} alt='' />
                       </div>
@@ -224,7 +254,7 @@ const Header = () => {
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div className="right d-flex align-items-center justify-content-end mt-2">
+              <div className="right d-flex justify-content-end">
                 <Link to="/products">New Collections</Link>
               </div>
             </div>
