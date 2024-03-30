@@ -63,14 +63,12 @@
 @media only screen and (max-width: 576px) {
     .hero .left {
         .heading {
-            width: 100% !important;
-
-            span:nth-child(1) {
-                font-size: 11px !important;
-            }
-
             span:nth-child(2) {
-                font-size: 11px !important;
+                font-size: 12px !important;
+
+                a {
+                    display: none;
+                }
             }
         }
 
@@ -156,7 +154,6 @@
 }
 
 
-
 .categories {
     .heading {
         @include heading;
@@ -164,13 +161,12 @@
         h2 {
             color: $darkColor;
             font-size: 35px;
-            width: 50%;
         }
     }
 
     .buttons {
         a {
-            width: 57%;
+            width: 73%;
             @include button;
             color: $grayColor;
             padding: 10px 33px;
@@ -182,11 +178,7 @@
             }
 
             img {
-                filter: invert(.5);
-            }
-
-            &:active {
-                background: $linearColor;
+                filter: invert(.6);
             }
         }
     }
@@ -196,19 +188,8 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
-
-    .categories {
-        .heading {
-            h2 {
-                width: 100%;
-            }
-        }
-    }
-}
 
 @media only screen and (max-width: 576px) {
-
     .categories {
         .buttons {
             a {
@@ -225,9 +206,11 @@
         background: $linearColor;
         color: $lightColor;
         opacity: 62%;
+        padding: 6px
     }
 
     h2 {
+        width: 77%;
         @include heading;
         color: $darkColor;
     }
@@ -235,6 +218,7 @@
     p {
         color: $grayColor;
         font-size: $firstFontSize;
+        width: 80%;
     }
 
     .input-group {
@@ -242,9 +226,8 @@
 
         input {
             color: $grayColor;
-            border: 1px solid $darkColor;
+            border: 1px solid $grayColor;
             border-radius: 0 15px;
-            outline: none;
 
             &::placeholder {
                 font-size: $secondFontSize;
@@ -262,8 +245,21 @@
 
 @media only screen and (max-width: 576px) {
     .subscribe {
+        .input-group {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .subscribe {
         h2 {
-            font-size: 30px;
+            font-size: 29px;
+            width: 100%;
+        }
+
+        p {
+            width: 100%;
         }
 
         .input-group {
@@ -301,6 +297,7 @@
             }
 
             span {
+                display: block;
                 font-size: $firstFontSize;
                 color: $grayColor;
             }
@@ -316,6 +313,7 @@
         h2 {
             font-size: 41px;
             @include textLinear;
+            width: 26%;
         }
 
         p {
@@ -361,6 +359,10 @@
 @media only screen and (max-width: 992px) {
     .blog-sec {
         .heading {
+            h2{
+                width: 100%;
+                font-size: 36px;
+            }
             p {
                 display: none;
             }
@@ -371,7 +373,8 @@
 .products {
     .heading {
         h2 {
-            font-size: 35px;
+            font-size: 41px;
+            width: 26%;
         }
 
         p {
@@ -403,6 +406,10 @@
 @media only screen and (max-width: 992px) {
     .products {
         .heading {
+            h2{
+                width: 100%;
+                font-size: 36px;
+            }
             p {
                 display: none;
             }

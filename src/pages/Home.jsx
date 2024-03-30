@@ -17,43 +17,49 @@ const Home = () => {
     dots: true,
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 3,
-    speed: 300,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 3,
+          infinite: true,
+          dots: true
         }
       },
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 2,
+          initialSlide: 2
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          initialSlide: 2
         }
       },
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          initialSlide: 1
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
         }
       },
       {
         breakpoint: 0,
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
         }
       }
     ]
@@ -68,8 +74,7 @@ const Home = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToShow: 2,
           infinite: true,
           dots: true
         }
@@ -78,15 +83,13 @@ const Home = () => {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          // slidesToScroll: 2,
           initialSlide: 2
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
           initialSlide: 2
         }
       },
@@ -94,7 +97,6 @@ const Home = () => {
         breakpoint: 576,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
           initialSlide: 1
         }
       },
@@ -102,14 +104,12 @@ const Home = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
         }
       },
       {
         breakpoint: 0,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
         }
       }
     ]
@@ -125,7 +125,7 @@ const Home = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
           dots: true
@@ -134,7 +134,7 @@ const Home = () => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -177,7 +177,7 @@ const Home = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    // autoplay: true,
     speed: 5000,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -391,11 +391,11 @@ const Home = () => {
 
       <div className="subscribe mt-5">
         <div className="container">
-          <div className="row g-3">
+          <div className="row g-3 d-flex align-items-center">
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 mt-5">
-              <span className='rounded px-1 py-1'>Subscribe Us</span>
-              <h2 className='mt-3 fw-bold'>Subscribe newsletter <br /> and <b>get -20% off</b></h2>
-              <p>Almost three-quarters of dedicated PC gamers say their main motivation to <br />
+              <span className='rounded'>Subscribe Us</span>
+              <h2 className='mt-3 fw-bold'>Subscribe newsletter and <b>get -20% off</b></h2>
+              <p>Almost three-quarters of dedicated PC gamers say their main motivation to
                 upgrade is improving gaming experiences.</p>
               <div className="input-group">
                 <input type="email" className='px-3 py-2 form-control' placeholder="Enter email address..." />
@@ -453,10 +453,10 @@ const Home = () => {
       <div className="blog-sec my-5 py-5">
         <div className="container">
           <div className="heading d-flex align-items-center justify-content-between flex-wrap">
-            <h2 className='fw-bold'>Best Pro Gaming <br /> Products</h2>
+            <h2 className='fw-bold'>Best Pro Gaming Blog</h2>
             <p>Gaming Product means any intangible asset, good or interest that can <br />
               be bought or sold or otherwise is the subject of an activity constituting <br /> a Gaming Business.</p>
-            <a href="/" className='d-flex align-items-center gap-2'>
+            <Link to="/blog" className='d-flex align-items-center gap-2'>
               Show more
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="rgba(131, 131, 131, 1)">
                 <path fillRule="evenodd" clipRule="evenodd" d="M11.0801 11.334L11.5042 11.9203C11.8709 12.4273 12.4637 12.7507 13.1277 12.7507C14.3316 12.7507 15.2631 11.6955 15.1137 10.5008L14.5652 6.11208C14.4322 5.04867 13.5283 4.25065 12.4566 4.25065H4.54294C3.47125 4.25065 2.56727 5.04867 2.43435 6.11208L1.88575 10.5008C1.73642 11.6955 2.66792 12.7507 3.87184 12.7507C4.53583 12.7507 5.12857 12.4273 5.49529 11.9203L5.91944 11.334H11.0801ZM10.3564 12.7507C10.9792 13.6116 11.9918 14.1673 13.1277 14.1673C15.1837 14.1673 16.7745 12.3653 16.5195 10.3251L15.9709 5.93636C15.7493 4.16401 14.2427 2.83398 12.4566 2.83398H4.54294C2.75679 2.83398 1.25016 4.16401 1.02862 5.93636L0.480024 10.3251C0.225003 12.3653 1.81579 14.1673 3.87184 14.1673C5.00767 14.1673 6.02032 13.6116 6.64311 12.7507H10.3564Z" fill="rgba(131, 131, 131, 1)"></path>
@@ -464,7 +464,7 @@ const Home = () => {
                 <path d="M12.75 7.08268C13.1412 7.08268 13.4583 6.76555 13.4583 6.37435C13.4583 5.98315 13.1412 5.66602 12.75 5.66602C12.3588 5.66602 12.0417 5.98315 12.0417 6.37435C12.0417 6.76555 12.3588 7.08268 12.75 7.08268Z" fill="rgba(131, 131, 131, 1)"></path>
                 <path d="M11.3333 9.91601C11.7245 9.91601 12.0417 9.59888 12.0417 9.20768C12.0417 8.81648 11.7245 8.49935 11.3333 8.49935C10.9421 8.49935 10.625 8.81648 10.625 9.20768C10.625 9.59888 10.9421 9.91601 11.3333 9.91601Z" fill="rgba(131, 131, 131, 1)"></path>
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="blog my-5">
@@ -486,10 +486,10 @@ const Home = () => {
       <div className="products mt-5 py-3">
         <div className="container">
           <div className="heading d-flex align-items-center justify-content-between flex-wrap">
-            <h2 className='fw-bold'>Best Pro Gaming <br /> Products</h2>
+            <h2 className='fw-bold'>Best Pro Gaming Products</h2>
             <p>With hardware, tools are what enable a person to install, remove, or <br />
               perform other actions on the components within their computer.</p>
-            <a href="/" className='d-flex align-items-center gap-2'>
+            <Link to="/products" className='d-flex align-items-center gap-2'>
               show products
               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="rgba(131, 131, 131, 1)">
                 <path fillRule="evenodd" clipRule="evenodd" d="M11.0801 11.334L11.5042 11.9203C11.8709 12.4273 12.4637 12.7507 13.1277 12.7507C14.3316 12.7507 15.2631 11.6955 15.1137 10.5008L14.5652 6.11208C14.4322 5.04867 13.5283 4.25065 12.4566 4.25065H4.54294C3.47125 4.25065 2.56727 5.04867 2.43435 6.11208L1.88575 10.5008C1.73642 11.6955 2.66792 12.7507 3.87184 12.7507C4.53583 12.7507 5.12857 12.4273 5.49529 11.9203L5.91944 11.334H11.0801ZM10.3564 12.7507C10.9792 13.6116 11.9918 14.1673 13.1277 14.1673C15.1837 14.1673 16.7745 12.3653 16.5195 10.3251L15.9709 5.93636C15.7493 4.16401 14.2427 2.83398 12.4566 2.83398H4.54294C2.75679 2.83398 1.25016 4.16401 1.02862 5.93636L0.480024 10.3251C0.225003 12.3653 1.81579 14.1673 3.87184 14.1673C5.00767 14.1673 6.02032 13.6116 6.64311 12.7507H10.3564Z" fill="rgba(131, 131, 131, 1)"></path>
@@ -497,7 +497,7 @@ const Home = () => {
                 <path d="M12.75 7.08268C13.1412 7.08268 13.4583 6.76555 13.4583 6.37435C13.4583 5.98315 13.1412 5.66602 12.75 5.66602C12.3588 5.66602 12.0417 5.98315 12.0417 6.37435C12.0417 6.76555 12.3588 7.08268 12.75 7.08268Z" fill="rgba(131, 131, 131, 1)"></path>
                 <path d="M11.3333 9.91601C11.7245 9.91601 12.0417 9.59888 12.0417 9.20768C12.0417 8.81648 11.7245 8.49935 11.3333 8.49935C10.9421 8.49935 10.625 8.81648 10.625 9.20768C10.625 9.59888 10.9421 9.91601 11.3333 9.91601Z" fill="rgba(131, 131, 131, 1)"></path>
               </svg>
-            </a>
+            </Link>
           </div>
           <div className="slider-container">
             <Slider {...multipleitems}>
@@ -526,7 +526,7 @@ const Home = () => {
             <Slider {...autoplay}>
               <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791" alt='' />
+                  <img style={{width: "80%"}} src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>Escaping Reality!</h3>
