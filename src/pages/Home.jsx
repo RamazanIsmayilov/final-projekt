@@ -469,7 +469,7 @@ const Home = () => {
 
           <div className="blog my-5">
             <div className="row g-4">
-              {blogdata.slice(0, 8).map(item => (
+              {/* {blogdata.slice(0, 8).map(item => (
                 <BlogCard
                   key={item}
                   id={item.id}
@@ -477,7 +477,7 @@ const Home = () => {
                   title={item.title}
                   desc={item.desc}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

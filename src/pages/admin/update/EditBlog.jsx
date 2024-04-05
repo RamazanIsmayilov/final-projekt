@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import BlogForm from '../../../components/BlogForm'
 import { useDispatch, useSelector } from 'react-redux'
-import { editBlog } from '../../../tools/action/blogAction'
+import { editBlogFromDatabase } from '../../../tools/action/blogAction'
 import { useNavigate, useParams } from 'react-router-dom'
 import slugify from 'react-slugify'
 import { ModeContext } from '../../../context/ModeContext'
@@ -21,7 +21,7 @@ const AddBlog = () => {
     <div className={mode ? "light" : "dark"}>
       <h1 className='text-center py-5'>Edit Blog</h1>
       <BlogForm editblog={singleblogdata} formToProp={fd => {
-        dispatch(editBlog(singleblogdata.id, fd))
+        dispatch(editBlogFromDatabase(singleblogdata.id, fd))
         navigate('/dashboard')
       }} />
     </div>

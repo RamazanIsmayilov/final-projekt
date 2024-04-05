@@ -67,7 +67,7 @@ const Blog = () => {
             </div>
             <div className="blog-data">
               <div className="row my-1 g-4">
-                {records.map(item => (
+                {/* {records.map(item => (
                   <BlogCard
                     key={item}
                     id={item.id}
@@ -75,7 +75,7 @@ const Blog = () => {
                     title={item.title}
                     desc={item.desc}
                   />
-                ))}
+                ))} */}
               </div>
             </div>
             <nav className='d-flex align-items-center justify-content-center mt-5'>

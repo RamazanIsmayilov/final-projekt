@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import slugify from 'react-slugify';
-import { deleteBlog } from '../../tools/action/blogAction';
+import { removeBlogFromDatabase } from '../../tools/action/blogAction';
 import { ModeContext } from '../../context/ModeContext';
 import { LangContext } from '../../context/LangContext';
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {blogStore.map((item, count) => (
+                                    {/* {blogStore.map((item, count) => (
                                         <tr>
                                             <th scope="row">{count + 1}</th>
                                             <td><img src={item.img} width={70} alt="err" /></td>
@@ -68,13 +68,13 @@ const Dashboard = () => {
                                                     stroke-linejoin="round" data-lucide="check-square" class="lucide lucide-check-square stroke-[1] mr-2 h-4 w-4"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                                             </Link></th>
                                             <th scope="col"><Link onClick={() => {
-                                                dispatch(deleteBlog({ id: item.id }))
+                                                dispatch(removeBlogFromDatabase({ id: item.id }))
                                             }} className='deletebtn d-flex align-items-center mx-2'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" data-lucide="trash2" class="lucide lucide-trash2 stroke-[1] mr-2 h-4 w-4"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6">
                                                     </path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
                                             </Link></th>
                                         </tr>
-                                    ))}
+                                    ))} */}
                                 </tbody>
                             </table>
                         </div>
