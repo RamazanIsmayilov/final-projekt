@@ -177,7 +177,7 @@ const Home = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     speed: 5000,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -303,7 +303,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="slider-container mx-2">
+        <div className="slider-container mx-3">
           <div className="row">
             <Slider {...centerMode}>
               {productdata.slice(1, 8).map(item => (
@@ -517,21 +517,21 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="testimonials my-5">
+      <div className="testimonials mt-5">
         <div className="container">
           <div className="heading">
             <h2 className='fw-bold'>Testimonials</h2>
           </div>
           <div className="slider-container">
             <Slider {...autoplay}>
-              <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
+              <div className='cards d-flex align-items-center gap-3 py-2 px-3'>
                 <div className="img">
-                  <img style={{width: "80%"}} src="https://gaming-workdo.myshopify.com/cdn/shop/products/1_892117ef-00bc-43f7-8789-c8a6a7c180ee_306x203.png?v=1671449791" alt='' />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>Escaping Reality!</h3>
-                  <p>"I've been gaming for as long as I can remember, and I've <br />
-                    always loved the sense of escape and adventure sd that it <br /> provides.</p>
+                  <p>"I've been gaming for as long as I can remember, and I've
+                    always loved the sense of escape and adventure sd that it provides.</p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
                       <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />
@@ -544,15 +544,14 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
+              <div className='cards d-flex align-items-center gap-3 py-2 px-3'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" alt='' />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-2.png?v=1670904959" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>One Level Time!</h3>
-                  <p>I also love the challenge of trying to beat a difficult game or <br /> master a new skill.
-                    Gaming   perseverance and determination, <br />
-                    develop.</p>
+                  <p>I also love the challenge of trying to beat a difficult game or master a new skill.
+                    Gaming   perseverance and determination</p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
                       <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />
@@ -565,14 +564,14 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className='cards d-flex align-items-center gap-3 p-2 flex-wrap'>
+              <div className='cards d-flex align-items-center gap-3 py-2 px-3'>
                 <div className="img">
-                  <img height={148} src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" alt='' />
+                  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/testi-1.png?v=1670904860" alt='' />
                 </div>
                 <div className="content">
                   <h3 className='fw-bold'>Gamer's Journey!</h3>
-                  <p>Gaming has had a positive impact on my life in so many ways, <br />
-                    and  I'm so glad that I'm able to share my love of gaming with <br /> others.</p>
+                  <p>Gaming has had a positive impact on my life in so many ways,
+                    and  I'm so glad that I'm able to share my love of gaming </p>
                   <div className="content-bottom d-flex align-items-center justify-content-between">
                     <div className="info d-flex align-items-center gap-2">
                       <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/client-img.png?v=1670904971" alt='' />

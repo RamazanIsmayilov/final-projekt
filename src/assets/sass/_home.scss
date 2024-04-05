@@ -359,10 +359,11 @@
 @media only screen and (max-width: 992px) {
     .blog-sec {
         .heading {
-            h2{
+            h2 {
                 width: 100%;
                 font-size: 36px;
             }
+
             p {
                 display: none;
             }
@@ -406,10 +407,11 @@
 @media only screen and (max-width: 992px) {
     .products {
         .heading {
-            h2{
+            h2 {
                 width: 100%;
                 font-size: 36px;
             }
+
             p {
                 display: none;
             }
@@ -426,36 +428,68 @@
     }
 
     .slider-container {
+
+        .slick-slide {
+            margin-left: 10px;
+        }
+
+        .slick-track{
+            height: 100px;
+        }
+
         .cards {
             border: 1px solid #7b35c8;
             border-radius: 0 15px;
             background: linear-gradient(148deg, #0198ff2e, #0000);
 
-            h3 {
-                font-size: 24px;
+            .img {
+                width: 30%;
+
+                img {
+                    width: 100%;
+                }
             }
 
-            p {
-                font-size: $secondFontSize;
-            }
-
-            .content-bottom {
-                .info {
-                    h6 {
-                        font-size: $secondFontSize;
-                    }
+            .content {
+                h3 {
+                    font-size: 24px;
                 }
 
-                .star {
-                    span {
-                        font-size: $secondFontSize;
+                p {
+                    font-size: $secondFontSize;
+                    width: 72%;
+                }
 
-                        b {
-                            color: #0098ff;
+                .content-bottom {
+                    .info {
+                        h6 {
+                            font-size: $secondFontSize;
                         }
                     }
 
+                    .star {
+                        span {
+                            font-size: $secondFontSize;
+
+                            b {
+                                color: #0098ff;
+                            }
+                        }
+
+                    }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slider-container {
+        .cards {
+            flex-wrap: wrap;
+
+            .img {
+                width: 70% !important;
             }
         }
     }

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { ProductContext } from '../context/ProductContext';
@@ -25,8 +25,30 @@ const Header = () => {
     menu.current.classList.remove('open');
   }
 
-  const { mode, modeFunc } = useContext(ModeContext)
   const { lang, langModeFunc, langMode } = useContext(LangContext)
+
+  const [mode, setMode] = useState(localStorage.getItem("myMode") == null ? "light" : localStorage.getItem("myMode"));
+
+    useEffect(() => {
+
+        if (localStorage.getItem("myMode") == null) {
+            localStorage.setItem("myMode", "light");
+        } else {
+            localStorage.setItem("myMode", mode);
+        }
+
+        document.body.className = mode;
+
+    }, [mode])
+
+    const modeFunc = () => {
+        if(mode == "light") {
+          setMode("dark")
+        }else{
+          setMode("light")
+        }
+    }
+  
 
   return (
     <>
@@ -93,7 +115,7 @@ const Header = () => {
                 </li>
               </div>
               <div className="mode">
-                <button onClick={modeFunc} className='btn p-0 text-light'>{mode ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
+                <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
               </div>
               <div className="cart d-flex align-items-center gap-2">
                 <div className='text-light fw-bold d-flex flex-column'>

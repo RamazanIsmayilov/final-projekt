@@ -44,7 +44,8 @@
 
 
             table {
-                margin: auto;
+                border-collapse: collapse;
+                border-spacing: 0;
                 width: 100%;
 
                 thead th {
@@ -169,6 +170,29 @@
                         color: red;
                     }
 
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .light {
+        .wishlistpage{
+            .heading{
+                p{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .dark {
+        .wishlistpage{
+            .heading{
+                p{
+                    width: 100%;
                 }
             }
         }

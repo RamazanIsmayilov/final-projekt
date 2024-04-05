@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <>
-      <div className="footers ">
+      <div className="footers">
         <div className="container">
           <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 g-4">
             <div className="left col-12 col-sm-6 col-md-6 col-lg-5">
@@ -16,22 +17,21 @@ const Footer = () => {
             <div className="center col-12 col-sm-6 col-md-6 col-lg-3">
               <h4 className='fw-bold'>NAVIGATION:</h4>
               <ul className="nav flex-column mt-3">
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Search</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">All Collections</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">All Products</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Article Page</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Blog Page</a></li>
+                <li className="nav-item mb-2"><a href="*" className="nav-link p-0">Search</a></li>
+                <li className="nav-item mb-2"><Link to="/products" className="nav-link p-0">All Collections</Link></li>
+                <li className="nav-item mb-2"><Link to="/products" className="nav-link p-0">All Products</Link></li>
+                <li className="nav-item mb-2"><Link to="*" className="nav-link p-0">Article Page</Link></li>
+                <li className="nav-item mb-2"><Link to="/blog" className="nav-link p-0">Blog Page</Link></li>
               </ul>
             </div>
             <div className="center col-12 col-sm-6 col-md-6 col-lg-2">
               <h4 className='fw-bold'>ABOUT US:</h4>
               <ul className="nav flex-column mt-3">
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">About Us</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Contact with us</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">FAQ's</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Privacy Policy</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Shipping & Delivery</a></li>
-                <li className="nav-item mb-2"><a href="/" className="nav-link p-0">Terms & Conditions</a></li>
+                <li className="nav-item mb-2"><Link to="/about" className="nav-link p-0">About Us</Link></li>
+                <li className="nav-item mb-2"><Link to="/contact" className="nav-link p-0">Contact with us</Link></li>
+                <li className="nav-item mb-2"><Link to="*" className="nav-link p-0">FAQ's</Link></li>
+                <li className="nav-item mb-2"><Link to="*" className="nav-link p-0">Privacy Policy</Link></li>
+                <li className="nav-item mb-2"><Link to="*" className="nav-link p-0">Shipping & Delivery</Link></li>
               </ul>
             </div>
             <div className="right col-12 col-sm-6 col-md-6 col-lg-2">
@@ -44,14 +44,12 @@ const Footer = () => {
               </div>
             </div>
           </footer>
+          <div className="footer-bottom py-2">
+            <p>© {new Date().getFullYear()}, Gaming WorkDo, Powered by Shopify</p>
+          </div>
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <div className="container py-2">
-            <p>© {new Date().getFullYear()}, Gaming WorkDo, Powered by Shopify</p>
-        </div>
-      </div>
     </>
   )
 }
