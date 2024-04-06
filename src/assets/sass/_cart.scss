@@ -91,7 +91,7 @@
                 color: $grayColor;
             }
 
-            button {
+            a {
                 @include button;
                 background: $linearColor;
                 border: none;
@@ -204,7 +204,7 @@
                 color: $grayColor;
             }
 
-            button {
+            a {
                 @include button;
                 background: $linearColor;
                 border: none;

@@ -87,7 +87,7 @@ const Cart = () => {
                 <h3 className='fw-bold'>{lang ? "Cəmi" : "Subtotal"}</h3>
                 <span className='fw-bold'>{Math.round(cartTotal)}.00 USD</span>
                 <p className="text-center">{lang ? "Vergilər və çatdırılma ödəniş zamanı hesablanır" : "Taxes and shipping calculated at checkout"}</p>
-                <button type='button'>{lang ? "Yoxlamaya davam edin" : "Proceed to checkout"}</button>
+                <Link to="/checkout">{lang ? "Yoxlamaya davam edin" : "Proceed to checkout"}</Link>
               </div>
             </div>
           </div>
