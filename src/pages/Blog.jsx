@@ -67,15 +67,10 @@ const Blog = () => {
             </div>
             <div className="blog-data">
               <div className="row my-1 g-4">
-                {/* {records.map(item => (
-                  <BlogCard
-                    key={item}
-                    id={item.id}
-                    photo={item.img}
-                    title={item.title}
-                    desc={item.desc}
-                  />
-                ))} */}
+                {console.log(blogdata)}
+                {blogdata.map((item) => (
+                 <li>{item.title}</li>
+                ))}
               </div>
             </div>
             <nav className='d-flex align-items-center justify-content-center mt-5'>

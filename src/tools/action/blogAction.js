@@ -7,8 +7,8 @@ export const addBlog = (blog) => ({
 
 export const addBlogToDatabase = (blogData = {}) => {
     return (dispatch) => {
-        const { title='', desc='' } = blogData;
-        const blog = {title,desc};
+        const { title='', desc='',photo='' } = blogData;
+        const blog = {title,desc,photo};
 
         database.ref("blogs").push(blog).then((res) => {
             dispatch(addBlog({

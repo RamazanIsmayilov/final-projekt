@@ -1,29 +1,29 @@
-const initialState = [];
+// reducer start
+const blogState = [];
 
-export const blogReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "ADD_BLOG":
-            return [...state, action.blog];
-        case "EDIT_BLOG":
-            return state.map(item => {
-                if (item.id === action.id) {
-                    return {
-                        ...item, ...action.update
-                    }
-                } else {
-                    return item
+export const blogReducer = (state = blogState, action) => {
+  switch (action.type) {
+    case "ADD_BLOG":
+      return [...state,action.blog];
+    case "UPDATE_BLOG":
+        return    state.map(item=>{
+            if (item.id === action.id) {
+                return {
+                    ...item,
+                    ...action.udpate
                 }
-            })
-
-            case "SET_BLOG":
-                return action.blog;
-
-        case "DELETE_BLOG":
-            return state.filter(({id}) =>{
-                return id !== action.id
-            })
-
-        default:
-        // return "this case is default";
-    }
+            }else{
+                return item;
+            }
+        })   
+    case "REMOVE_BLOG":
+        return state.filter(({id})=>{
+            return id !== action.myid
+        })
+        case "SET_BLOGS":
+            return action.blogs;
+    default:
+      return state;
+  }
 }
+// reducer end
