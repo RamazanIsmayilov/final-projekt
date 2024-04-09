@@ -81,7 +81,7 @@
     .action {
         position: absolute;
         top: 50%;
-        right: 21%;
+        right: 25%;
         border-radius: 0 12px;
         color: $lightColor;
         background: $linearColor;
@@ -115,7 +115,7 @@
 
 @mixin dropdown {
     background-color: $lightColor;
-    padding: 20px ;
+    padding: 20px;
     position: absolute;
     visibility: hidden;
     transition: .2s;
@@ -131,28 +131,28 @@
     }
 }
 
-@mixin blog{
-    .blogcard{
-        img{
+@mixin blog {
+    .blogcard {
+        img {
             border-radius: 0 17px;
             border: 2px solid #0098ff;
         }
 
-        .card-title{
+        .card-title {
             font-size: 22px;
         }
 
-        .card-text{
+        .card-text {
             color: $grayColor;
             font-size: $firstFontSize;
         }
 
-        .btn{
+        .btn {
             @include button;
             background: $linearColor;
             border: none;
 
-            &:hover{
+            &:hover {
                 color: $grayColor;
                 border: 1px solid $grayColor;
             }

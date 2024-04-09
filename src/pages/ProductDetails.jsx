@@ -5,7 +5,7 @@ import { ProductContext } from '../context/ProductContext';
 import slugify from 'react-slugify';
 import { useCart } from 'react-use-cart';
 
-const ProductDetails = ({ alldata }) => {
+const ProductDetails = () => {
 
     const { slug } = useParams();
     const [product] = useContext(ProductContext);
@@ -54,27 +54,9 @@ const ProductDetails = ({ alldata }) => {
                                 <h2 className='title mt-3'>{productDetails[0].title}</h2>
                                 <span className='type fw-bold mt-3 d-block'>TYPE: {productDetails[0].type}</span>
                                 <span className='description mt-3 d-block'>{productDetails[0].description}</span>
-                                <div className="content d-flex align-items-center gap-5">
-                                    <div className="price mt-4">
-                                        <h3 className='fw-bold'>{productDetails[0].price}.00<sup className='fw-normal'>USD</sup></h3>
-                                    </div>
-                                    <div className="quantity">
-                                        <p>Quantity:</p>
-                                        <div className='buttons d-flex align-items-center gap-3 px-2 py-1'>
-                                            <button>
-                                                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 0.251343V1.74871H12V0.251343H0Z" fill="#61AFB3"></path>
-                                                </svg>
-                                            </button>
-                                            <span className='mx-2'>2</span>
-                                            <button>
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6.74868 5.25132V0H5.25132V5.25132H0V6.74868H5.25132V12H6.74868V6.74868H12V5.25132H6.74868Z" fill="#61AFB3"></path>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div >
+                                <div className="price mt-4">
+                                    <h3 className='fw-bold'>{productDetails[0].price}.00<sup className='fw-normal'>USD</sup></h3>
+                                </div>
                                 <div div className="bottom mt-3" >
                                     <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(productDetails[0]) : navigate("/login") }}>Add to Cart</button>
                                 </div>

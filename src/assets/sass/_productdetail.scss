@@ -63,41 +63,16 @@
         width: 70%;
     }
 
-    .content {
-        color: $grayColor;
+    .price {
+        color: $lightColor;
 
-        .price {
-            color: $lightColor;
-
-            h3 {
-                font-size: 30px;
-            }
-
-            sup {
-                font-size: 19px;
-            }
+        h3 {
+            font-size: 30px;
         }
 
-        .quantity {
-            p {
-                font-size: $firstFontSize;
-                letter-spacing: .9px;
-            }
-
-            .buttons {
-                border: 1px solid;
-                border-radius: 0 10px;
-
-                button {
-                    background: transparent;
-
-                    svg path {
-                        fill: $grayColor;
-                    }
-                }
-            }
+        sup {
+            font-size: 19px;
         }
-
     }
 
     .bottom {

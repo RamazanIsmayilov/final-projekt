@@ -433,9 +433,9 @@
             margin-left: 10px;
         }
 
-        .slick-track{
-            height: 100px;
-        }
+        // .slick-track {
+        //     height: 130px;
+        // }
 
         .cards {
             border: 1px solid #7b35c8;
@@ -485,6 +485,7 @@
 
 @media only screen and (max-width: 768px) {
     .slider-container {
+
         .cards {
             flex-wrap: wrap;
 

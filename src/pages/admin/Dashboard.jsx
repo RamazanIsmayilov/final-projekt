@@ -57,7 +57,7 @@ const Dashboard = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {blogStore.map((item, count) => (
+                                    {blogStore.map((item, count) => (
                                         <tr>
                                             <th scope="row">{count + 1}</th>
                                             <td><img src={item.img} width={70} alt="err" /></td>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                                                     </path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
                                             </Link></th>
                                         </tr>
-                                    ))} */}
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

@@ -104,18 +104,6 @@
                 }
             }
 
-            .product {
-                @include carousel;
-
-                .title a {
-                    color: $lightColor;
-                }
-
-                .footer .price .newprice {
-                    color: $lightColor;
-                }
-            }
-
             .pagination {
                 .page-item {
                     a {

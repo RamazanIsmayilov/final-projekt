@@ -16,24 +16,20 @@ import { LangProvider } from './context/LangContext';
 
 const blogStore = store();
 
-
-
-
-
 const result = (
-              <Provider store={blogStore}>
+  <Provider store={blogStore}>
     <CartProvider>
       <WishlistProvider>
         <ProductProvider>
           <ModeProvider>
             <LangProvider>
-                <App />
+              <App />
             </LangProvider>
           </ModeProvider>
         </ProductProvider>
       </WishlistProvider>
     </CartProvider>
-              </Provider>
+  </Provider>
 );
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));

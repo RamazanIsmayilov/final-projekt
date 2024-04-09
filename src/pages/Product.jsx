@@ -34,15 +34,9 @@ const Product = () => {
     }
   }
 
-  const [typeProduct, setTypeProduct] = useState([]);
   const [brandProduct, setBrandProduct] = useState([]);
   const [priceProduct, setPriceProduct] = useState([]);
-  const [inputValue, setInputValue] = useState(375.00);
-
-  const filterType = (type) => {
-    const typeData = productdata.filter(p => p.type === type);
-    setTypeProduct(typeData)
-  }
+  const [inputValue, setInputValue] = useState(940.00);
 
   const filterBrand = (type) => {
     const brandData = productdata.filter(p => p.brand === type);
@@ -87,7 +81,6 @@ const Product = () => {
                       <h6 className='fw-bold'>{lang ? "QİYMƏT" : "PRICE"}</h6>
                       <div className="caption d-flex align-items-center justify-content-between">
                         <span>{lang ? "QİYMƏT" : "PRICE"}: {inputValue}.00 USD</span>
-                        <a href="/">{lang ? "Sıfırlayın" : "Reset"}</a>
                       </div>
                       <div className="range d-flex align-items-center justify-content-between mt-3">
                         <input onChange={(e) => {
@@ -96,82 +89,8 @@ const Product = () => {
                         }} className="range" min={375.00} max={940.00} defaultValue={375.00} type="range" />
                       </div>
                     </div>
-                    <div className="producttype mt-5">
-                      <h6 className='fw-bold'>{lang ? "MƏHSULUN NÖVÜ" : "PRODUCT TYPE"}</h6>
-                      <div className="caption d-flex align-items-center justify-content-between">
-                        <span>0 {lang ? "seçilmişdir" : "selected"}</span>
-                        <a href="/">{lang ? "Sıfırlayın" : "Reset"} </a>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-4">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Cards") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Kartlar" : "Cards"}</label>
-                        </div>
-                        <span className='number'>(5)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Chair") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Kreslo" : "Chair"}</label>
-                        </div>
-                        <span className='number'>(3)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Chairs") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Kreslolar" : "Chairs"}</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Console") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Konsol" : "Console"}</label>
-                        </div>
-                        <span className='number'>(4)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Game PCs") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Oyun kompüterləri" : "Game PCs"}</label>
-                        </div>
-                        <span className='number'>(3)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Headset") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Qulaqlıq" : "Headset"}</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Keycaps") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Keycaps" : "Keycaps"}</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Monitors") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Monitorlar" : "Monitors"}</label>
-                        </div>
-                        <span className='number'>(4)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onClick={() => { filterType("Remote") }} className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">{lang ? "Monitorlar" : "Remote"}</label>
-                        </div>
-                        <span className='number'>(2)</span>
-                      </div>
-                    </div>
                     <div className="brand mt-5">
                       <h6 className='fw-bold'>{lang ? "Brend" : "Brand"}</h6>
-                      <div className="caption d-flex align-items-center justify-content-between">
-                        <span>0 {lang ? "seçilmişdir" : "selected"}</span>
-                        <a href="/">{lang ? "Sıfırlayın" : "Reset"}</a>
-                      </div>
                       <div className="select d-flex align-items-center justify-content-between mt-4">
                         <div className="form-check">
                           <input onClick={() => { filterBrand("Acer") }} className="form-check-input" type="checkbox" />
@@ -255,10 +174,11 @@ const Product = () => {
                 <div className="col-12 col-sm-12 col-md-9 col-lg-9">
                   <div className="product">
                     <div className="row">
-                      {inputValue === 375 ? records.map(item => (
+                      {inputValue === 940 ? records.map(item => (
                         <SingleCard
                           key={item}
                           id={item.id}
+                          description={item.description}
                           title={item.title}
                           type={item.type}
                           brand={item.brand}
@@ -272,6 +192,7 @@ const Product = () => {
                         <SingleCard
                           key={item}
                           id={item.id}
+                          description={item.description}
                           title={item.title}
                           type={item.type}
                           brand={item.brand}
