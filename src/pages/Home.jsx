@@ -311,6 +311,7 @@ const Home = () => {
                   key={item}
                   id={item.id}
                   title={item.title}
+                  description={item.description}
                   type={item.type}
                   brand={item.brand}
                   neew={item.neew}
@@ -362,6 +363,7 @@ const Home = () => {
                       key={item}
                       id={item.id}
                       title={item.title}
+                      description={item.description}
                       type={item.type}
                       brand={item.brand}
                       neew={item.neew}
@@ -503,6 +505,7 @@ const Home = () => {
                 <SliderCard
                   id={item.id}
                   title={item.title}
+                  description={item.description}
                   type={item.type}
                   neew={item.neew}
                   image={item.image}

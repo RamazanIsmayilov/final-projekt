@@ -53,6 +53,58 @@ header {
 
         .cart {
             font-size: $secondFontSize;
+
+            .cart-menu {
+                background-color: $lightColor;
+                z-index: 100;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 25%;
+                height: 100vh !important;
+                // transform: translate(100%);
+                transition: .5s;
+
+                &.open {
+                    transform: translate(0);
+                }
+
+                &.close {
+                    transform: translate(100%);
+                }
+
+                .heading {
+                    background-color: #0098ff;
+
+                    .close-btn {
+                        background: transparent;
+                    }
+
+                    h4 {
+                        font-size: 22px;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        letter-spacing: .8px;
+                    }
+                }
+
+                .body{
+                    border-bottom: 1px solid $grayColor;
+                }
+
+                .footer{
+                    .head{
+                        span{
+                            font-size: $firstFontSize;
+                            color: $grayColor;
+                        }
+                    }
+                }
+
+
+            }
         }
 
 
@@ -210,12 +262,12 @@ header {
     }
 
     .search {
-        width: 30%;
-        position: absolute;
-        z-index: 1;
+        // transform: translate(90px);
+        // width: 30%;
+        // z-index: 1;
+        // position: absolute;
         // overflow-y:  scroll;
-        height: 58vh !important;
-        margin-top: -8px !important;
+        // height: 58vh !important;
 
         .input-group {
             a {
@@ -231,7 +283,6 @@ header {
             }
 
             input {
-                width: 70%;
                 border: 0.5px solid #cccccc;
                 color: #cccccc;
                 background: transparent;
@@ -254,7 +305,7 @@ header {
             margin: auto;
             background-color: #cccccc;
             border: 1px solid $grayColor;
-            
+
 
             .content {
                 color: $grayColor;

@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { ProductContext } from '../context/ProductContext';
-import slugify from 'react-slugify';
-import { ModeContext } from '../context/ModeContext';
 import { LangContext } from '../context/LangContext';
 import { BsFillMoonFill } from "react-icons/bs";
 import { RiSunLine } from "react-icons/ri";
+import { TbDiscount2 } from "react-icons/tb";
 
 const Header = () => {
 
@@ -25,30 +24,44 @@ const Header = () => {
     menu.current.classList.remove('open');
   }
 
+  const cartMenu = useRef();
+  const openCartMenu = () => {
+    cartMenu.current.classList.add('open');
+  }
+
+  const closeCartMenu = () => {
+    cartMenu.current.classList.remove('open');
+  }
+
+  const cartFunc = () => {
+    localStorage.getItem("login") === 'true' ? navigate("/") : navigate("/login")
+    openCartMenu();
+  }
+
   const { lang, langModeFunc, langMode } = useContext(LangContext)
 
   const [mode, setMode] = useState(localStorage.getItem("myMode") == null ? "light" : localStorage.getItem("myMode"));
 
-    useEffect(() => {
+  useEffect(() => {
 
-        if (localStorage.getItem("myMode") == null) {
-            localStorage.setItem("myMode", "light");
-        } else {
-            localStorage.setItem("myMode", mode);
-        }
-
-        document.body.className = mode;
-
-    }, [mode])
-
-    const modeFunc = () => {
-        if(mode == "light") {
-          setMode("dark")
-        }else{
-          setMode("light")
-        }
+    if (localStorage.getItem("myMode") == null) {
+      localStorage.setItem("myMode", "light");
+    } else {
+      localStorage.setItem("myMode", mode);
     }
-  
+
+    document.body.className = mode;
+
+  }, [mode])
+
+  const modeFunc = () => {
+    if (mode == "light") {
+      setMode("dark")
+    } else {
+      setMode("light")
+    }
+  }
+
 
   return (
     <>
@@ -122,7 +135,7 @@ const Header = () => {
                   <span>MyCart</span>
                   <span>{localStorage.getItem("login") === 'true' ? cartTotal : "0"}.00 USD</span>
                 </div>
-                <button onClick={() => { localStorage.getItem("login") === 'true' ? navigate("/cart") : navigate("/login") }} className="btn position-relative p-0">
+                <button onClick={cartFunc} className="btn position-relative p-0">
                   <svg width="23" height="23" viewBox="0 0 19 19" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M7.91797 15.834C7.91797 17.1457 6.85465 18.209 5.54297 18.209C4.23129 18.209 3.16797 17.1457 3.16797 15.834C3.16797 14.5223 4.23129 13.459 5.54297 13.459C6.85465 13.459 7.91797 14.5223 7.91797 15.834ZM6.33464 15.834C6.33464 16.2712 5.98019 16.6257 5.54297 16.6257C5.10574 16.6257 4.7513 16.2712 4.7513 15.834C4.7513 15.3968 5.10574 15.0423 5.54297 15.0423C5.98019 15.0423 6.33464 15.3968 6.33464 15.834Z" fill="white"></path>
                     <path fillRule="evenodd" clipRule="evenodd" d="M15.8346 15.834C15.8346 17.1457 14.7713 18.209 13.4596 18.209C12.148 18.209 11.0846 17.1457 11.0846 15.834C11.0846 14.5223 12.148 13.459 13.4596 13.459C14.7713 13.459 15.8346 14.5223 15.8346 15.834ZM14.2513 15.834C14.2513 16.2712 13.8969 16.6257 13.4596 16.6257C13.0224 16.6257 12.668 16.2712 12.668 15.834C12.668 15.3968 13.0224 15.0423 13.4596 15.0423C13.8969 15.0423 14.2513 15.3968 14.2513 15.834Z" fill="white"></path>
@@ -132,6 +145,28 @@ const Header = () => {
                     {localStorage.getItem("login") === 'true' ? totalItems : "0"}
                   </span>
                 </button>
+                <div ref={cartMenu} className="cart-menu">
+                  <div className="heading d-flex align-items-center justify-content-between px-2 py-1">
+                    <div className='d-flex align-items-center gap-2'>
+                      <button onClick={closeCartMenu} className="close-btn fs-3 text-light">
+                        <i className="fa-solid fa-xmark" />
+                      </button>
+                      <h4 className='text-light fw-bold mt-1'>My Cart</h4>
+                    </div>
+                    <span className='fw-bold text-light'>0 ITEMS</span>
+                  </div>
+                  <div className="body">
+                    <h1>Hello</h1>
+                  </div>
+                  <div className="footer py-3">
+                    <div className="container">
+                      <div className="head d-flex align-items-center gap-2">
+                        <TbDiscount2 className='fs-4' />
+                        <span>Add discount code</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="menu">
@@ -239,9 +274,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* <div className="bottom-header py-4">
+      {/* <div className="bottom-header py-3">
         <div className="container">
-          <div className="row">
+          <div className="row d-flex align-items-center">
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
               <div className="left">
                 <span className='fw-bold'>New Accessories -30 % Off. <Link to="/products">More</Link></span>
@@ -249,7 +284,7 @@ const Header = () => {
             </div>
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
               <div className="search">
-                <div className="input-group d-flex align-items-center justify-content-center mb-2">
+                <div className="input-group d-flex align-items-center justify-content-center">
                   <Link to='products' className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i></Link>
                   <input onChange={e => setQuery(e.target.value)} type="text" placeholder="Search Product..." />
                 </div>
