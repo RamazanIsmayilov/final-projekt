@@ -60,9 +60,9 @@ header {
                 position: fixed;
                 top: 0;
                 right: 0;
-                width: 25%;
+                width: 29%;
                 height: 100vh !important;
-                // transform: translate(100%);
+                transform: translate(100%);
                 transition: .5s;
 
                 &.open {
@@ -90,17 +90,77 @@ header {
                     }
                 }
 
-                .body{
-                    border-bottom: 1px solid $grayColor;
+                .body {
+                    height: 50vh;
+                    overflow-y: auto;
+
+                    .products {
+                        border: 1px solid rgb(76 62 62 / 15%);
+
+                        .content {
+                            h5 {
+                                font-size: 16px;
+                            }
+
+                            button {
+                                background: transparent;
+                            }
+                        }
+                    }
                 }
 
-                .footer{
-                    .head{
-                        span{
+                .footer {
+                    border-top: 1px solid rgb(76 62 62 / 15%);
+
+                    .head {
+                        span {
                             font-size: $firstFontSize;
                             color: $grayColor;
                         }
                     }
+
+                    .input-group {
+                        input {
+                            border-radius: 0 20px;
+
+                            &::placeholder {
+                                font-size: $secondFontSize;
+                                letter-spacing: .5px;
+                            }
+                        }
+
+                        button {
+                            border-radius: 0 10px;
+                            font-size: $firstFontSize;
+                            background-color: $grayColor;
+                        }
+                    }
+
+                    .subtotal {
+                        h3 {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .footer {
+                        border: 0;
+                        .button {
+                            @include button;
+                            background: $linearColor;
+                            border: none;
+
+                            &:hover {
+                                border: 1px solid $grayColor;
+                                color: $grayColor;
+
+                                svg path {
+                                    fill: $grayColor;
+                                }
+                            }
+                        }
+                    }
+
+
                 }
 
 
@@ -233,6 +293,11 @@ header {
 
     header .navbar .navbar-right {
         margin-right: 50px;
+
+        .cart .cart-menu{
+            width: 55%;
+
+        }
     }
 
     header .menu .open-btn {
