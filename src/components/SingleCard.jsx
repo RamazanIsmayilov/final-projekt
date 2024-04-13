@@ -39,7 +39,10 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal {...props} size="lg" centered className='modal' >
-                <Modal.Body className='modal-body px-5 py-4 rounded-3' style={{ backgroundColor: "black" }}>
+                <Modal.Body className='modal-body px-5 py-4 rounded-3' style={{
+                    backgroundColor: "black", border: "3px solid",
+                    borderImage: "linear-gradient(to left, #0098ff 50%, #7b35c8) 1"
+                }}>
                     <div className='container'>
                         <div className="row d-flex align-items-center g-3">
                             <div className="col-12 col-sm-12 col-md-6 col-lg-6">

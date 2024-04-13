@@ -42,43 +42,109 @@
                 font-size: 41px;
             }
 
+            .empty-laptop {
+                table {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    width: 100%;
 
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
-                width: 100%;
-
-                thead th {
-                    border: 1px solid $grayColor;
-                    background-color: #cccccc;
-                    color: $grayColor;
+                    thead th {
+                        border: 1px solid $grayColor;
+                        background-color: #cccccc;
+                        color: $grayColor;
+                    }
                 }
+            }
 
-                tbody tr {
-                    border: 1px solid $grayColor;
+            .laptop {
+                table {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    width: 100%;
 
-                    .brand,
-                    .title,
-                    .price {
+                    thead th {
+                        border: 1px solid $grayColor;
+                        background-color: #cccccc;
                         color: $grayColor;
                     }
 
-                    .addbtn {
-                        @include button;
-                        background: $linearColor;
-                        border: none;
+                    tbody tr {
+                        border: 1px solid $grayColor;
 
-                        &:hover {
+                        .brand,
+                        .title,
+                        .price {
+                            color: $grayColor;
+                        }
+
+                        .addbtn {
+                            @include button;
                             background: $linearColor;
+                            border: none;
+
+                            &:hover {
+                                background: $linearColor;
+                            }
+                        }
+
+                        .removebtn {
+                            background: transparent;
+                            color: red;
+                        }
+
+                    }
+                }
+            }
+
+            .empty-mobile {
+                display: none;
+            }
+
+            .mobile {
+                display: none;
+
+                .content {
+                    border: 1px solid $grayColor;
+                    margin-top: 10px;
+                    padding: 20px;
+
+                    h3 {
+                        font-size: 20px;
+                        color: $grayColor;
+                    }
+
+                    .details {
+
+                        p,
+                        h2,
+                        span {
+                            font-size: $firstFontSize;
+                            color: $grayColor;
                         }
                     }
 
-                    .removebtn {
-                        background: transparent;
-                        color: red;
+                    .add-product {
+                        button {
+                            @include button;
+                            background: $linearColor;
+                            border: none;
+                            padding: 8px 22px;
+
+                            &:hover {
+                                background: $linearColor;
+                            }
+                        }
                     }
 
+                    .delete {
+                        button {
+                            background: transparent;
+                            color: red;
+                        }
+                    }
                 }
+
+
             }
         }
     }
@@ -132,66 +198,82 @@
                 color: $lightColor;
             }
 
+            .laptop {
+                table {
+                    width: 100%;
 
-            table {
-                width: 100%;
+                    border: 1px solid #ccc;
 
-                border: 1px solid #ccc;
-
-                thead th {
-                    border: 1px solid;
-                    background-color: $darkColor;
-                    color: $grayColor;
-                }
-
-                tbody tr {
-                    border: 1px solid $grayColor;
-
-                    background-color: $darkColor;
-
-                    .brand,
-                    .title,
-                    .price {
+                    thead th {
+                        border: 1px solid;
+                        background-color: $darkColor;
                         color: $grayColor;
                     }
 
-                    .addbtn {
-                        @include button;
-                        background: $linearColor;
-                        border: none;
+                    tbody tr {
+                        border: 1px solid $grayColor;
 
-                        &:hover {
-                            background: $linearColor;
+                        background-color: $darkColor;
+
+                        .brand,
+                        .title,
+                        .price {
+                            color: $grayColor;
                         }
-                    }
 
-                    .removebtn {
-                        background: transparent;
-                        color: red;
-                    }
+                        .addbtn {
+                            @include button;
+                            background: $linearColor;
+                            border: none;
 
+                            &:hover {
+                                background: $linearColor;
+                            }
+                        }
+
+                        .removebtn {
+                            background: transparent;
+                            color: red;
+                        }
+
+                    }
                 }
+            }
+
+            .empty-mobile {
+                color: #ccc;
             }
         }
     }
 }
 
-
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .light {
-        .wishlistpage{
-            .heading{
-                p{
-                    width: 100%;
-                }
+        .wishlistpage .wishlist {
+            .empty-laptop {
+                display: none;
+            }
+
+            .laptop {
+                display: none;
+            }
+
+            .empty-mobile {
+                display: block;
+            }
+
+            .mobile {
+                display: block;
             }
         }
     }
+}
 
-    .dark {
-        .wishlistpage{
-            .heading{
-                p{
+@media (max-width: 992px) {
+    .light {
+        .wishlistpage {
+            .heading {
+                p {
                     width: 100%;
                 }
             }

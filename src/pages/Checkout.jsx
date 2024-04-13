@@ -139,7 +139,7 @@ const Checkout = () => {
                                     {items.map(item => (
                                         <div className="products d-flex align-items-center justify-content-between">
                                             <div className="d-flex align-items-center gap-4">
-                                                <div className="image">
+                                                <div className="image mb-3">
                                                     <button type="button" className="btn btn-light p-1 position-relative border border-secondary-subtle">
                                                         <img src={item.image} alt="" />
                                                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
@@ -153,13 +153,13 @@ const Checkout = () => {
                                                 </div>
                                             </div>
                                             <div className="price">
-                                                <span>${item.price}</span>
+                                                <span>${item.price}.00 USD</span>
                                             </div>
                                         </div>
                                     ))}
                                     <div className="total d-flex align-items-center justify-content-between mt-3">
                                         <h5 className='fw-bold'>Total</h5>
-                                        <h4 className='fw-bold'>{Math.round(cartTotal)}</h4>
+                                        <h4 className='fw-bold'>{Math.round(cartTotal)}.00 USD</h4>
                                     </div>
                                 </div>}
                         </div>

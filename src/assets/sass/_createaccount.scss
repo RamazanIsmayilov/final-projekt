@@ -1,33 +1,33 @@
-.light{
+.light {
     .createaccount {
         color: $grayColor;
         font-size: $firstFontSize;
-    
+
         .heading {
             h2 {
                 color: $darkColor;
                 font-size: 41px;
             }
         }
-    
+
         .login-form {
             border: 1px solid #cccccc;
             width: 50%;
             margin: auto;
-    
+
             .head {
                 border-bottom: 1px solid #cccccc;
-    
+
                 h4 {
                     font-size: 18px;
                 }
             }
-    
+
             .form-container {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         border: 1px solid #cccccc;
                         border-radius: 0 20px;
@@ -36,12 +36,12 @@
                     }
                 }
             }
-    
+
             .form-bottom {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         border: 1px solid #cccccc;
                         border-radius: 0 20px;
@@ -50,21 +50,21 @@
                     }
                 }
             }
-    
+
             .form-footer {
-                a{
+                a {
                     color: red;
                 }
-    
+
                 button {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
@@ -74,36 +74,36 @@
     }
 }
 
-.dark{
+.dark {
     .createaccount {
         color: $grayColor;
         font-size: $firstFontSize;
-    
+
         .heading {
             h2 {
                 color: $lightColor;
                 font-size: 41px;
             }
         }
-    
+
         .login-form {
             border: 1px solid #cccccc;
             width: 50%;
             margin: auto;
-    
+
             .head {
                 border-bottom: 1px solid #cccccc;
-    
+
                 h4 {
                     font-size: 18px;
                 }
             }
-    
+
             .form-container {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         background-color: $darkColor;
                         color: #cccccc;
@@ -113,17 +113,17 @@
                         outline: none;
                     }
 
-                    label{
+                    label {
                         color: $lightColor;
                     }
                 }
             }
-    
+
             .form-bottom {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         background-color: $darkColor;
                         color: #cccccc;
@@ -133,26 +133,26 @@
                         outline: none;
                     }
 
-                    label{
+                    label {
                         color: $lightColor;
                     }
                 }
             }
-    
+
             .form-footer {
-                a{
+                a {
                     color: red;
                 }
-    
+
                 button {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
@@ -162,16 +162,17 @@
     }
 }
 
-@media(max-width: 992px){
-    .light{
-        .createaccount .login-form{
+@media(max-width: 992px) {
+    .light {
+        .createaccount .login-form {
             width: 100%;
-        }
-    }
 
-    .dark{
-        .createaccount .login-form{
-            width: 100%;
+            .form-footer {
+                button {
+                    padding: 10px 25px;
+                    font-size: 12px;
+                }
+            }
         }
     }
 }

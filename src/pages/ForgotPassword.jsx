@@ -19,24 +19,33 @@ const ForgotPassword = () => {
     position: "top-center",
     autoClose: 3000,
   });
+  const notifyWarning = () => toast.warning("Please enter all required fields.", {
+    position: "top-center",
+    autoClose: 3000,
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
-    if (fgemail === localStorage.getItem('email')) {
-      emailjs
-        .sendForm('service_q0vplzp', 'template_ws437es', form.current, {
-          publicKey: 'wYb-eiZhMrk9OV0g9',
-        })
-        .then(
-          () => {
-            notifySuccess();
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-          },
-        );
-    } else {
-      notifyError();
+    if (!fgemail) {
+      notifyWarning();
+    }
+    else {
+      if (fgemail === localStorage.getItem('email')) {
+        emailjs
+          .sendForm('service_q0vplzp', 'template_ws437es', form.current, {
+            publicKey: 'wYb-eiZhMrk9OV0g9',
+          })
+          .then(
+            () => {
+              notifySuccess();
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      } else {
+        notifyError();
+      }
     }
   };
 
@@ -66,7 +75,7 @@ const ForgotPassword = () => {
                       <div className="form-group d-flex flex-column gap-2 p-2">
                         <input onChange={e => setFgemail(e.target.value)} type="email" placeholder="Email" />
                         <input name='fg_password' value={localStorage.getItem("password")} type="hidden" className="form-control" />
-                        <input name='user_name' value={localStorage.getItem("fullname")} type="hidden" className="form-control" />
+                        <input name='user_name' value={localStorage.getItem("firstName")} type="hidden" className="form-control" />
                       </div>
                     </div>
                   </div>

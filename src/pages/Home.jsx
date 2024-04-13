@@ -318,6 +318,7 @@ const Home = () => {
                   image={item.image}
                   price={item.price}
                   oldprice={item.oldprice}
+                  alldata={item}
                 />
               ))}
             </Slider>
@@ -370,6 +371,7 @@ const Home = () => {
                       image={item.image}
                       price={item.price}
                       oldprice={item.oldprice}
+                      alldata={item}
                     />
                   )) : categoryProduct.map(item => (
                     <SliderCard
@@ -382,6 +384,7 @@ const Home = () => {
                       image={item.image}
                       price={item.price}
                       oldprice={item.oldprice}
+                      alldata={item}
                     />
                   ))}
                 </Slider>
@@ -511,6 +514,7 @@ const Home = () => {
                   image={item.image}
                   price={item.price}
                   oldprice={item.oldprice}
+                  alldata={item}
                 />
               ))}
             </Slider>

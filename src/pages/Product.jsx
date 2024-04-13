@@ -171,7 +171,7 @@ const Product = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-9 col-lg-9">
+                <div className="col-12 col-sm-12 col-md-9 col-lg-9">    
                   <div className="product">
                     <div className="row">
                       {inputValue === 940 ? records.map(item => (

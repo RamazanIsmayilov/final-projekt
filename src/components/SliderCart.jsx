@@ -52,7 +52,7 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
                             </div>
                             <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <h3 className='title text-light'>{title.slice(0, 20)}...</h3>
-                                <span className='description d-block mt-3' style={{ color: "#838383", fontSize: "15px" }}>{description.slice(0, 130)}...</span>
+                                <span className='description d-block mt-3' style={{ color: "#838383", fontSize: "15px" }}>{description}</span>
                                 <h4 className='fw-bold mt-3 text-light' style={{ fontSize: "20px" }}>{price}.00<sup className='fw-normal' style={{ fontSize: "14px" }}>USD</sup></h4>
                                 <p className='fw-bold mt-3 text-decoration-line-through' style={{ color: "#838383", fontSize: "14px" }}>{oldprice}.00<sup className='fw-normal'>USD</sup></p>
                                 <button onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }} className='text-light px-2 py-1'
@@ -83,7 +83,7 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
                     <div className="newprice">{price}.00<sup>USD</sup></div>
                     <div className="oldprice text-decoration-line-through ">{oldprice}.00<sup>USD</sup></div>
                 </div>
-                <button onClick={addCart} >Add to Cart</button>
+                <button onClick={() => { addCart(alldata) }} >Add to Cart</button>
                 < ToastContainer />
             </div>
             <div className="action d-flex align-items-center px-4 d-flex gap-2">

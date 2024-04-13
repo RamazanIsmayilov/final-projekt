@@ -1,33 +1,33 @@
-.light{
+.light {
     .login {
         color: $grayColor;
         font-size: $firstFontSize;
-    
+
         .heading {
             h2 {
                 color: $darkColor;
                 font-size: 41px;
             }
         }
-    
+
         .login-form {
             border: 1px solid #cccccc;
             width: 50%;
             margin: auto;
-    
+
             .head {
                 border-bottom: 1px solid #cccccc;
-    
+
                 h4 {
                     font-size: 18px;
                 }
             }
-    
+
             .form-container {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         border: 1px solid #cccccc;
                         border-radius: 0 20px;
@@ -36,41 +36,41 @@
                     }
                 }
             }
-    
+
             .form-bottom {
                 border-bottom: 1px solid #cccccc;
-    
+
                 a {
                     color: red;
                     text-decoration: underline;
                 }
-    
+
                 button {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
                 }
             }
-    
+
             .form-footer {
-    
+
                 a {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
@@ -80,37 +80,37 @@
     }
 }
 
-.dark{
+.dark {
     .login {
         color: $grayColor;
         font-size: $firstFontSize;
-    
+
         .heading {
             h2 {
                 color: $lightColor;
                 font-size: 41px;
             }
         }
-    
+
         .login-form {
             border: 1px solid #cccccc;
             width: 50%;
             margin: auto;
-    
+
             .head {
                 border-bottom: 1px solid #cccccc;
-    
+
                 h4 {
                     color: #cccccc;
                     font-size: 18px;
-                }   
+                }
             }
-    
+
             .form-container {
                 border-bottom: 1px solid #cccccc;
-    
+
                 .form-group {
-    
+
                     input {
                         background-color: $darkColor;
                         color: #cccccc;
@@ -120,46 +120,46 @@
                         outline: none;
                     }
 
-                    label{
+                    label {
                         color: $lightColor;
                     }
                 }
             }
-    
+
             .form-bottom {
                 border-bottom: 1px solid #cccccc;
-    
+
                 a {
                     color: red;
                     text-decoration: underline;
                 }
-    
+
                 button {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
                 }
             }
-    
+
             .form-footer {
-    
+
                 a {
                     @include button;
                     background: $linearColor;
                     border: none;
-    
+
                     &:hover {
                         background: $linearColor;
                     }
-    
+
                     svg path {
                         fill: $lightColor;
                     }
@@ -169,16 +169,30 @@
     }
 }
 
-@media(max-width: 992px){
-    .light{
-        .login .login-form{
-            width: 100%;
+@media(max-width: 440px) {
+    .light {
+        .login .login-form {
+            .form-bottom {
+                button {
+                    padding: 10px 25px;
+                }
+            }
+
+            .form-footer {
+                a {
+                    padding: 10px 25px;
+                    font-size: 13px;
+                }
+            }
         }
     }
+}
 
-    .dark{
-        .login .login-form{
+@media(max-width: 992px) {
+    .light {
+        .login .login-form {
             width: 100%;
         }
     }
 }
+

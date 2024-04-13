@@ -1,9 +1,58 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
 import { ModeContext } from '../context/ModeContext'
 import { LangContext } from '../context/LangContext'
 
 const Contact = () => {
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [description, setDescription] = useState();
+
+  const form = useRef();
+
+  const notifySuccess = () => toast.success("Please, check your email", {
+    position: "top-center",
+    autoClose: 3000,
+  });
+  const notifyWarning = () => toast.warning("Please enter all required fields.", {
+    position: "top-center",
+    autoClose: 3000,
+  });
+
+
+  const contactForm = (e) => {
+    e.preventDefault();
+
+    if (!firstName || !lastName || !email || !phoneNumber || !description) {
+      notifyWarning();
+    } else {
+      localStorage.setItem('Name', firstName)
+      localStorage.setItem('Surname', lastName)
+      localStorage.setItem('E-mail', email)
+      localStorage.setItem('phoneNumber', phoneNumber)
+      localStorage.setItem('description', description)
+
+      emailjs
+        .sendForm('service_e1qa4yg', 'template_etoglcm', form.current, {
+          publicKey: 'wYb-eiZhMrk9OV0g9',
+        })
+        .then(
+          () => {
+            notifySuccess();
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+    }
+  }
+
+
 
   const { mode } = useContext(ModeContext)
   const { lang } = useContext(LangContext)
@@ -58,37 +107,39 @@ const Contact = () => {
                   <div className="container">
                     <h2 className='title fw-bold'>{lang ? "Əlaqə Forması" : "Contact form"}</h2>
                   </div>
-                  <form className='rounded mt-4'>
+                  <form ref={form} onSubmit={contactForm} className='rounded mt-4'>
                     <div className="container">
                       <div className="row mt-1 mb-4 px-2 g-3">
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                           <div className="form-group d-flex flex-column gap-2">
                             <label className='fw-bold'>{lang ? "Ad" : "First Name"}<sup className='text-danger'>*</sup>:</label>
-                            <input type="text" placeholder="First name" />
+                            <input onChange={(e) => setFirstName(e.target.value)} type="text" placeholder="First name" />
+                            <input name='user_name' value={localStorage.getItem("Name")} type="hidden" className="form-control" />
                           </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                           <div className="form-group d-flex flex-column gap-2">
                             <label className='fw-bold'>{lang ? "Soyad" : "Last Name"}<sup className='text-danger'>*</sup>:</label>
-                            <input type="text" placeholder="Last name" />
+                            <input onChange={(e) => setLastName(e.target.value)} type="text" placeholder="Last name" />
                           </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                           <div className="form-group d-flex flex-column gap-2 mt-2">
                             <label className='fw-bold'>{lang ? "E-poçt" : "Email"}<sup className='text-danger'>*</sup>:</label>
-                            <input type="email" placeholder="shop@company.com" />
+                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="shop@company.com" />
                           </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6">
                           <div className="form-group d-flex flex-column gap-2 mt-2">
                             <label className='fw-bold'>{lang ? "Telefon nömrəsi" : "Phone Number"}<sup className='text-danger'>*</sup>:</label>
-                            <input type="text" placeholder="Phone Number" />
+                            <input onChange={(e) => setPhoneNumber(e.target.value)} type="text" placeholder="Phone Number" />
+                            <input name='phone_number' value={localStorage.getItem("phoneNumber")} type="hidden" className="form-control" />
                           </div>
                         </div>
                         <div className="col-12 col-sm-12 col-md-12 col-lg-12">
                           <div className="form-group d-flex flex-column gap-2 mt-2">
                             <label className='fw-bold'>{lang ? "Təsvir" : "Description"}<sup className='text-danger'>*</sup>:</label>
-                            <textarea cols="30" rows="7" placeholder="How Can We Help?"></textarea>
+                            <textarea onChange={(e) => setDescription(e.target.value)} cols="30" rows="7" placeholder="How Can We Help?"></textarea>
                           </div>
                         </div>
                       </div>
@@ -99,6 +150,7 @@ const Contact = () => {
                             <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
                           </svg>
                         </button>
+                        <ToastContainer theme="dark" />
                       </div>
                     </div>
                   </form>

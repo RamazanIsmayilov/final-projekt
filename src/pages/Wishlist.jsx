@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart';
 import { useWishlist } from "react-use-wishlist";
+import { ToastContainer, toast } from 'react-toastify';
 import { ModeContext } from '../context/ModeContext';
 import { LangContext } from '../context/LangContext';
 
@@ -16,6 +17,15 @@ const Wishlist = ({ alldata }) => {
     items,
     removeWishlistItem,
   } = useWishlist();
+
+  const notifyCart = () => toast.success("Item add to your cart", {
+    autoClose: 3000,
+  });
+
+  const addCart = () => {
+    localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login")
+    notifyCart();
+  }
 
   const { mode } = useContext(ModeContext)
   const { lang } = useContext(LangContext)
@@ -43,8 +53,20 @@ const Wishlist = ({ alldata }) => {
             <div className="title">
               <h2 className='d-flex align-items-center justify-content-center pt-5 pb-3 fw-bold'>{lang ? "İstək siyahısı" : "Wishlist"}({totalWishlistItems})</h2>
             </div>
-            {isWishlistEmpty ? <div className='text-center'><img width={300} src="https://i.pinimg.com/originals/b0/cb/c8/b0cbc88e808b2e5502a7282f644ae734.gif" alt="" /></div> :
-              <div className='scroll' style={{ overflowX: "auto" }}>
+            {isWishlistEmpty ?
+              <div className='empty-laptop'>
+                <table>
+                  <thead>
+                    <tr>
+                      <th className='text-center py-2' scope="col">{lang ? "Məhsul" : "Product"}</th>
+                      <th className='text-center py-2' scope="col">{lang ? "Təfərrüatlar" : "Details"}</th>
+                      <th className='text-center py-2' scope="col">{lang ? "Səbət düyməsi" : "Cart Button"}</th>
+                      <th className='text-center py-2' scope="col">{lang ? "Sil" : "Delete"}</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div> :
+              <div className='laptop'>
                 <table>
                   <thead>
                     <tr>
@@ -64,7 +86,7 @@ const Wishlist = ({ alldata }) => {
                           <div className="price mt-4">{item.price}.00USD</div>
                         </td>
                         <td className='text-center'>
-                          <button className='addbtn mt-5' onClick={() => { localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login") }}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
+                          <button className='addbtn mt-5' onClick={addCart}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
                         </td>
                         <td className='text-center'>
                           <button className='ms-1 removebtn mt-5' onClick={() => removeWishlistItem(item.id)}>
@@ -78,6 +100,41 @@ const Wishlist = ({ alldata }) => {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            }
+            {isWishlistEmpty ?
+              <div className="empty-mobile">
+                <p className='border fw-bold text-center'>Wishlist is empty</p>
+              </div> :
+              <div className="mobile">
+                {items.map(item => (
+                  <div className='content text-center'>
+                    <div className="product">
+                      <h3 className='fw-bold'>Product</h3>
+                      <img width={200} src={item.image} alt="" />
+                    </div>
+                    <div className="details">
+                      <h3 className='fw-bold'>Details</h3>
+                      <p className='mt-4'>{item.brand}</p>
+                      <h2>{item.title}</h2>
+                      <span>{item.price}</span>
+                    </div>
+                    <div className="add-product mt-4">
+                      <h3 className='fw-bold'>ADD PRODUCT</h3>
+                      <button className='mt-3' onClick={addCart}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
+                      < ToastContainer />
+                    </div>
+                    <div className="delete mt-4">
+                      <h3 className='fw-bold'>DELETE</h3>
+                      <button className='ms-1 removebtn mt-3' onClick={() => removeWishlistItem(item.id)}>
+                        <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="presentation" class="icon icon-remove">
+                          <path d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5a.5.5 0 00.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z" fill="currentColor"></path>
+                          <path d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z" fill="currentColor"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
             }
           </div>

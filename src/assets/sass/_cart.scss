@@ -23,43 +23,134 @@
             }
         }
 
-        table {
-            width: 100%;
+        .laptop {
 
-            thead tr {
-                background-color: #ccc;
+            table {
+                width: 100%;
 
-                th {
-                    font-size: $firstFontSize;
-                    border: 1px solid $grayColor;
-                    background-color: #cccccc;
-                    color: $grayColor;
-                }
-            }
+                thead tr {
+                    background-color: #ccc;
 
-            tbody tr {
-                border: 1px solid $grayColor;
-
-                td {
-                    font-size: $firstFontSize;
-                    color: $grayColor;
-                }
-
-                .quantity {
-                    border: 1px solid rgb(76 62 62 / 15%);
-                    max-width: 100px;
-                    height: 30px;
-
-                    button {
-                        background: transparent;
-
-                        svg path {
-                            fill: $grayColor;
-                        }
+                    th {
+                        font-size: $firstFontSize;
+                        border: 1px solid $grayColor;
+                        background-color: #cccccc;
+                        color: $grayColor;
                     }
                 }
 
+                tbody tr {
+                    border: 1px solid $grayColor;
+
+                    td {
+                        font-size: $firstFontSize;
+                        color: $grayColor;
+                    }
+
+                    .quantity {
+                        border: 1px solid rgb(76 62 62 / 15%);
+                        max-width: 100px;
+                        height: 30px;
+
+                        button {
+                            background: transparent;
+
+                            svg path {
+                                fill: $grayColor;
+                            }
+                        }
+                    }
+
+                    .total {
+                        button {
+                            background: transparent;
+
+                            svg path {
+                                fill: red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .empty-mobile {
+            display: none;
+        }
+
+        .mobile {
+            display: none;
+
+            .content {
+                border: 1px solid $grayColor;
+                margin-top: 10px;
+                padding: 20px;
+
+                .product {
+                    h3 {
+                        color: $grayColor;
+                        font-size: 20px;
+                    }
+                }
+
+                .name {
+                    h3 {
+                        color: $grayColor;
+                        font-size: 20px;
+                    }
+
+                    p {
+                        font-size: 13px;
+                        color: $grayColor;
+                    }
+                }
+
+                .cart-price {
+                    h3 {
+                        color: $grayColor;
+                        font-size: 20px;
+                    }
+
+                    span {
+                        font-size: 13px;
+                        color: $grayColor;
+                    }
+                }
+
+                .quantity {
+                    h3 {
+                        color: $grayColor;
+                        font-size: 20px;
+                    }
+
+
+                    .buttons {
+                        border: 1px solid rgb(76 62 62 / 15%);
+
+                        button {
+                            max-width: 100px;
+                            height: 30px;
+                            background: transparent;
+
+                            svg path {
+                                fill: $grayColor;
+                            }
+                        }
+                    }
+
+                }
+
                 .total {
+                    h3 {
+                        color: $grayColor;
+                        font-size: 20px;
+                    }
+
+                    span {
+                        font-size: $firstFontSize;
+                        color: $grayColor;
+                    }
+
                     button {
                         background: transparent;
 
@@ -69,6 +160,8 @@
                     }
                 }
             }
+
+
         }
 
         .border {
@@ -137,47 +230,56 @@
             }
         }
 
-        table {
-            width: 100%;
-            border: 1px solid $grayColor;
-
-            thead tr {
-                th {
-                    font-size: $firstFontSize;
-                    color: $lightColor;
-                    border: 1px solid;
-                }
-
+        .empty-laptop,
+        .empty-mobile {
+            p {
+                color: #ccc;
             }
+        }
 
-            tbody tr {
-                border: 1px solid $lightColor;
+        .laptop {
+            table {
+                width: 100%;
+                border: 1px solid $grayColor;
 
-                td {
-                    font-size: $firstFontSize;
-                    color: $lightColor;
+                thead tr {
+                    th {
+                        font-size: $firstFontSize;
+                        color: $lightColor;
+                        border: 1px solid;
+                    }
+
                 }
 
-                .quantity {
-                    border: 1px solid rgb(76 62 62 / 15%);
-                    max-width: 100px;
-                    height: 30px;
+                tbody tr {
+                    border: 1px solid $lightColor;
 
-                    button {
-                        background: transparent;
+                    td {
+                        font-size: $firstFontSize;
+                        color: $lightColor;
+                    }
 
-                        svg path {
-                            fill: $lightColor;
+                    .quantity {
+                        border: 1px solid rgb(76 62 62 / 15%);
+                        max-width: 100px;
+                        height: 30px;
+
+                        button {
+                            background: transparent;
+
+                            svg path {
+                                fill: $lightColor;
+                            }
                         }
                     }
-                }
 
-                .total {
-                    button {
-                        background: transparent;
+                    .total {
+                        button {
+                            background: transparent;
 
-                        svg path {
-                            fill: red;
+                            svg path {
+                                fill: red;
+                            }
                         }
                     }
                 }
@@ -215,6 +317,29 @@
                     color: $grayColor;
                     border: 1px solid $grayColor;
                 }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .light {
+        .cartpage {
+            .empty-laptop {
+                display: none;
+            }
+
+            .laptop {
+                display: none;
+            }
+
+            .empty-mobile {
+                display: block;
+            }
+
+            .mobile {
+                display: block;
             }
         }
     }

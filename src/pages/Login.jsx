@@ -74,7 +74,7 @@ const Login = () => {
             <div className="form-bottom p-4">
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 col-lg-12 d-flex align-items-center justify-content-end gap-3">
-                  <Link to="/forgotpassword">Forgot Password?</Link>
+                  <Link to="/forgotpassword">Forgot Password?</Link>  
                   <button className='fw-bold d-flex align-items-center gap-2'>Login <svg xmlns="http://www.w3.org/2000/svg"
                     width="35" height="14" viewBox="0 0 35 14" fill="none">
                     <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>

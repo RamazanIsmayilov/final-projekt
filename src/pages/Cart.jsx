@@ -38,48 +38,104 @@ const Cart = () => {
 
           <div className="row g-5">
             <div className="col-12 col-sm-12 col-md-8 col-lg-9">
-              {isEmpty ? <div className='text-center'><img width={300} src="https://schoolville.com/assets/img/empty-cart-illustration.gif" alt='' /></div> :
-                <table>
-                  <thead>
-                    <tr>
-                      <th className='text-center' scope="col">{lang ? "ŞƏKİL" : "IMAGE"}</th>
-                      <th className='text-center' scope="col">{lang ? "AD" : "NAME"}</th>
-                      <th className='text-center' scope="col">{lang ? "Səbətiniz" : "PRICE"}</th>
-                      <th className='text-center' scope="col">{lang ? "QİYMƏT" : "QUANTITY"}</th>
-                      <th className='text-center' scope="col">{lang ? "ÜMUMİ" : "TOTAL"}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {items.map(item => (
+              {isEmpty ?
+                <div className="empty-laptop">
+                  <p className='border fw-bold text-center'>Cart is empty</p>
+                </div>
+                :
+                <div className='laptop'>
+                  <table>
+                    <thead>
                       <tr>
-                        <td className='text-center'><img width={80} src={item.image} alt='' /></td>
-                        <td className='text-center'><div className="title mt-4">{item.title}</div></td>
-                        <td className='text-center'><div className="price mt-4">{item.price}.00 USD</div></td>
-                        <td>
-                          <div className="quantity d-flex align-items-center justify-content-between mt-4 ">
-                            <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>
-                              <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0.251343V1.74871H12V0.251343H0Z" fill="#61AFB3"></path>
-                              </svg>
-                            </button>
-                            <span className='mx-2'>{item.quantity}</span>
-                            <button variant='success' onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.74868 5.25132V0H5.25132V5.25132H0V6.74868H5.25132V12H6.74868V6.74868H12V5.25132H6.74868Z" fill="#61AFB3"></path>
-                              </svg>
-                            </button>
-                          </div>
-                        </td>
-                        <td className='text-center'><div className="total mt-4">{item.price * item.quantity}USD<button className='ms-1' onClick={() => removeItem(item.id)}>
+                        <th className='text-center' scope="col">{lang ? "ŞƏKİL" : "IMAGE"}</th>
+                        <th className='text-center' scope="col">{lang ? "AD" : "NAME"}</th>
+                        <th className='text-center' scope="col">{lang ? "Səbətiniz" : "PRICE"}</th>
+                        <th className='text-center' scope="col">{lang ? "QİYMƏT" : "QUANTITY"}</th>
+                        <th className='text-center' scope="col">{lang ? "ÜMUMİ" : "TOTAL"}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {items.map(item => (
+                        <tr>
+                          <td className='text-center'><img width={80} src={item.image} alt='' /></td>
+                          <td className='text-center'><div className="title mt-4">{item.title}</div></td>
+                          <td className='text-center'><div className="price mt-4">{item.price}.00 USD</div></td>
+                          <td>
+                            <div className="quantity d-flex align-items-center justify-content-between mt-4 ">
+                              <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>
+                                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0 0.251343V1.74871H12V0.251343H0Z" fill="#61AFB3"></path>
+                                </svg>
+                              </button>
+                              <span className='mx-2'>{item.quantity}</span>
+                              <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6.74868 5.25132V0H5.25132V5.25132H0V6.74868H5.25132V12H6.74868V6.74868H12V5.25132H6.74868Z" fill="#61AFB3"></path>
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                          <td className='text-center'><div className="total mt-4">{item.price * item.quantity}.00 USD<button onClick={() => removeItem(item.id)}>
+                            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="presentation" class="icon icon-remove">
+                              <path d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5a.5.5 0 00.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z" fill="currentColor"></path>
+                              <path d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z" fill="currentColor"></path>
+                            </svg></button></div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              }
+              {isEmpty ?
+                <div className="empty-mobile">
+                  <p className='border fw-bold text-center'>Cart is empty</p>
+                </div> :
+                <div className="mobile">
+                  {items.map(item => (
+                    <div className='content text-center'>
+                      <div className="product">
+                        <h3 className='fw-bold'>PRODUCT</h3>
+                        <img width={150} src={item.image} alt="" />
+                      </div>
+                      <div className="name mt-5">
+                        <h3 className='fw-bold'>NAME</h3>
+                        <p>{item.title}</p>
+                        <p>{item.brand}</p>
+                      </div>
+                      <div className="cart-price">
+                        <h3 className='fw-bold'>CART-PRICE</h3>
+                        <span>{item.price}.00 USD</span>
+                      </div>
+                      <div className="quantity d-flex flex-column align-items-center justify-content-between mt-4 ">
+                        <h3 className='fw-bold'>QUANTITY</h3>
+                        <div className='buttons mt-2 d-flex align-items-center justify-content-between gap-2'>
+                          <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>
+                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0.251343V1.74871H12V0.251343H0Z" fill="#61AFB3"></path>
+                            </svg>
+                          </button>
+                          <span className='mx-2'>{item.quantity}</span>
+                          <button variant='success' onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.74868 5.25132V0H5.25132V5.25132H0V6.74868H5.25132V12H6.74868V6.74868H12V5.25132H6.74868Z" fill="#61AFB3"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div className="total mt-4">
+                        <h3 className='fw-bold'>TOTAL</h3>
+                        <span>{item.price * item.quantity}.00 USD</span>
+                        <button onClick={() => removeItem(item.id)}>
                           <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="presentation" class="icon icon-remove">
                             <path d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5a.5.5 0 00.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z" fill="currentColor"></path>
                             <path d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z" fill="currentColor"></path>
-                          </svg></button></div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>}
+                          </svg></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              }
             </div>
 
             <div className="col-12 col-sm-12 col-md-4 col-lg-3">
