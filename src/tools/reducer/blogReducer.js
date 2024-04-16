@@ -18,7 +18,7 @@ export const blogReducer = (state = blogState, action) => {
         })   
     case "REMOVE_BLOG":
         return state.filter(({id})=>{
-            return id !== action.myid
+            return id !== action.id
         })
         case "SET_BLOGS":
             return action.blogs;

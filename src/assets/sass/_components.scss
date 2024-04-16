@@ -1,5 +1,6 @@
 header {
     background: $darkColor;
+    // background: #15202b;
     border-bottom: 1px solid;
 
     .navbar-left {
@@ -19,6 +20,10 @@ header {
                 left: -110px;
             }
 
+            li:hover .dropdown {
+                visibility: visible;
+            }
+
             .hello-user {
                 font-size: $firstFontSize;
                 color: rgb(17, 157, 162);
@@ -32,22 +37,10 @@ header {
             }
         }
 
-        .language {
-            .dropdown {
-                @include dropdown;
-                position: absolute;
-                left: -45px;
-                padding: 15px;
-
-                button {
-                    background: transparent;
-                    color: $darkColor;
-                    font-size: $secondFontSize;
-
-                    &:hover {
-                        text-decoration: underline
-                    }
-                }
+        .language,
+        .mode {
+            button:focus {
+                border: none !important;
             }
         }
 
@@ -67,10 +60,6 @@ header {
 
                 &.open {
                     transform: translate(0);
-                }
-
-                &.close {
-                    transform: translate(100%);
                 }
 
                 .heading {
@@ -127,6 +116,11 @@ header {
                                 font-size: $secondFontSize;
                                 letter-spacing: .5px;
                             }
+
+                            &:focus {
+                                box-shadow: none;
+                                border-color: #dedcdc;
+                            }
                         }
 
                         button {
@@ -144,6 +138,7 @@ header {
 
                     .footer {
                         border: 0;
+
                         .button {
                             @include button;
                             background: $linearColor;
@@ -166,20 +161,19 @@ header {
 
             }
         }
-
-
-
-        li:hover .dropdown {
-            visibility: visible;
-        }
     }
 
     .menu {
         position: absolute;
         right: 0;
 
+        .language,
         .mode {
             display: none;
+
+            button:focus {
+                border: none;
+            }
         }
 
         .open-btn {
@@ -231,6 +225,7 @@ header {
                 }
 
                 .accordion {
+
                     .user {
                         .hello-user {
                             font-size: $firstFontSize;
@@ -254,63 +249,78 @@ header {
                         }
                     }
 
-                    .language {
-                        button {
-                            background: transparent;
-                            display: flex;
-                            align-items: center;
-                            justify-content: start;
+                    .accordion-item .accordion-header button {
+                        &:focus {
+                            box-shadow: none !important;
+                            background-color: transparent;
+                            border-bottom: 1px solid #ccc;
                         }
                     }
                 }
+
             }
         }
     }
 }
 
 @media(max-width:576px) {
-    header .navbar .navbar-right {
-        display: none !important;
-    }
+    header {
+        .navbar .navbar-right {
+            display: none !important;
+        }
 
-    header .menu .mode {
-        display: block !important;
-    }
+        .menu {
+            .mode {
+                display: block !important;
+            }
 
-    header .menu .open-btn {
-        display: block !important;
-    }
+            .language {
+                display: block !important;
+            }
 
-    header .menu .offcanvas-menu .accordion {
-        display: block !important;
+            .open-btn {
+                display: block !important;
+            }
+
+            .offcanvas-menu .accordion {
+                display: block !important;
+            }
+        }
     }
 }
 
 @media(max-width:992px) {
-    header .navbar .navbar-left {
-        display: none !important;
-    }
+    header {
+        .navbar {
+            .navbar-left {
+                display: none !important;
+            }
 
-    header .navbar .navbar-right {
-        margin-right: 50px;
+            .navbar-right {
+                margin-right: 50px;
 
-        .cart .cart-menu{
-            width: 55%;
+                .cart .cart-menu {
+                    width: 55%;
 
+                }
+            }
         }
-    }
 
-    header .menu .open-btn {
-        display: block !important;
-    }
+        .menu {
+            .open-btn {
+                display: block !important;
+            }
 
-    header .menu .offcanvas-menu .accordion {
-        display: none;
+            .offcanvas-menu .accordion {
+                display: none;
+            }
+        }
     }
 }
 
 .bottom-header {
     background: $darkColor;
+    // background: #15202b;
     border-bottom: 1px solid;
 
     .left {
@@ -327,12 +337,7 @@ header {
     }
 
     .search {
-        // transform: translate(90px);
-        // width: 30%;
-        // z-index: 1;
-        // position: absolute;
-        // overflow-y:  scroll;
-        // height: 58vh !important;
+        position: relative;
 
         .input-group {
             a {
@@ -354,22 +359,26 @@ header {
                 border-radius: 0 20px;
                 border-left: none;
                 padding: 9px 15px;
-                outline: none;
 
                 &::placeholder {
                     color: $grayColor;
-                    font-size: 13px;
+                    font-size: $firstFontSize;
                     letter-spacing: .6px;
+                }
+
+                &:focus {
+                    box-shadow: none !important;
                 }
             }
         }
 
         .list-group-item {
             border: 7px solid blue;
-            width: 100%;
-            margin: auto;
             background-color: #cccccc;
             border: 1px solid $grayColor;
+
+            position: absolute;
+
 
 
             .content {
@@ -382,6 +391,10 @@ header {
                 .type i {
                     font-size: 11px;
                 }
+            }
+
+            &.close-search {
+                display: none !important;
             }
         }
     }
@@ -396,6 +409,17 @@ header {
     }
 }
 
+@media(max-width:768px) {
+    .bottom-header .search {
+
+        .input-group,
+        .list-group-item {
+            width: 100% !important;
+            transform: translate(0) !important;
+        }
+    }
+}
+
 @media(max-width:992px) {
     .bottom-header {
 
@@ -405,19 +429,13 @@ header {
         }
 
         .search {
-            margin-top: -20px !important;
-            width: 60%;
 
-            input {
-                width: 80% !important;
-            }
-
+            .input-group,
             .list-group-item {
-                width: 100% !important;
+                width: 600px;
+                transform: translate(-180px);
             }
         }
-
-
     }
 }
 
@@ -432,11 +450,13 @@ header {
             h3 {
                 @include heading;
                 font-size: 26px;
+                width: 84%;
             }
 
             p {
                 font-size: $firstFontSize;
                 letter-spacing: .3px;
+                width: 82%;
             }
         }
 
@@ -470,14 +490,19 @@ header {
             a {
                 background-color: $lightColor;
 
+                i {
+                    color: $darkColor;
+                }
+
                 &:hover {
                     background: $linearColor;
+
+                    i {
+                        color: $lightColor;
+                    }
                 }
             }
 
-            i {
-                color: $darkColor;
-            }
         }
     }
 
@@ -490,5 +515,11 @@ header {
             color: $lightColor;
             font-size: $firstFontSize;
         }
+    }
+}
+
+@media(max-width:992px) {
+    .footers footer .right a:nth-child(3) {
+        display: none !important;
     }
 }

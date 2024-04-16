@@ -11,7 +11,7 @@ export const LangProvider = ({ children }) => {
 
 
     const langModeFunc = () => {
-        setLangMode(langMode)
+        setLangMode(!langMode)
         setLang(!lang)
     }
 

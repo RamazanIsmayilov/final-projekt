@@ -64,39 +64,71 @@
                 }
             }
 
-            table {
-                width: 100%;
-                border: 1px solid $grayColor;
-
-                tr {
+            .laptop {
+                table {
+                    width: 100%;
                     border: 1px solid $grayColor;
-                    text-align: center;
 
-                    th {
+                    tr {
                         border: 1px solid $grayColor;
-                        padding: 5px;
+                        text-align: center;
+
+                        th {
+                            border: 1px solid $grayColor;
+                            padding: 5px;
+                            color: #424b5a;
+                        }
+                    }
+
+                    .editbtn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: transparent;
+                        color: #424b5a;
+                        font-size: $firstFontSize;
+                        padding: 8px 2px;
+                    }
+
+                    .deletebtn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: transparent;
+                        color: #b91c1c;
+                        font-size: $firstFontSize;
+                        padding: 8px 2px;
+                    }
+                }
+            }
+
+            .mobile {
+                border: 1px solid $grayColor;
+                margin-top: 10px;
+                padding: 20px;
+                display: none;
+
+                h3 {
+                    font-size: 25px;
+                    color: $grayColor;
+                }
+
+                p {
+                    color: $grayColor;
+                }
+
+                .edit {
+                    button {
+                        background-color: transparent;
                         color: #424b5a;
                     }
                 }
 
-                .editbtn {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: transparent;
-                    color: #424b5a;
-                    font-size: $firstFontSize;
-                    padding: 8px 2px;
-                }
-
-                .deletebtn {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: transparent;
-                    color: #b91c1c;
-                    font-size: $firstFontSize;
-                    padding: 8px 2px;
+                .delete {
+                    button {
+                        background-color: transparent;
+                        color: #b91c1c;
+                    }
                 }
             }
         }
@@ -204,5 +236,28 @@
                 }
             }
         }
+    }
+}
+
+.test{
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .dashboardpage {
+        .dashboard{
+            .laptop {
+                display: none;
+            }
+    
+            .mobile{
+                display: block !important;
+            }
+        }
+        
+    }
+
+    .test{
+        display: block;
     }
 }

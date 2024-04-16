@@ -70,13 +70,13 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
     return (
         <div className="carousel mt-4 py-3 d-flex flex-column gap-4">
             <div className="title d-flex flex-column ms-3">
-                <a className='fw-bold' href="/">{title.slice(0, 19)}...</a>
+                <Link className='fw-bold' to={`/products/${slugify(title)}`}>{title.slice(0, 18)}...</Link>
                 <span>Type: {type}</span>
                 <span>Brand: {brand}</span>
             </div>
             <span className='new mx-3 px-2 rounded'>{neew}</span>
             <Link to={`/products/${slugify(title)}`} className='d-flex align-items-center justify-content-center'>
-                <img src={image} alt="" />
+                <img height={200} src={image} alt="" />
             </Link>
             <div className="footer d-flex align-items-center justify-content-between mx-3">
                 <div className="price fw-bold">

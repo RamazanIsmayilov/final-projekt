@@ -17,7 +17,9 @@ const Dashboard = () => {
 
 
     return (
-        <div className={mode ? "light" : "dark"}>
+       <>
+       
+       <div className={mode ? "light" : "dark"}>
             <div className='dashboardpage'>
                 <div className="heading py-5">
                     <div className="container d-flex flex-column gap-4">
@@ -30,13 +32,13 @@ const Dashboard = () => {
                             <span className='fw-bold'>{lang ? "Geriyə qayıt" : "Back to home"}</span>
                         </Link>
                         <h5 className='fs-1 fw-bold'>{lang ? "İdarə paneli" : "Dashboard"}</h5>
-                        <span>{lang ? "Məhsullar və Bloqlar" : "Products & Blogs"}</span>
+                        <span>{lang ? "Bloqlar" : "Blogs"}</span>
                     </div>
                 </div>
 
                 <div className="dashboard py-3">
                     <div className='container'>
-                        <h1 className='title text-center my-5'>{lang ? "Məhsullar və Bloqlar cədvəli" : "Products & Blogs table"}</h1>
+                        <h1 className='title text-center my-5'>{lang ? "Bloqlar cədvəli" : "Blogs table"}</h1>
                         <div className='head d-flex align-items-center justify-content-between'>
                             <span>{lang ? "Bloqlar" : "Blogs"}</span>
                             <Link className='addbtn d-flex align-items-center justify-content-center gap-2 rounded' to="/dashboard/add">
@@ -44,7 +46,7 @@ const Dashboard = () => {
                                 {lang ? "Yeni Bloq əlavə edin" : "Add New Blog"}
                             </Link>
                         </div>
-                        <div className="d-flex-align-items-center justify-content-center">
+                        <div className="laptop d-flex-align-items-center justify-content-center">
                             <table className=" my-4">
                                 <thead>
                                     <tr>
@@ -60,7 +62,7 @@ const Dashboard = () => {
                                     {blogStore.map((item, count) => (
                                         <tr>
                                             <th scope="row">{count + 1}</th>
-                                            <td><img src={item.img} width={70} alt="err" /></td>
+                                            <td><img src={item.img} width={70} alt="" /></td>
                                             <td>{item.title.slice(0, 20)}...</td>
                                             <td>{item.desc.slice(0, 60)}...</td>
                                             <th scope="col"><Link to={`/dashboard/edit/${slugify(item.title)}`} className='editbtn d-flex align-items-center '>
@@ -68,7 +70,7 @@ const Dashboard = () => {
                                                     stroke-linejoin="round" data-lucide="check-square" class="lucide lucide-check-square stroke-[1] mr-2 h-4 w-4"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
                                             </Link></th>
                                             <th scope="col"><Link onClick={() => {
-                                                dispatch(removeBlogFromDatabase({ id: item.id }))
+                                                dispatch(removeBlogFromDatabase(item.id))
                                             }} className='deletebtn d-flex align-items-center mx-2'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                 stroke-linecap="round" stroke-linejoin="round" data-lucide="trash2" class="lucide lucide-trash2 stroke-[1] mr-2 h-4 w-4"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6">
                                                     </path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
@@ -78,10 +80,46 @@ const Dashboard = () => {
                                 </tbody>
                             </table>
                         </div>
+                        <div className="mobile">
+                            {blogStore.map(item => {
+                                <div className='content text-center'>
+                                    <div className="photo">
+                                        <h3 className='fw-bold'>Photo</h3>
+                                        <img width={200} src={item.img} alt="" />
+                                    </div>
+                                    <div className="title mt-4">
+                                        <h3 className='fw-bold'>Title</h3>
+                                        <p>{item.title.slice(0, 20)}...</p>
+                                    </div>
+                                    <div className="desc mt-4">
+                                        <h3 className='fw-bold'>Description</h3>
+                                        <p>{item.desc.slice(0, 60)}...</p>
+                                    </div>
+                                    <div className="edit mt-4">
+                                        <h3 className='fw-bold'>Edit</h3>
+                                        <Link to={`/dashboard/edit/${slugify(item.title)}`}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" data-lucide="check-square" class="lucide lucide-check-square stroke-[1] mr-2 h-4 w-4"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></Link>
+                                    </div>
+                                    <div className="delete mt-4">
+                                        <h3 className='fw-bold'>Delete</h3>
+                                        <Link onClick={() => {
+                                            dispatch(removeBlogFromDatabase({ id: item.id }))
+                                        }}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" data-lucide="trash2" class="lucide lucide-trash2 stroke-[1] mr-2 h-4 w-4"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6">
+                                                </path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></Link>
+                                    </div>
+                                </div>
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            
         </div>
+        <div className="test"><h1>Test</h1></div>
+       </>
     )
 }
 

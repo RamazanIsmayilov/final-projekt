@@ -49,6 +49,12 @@
                     font-size: $secondFontSize;
                     color: #707070;
                     padding: 13.5px 11px;
+
+                    &:focus {
+                        outline: none !important;
+                        box-shadow: none !important;
+                        border-color: #707070;
+                    }
                 }
 
                 input {
@@ -58,6 +64,12 @@
                     &::placeholder {
                         color: #707070;
                         font-size: $secondFontSize;
+                    }
+
+                    &:focus {
+                        outline: none !important;
+                        box-shadow: none !important;
+                        border-color: #707070;
                     }
                 }
             }
@@ -107,6 +119,13 @@
                                 &::placeholder {
                                     color: #707070;
                                     font-size: $secondFontSize;
+
+                                }
+
+                                &:focus {
+                                    outline: none !important;
+                                    box-shadow: none !important;
+                                    border-color: $grayColor;
                                 }
                             }
                         }
