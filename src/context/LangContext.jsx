@@ -1,22 +1,32 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const LangContext = createContext();
 
 export const LangProvider = ({ children }) => {
 
+    const [lang, setLang] = useState(localStorage.getItem("myLang") == null ? "En" : localStorage.getItem("myLang"));
 
+    useEffect(() => {
+        if (localStorage.getItem("myLang") === null) {
+            localStorage.setItem("myLang", "En")
+        } else {
+            localStorage.setItem("myLang", lang);
+        }
+    }, [lang])
 
-    const [lang, setLang] = useState();
-    const [langMode, setLangMode] = useState(true);
-
-
+    
     const langModeFunc = () => {
-        setLangMode(!langMode)
-        setLang(!lang)
+        // setLang(!lang)
+
+        if(lang === "En"){
+            setLang("Az")
+        }else{
+            setLang("En")
+        }
     }
 
 
-    return <LangContext.Provider value={{ lang, setLang, langMode, setLangMode, langModeFunc }}>
+    return <LangContext.Provider value={{ lang, setLang, langModeFunc }}>
         {children}
     </LangContext.Provider>
 }

@@ -1,5 +1,8 @@
 .light {
     .aboutus {
+        width: 100%;
+        overflow-x: hidden;
+
         .heading {
             background-color: $darkColor;
             border-bottom: 1px solid #cccccc;
@@ -246,6 +249,10 @@
                     }
                 }
 
+                img {
+                    width: 400px;
+                }
+
                 h3 {
                     font-size: 20px;
                 }
@@ -262,43 +269,12 @@
             }
         }
     }
+}
 
-    .dark {
-        .aboutus {
-            .heading {
-                p {
-                    width: 100%;
-                }
-            }
-
-            .section-one {
-                .title {
-                    h2 {
-                        font-size: 30px;
-                    }
-                }
-            }
-
-            .section-two {
-                .title {
-                    h2 {
-                        font-size: 30px;
-                    }
-                }
-
-                h3 {
-                    font-size: 20px;
-                }
-            }
-
-            .services{
-                .title h2{
-                    font-size: 32px;
-                }
-                .desc{
-                    width: 100%;
-                }
-            }
+@media(max-width:767.98px) {
+    .light {
+        .aboutus .section-two img {
+            width: 100%;
         }
     }
 }

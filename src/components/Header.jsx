@@ -55,7 +55,7 @@ const Header = () => {
   }
 
 
-  const { lang, langModeFunc, langMode } = useContext(LangContext)
+  const { lang, langModeFunc } = useContext(LangContext)
 
   const [mode, setMode] = useState(localStorage.getItem("myMode") == null ? "light" : localStorage.getItem("myMode"));
 
@@ -130,7 +130,7 @@ const Header = () => {
                 </li>}
               </div>
               <div className="language">
-                <button onClick={langModeFunc} className='btn p-0 text-light'>{langMode ? "Az" : "En"}</button>
+                <button onClick={langModeFunc} className='btn p-0 text-light'>{lang === "En" ? "Az" : "En"}</button>
               </div>
               <div className="mode">
                 <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
@@ -225,7 +225,7 @@ const Header = () => {
                   <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
                 </div>
                 <div className="language">
-                  <button onClick={langModeFunc} className='btn p-0 text-light'>{langMode ? "Az" : "En"}</button>
+                  <button onClick={langModeFunc} className='btn p-0 text-light'>{lang === "En" ? "En" : "Az"}</button>
                 </div>
                 <button onClick={openMenu} className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></button>
               </div>
@@ -322,7 +322,7 @@ const Header = () => {
               <div className="search">
                 <div className="input-group mb-1">
                   <Link to='products' className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i></Link>
-                  <input onChange={e => setQuery(e.target.value)} className='form-control mx-0' type="text" placeholder="Search Product..." />
+                  <input onChange={e => setQuery(e.target.value)} className='form-control mx-0' type="text" placeholder={`${lang ? "Məhsul axtar..." : "Search Product..."}`} />
                 </div>
                 {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
                   <Link onClick={closeSearch} to={`/products/${slugify(item.title)}`}>

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import SingleCard from '../components/SingleCard'
 import { ProductContext } from '../context/ProductContext';
-import { Link } from 'react-router-dom';
-import { FaChevronRight } from "react-icons/fa";
-import { FaChevronLeft } from "react-icons/fa";
 import { ModeContext } from '../context/ModeContext';
 import { LangContext } from '../context/LangContext';
+import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 const Product = () => {
   const [productdata] = useContext(ProductContext);
@@ -52,9 +53,31 @@ const Product = () => {
   const { mode } = useContext(ModeContext)
   const { lang } = useContext(LangContext)
 
+  const [checkedValues, setValue] = useState([])
+
+  const handleChange = (event, type) => {
+    const { value, checked } = event.target;
+    filterBrand(type)
+
+    if (checked) {
+      setValue(pre => [...pre, value])
+    } else {
+      setValue(pre => {
+        return [...pre.filter(skill => skill !== value)]
+      })
+    }
+  }
+  console.log(checkedValues);
+  console.log(filterBrand);
+
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Products-Gaming WorkDo</title>
+      </Helmet>
+
       <div className={mode ? "light" : "dark"}>
         <div className="productpage">
           <div className="heading p-5">
@@ -86,84 +109,84 @@ const Product = () => {
                         <input onChange={(e) => {
                           setInputValue(e.target.value)
                           filterPrice();
-                        }} className="range" min={375.00} max={940.00} defaultValue={375.00} type="range" />
+                        }} className="range" min={375.00} max={940.00} defaultValue={940.00} type="range" />
                       </div>
                     </div>
                     <div className="brand mt-5">
                       <h6 className='fw-bold'>{lang ? "Brend" : "Brand"}</h6>
                       <div className="select d-flex align-items-center justify-content-between mt-4">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Acer") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange}  value="Acer" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Acer</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Electrobot") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Electrobot" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Electrobot</label>
                         </div>
                         <span className='number'>(2)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("HyperX") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="HyperX" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">HyperX</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("KandE") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="KandE" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">KandE</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Kepler Brooks") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Kepler Brooks" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Kepler Brooks</label>
                         </div>
                         <span className='number'>(4)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Lenova") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Lenova" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Lenova</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("LG") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="LG" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">LG</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Samsung") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Samsung" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Samsung</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Sony PS5") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Sony PS5" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Sony PS5</label>
                         </div>
                         <span className='number'>(2)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("Vulture") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="Vulture" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">Vulture</label>
                         </div>
                         <span className='number'>(1)</span>
                       </div>
                       <div className="select d-flex align-items-center justify-content-between mt-1">
                         <div className="form-check">
-                          <input onClick={() => { filterBrand("XFX") }} className="form-check-input" type="checkbox" />
+                          <input onChange={handleChange} value="XFX" className="form-check-input" type="checkbox" />
                           <label className="form-check-label">XFX</label>
                         </div>
                         <span className='number'>(9)</span>
@@ -171,10 +194,10 @@ const Product = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-9 col-lg-9">    
+                <div className="col-12 col-sm-12 col-md-9 col-lg-9">
                   <div className="product">
                     <div className="row">
-                      {inputValue === 940 ? records.map(item => (
+                      {brandProduct.length === 0 && inputValue === 940.00 ? records.map(item => (
                         <SingleCard
                           key={item}
                           id={item.id}
@@ -188,7 +211,7 @@ const Product = () => {
                           oldprice={item.oldprice}
                           alldata={item}
                         />
-                      )) : priceProduct.map(item => (
+                      )) : brandProduct.map(item => (
                         <SingleCard
                           key={item}
                           id={item.id}

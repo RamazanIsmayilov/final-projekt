@@ -3,6 +3,11 @@ header {
     // background: #15202b;
     border-bottom: 1px solid;
 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+
     .navbar-left {
         .title {
             color: $lightColor;
@@ -322,6 +327,7 @@ header {
     background: $darkColor;
     // background: #15202b;
     border-bottom: 1px solid;
+    margin-top: 72.3px;
 
     .left {
         span {

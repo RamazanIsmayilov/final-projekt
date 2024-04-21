@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/react-bootstrap/dist/react-bootstrap'
 import './assets/sass/style.scss'
+import 'aos/dist/aos.css';
 import App from './App';
 import { ProductProvider } from './context/ProductContext';
 import { CartProvider } from 'react-use-cart'
@@ -32,7 +33,9 @@ const result = (
   </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+ReactDOM.render(<div style={{ width: "100%", height: "100vh", backgroundColor: "black", display: "flex", alignItems: "center", justifyContent: "center" }} className="preloader">
+  <img src="https://gaming-workdo.myshopify.com/cdn/shop/files/286.gif?v=1670848128" alt="" />
+</div>, document.getElementById('root'));
 
 blogStore.dispatch(getBlogsFromDatabase()).then(() => {
   ReactDOM.render(result, document.getElementById('root'));
