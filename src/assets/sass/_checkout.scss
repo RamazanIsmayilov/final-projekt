@@ -1,51 +1,68 @@
-.checkoutpage {
-    .header {
-        border-bottom: 1px solid #ccc;
+.light {
+    .checkoutpage {
+        .header {
+            border-bottom: 1px solid #ccc;
 
-        .logo {
-            a {
+            .logo a {
                 font-size: 20px;
             }
-        }
 
-        .icon {
-            a {
+            .icon a {
                 font-size: 25px;
             }
         }
-    }
 
-    .checkout {
-        .left {
-            .account {
-                span {
-                    color: #707070;
-                    font-size: $firstFontSize;
-                }
+        .checkout {
+            .left {
+                color: #707070;
+                font-size: $firstFontSize;
 
-                input[type="text"] {
-                    border-top: 0;
-                    border-left: 0;
-                    border-right: 0;
-                    outline: none;
-                    width: 100%;
-                    color: #707070;
-                    border-width: 1px;
-                }
-
-                .form-check {
-                    label {
-                        font-size: $firstFontSize;
-                    }
-                }
-            }
-
-            .delivery {
                 h2 {
                     font-size: 21px;
                 }
 
-                select {
+                .input-group {
+                    input {
+                        color: #707070;
+                        padding: 13.5px 11px;
+
+                        &::placeholder {
+                            color: #707070;
+                            font-size: $secondFontSize;
+
+                        }
+
+                        &:focus {
+                            outline: none !important;
+                            box-shadow: none !important;
+                            border-color: $grayColor;
+                        }
+                    }
+                }
+
+                .form-check {
+                    input:focus {
+                        box-shadow: none;
+                    }
+
+                    label {
+                        font-size: $firstFontSize;
+                    }
+                }
+
+                .account {
+                    input[type="text"] {
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                        outline: none;
+                        width: 100%;
+                        color: #707070;
+                        border-width: 1px;
+                    }
+                }
+
+                .delivery select {
                     font-size: $secondFontSize;
                     color: #707070;
                     padding: 13.5px 11px;
@@ -57,130 +74,140 @@
                     }
                 }
 
-                input {
-                    color: #707070;
-                    padding: 13.5px 11px;
-
-                    &::placeholder {
-                        color: #707070;
-                        font-size: $secondFontSize;
+                .payment {
+                    h2 {
+                        font-size: 21px;
                     }
 
-                    &:focus {
-                        outline: none !important;
-                        box-shadow: none !important;
-                        border-color: #707070;
-                    }
-                }
-            }
-
-            .shipping {
-                h2 {
-                    font-size: 15px;
-                    letter-spacing: .8px;
-                }
-
-                .alert {
                     font-size: $firstFontSize;
-                    background-color: #f5f5f5;
-                    color: #707070;
-                }
-            }
 
-            .payment {
-                h2 {
-                    font-size: 21px;
-                }
+                    p {
+                        letter-spacing: .8px;
+                    }
 
-                p {
-                    color: #707070;
-                    font-size: $firstFontSize;
-                    letter-spacing: .8px;
-                }
+                    .pay-card {
+                        background-color: #f5f5f5;
 
-                .pay-card {
-                    background-color: #f5f5f5;
-
-                    .heading {
-                        background-color: #f0f5ff;
-                        border: 1px solid #1773b0;
-
-                        span {
-                            font-size: $firstFontSize;
+                        .heading {
+                            background-color: #f0f5ff;
+                            border: 1px solid #1773b0;
                         }
                     }
 
-                    .body {
-                        .input-group {
-                            input {
-                                color: #707070;
-                                padding: 13.5px 11px;
-
-                                &::placeholder {
-                                    color: #707070;
-                                    font-size: $secondFontSize;
-
-                                }
-
-                                &:focus {
-                                    outline: none !important;
-                                    box-shadow: none !important;
-                                    border-color: $grayColor;
-                                }
-                            }
-                        }
-
-                        .form-check {
-                            label {
-                                font-size: $firstFontSize;
-                                color: #707070;
-                            }
-                        }
-                    }
-                }
-
-                .button {
-                    button {
+                    .button button {
                         width: 100%;
                         color: #fff;
                         background-color: #1773b0;
                         padding: 14px;
                     }
                 }
-            }
 
-            .footer {
-                border-top: 1px solid #ccc;
-                padding-top: 10px;
-                margin-top: 100px;
+                .footer {
+                    border-top: 1px solid #ccc;
+                    padding-top: 10px;
+                    margin-top: 100px;
 
-                span {
-                    font-size: $secondFontSize;
-                    color: #707070;
-                }
-            }
-        }
-
-        .right {
-            .products {
-                .desc {
-                    font-size: 15px;
-
-                    span:nth-child(2) {
+                    span {
                         font-size: $secondFontSize;
-                        color: $grayColor;
+                        color: #707070;
                     }
                 }
             }
 
-            .total {
-                h5 {
-                    font-size: 19px;
+            .right {
+                font-size: 15px;
+
+                .products .desc span:nth-child(2) {
+                    color: $grayColor;
                 }
 
-                h4 {
-                    font-size: 21px;
+                .total p {
+                    font-size: 19px;
                 }
+            }
+        }
+    }
+}
+
+.dark {
+    .checkoutpage {
+        .header {
+            border-bottom: 1px solid;
+
+            .logo a {
+                color: $lightColor !important;
+            }
+        }
+
+        .checkout {
+            .left {
+                color: #ccc;
+
+                h2 {
+                    color: #fff;
+                }
+
+                .input-group {
+
+                    input {
+                        background-color: $darkColor;
+                        color: #ccc !important;
+                        border: 1px solid #707070 !important;
+
+                        &::placeholder {
+                            color: #707070;
+                        }
+                    }
+
+                    span {
+                        background-color: $darkColor !important;
+                        color: #ccc;
+                        border: 1px solid #707070 !important;
+                    }
+                }
+
+                .form-check {
+                    input {
+                        background-color: $darkColor;
+                    }
+                }
+
+                .account {
+                    span {
+                        color: #fff;
+                    }
+
+                    input[type="text"] {
+                        background-color: $darkColor;
+                        color: #ccc;
+                        border-top: none !important;
+                        border-left: none !important;
+                        border-right: none !important;
+                    }
+                }
+
+                .delivery select {
+                    background-color: $darkColor;
+                    border: 1px solid #707070;
+                }
+
+                .payment .pay-card {
+                    background-color: $darkColor;
+                    border: 1px solid #707070;
+
+                    .heading {
+                        background-color: $darkColor;
+                        border: 1px solid #707070;
+                    }
+                }
+
+                .footer span {
+                    color: #ccc;
+                }
+            }
+
+            .right {
+                color: $lightColor;
             }
         }
     }

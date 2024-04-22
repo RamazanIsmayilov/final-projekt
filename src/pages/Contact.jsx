@@ -1,10 +1,11 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import { ModeContext } from '../context/ModeContext'
 import { LangContext } from '../context/LangContext'
+import Aos from 'aos';
 
 const Contact = () => {
 
@@ -54,6 +55,9 @@ const Contact = () => {
   }
 
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, [])
 
   const { mode } = useContext(ModeContext)
   const { lang } = useContext(LangContext)
@@ -65,8 +69,8 @@ const Contact = () => {
         <meta charSet="utf-8" />
         <title>Contact Us-Gaming WorkDo</title>
       </Helmet>
+      
       <div className={mode ? "light" : "dark"}>
-
         <div className="contactus">
           <div className="heading py-5">
             <div className="container d-flex flex-column gap-4">
@@ -78,8 +82,8 @@ const Contact = () => {
                 </span>
                 <span className='fw-bold'>{lang ? "Geriyə qayıt" : "Back to home"}</span>
               </Link>
-              <h5 className='fs-1 fw-bold'>{lang ? "Bizimlə əlaqə" : "Contact with us"}</h5>
-              <p>{lang ? "Bunu nəzərə alaraq, istifadəçilərimizə dəqiq, etibarlı və cəlbedici məzmun təqdim etməyə çalışırıq. Mütəxəssislər, tədqiqatçılar və yazıçılardan ibarət komandamız texnologiya, elm, səhiyyə, biznes və s. kimi müxtəlif sahələri əhatə edən yüksək keyfiyyətli məqalələr, bələdçilər və resursları hazırlamaq üçün yorulmadan çalışır."
+              <h5 className='fs-1 fw-bold' data-aos="fade-down">{lang ? "Bizimlə əlaqə" : "Contact with us"}</h5>
+              <p data-aos="fade-up">{lang ? "Bunu nəzərə alaraq, istifadəçilərimizə dəqiq, etibarlı və cəlbedici məzmun təqdim etməyə çalışırıq. Mütəxəssislər, tədqiqatçılar və yazıçılardan ibarət komandamız texnologiya, elm, səhiyyə, biznes və s. kimi müxtəlif sahələri əhatə edən yüksək keyfiyyətli məqalələr, bələdçilər və resursları hazırlamaq üçün yorulmadan çalışır."
                 : "With that in mind, we strive to deliver accurate, trustworthy, and engaging content to our users. Our team of experts, researchers, and writers work tirelessly to curate high-quality articles, guides, and resources that cover various domains such as technology, science, health, business, and more."}</p>
             </div>
           </div>
