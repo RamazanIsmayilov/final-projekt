@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from "react-helmet";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
@@ -40,17 +40,29 @@ const Checkout = () => {
         autoClose: 3000,
     });
 
+    const notifySuccess = () => toast.success("Checkout completed successfully,thanks", {
+        autoClose: 3000,
+    });
+
+    const navigate = useNavigate();
+
     const formSubmit = (e) => {
         e.preventDefault();
-        if (!email || !firstName || !lastName || !address || !cardNumber || !date || !securityCode || !nameCard) {
-            notifyWarning();
-        } else {
-            if (code <= 50) {
-                setDiscount((cartTotal * code) / 100)
-                setTotal(cartTotal - ((cartTotal * code) / 100));
-            } else if (code > 50) {
-                notifyError();
+        if (localStorage.getItem("login") === 'true') {
+            if (!email || !firstName || !lastName || !address || !cardNumber || !date || !securityCode || !nameCard) {
+                notifyWarning();
+            } else {
+                if (code <= 50) {
+                    setDiscount((cartTotal * code) / 100)
+                    setTotal(cartTotal - ((cartTotal * code) / 100));
+                    notifySuccess();
+                    // navigate("/")
+                } else if (code > 50) {
+                    notifyError();
+                }
             }
+        } else {
+            navigate("/login")
         }
     }
 

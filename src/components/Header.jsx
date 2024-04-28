@@ -114,6 +114,7 @@ const Header = () => {
                       <li><Link to="/login">{lang ? "Daxil ol" : "Log in"}</Link></li>
                       <li><Link to="/createaccount">{lang ? "Hesab yarat" : "Create Account"}</Link></li>
                       <li><Link to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link></li>
+                      <li><Link to="/faq">{lang ? "Tez-tez verilən suallar" : "Faq's"}</Link></li>
                     </ul>
                   </li>
                 </div> : <li><a href="/">
@@ -126,11 +127,12 @@ const Header = () => {
                     <li><Link to="/login">{lang ? "Daxil ol" : "Log in"}</Link></li>
                     <li><Link to="/createaccount">{lang ? "Hesab yarat" : "Create Account"}</Link></li>
                     <li><Link to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link></li>
+                    <li><Link to="/faq">{lang ? "Tez-tez verilən suallar" : "Faq's"}</Link></li>
                   </ul>
                 </li>}
               </div>
               <div className="language">
-                <button onClick={langModeFunc} className='btn p-0 text-light'>{lang === "En" ? "Az" : "En"}</button>
+                <button onClick={langModeFunc} className='btn p-0 text-light'>{lang ? "En" : "Az"}</button>
               </div>
               <div className="mode">
                 <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
@@ -243,6 +245,7 @@ const Header = () => {
                     <Link onClick={closeMenu} className="title" to="/products">{lang ? "Mağaza" : "Store"}</Link>
                     <Link onClick={closeMenu} className="title" to="/blog">{lang ? "Bloq" : "Blog"}</Link>
                     <Link onClick={closeMenu} className="title" to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link>
+                    <Link onClick={closeMenu} className="title" to="/faq">{lang ? "Tez-tez verilən suallar" : "Faq's"}</Link>
                   </div>
                   <div className="accordion accordion-flush" id="accordionFlushExample">
                     <div className="accordion-item">

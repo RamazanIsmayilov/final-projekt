@@ -19,6 +19,7 @@ import EditBlog from './pages/admin/update/EditBlog'
 import BlogDetails from './pages/BlogDetails'
 import Dashboard from './pages/admin/Dashboard'
 import Checkout from './pages/Checkout'
+import Faq from './pages/Faq'
 
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/checkout' element={<Checkout />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
+          <Route path='/faq' element={<Faq />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
         <Footer />

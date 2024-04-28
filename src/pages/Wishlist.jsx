@@ -23,8 +23,8 @@ const Wishlist = ({ alldata }) => {
     autoClose: 3000,
   });
 
-  const addCart = () => {
-    localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login")
+  const addCart = (myalldata) => {
+    addItem(myalldata)
     notifyCart();
   }
 
@@ -93,7 +93,7 @@ const Wishlist = ({ alldata }) => {
                             <div className="price mt-4">{item.price}.00USD</div>
                           </td>
                           <td className='text-center'>
-                            <button className='addbtn mt-5' onClick={addCart}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
+                            <button className='addbtn mt-5' onClick={() => {localStorage.getItem("login") === "true" ? addCart(item) : navigate("/login")}}>{lang ? "Səbətə əlavə et" : "Add to Cart"}</button>
                           </td>
                           <td className='text-center'>
                             <button className='ms-1 removebtn mt-5' onClick={() => removeWishlistItem(item.id)}>
