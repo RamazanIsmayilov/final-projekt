@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import SingleCard from '../components/SingleCard'
+import SingleCard from '../components/SingleCard';
 import { ProductContext } from '../context/ProductContext';
 import { ModeContext } from '../context/ModeContext';
 import { LangContext } from '../context/LangContext';
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+
 
 const Product = () => {
   const [productdata] = useContext(ProductContext);
@@ -35,40 +36,95 @@ const Product = () => {
     }
   }
 
-  const [brandProduct, setBrandProduct] = useState([]);
-  const [priceProduct, setPriceProduct] = useState([]);
-  const [inputValue, setInputValue] = useState(940.00);
+  const [brand, setBrand] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(940.00);
 
-  const filterBrand = (type) => {
-    const brandData = productdata.filter(p => p.brand === type);
-    setBrandProduct(brandData);
-  }
 
-  const filterPrice = () => {
-    const priceData = productdata.filter(p => p.price <= inputValue)
-    setPriceProduct(priceData);
-  }
+  const filterFunc = () => {
+    let filteredProducts = productdata;
+    console.log(filteredProducts.filter(p => p.brand === brand));
 
+    if (brand != "") {
+      filteredProducts = filteredProducts.filter(p => p.brand === brand);
+    }
+
+    filteredProducts = filteredProducts.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+    return filteredProducts;
+  };
+  const filterBrand = (brand) => {
+    setBrand(brand);
+  };
+
+  const MinPriceChange = (e) => {
+    setMinPrice(parseInt(e.target.value));
+  };
+
+  const MaxPriceChange = (e) => {
+    setMaxPrice(parseInt(e.target.value));
+  };
 
   const { mode } = useContext(ModeContext)
   const { lang } = useContext(LangContext)
 
-  const [checkedValues, setValue] = useState([])
+  const [showProductList, setShowProductList] = useState(productdata);
 
-  const handleChange = (event, type) => {
-    const { value, checked } = event.target;
-    filterBrand(type)
+  const setLowToHigh = () => {
+    const sortedProducts = productdata.sort((a, b) => a.price - b.price);
+    setShowProductList([...sortedProducts]);
+  };
+  const setHighToLow = () => {
+    const reverseSortedProducts = productdata.sort((a, b) => b.price - a.price);
+    setShowProductList([...reverseSortedProducts]);
+  };
+  const setza = () => {
+    const Sortedaz = productdata.sort((a, b) => a.title < b.title ? 1 : -1);
+    setShowProductList([...Sortedaz]);
+  };
+  const setaz = () => {
+    const Sortedza = productdata.sort((a, b) => a.title > b.title ? 1 : -1);
+    setShowProductList([...Sortedza]);
+  };
 
-    if (checked) {
-      setValue(pre => [...pre, value])
-    } else {
-      setValue(pre => {
-        return [...pre.filter(skill => skill !== value)]
-      })
+  const options = [
+    {
+      label: 'Price,low to high',
+      value: 1
+    },
+    {
+      label: 'Price,hight to low',
+      value: 2
+    },
+    {
+      label: 'Alphabetically,A-Z',
+      value: 3
+    },
+    {
+      label: 'Alphabetically,Z-A',
+      value: 4
+    },
+  ]
+
+  const formChange = (event) => {
+    const value = parseInt(event.target.value, 10);
+    switch (value) {
+      case 1:
+        setLowToHigh();
+        break;
+      case 2:
+        setHighToLow();
+        break;
+      case 3:
+        setaz();
+        break;
+      case 4:
+        setza();
+        break;
+      default:
+        break;
     }
-  }
-  console.log(checkedValues);
-  console.log(filterBrand);
+  };
 
 
   return (
@@ -80,7 +136,7 @@ const Product = () => {
 
       <div className={mode ? "light" : "dark"}>
         <div className="productpage">
-          <div className="heading p-5">
+          <div className="heading py-5">
             <div className="container d-flex flex-column gap-4">
               <Link to="/" className='d-flex align-items-center gap-3'>
                 <span className="svg-ic d-flex align-items-center justify-content-center">
@@ -94,157 +150,265 @@ const Product = () => {
             </div>
           </div>
 
-          <div className="products mt-5">
-            <div className="container">
-              <div className="row">
-                <div className="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div className="filter">
-                    <h4 className='fw-bold'>{lang ? "Filtrlər" : "Filters"}</h4>
-                    <div className="price mt-5">
-                      <h6 className='fw-bold'>{lang ? "QİYMƏT" : "PRICE"}</h6>
-                      <div className="caption d-flex align-items-center justify-content-between">
-                        <span>{lang ? "QİYMƏT" : "PRICE"}: {inputValue}.00 USD</span>
+          <div className="laptop">
+            <div className="products mt-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-12 col-sm-12 col-md-3 col-lg-3">
+                    <div className="filter">
+                      <h4 className='fw-bold'>{lang ? "Filtrlər" : "Filters"}</h4>
+                      <div className="price mt-5">
+                        <h6 className='fw-bold'>{lang ? "QİYMƏT" : "PRICE"}</h6>
+                        <div className="range mt-3">
+                          <input type="range" min="0" max="940.00" value={minPrice}
+                            onChange={MinPriceChange} className="slider slider1" />
+                          <input type="range" min="0" max="940.00" value={maxPrice}
+                            onChange={MaxPriceChange} className="slider slider2" />
+                          <p className='mt-3'>{minPrice}$ - {maxPrice}$</p>
+                        </div>
                       </div>
-                      <div className="range d-flex align-items-center justify-content-between mt-3">
-                        <input onChange={(e) => {
-                          setInputValue(e.target.value)
-                          filterPrice();
-                        }} className="range" min={375.00} max={940.00} defaultValue={940.00} type="range" />
+                      <div className="brand mt-5">
+                        <h6 className='fw-bold'>{lang ? "Brend" : "Brand"}</h6>
+                        <div className="select d-flex align-items-center justify-content-between mt-3">
+                          <button onClick={() => { filterBrand("Acer") }}>Acer</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Electrobot") }}>Electrobot</button>
+                          <span className='number'>(2)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("HyperX") }}>HyperX</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("KandE") }}>KandE</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Kepler Brooks") }}>Kepler Brooks</button>
+                          <span className='number'>(4)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Lenova") }}>Lenova</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("LG") }}>LG</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Samsung") }}>Samsung</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Sony PS5") }}>Sony PS5</button>
+                          <span className='number'>(2)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("XFX") }}>XFX</button>
+                          <span className='number'>(9)</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="brand mt-5">
-                      <h6 className='fw-bold'>{lang ? "Brend" : "Brand"}</h6>
-                      <div className="select d-flex align-items-center justify-content-between mt-4">
-                        <div className="form-check">
-                          <input onChange={handleChange}  value="Acer" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Acer</label>
+                  </div>
+                  <div className="col-12 col-sm-12 col-md-9 col-lg-9">
+                    <div className="product">
+                      <div className="header d-flex align-items-center justify-content-between">
+                        <div className="left d-flex align-items-center  gap-2">
+                          <Link to='/'>Home</Link>
+                          <span>/</span>
+                          <Link to='/products'>Products</Link>
                         </div>
-                        <span className='number'>(1)</span>
+                        <div className="right">
+                          <span className='mx-2'>Sort by:</span>
+                          <select onChange={formChange}>
+                            {options.map(option => (
+                              <option value={option.value}>{option.label}</option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Electrobot" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Electrobot</label>
-                        </div>
-                        <span className='number'>(2)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="HyperX" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">HyperX</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="KandE" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">KandE</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Kepler Brooks" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Kepler Brooks</label>
-                        </div>
-                        <span className='number'>(4)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Lenova" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Lenova</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="LG" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">LG</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Samsung" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Samsung</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Sony PS5" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Sony PS5</label>
-                        </div>
-                        <span className='number'>(2)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="Vulture" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">Vulture</label>
-                        </div>
-                        <span className='number'>(1)</span>
-                      </div>
-                      <div className="select d-flex align-items-center justify-content-between mt-1">
-                        <div className="form-check">
-                          <input onChange={handleChange} value="XFX" className="form-check-input" type="checkbox" />
-                          <label className="form-check-label">XFX</label>
-                        </div>
-                        <span className='number'>(9)</span>
+                      <div className="row">
+                        {brand.length == '' ? records.map(item => (
+                          <SingleCard
+                            id={item.id}
+                            description={item.description}
+                            title={item.title}
+                            type={item.type}
+                            brand={item.brand}
+                            neew={item.neew}
+                            image={item.image}
+                            price={item.price}
+                            oldprice={item.oldprice}
+                            alldata={item}
+                          />
+                        )) : filterFunc().map(item => (
+                          <SingleCard
+                            id={item.id}
+                            description={item.description}
+                            title={item.title}
+                            type={item.type}
+                            brand={item.brand}
+                            neew={item.neew}
+                            image={item.image}
+                            price={item.price}
+                            oldprice={item.oldprice}
+                            alldata={item}
+                          />
+                        ))}
                       </div>
                     </div>
+                    <nav className='d-flex align-items-center justify-content-center mt-5'>
+                      <ul className='pagination d-flex gap-2'>
+                        <li className='page-item'>
+                          <a onClick={prePage} href="#" className='page-link'><FaChevronLeft /></a>
+                        </li>
+                        {
+                          numbers.map((n, i) => (
+                            <li className={`page-item ${currentPage === n ? `active` : ''}`} key={i}>
+                              <a onClick={(e) => changePage(n)} href="#" className='page-link'>{n}</a>
+                            </li>
+                          ))
+                        }
+                        <li className='page-item'>
+                          <a onClick={nextPage} href="#" className='page-link'><FaChevronRight /></a>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-9 col-lg-9">
-                  <div className="product">
-                    <div className="row">
-                      {brandProduct.length === 0 && inputValue === 940.00 ? records.map(item => (
-                        <SingleCard
-                          key={item}
-                          id={item.id}
-                          description={item.description}
-                          title={item.title}
-                          type={item.type}
-                          brand={item.brand}
-                          neew={item.neew}
-                          image={item.image}
-                          price={item.price}
-                          oldprice={item.oldprice}
-                          alldata={item}
-                        />
-                      )) : brandProduct.map(item => (
-                        <SingleCard
-                          key={item}
-                          id={item.id}
-                          description={item.description}
-                          title={item.title}
-                          type={item.type}
-                          brand={item.brand}
-                          neew={item.neew}
-                          image={item.image}
-                          price={item.price}
-                          oldprice={item.oldprice}
-                          alldata={item}
-                        />
-                      ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mobile">
+            <div className="products mt-5">
+              <div className="container">
+                <div className="row d-flex gap-5">
+                  <div className="col-12 col-sm-12 col-md-12  col-lg-10">
+                    <div className="filter">
+                      <h4 className='fw-bold'>{lang ? "Filtrlər" : "Filters"}</h4>
+                      <div className="price mt-5">
+                        <h6 className='fw-bold'>{lang ? "QİYMƏT" : "PRICE"}</h6>
+                        <div className="range mt-3">
+                          <input type="range" min="0" max="940.00" value={minPrice}
+                            onChange={MinPriceChange} className="slider slider1" />
+                          <input type="range" min="0" max="940.00" value={maxPrice}
+                            onChange={MaxPriceChange} className="slider slider2" />
+                          <p className='mt-3'>{minPrice}$ - {maxPrice}$</p>
+                        </div>
+                      </div>
+                      <div className="brand mt-5">
+                        <h6 className='fw-bold'>{lang ? "Brend" : "Brand"}</h6>
+                        <div className="select d-flex align-items-center justify-content-between mt-3">
+                          <button onClick={() => { filterBrand("Acer") }}>Acer</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Electrobot") }}>Electrobot</button>
+                          <span className='number'>(2)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("HyperX") }}>HyperX</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("KandE") }}>KandE</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Kepler Brooks") }}>Kepler Brooks</button>
+                          <span className='number'>(4)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Lenova") }}>Lenova</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("LG") }}>LG</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Samsung") }}>Samsung</button>
+                          <span className='number'>(1)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("Sony PS5") }}>Sony PS5</button>
+                          <span className='number'>(2)</span>
+                        </div>
+                        <div className="select d-flex align-items-center justify-content-between mt-1">
+                          <button onClick={() => { filterBrand("XFX") }}>XFX</button>
+                          <span className='number'>(9)</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <nav className='d-flex align-items-center justify-content-center mt-5'>
-                    <ul className='pagination d-flex gap-2'>
-                      <li className='page-item'>
-                        <a onClick={prePage} href="#" className='page-link'><FaChevronLeft /></a>
-                      </li>
-                      {
-                        numbers.map((n, i) => (
-                          <li className={`page-item ${currentPage === n ? `active` : ''}`} key={i}>
-                            <a onClick={(e) => changePage(n)} href="#" className='page-link'>{n}</a>
-                          </li>
-                        ))
-                      }
-                      <li className='page-item'>
-                        <a onClick={nextPage} href="#" className='page-link'><FaChevronRight /></a>
-                      </li>
-                    </ul>
-                  </nav>
+                  <div className="col-12 col-sm-12 col-md-12 col-lg-8">
+                    <div className="product">
+                      <div className="header d-flex align-items-center justify-content-between flex-wrap">
+                        <div className="left d-flex align-items-center gap-2">
+                          <Link to='/'>Home</Link>
+                          <span>/</span>
+                          <Link to='/products'>Products</Link>
+                        </div>
+                        <div className="right">
+                          <span>Sort by:</span>
+                          <select onChange={formChange}>
+                            {options.map(option => (
+                              <option value={option.value}>{option.label}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="row">
+                        {brand.length == '' ? records.map(item => (
+                          <SingleCard
+                            id={item.id}
+                            description={item.description}
+                            title={item.title}
+                            type={item.type}
+                            brand={item.brand}
+                            neew={item.neew}
+                            image={item.image}
+                            price={item.price}
+                            oldprice={item.oldprice}
+                            alldata={item}
+                          />
+                        )) : filterFunc().map(item => (
+                          <SingleCard
+                            id={item.id}
+                            description={item.description}
+                            title={item.title}
+                            type={item.type}
+                            brand={item.brand}
+                            neew={item.neew}
+                            image={item.image}
+                            price={item.price}
+                            oldprice={item.oldprice}
+                            alldata={item}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <nav className='d-flex align-items-center justify-content-center mt-5'>
+                      <ul className='pagination d-flex gap-2'>
+                        <li className='page-item'>
+                          <a onClick={prePage} href="#" className='page-link'><FaChevronLeft /></a>
+                        </li>
+                        {
+                          numbers.map((n, i) => (
+                            <li className={`page-item ${currentPage === n ? `active` : ''}`} key={i}>
+                              <a onClick={(e) => changePage(n)} href="#" className='page-link'>{n}</a>
+                            </li>
+                          ))
+                        }
+                        <li className='page-item'>
+                          <a onClick={nextPage} href="#" className='page-link'><FaChevronRight /></a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
                 </div>
               </div>
             </div>

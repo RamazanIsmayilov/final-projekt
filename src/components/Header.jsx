@@ -20,7 +20,7 @@ const Header = () => {
   } = useCart();
 
   const [product] = useContext(ProductContext)
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState([]);
   const navigate = useNavigate();
 
   const menu = useRef();
@@ -55,7 +55,6 @@ const Header = () => {
   }
 
 
-  const { lang, langModeFunc } = useContext(LangContext)
 
   const [mode, setMode] = useState(localStorage.getItem("myMode") == null ? "light" : localStorage.getItem("myMode"));
 
@@ -79,6 +78,27 @@ const Header = () => {
     }
   }
 
+
+  const [translate] = useState(localStorage.getItem("myTranslate") == null ? "En" : localStorage.getItem("myTranslate"));
+
+  useEffect(() => {
+    if (localStorage.getItem("myTranslate") == null) {
+      localStorage.setItem("myTranslate", "En")
+    }
+  }, [])
+
+
+  const tranFunc = () => {
+    if (translate === "En") {
+      localStorage.setItem("myTranslate", "Az")
+    } else {
+      localStorage.setItem("myTranslate", "En")
+    }
+    langModeFunc();
+  }
+
+  const { lang, langModeFunc } = useContext(LangContext)
+
   return (
     <>
       <header>
@@ -99,18 +119,48 @@ const Header = () => {
             <div className="navbar-right d-flex align-items-center gap-3">
               <div className="admin">
                 {localStorage.getItem('login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
-                  <li><Link href="/">
+                  <li><Link to="/">
                     <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
                       <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
                       <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
                     </svg>
                   </Link>
                     <ul className="dropdown">
-                      <li className='hello-user text-center'>{localStorage.getItem("firstName")}</li>
+                      <li className='hello-user text-center px-2'>{localStorage.getItem("firstName")}</li>
                       <li><button className='logoutbtn p-0' onClick={() => {
                         localStorage.setItem("login", 'false');
                         window.location.assign('/login');
                       }}>{lang ? "Çıxış" : "Log out"}</button></li>
+                      <li><Link to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link></li>
+                      <li><Link to="/faq">{lang ? "Tez-tez verilən suallar" : "Faq's"}</Link></li>
+                    </ul>
+                  </li>
+                </div> : localStorage.getItem('admin-login') === 'true' ? <div className='d-flex justify-content-center align-items-center'>
+                  <li><Link to="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
+                    </svg>
+                  </Link>
+                    <ul className="dropdown">
+                      <li className='hello-user text-center px-2'>{localStorage.getItem("admin-firstName")}</li>
+                      <li><button className='logoutbtn p-0' onClick={() => {
+                        localStorage.setItem("admin-login", 'false');
+                        window.location.assign('/login');
+                      }}>{lang ? "Çıxış" : "Log out"}</button></li>
+                      <li><Link to="/dashboard">{lang ? "İdarə Paneli" : "Dashboard"}</Link></li>
+                      <li><Link to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link></li>
+                      <li><Link to="/faq">{lang ? "Tez-tez verilən suallar" : "Faq's"}</Link></li>
+                    </ul>
+                  </li>
+                </div> : localStorage.getItem('admin-login') === 'false' ? <div className='d-flex justify-content-center align-items-center'>
+                  <li><Link to="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width={23} height={23} viewBox="0 0 13 13" fill="white">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.5 7.04159C4.40592 7.04159 2.70833 8.73917 2.70833 10.8333V11.9166C2.70833 12.2157 2.46582 12.4583 2.16667 12.4583C1.86751 12.4583 1.625 12.2157 1.625 11.9166V10.8333C1.625 8.14086 3.80761 5.95825 6.5 5.95825C9.19239 5.95825 11.375 8.14086 11.375 10.8333V11.9166C11.375 12.2157 11.1325 12.4583 10.8333 12.4583C10.5342 12.4583 10.2917 12.2157 10.2917 11.9166V10.8333C10.2917 8.73917 8.59408 7.04159 6.5 7.04159Z" fill="white" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M6.5 5.95841C7.69662 5.95841 8.66667 4.98837 8.66667 3.79175C8.66667 2.59513 7.69662 1.62508 6.5 1.62508C5.30338 1.62508 4.33333 2.59513 4.33333 3.79175C4.33333 4.98837 5.30338 5.95841 6.5 5.95841ZM6.5 7.04175C8.29493 7.04175 9.75 5.58667 9.75 3.79175C9.75 1.99682 8.29493 0.541748 6.5 0.541748C4.70507 0.541748 3.25 1.99682 3.25 3.79175C3.25 5.58667 4.70507 7.04175 6.5 7.04175Z" fill="white" />
+                    </svg>
+                  </Link>
+                    <ul className="dropdown">
                       <li><Link to="/login">{lang ? "Daxil ol" : "Log in"}</Link></li>
                       <li><Link to="/createaccount">{lang ? "Hesab yarat" : "Create Account"}</Link></li>
                       <li><Link to="/wishlist">{lang ? "İstək siyahısı" : "Wishlist"}</Link></li>
@@ -132,7 +182,7 @@ const Header = () => {
                 </li>}
               </div>
               <div className="language">
-                <button onClick={langModeFunc} className='btn p-0 text-light'>{lang ? "En" : "Az"}</button>
+                <button onClick={tranFunc} className='btn p-0 text-light'>{lang ? "En" : "Az"}</button>
               </div>
               <div className="mode">
                 <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
@@ -227,7 +277,7 @@ const Header = () => {
                   <button onClick={modeFunc} className='btn p-0 text-light'>{mode === "light" ? <BsFillMoonFill style={{ fontSize: "19px" }} /> : <RiSunLine style={{ fontSize: "19px" }} />}</button>
                 </div>
                 <div className="language">
-                  <button onClick={langModeFunc} className='btn p-0 text-light'>{lang === "En" ? "En" : "Az"}</button>
+                  <button onClick={tranFunc} className='btn p-0 text-light'>{lang ? "En" : "Az"}</button>
                 </div>
                 <button onClick={openMenu} className="open-btn fs-4" href="/"><i className="fa-solid fa-bars" /></button>
               </div>
@@ -327,21 +377,23 @@ const Header = () => {
                   <Link to='products' className="input-group-text"><i className="fa-solid fa-magnifying-glass"></i></Link>
                   <input onChange={e => setQuery(e.target.value)} className='form-control mx-0' type="text" placeholder={`${lang ? "Məhsul axtar..." : "Search Product..."}`} />
                 </div>
-                {product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
-                  <Link onClick={closeSearch} to={`/products/${slugify(item.title)}`}>
-                    <li className="list-group-item d-flex align-items-center gap-2 py-2">
-                      <div className="image">
-                        <img width={100} src={item.image} alt='' />
+                <div className='list'>
+                  {query.length === 0 ? "" : product.filter(p => p.title.toLowerCase().includes(query)).map(item => (
+                    <Link onClick={closeSearch} to={`/products/${slugify(item.title)}`}>
+                      <div className="list-group-item d-flex align-items-center gap-2 py-2">
+                        <div className="image">
+                          <img width={100} src={item.image} alt='' />
+                        </div>
+                        <div className="content">
+                          <h5>{item.title.slice(0, 19)}...</h5>
+                          <span className='description'>{item.description.slice(0, 100)}...</span>
+                          <p className='type'><i>{item.brand}</i></p>
+                          <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
+                        </div>
                       </div>
-                      <div className="content">
-                        <h5>{item.title.slice(0, 19)}...</h5>
-                        <span className='description'>{item.description.slice(0, 100)}...</span>
-                        <p className='type'><i>{item.brand}</i></p>
-                        <span className='price fw-bold'>{item.price} <sup>USD</sup></span>
-                      </div>
-                    </li>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">

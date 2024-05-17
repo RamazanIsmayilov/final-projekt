@@ -4,7 +4,7 @@ export const LangContext = createContext();
 
 export const LangProvider = ({ children }) => {
 
-    const [lang, setLang] = useState();
+    const [lang, setLang] = useState(localStorage.getItem("myTranslate") === "En" ? false : true);
     
     const langModeFunc = () => {
         setLang(!lang)

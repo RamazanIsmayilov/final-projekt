@@ -3,26 +3,22 @@ import { useCart } from 'react-use-cart';
 import { Link, useNavigate } from 'react-router-dom';
 import slugify from 'react-slugify';
 import { useWishlist } from 'react-use-wishlist';
-import { ToastContainer, toast } from 'react-toastify';
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import toast from 'react-hot-toast';
 
-const SingleCard = ({ title, description, type, brand, neew, image, price, oldprice, alldata }) => {
+const SliderCard = ({ title, description, type, brand, neew, image, price, oldprice, alldata }) => {
 
     const { addItem } = useCart();
     const { addWishlistItem } = useWishlist();
     const navigate = useNavigate()
-
-
-    const notifyCart = () => toast.success("Item add to your cart", {
-        autoClose: 3000,
-    });
+    const notifyCart = () => toast.success('Item add to your cart');
 
     const addCart = () => {
         localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login")
-        notifyCart();
+        notifyCart()
     }
 
     const addWishlist = () => {
@@ -84,7 +80,6 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
                     <div className="oldprice text-decoration-line-through ">{oldprice}.00<sup>USD</sup></div>
                 </div>
                 <button onClick={() => { addCart(alldata) }} >Add to Cart</button>
-                < ToastContainer />
             </div>
             <div className="action d-flex align-items-center px-4 d-flex gap-2">
                 <button onClick={addWishlist} >{heart ? <FaHeart /> : <FaRegHeart />}</button>
@@ -99,4 +94,4 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
     )
 }
 
-export default SingleCard
+export default SliderCard

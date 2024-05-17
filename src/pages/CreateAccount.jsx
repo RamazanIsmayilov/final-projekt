@@ -21,10 +21,24 @@ const CreateAccount = () => {
     autoClose: 3000,
   });
 
+  const admin = {
+    firstName: "Admin",
+    lastName: "Adminov",
+    email: "admin@example.com",
+    password: "admin123"
+  }
+
   const registerForm = e => {
     e.preventDefault();
     if (!firstName || !lastName || !email || !password || !againPassword) {
       notifyWarning()
+    }else if(admin.firstName === firstName && admin.lastName === lastName && admin.email === email && admin.password === password) {
+      localStorage.setItem("admin-firstName", firstName)
+      localStorage.setItem("admin-lastName", lastName)
+      localStorage.setItem("admin-email", email)
+      localStorage.setItem("admin-password", password)
+      localStorage.setItem("admin-login", false);
+      navigate("/login")
     } else {
       if (password === againPassword) {
         localStorage.setItem("firstName", firstName);

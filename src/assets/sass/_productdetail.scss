@@ -20,25 +20,11 @@
         }
     }
 
-    .head {
-        .brand {
-            background: $linearColor;
-            color: $lightColor;
-            font-size: $firstFontSize;
-            padding: 3px 10px;
-        }
-
-        .wishlist {
-            .icon {
-                font-size: 30px;
-                color: $lightColor;
-            }
-
-            span {
-                color: $grayColor;
-                font-size: $firstFontSize;
-            }
-        }
+    .brand {
+        background: $linearColor;
+        color: $lightColor;
+        font-size: $firstFontSize;
+        padding: 3px 10px;
     }
 
     .stars {
@@ -95,6 +81,41 @@
                 padding: 50px;
                 border: 1px solid;
                 border-image: linear-gradient(to left, #0098ff 50%, #7b35c8) 1;
+            }
+        }
+    }
+
+    .reviewsec {
+        label {
+            color: $grayColor;
+            font-size: $firstFontSize;
+        }
+
+        input,
+        textarea {
+            color: $grayColor;
+            border: 1px solid;
+            border-radius: 0 20px;
+            padding: 9px 20px;
+            outline: none;
+            background-color: $darkColor;
+
+            &::placeholder {
+                font-size: $firstFontSize;
+            }
+        }
+
+        button {
+            @include button;
+            background: $linearColor;
+            border: none;
+
+            &:hover {
+                background: $linearColor;
+            }
+
+            svg path {
+                fill: $lightColor;
             }
         }
     }

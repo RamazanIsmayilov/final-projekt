@@ -1,12 +1,11 @@
 header {
     background: $darkColor;
-    // background: #15202b;
     border-bottom: 1px solid;
 
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
 
     .navbar-left {
         .title {
@@ -22,7 +21,7 @@ header {
             .dropdown {
                 @include dropdown;
                 position: absolute;
-                left: -110px;
+                left: -80px;
             }
 
             li:hover .dropdown {
@@ -59,9 +58,10 @@ header {
                 top: 0;
                 right: 0;
                 width: 29%;
-                height: 100vh !important;
+                height: 100% !important;
                 transform: translate(100%);
                 transition: .5s;
+                overflow-y: scroll;
 
                 &.open {
                     transform: translate(0);
@@ -105,7 +105,7 @@ header {
 
                 .footer {
                     border-top: 1px solid rgb(76 62 62 / 15%);
-
+                    
                     .head {
                         span {
                             font-size: $firstFontSize;
@@ -325,7 +325,6 @@ header {
 
 .bottom-header {
     background: $darkColor;
-    // background: #15202b;
     border-bottom: 1px solid;
     margin-top: 72.3px;
 
@@ -344,6 +343,7 @@ header {
 
     .search {
         position: relative;
+        z-index: 1000;
 
         .input-group {
             a {
@@ -378,31 +378,35 @@ header {
             }
         }
 
-        .list-group-item {
-            border: 7px solid blue;
-            background-color: #cccccc;
-            border: 1px solid $grayColor;
-
+        .list {
+            height: 44.5vh;
+            overflow-y: auto;
             position: absolute;
 
+            .list-group-item {
+                border: 7px solid blue;
+                background-color: #cccccc;
+                border: 1px solid $grayColor;
 
 
-            .content {
-                color: $grayColor;
+                .content {
+                    color: $grayColor;
 
-                .description {
-                    font-size: 11px;
+                    .description {
+                        font-size: 11px;
+                    }
+
+                    .type i {
+                        font-size: 11px;
+                    }
                 }
 
-                .type i {
-                    font-size: 11px;
+                &.close-search {
+                    display: none !important;
                 }
-            }
-
-            &.close-search {
-                display: none !important;
             }
         }
+
     }
 
     .right {
@@ -438,8 +442,8 @@ header {
 
             .input-group,
             .list-group-item {
-                width: 600px;
-                transform: translate(-180px);
+                width: 500px;
+                transform: translate(-70px);
             }
         }
     }

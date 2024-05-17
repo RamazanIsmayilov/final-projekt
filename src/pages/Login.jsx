@@ -6,7 +6,7 @@ import { ModeContext } from '../context/ModeContext'
 
 
 const Login = () => {
-
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,10 +18,14 @@ const Login = () => {
     autoClose: 3000,
   });
 
+
   const loginForm = (e) => {
     e.preventDefault();
     if (!email || !password) {
       notifyWarning();
+    }else if(email === localStorage.getItem("admin-email") && password === localStorage.getItem("admin-password")) {
+      localStorage.setItem('admin-login', 'true');
+      navigate("/");
     } else {
       if (email === localStorage.getItem("email") && password === localStorage.getItem("password")) {
         localStorage.setItem('login', 'true');

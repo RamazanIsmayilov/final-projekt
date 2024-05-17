@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import SliderCard from '../components/SliderCart';
+import SliderCard from '../components/SliderCard';
 import BlogCard from '../components/BlogCard';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
@@ -15,7 +15,6 @@ import Aos from 'aos';
 
 
 const Home = () => {
-  const [productdata] = useContext(ProductContext);
 
   const centerMode = {
     dots: true,
@@ -216,6 +215,7 @@ const Home = () => {
     ]
   };
 
+  const [productdata] = useContext(ProductContext);
   const [categoryProduct, setCategoryProduct] = useState([]);
 
   const filterCategory = (category) => {
@@ -623,7 +623,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="row d-flex align-items-center g-5 mt-5">
+        <div className="row d-flex align-items-center g-5 mt-1">
           <div className="col-12 col-sm-12 col-md-4 col-lg-4">
             <div className="image d-flex align-items-center">
               <img style={{ width: "100%" }} src="https://gaming-workdo.myshopify.com/cdn/shop/files/product-cpu.png?v=1671539253" alt="" />

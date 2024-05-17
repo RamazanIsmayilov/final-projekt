@@ -55,8 +55,8 @@ const Checkout = () => {
                 if (code <= 50) {
                     setDiscount((cartTotal * code) / 100)
                     setTotal(cartTotal - ((cartTotal * code) / 100));
+                    navigate("/thank")
                     notifySuccess();
-                    // navigate("/")
                 } else if (code > 50) {
                     notifyError();
                 }

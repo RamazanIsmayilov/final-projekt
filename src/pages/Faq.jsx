@@ -31,7 +31,6 @@ const Faq = () => {
 
                 <div className="faq py-5">
                     <div className="container">
-                        <h2 className='head mb-4'>{lang ? "Mağaza" : "About"} <b>{lang ? "Haqqında" : "Shop"}</b></h2>
                         <div className="row g-3">
                             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
                                 <div className="accordion rounded-1">

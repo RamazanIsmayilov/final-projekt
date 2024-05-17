@@ -1,0 +1,19 @@
+.light{
+    .thankyou {
+        .recommendation {
+            .products {
+                @include carousel;
+            }
+        }
+    }
+}
+
+.dark {
+    .thankyou .products {
+       h2{
+        color: aliceblue;
+       }
+
+
+    }
+}

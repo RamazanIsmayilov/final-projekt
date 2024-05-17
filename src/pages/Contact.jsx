@@ -21,7 +21,7 @@ const Contact = () => {
     position: "top-center",
     autoClose: 3000,
   });
-  const notifyWarning = () => toast.warning("Please enter all required fields.", {
+  const notifyWarning = () => toast.warning("Please, enter all required fields.", {
     position: "top-center",
     autoClose: 3000,
   });
@@ -51,6 +51,8 @@ const Contact = () => {
             console.log('FAILED...', error.text);
           },
         );
+
+        setFirstName("")
     }
   }
 

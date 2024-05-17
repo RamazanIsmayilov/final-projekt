@@ -2,6 +2,7 @@
     .productpage {
         .heading {
             background-color: $darkColor;
+            border: 1px solid;
 
             a {
                 .svg-ic {
@@ -28,27 +29,106 @@
             }
         }
 
-        .products {
-            .filter {
-                font-size: $firstFontSize;
-
-                a {
-                    @include link;
+        .laptop{
+            .products {
+                .filter {
+                    font-size: $firstFontSize;
+    
+                    a {
+                        @include link;
+                    }
+    
+                    .brand button {
+                        background: transparent;
+                    }
+                }
+    
+                .product .header {
+                    .left a {
+                        color: $darkColor;
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+    
+                    .right {
+                        span {
+                            font-weight: 600;
+                            font-size: 14px;
+                        }
+    
+                        select {
+                            font-size: 14px;
+                            outline: 0;
+                        }
+                    }
+                }
+    
+                .pagination {
+                    .page-item {
+                        a {
+                            background-color: transparent;
+                            color: $darkColor;
+                            border: 1px solid $darkColor;
+                            border-radius: 50%;
+                        }
+    
+                        .pg-active {
+                            border: 1px solid;
+                            border-radius: 50%;
+                        }
+                    }
                 }
             }
+        }
 
-            .pagination {
-                .page-item {
+        .mobile{
+            display: none;
+            .products {
+                .filter {
+                    font-size: $firstFontSize;
+    
                     a {
-                        background-color: transparent;
-                        color: $darkColor;
-                        border: 1px solid $darkColor;
-                        border-radius: 50%;
+                        @include link;
                     }
-
-                    .pg-active {
-                        border: 1px solid;
-                        border-radius: 50%;
+    
+                    .brand button {
+                        background: transparent;
+                    }
+                }
+    
+                .product .header {
+                    .left a {
+                        color: $darkColor;
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+    
+                    .right {
+                        span {
+                            font-weight: 600;
+                            font-size: 14px;
+                        }
+    
+                        select {
+                            font-size: 14px;
+                            outline: 0;
+                        }
+                    }
+                }
+    
+                .pagination {
+                    .page-item {
+                        a {
+                            background-color: transparent;
+                            color: $darkColor;
+                            border: 1px solid $darkColor;
+                            border-radius: 50%;
+                        }
+    
+                        .pg-active {
+                            border: 1px solid;
+                            border-radius: 50%;
+                        }
                     }
                 }
             }
@@ -57,68 +137,68 @@
 }
 
 .dark {
-    .productpage {
-        .heading {
-            background-color: $darkColor;
-            border-bottom: 1px solid $grayColor;
+    .productpage .products {
+        background-color: $darkColor;
 
-            a {
-                .svg-ic {
-                    color: $lightColor;
-                    border: 1px solid;
-                    border-radius: 50%;
-                    width: 34px;
-                    height: 34px;
+        .filter {
+            color: $lightColor;
 
-                    svg path {
-                        fill: $lightColor;
-                    }
-                }
-
-                span {
-                    font-size: $secondFontSize;
-                    letter-spacing: .6px;
-                    color: $lightColor;
-                }
-            }
-
-            p {
-                color: #0098ff;
+            .brand button {
+                color: $lightColor;
             }
         }
 
-        .products {
-            background-color: $darkColor;
-
-            .filter {
-                font-size: $firstFontSize;
-                color: $lightColor;
-
-                input {
-                    background-color: $darkColor;
+        .product .header {
+            .left {
+                span {
+                    color: $lightColor;
                 }
 
                 a {
-                    @include link;
                     color: $lightColor;
                 }
             }
 
-            .pagination {
-                .page-item {
-                    a {
-                        background-color: transparent;
-                        color: $lightColor;
-                        border: 1px solid $lightColor;
-                        border-radius: 50%;
-                    }
-
-                    .pg-active {
-                        border: 1px solid;
-                        border-radius: 50%;
-                    }
-                }
+            .right span {
+                color: $lightColor;
             }
         }
+
+        .pagination .page-item a {
+            background-color: transparent;
+            color: $lightColor;
+            border: 1px solid;
+        }
+    }
+}
+
+
+@media(max-width: 992px) {
+    .productpage .products .product .carousel {
+        .title a {
+            font-size: 16px !important;
+        }
+
+        .footer {
+            .price .newprice {
+                font-size: 15px !important;
+            }
+
+            button {
+                padding: 5px 19px !important;
+                border: none;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width: 768px){
+    .laptop{
+        display: none;
+    }
+
+    .mobile{
+        display: block !important;
     }
 }

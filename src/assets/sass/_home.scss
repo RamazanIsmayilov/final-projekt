@@ -468,7 +468,6 @@
 
         .input-group input {
             background: transparent;
-            border: 1px solid $lightColor;
 
             &::placeholder {
                 color: $grayColor;
@@ -477,10 +476,6 @@
             &:focus {
                 box-shadow: none !important;
             }
-        }
-
-        button {
-            border: 1px solid $lightColor;
         }
     }
 }

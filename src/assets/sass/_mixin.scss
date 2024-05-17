@@ -67,7 +67,7 @@
         button {
             @include button;
             background: $linearColor;
-            padding: 7px 30px;
+            padding: 7px 20px;
             border: none;
             font-size: $firstFontSize;
 
@@ -81,7 +81,7 @@
     .action {
         position: absolute;
         top: 50%;
-        right: 25%;
+        right: 22%;
         border-radius: 0 12px;
         color: $lightColor;
         background: $linearColor;

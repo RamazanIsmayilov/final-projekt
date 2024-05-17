@@ -14,23 +14,27 @@ import { getBlogsFromDatabase } from './tools/action/blogAction';
 import { Provider } from 'react-redux';
 import { ModeProvider } from './context/ModeContext';
 import { LangProvider } from './context/LangContext';
+import { Toaster } from 'react-hot-toast';
 
 const blogStore = store();
 
 const result = (
-  <Provider store={blogStore}>
-    <CartProvider>
-      <WishlistProvider>
-        <ProductProvider>
-          <ModeProvider>
-            <LangProvider>
-              <App />
-            </LangProvider>
-          </ModeProvider>
-        </ProductProvider>
-      </WishlistProvider>
-    </CartProvider>
-  </Provider>
+  <>
+    <Provider store={blogStore}>
+      <CartProvider>
+        <WishlistProvider>
+          <ProductProvider>
+            <ModeProvider>
+              <LangProvider>
+                <App />
+              </LangProvider>
+            </ModeProvider>
+          </ProductProvider>
+        </WishlistProvider>
+      </CartProvider>
+    </Provider>
+    <Toaster position="top-right" />
+  </>
 );
 
 ReactDOM.render(<div style={{ width: "100%", height: "100vh", backgroundColor: "black", display: "flex", alignItems: "center", justifyContent: "center" }} className="preloader">
