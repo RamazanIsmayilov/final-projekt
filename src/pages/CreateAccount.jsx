@@ -24,7 +24,7 @@ const CreateAccount = () => {
   const admin = {
     firstName: "Admin",
     lastName: "Adminov",
-    email: "admin@example.com",
+    email: "admin@gmail.com",
     password: "admin123"
   }
 

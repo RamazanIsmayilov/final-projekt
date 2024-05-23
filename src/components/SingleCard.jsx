@@ -20,7 +20,7 @@ const SingleCard = ({ title, description, type, brand, neew, image, price, oldpr
     const notifyCart = () => toast.success('Item add to your cart');
     const addCart = () => {
         localStorage.getItem("login") === "true" ? addItem(alldata) : navigate("/login")
-        notifyCart();
+        localStorage.getItem("login") === "true" ? notifyCart() : navigate("/login")
     }
 
     const addWishlist = () => {
